@@ -13,10 +13,22 @@ namespace SK
         public override void Update()
         {
             base.Update();
-            if (character.inputHandler.moveAmount >= 0.1f)
+            if (character.inputHandler.moveAmount != 0f)
             {
                 stateMachine.ChangeState(character.player_Move_State);
             }
+        }
+        public override void Enter()
+        {
+            base.Enter();
+            IdelDirection();
+        }
+
+        private void IdelDirection () 
+        {
+            character.animator.SetFloat("Face_Reigon",character.face_reigon/3f);
+            // character.animator.SetFloat("X_Face",character.horizonal,0.1f,Time.deltaTime);
+            // character.animator.SetFloat("Y_Face",character.vertical,0.1f,Time.deltaTime);
         }
 
         

@@ -12,6 +12,10 @@ namespace SK
     #endregion
     [SerializeField]
     public float movementSpeed = 5;
+    public float horizonal =0;
+    public float vertical =0;
+    public float face_reigon;
+    
 
     protected virtual void Awake()
     {
@@ -23,7 +27,7 @@ namespace SK
 
     protected virtual void Start()
     {
-
+        face_reigon =1;
     }
 
     protected virtual void Update()

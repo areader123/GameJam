@@ -14,7 +14,7 @@ namespace SK
             base.Update();
             character.SetVelocity(character.inputHandler.horizonal,character.inputHandler.vertical,character.movementSpeed);
             MoveDirection();
-            if (character.inputHandler.moveAmount <= 0.1f)
+            if (character.inputHandler.moveAmount == 0f)
             {
                 stateMachine.ChangeState(character.player_Idel_State);
             }
@@ -22,28 +22,40 @@ namespace SK
 
         public void MoveDirection()
         {
-            int v =0,
-             h = 0;
+            character.horizonal = 0;
+            character.vertical =0;
             
             if (character.inputHandler.horizonal > 0.55f)
             {
-                h = 1;
+                character.horizonal = 1;
+                character.face_reigon = 3;
             }
             if (character.inputHandler.horizonal < -0.55f)
             {
-                h = -1;
+                character.horizonal = -1;
+                character.face_reigon = 2;
+            }
+            if(character.inputHandler.horizonal <=0.55f && character.inputHandler.horizonal>=-0.55f)
+            {
+                character.horizonal = 0;
             }
             if (character.inputHandler.vertical > 0.55f)
             {
-                v = 1;
+                character.vertical = 1;
+                character.face_reigon = 0;
             }
             if (character.inputHandler.vertical < -0.55f)
             {
-                v = -1;
+                character.vertical = -1;
+                character.face_reigon = 1;
+            }
+            if(character.inputHandler.vertical <=0.55f && character.inputHandler.vertical>=-0.55f)
+            {
+                character.vertical = 0;
             }
 
-            character.animator.SetFloat("Vertical",v,0.1f, Time.deltaTime);
-            character.animator.SetFloat("Horizonal",h,0.1f, Time.deltaTime);
+            character.animator.SetFloat("Vertical",character.vertical,0.1f, Time.deltaTime);
+            character.animator.SetFloat("Horizonal",character.horizonal,0.1f, Time.deltaTime);
         }
     }
 

@@ -38,9 +38,9 @@ namespace SK
         protected override void Update() {
             float delta = Time.deltaTime;
             inputHandler.TickInput(delta);
-            Debug.Log("inputHandler.moveAmount" + inputHandler.moveAmount);
-            Debug.Log("inputHandler.horizonal" + inputHandler.horizonal);
-            Debug.Log("inputHandler.vertical" + inputHandler.vertical);
+            Debug.Log("Vertical" +vertical);
+            Debug.Log("horizonal" + horizonal);
+            //Debug.Log("inputHandler.vertical" + inputHandler.vertical);
             stateMachine.currentstate.Update();
         }
     }
