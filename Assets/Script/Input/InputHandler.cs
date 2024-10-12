@@ -10,6 +10,8 @@ namespace SK
 
         public float moveAmount =0f;
 
+        
+
         Vector2 movementInput;
 
 
@@ -21,6 +23,7 @@ namespace SK
             {
                 inputActions = new PlayerControl();
                 inputActions.PlayerMovemnet.Movement.performed += inputActions => movementInput = inputActions.ReadValue<Vector2>();
+            
             }
             inputActions.Enable();
         }
