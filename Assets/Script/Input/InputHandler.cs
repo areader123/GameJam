@@ -42,10 +42,6 @@ namespace SK
             moveAmount = Mathf.Clamp01(Mathf.Abs(horizonal) + Mathf.Abs(vertical));
         }
 
-
-
-
-
     }
 }
 

@@ -26,20 +26,20 @@ namespace SK
         public virtual void Enter()
         {
             character.animator.SetBool(animboolname, true);
-            Debug.Log("I am entering" + animboolname);
+            //Debug.Log("I am entering" + animboolname);
             triggercalled = false;
         }
         public virtual void Update()
         {
             xinput = Input.GetAxisRaw("Horizontal");
             yinput = Input.GetAxisRaw("Vertical");
-             Debug.Log("I am in"+animboolname);
+             //Debug.Log("I am in"+animboolname);
             StateTimer -= Time.deltaTime;
         }
         public virtual void Exit()
         {
             character.animator.SetBool(animboolname, false);
-             Debug.Log("I am exit" + animboolname);
+             //Debug.Log("I am exit" + animboolname);
         }
         public virtual void AnimationFinishTrigger()
         {

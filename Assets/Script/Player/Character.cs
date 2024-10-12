@@ -38,8 +38,8 @@ namespace SK
         protected override void Update() {
             float delta = Time.deltaTime;
             inputHandler.TickInput(delta);
-            Debug.Log("Vertical" +vertical);
-            Debug.Log("horizonal" + horizonal);
+            //Debug.Log("Vertical" +vertical);
+            //Debug.Log("horizonal" + horizonal);
             //Debug.Log("inputHandler.vertical" + inputHandler.vertical);
             stateMachine.currentstate.Update();
         }
