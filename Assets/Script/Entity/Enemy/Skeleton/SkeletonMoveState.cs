@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 namespace SK
 {
@@ -13,29 +14,21 @@ namespace SK
         public override void Enter()
         {
             base.Enter();
-            //enemy.SetVelocity(enemy.defaultMoveSpeed * enemy.faceDir, rb.velocity.y);
-            enemy.rb.velocity = new Vector2(0, 0);
-            //Debug.Log("�����ƶ�");
         }
 
         public override void Exit()
         {
             base.Exit();
-            // enemy.SetVelocity(enemy.defaultMoveSpeed * enemy.faceDir, rb.velocity.y);
-            enemy.rb.velocity = new Vector2(0, 0);
-            // Debug.Log("�ƶ��˳�");
         }
 
         public override void Update()
         {
             base.Update();
-            //时间静止
-            // if (!enemy.timeFrozen)
-            //     enemy.SetVelocity(enemy.defaultMoveSpeed * enemy.faceDir, rb.velocity.y);
-
-
-      
-
+            enemy.SetVelocity(enemy.characterDirection.x,enemy.characterDirection.y,enemy.movementSpeed);
+            if(!enemy.IsCharacterDectected())
+            {
+                stateMachine.ChangeState(enemy.Skeleton_IdolState);
+            }
         }
     }
 }

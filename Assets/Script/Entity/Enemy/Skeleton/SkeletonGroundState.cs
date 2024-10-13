@@ -28,6 +28,10 @@ namespace SK
         public override void Update()
         {
             base.Update();
+            if(enemy.IsCharacterFightingWith())
+            {
+                stateMachine.ChangeState(enemy.Skeleton_BattleState);
+            }
             //敌人检测玩家 如果检测到 则进入战斗状态
             // if (enemy.IsPlayerDetected() || Vector2.Distance(enemy.transform.position, player.position) < 2)
             // {

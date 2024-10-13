@@ -60,7 +60,7 @@ namespace SK
     #endregion
 
 
-     public virtual void OnDrawGizmos()
+     protected virtual void OnDrawGizmos()
      {
         
      }

@@ -1,13 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using SK;
+using Unity.Mathematics;
+using Unity.VisualScripting;
+using UnityEditor.Tilemaps;
 using UnityEngine;
 
 namespace SK
 {
     public class Enemy : Entity
     {
-        [SerializeField] public LayerMask WhatIsPlayer;
+        //[SerializeField] public LayerMask WhatIsPlayer;
 
         [Header("TimeFreeze Info")]
         public bool timeFrozen;
@@ -20,26 +24,37 @@ namespace SK
         public EnemyStateMachine stateMachine { get; private set; }
 
         [Header("Move Info")]
+        public float battleSpeed;
         public float MoveSpeed;
         public float battleTime;
         public float defaultMoveSpeed;
 
         [Header("Attack info")]
-        public float attackDistance;
         public float attackCooldown;
         [SerializeField] public float lastTimeAttack;
+        [SerializeField] private Transform characterAttackedTransform;
+        [SerializeField] private float characterAttackRadius;
 
         [Header("Detected info")]
-        [SerializeField]private Transform IsCharacterDetectedTransform;
-        public float IsCharacterRadius;
-        public List<Character> charactersDetected;
+        [SerializeField] private Transform characterDetectedTransform;
+        [SerializeField] private float characterDetectedRadius;
+        public Character charactersDetected;
+        public Vector3 characterDirection;
+
+        [Header("Battle Info")]
+        [SerializeField] private Transform characterFightingWithTransform;
+        [SerializeField]private float characterFightingWithRadius;
+
+        private int faceDir = 1;
+
+
 
 
         protected override void Awake()
         {
             base.Awake();
             stateMachine = new EnemyStateMachine();
-            charactersDetected = new List<Character>();
+
         }
         protected override void Update()
         {
@@ -47,14 +62,37 @@ namespace SK
 
             stateMachine.currentState.Update();
 
-            IsCharacterDectected();
-            // if (IsPlayerDetected())
-            // {
-            // }
-            // if (!isKoncked)
-            //{
-            // FlipController(rb.velocity.x);
-            //  }
+            CalculateDirection();
+            FlipControll();
+            FaceReigonControll();
+        }
+
+      
+
+        private void FaceReigonControll()
+        {
+            if (rb.velocity.x > 0.01f)
+            {
+                last_face_reigon = 3;
+            }
+            if (rb.velocity.x < -0.01f)
+            {
+                last_face_reigon = 2;
+            }
+        }
+
+        private void FlipControll()
+        {
+            if (last_face_reigon == 2 && faceDir == 1)
+            {
+                transform.Rotate(0,180,0);
+                faceDir *= -1;
+            }
+            if (last_face_reigon == 3 && faceDir == -1)
+            {
+                 transform.Rotate(0,180,0);
+                faceDir *= -1;
+            }
         }
 
         //指攻击时可被打算
@@ -102,28 +140,70 @@ namespace SK
             FreezeTime(false);
         }
 
-        public bool IsCharacterDectected()
+        public bool IsCharacterAttackable()
         {
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(IsCharacterDetectedTransform.position, IsCharacterRadius);
-            if(colliders == null)
-            return false;
-            foreach (var hit in colliders)
+            if(Vector2.Distance(charactersDetected.transform.position,characterAttackedTransform.position) < characterAttackRadius )
             {
+                return true;
+            }
+            return false;
+        }
+          public bool IsCharacterFightingWith()
+        {
+           Collider2D[] colliders = Physics2D.OverlapCircleAll(characterFightingWithTransform.position, characterFightingWithRadius);
+           if(colliders == null)
+           return false;
+           foreach(var hit in colliders) 
+           {
                 if(hit.GetComponent<Character>() != null)
                 {
-                    charactersDetected.Add(hit.GetComponent<Character>());
+                    return true;
+                } 
+           }
+           return true;
+        }
+
+        public bool IsCharacterDectected()
+        {
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(characterDetectedTransform.position, characterDetectedRadius);
+            if (colliders == null)
+            {
+                return false;
+            }
+            foreach (var hit in colliders)
+            {
+                if (charactersDetected != null)
+                    break;
+                if (hit.GetComponent<Character>() != null)
+                {
+                    charactersDetected = hit.GetComponent<Character>();
                 }
             }
-            if(charactersDetected == null)
-            return false;
-            else
+            if (charactersDetected == null)
+            {
+                return false;
+            }
+            if ((charactersDetected.transform.position - transform.position).magnitude >= characterDetectedRadius)
+            {
+                charactersDetected = null;
+                return false;
+            }
             return true;
         }
 
-        public override void OnDrawGizmos()
+        private void CalculateDirection()
+        {
+            if (charactersDetected != null)
+                characterDirection = (charactersDetected.transform.position - transform.position).normalized;
+        }
+
+        protected override void OnDrawGizmos()
         {
             base.OnDrawGizmos();
-            Gizmos.DrawWireSphere(IsCharacterDetectedTransform.position, IsCharacterRadius);
+            Gizmos.DrawWireSphere(characterDetectedTransform.position, characterDetectedRadius);
+            Gizmos.DrawWireSphere(characterFightingWithTransform.position, characterFightingWithRadius);
+            Gizmos.DrawWireSphere(characterAttackedTransform.position, characterAttackRadius);
+            // Gizmos.DrawWireSphere(IsCharacterLosedTransform.position, characterLosedRadius);
         }
 
         //射线检测

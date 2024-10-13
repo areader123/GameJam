@@ -14,21 +14,20 @@ public class SkeletonIdolState : SkeletonGroundState
     public override void Enter()
     {
         base.Enter();
-        enemy.rb.velocity = new Vector2(0, 0);
-        stateTimer = 2.5f;
+        enemy.SetVelocity(Vector3.zero.x,Vector3.zero.y,0);
+       
     }
 
     public override void Exit()
     {
         base.Exit();
-        enemy.rb.velocity = new Vector2(0, 0);
-        stateTimer = 2.5f;
+       
     }
 
     public override void Update()
     {
         base.Update();
-        if (stateTimer <0) 
+        if(enemy.IsCharacterDectected())
         {
             stateMachine.ChangeState(enemy.Skeleton_MoveState);
         }
