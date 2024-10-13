@@ -58,6 +58,12 @@ namespace SK
         rb.velocity = new Vector2(_xVelocity, _yVelocity) * speed;
     }
     #endregion
+
+
+     public virtual void OnDrawGizmos()
+     {
+        
+     }
 }
 
 }
