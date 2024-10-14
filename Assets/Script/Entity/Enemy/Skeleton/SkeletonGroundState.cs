@@ -7,7 +7,6 @@ namespace SK
 
     public class SkeletonGroundState : EnemyState
     {
-        protected Transform player;
         protected Enemy_Skeleton enemy;
         public SkeletonGroundState(Enemy enemyBase, EnemyStateMachine stateMachine, string animBoolName, Enemy_Skeleton enemy) : base(stateMachine, enemyBase, animBoolName)
         {
@@ -17,7 +16,7 @@ namespace SK
         public override void Enter()
         {
             base.Enter();
-            player = Character_Controller.instance.character.transform;
+          
         }
 
         public override void Exit()
