@@ -231,6 +231,11 @@ namespace SK
             return false;
         }
 
+        public override void Damage()
+        {
+            //敌人实体受击打效果
+        }
+
 
         public virtual void AnimationFinishTrigger() => stateMachine.currentState.AnimationFinishTrigger();
     }

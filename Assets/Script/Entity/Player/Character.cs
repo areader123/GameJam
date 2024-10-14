@@ -37,6 +37,7 @@ namespace SK
 
         protected override void Start()
         {
+            base.Start();
             stateMachine.Intialize(player_Idel_State);
         }
 
@@ -54,6 +55,7 @@ namespace SK
         public override void Damage()
         {
             base.Damage();
+            fx.Entity_FX_White();
             Debug.Log("玩家受到伤害");
         }
 
@@ -63,6 +65,8 @@ namespace SK
             yield return new WaitForSeconds(_seconds);
             isbusy = false;
         }
+
+
     }
 }
 

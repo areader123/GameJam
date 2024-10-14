@@ -49,8 +49,6 @@ namespace SK
                 Debug.Log("脱战");
                 stateMachine.ChangeState(enemy.Skeleton_MoveState);
             }
-
-
             //设置速度
             enemy.SetVelocity(enemy.characterDirection.x, enemy.characterDirection.y, enemy.battleSpeed);
 
