@@ -14,10 +14,13 @@ namespace SK
         [SerializeField] private float cloneDuration;
         [SerializeField] private bool canAttack;
         private Clone_Skill_Controller clone_Skill_Controller;
+        private Character character;
 
         protected override void Start()
         {
             base.Start();
+             character = Character_Controller.instance.character;
+            
             cloneUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockClone);
         }
 

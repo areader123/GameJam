@@ -5,18 +5,25 @@ using UnityEngine;
 namespace SK
 {
 
-public class Arrower_Animation_Trigger : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
+    public class Arrower_Animation_Trigger : MonoBehaviour
     {
-        
-    }
+        private Enemy_Arrower enemy => GetComponent<Enemy_Arrower>();
+        private Enemy_Stat enemy_Stat => GetComponent<Enemy_Stat>();
+        private void Start()
+        {
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        }
+        private void AnimationTriger()
+        {
+            enemy.AnimationFinishTrigger();
+        }
+
+        private void AttackTrigger()
+        {
+          //  if (enemy.IsCharacterAttackable())
+            {
+              enemy.GetComponent<Bow_Skill>().CanUseSkill();
+            }
+        }
     }
-}
 }

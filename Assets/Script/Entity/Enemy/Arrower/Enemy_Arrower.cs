@@ -14,10 +14,25 @@ namespace SK
 
         protected override void Awake()
         {
-            arrower_Attack_State = new Arrower_Attack_State(stateMachine,this,"Idel",this);
-            arrower_Battle_State = new Arrower_Battle_State(stateMachine,this,"Move",this);
-            arrower_Idel_State = new Arrower_Idel_State(stateMachine, this, "Battle", this);
-            arrower_Move_State = new Arrower_Move_State(stateMachine, this, "Attack", this);
+            base.Awake();
+            arrower_Attack_State = new Arrower_Attack_State(stateMachine,this,"Attack",this);
+            arrower_Battle_State = new Arrower_Battle_State(stateMachine,this,"Battle",this);
+            arrower_Idel_State = new Arrower_Idel_State(stateMachine, this, "Idel", this);
+            arrower_Move_State = new Arrower_Move_State(stateMachine, this, "Move", this);
         }
+
+        protected override void Start()
+        {
+            base.Start();
+
+            stateMachine.Intialize(arrower_Idel_State);
+        }
+
+        protected override void Update()
+        {
+            base.Update();
+        }
+
+
     }
 }

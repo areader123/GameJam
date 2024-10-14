@@ -13,9 +13,11 @@ namespace SK
         [SerializeField] private UI_Skill_Slot dashUnlockButton;
         public float dashDuration;
         public float dashSpeed;
+        private Character character;
         protected override void Start()
         {
             base.Start();
+             character = Character_Controller.instance.character;
             dashUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockDash);
         }
 

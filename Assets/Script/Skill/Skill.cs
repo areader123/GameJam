@@ -11,11 +11,10 @@ namespace SK
 
         public float cooldown;
         protected float cooldowmTImer;
-        protected Character character;
+       
         // Start is called before the first frame update
         protected virtual void Start()
         {
-            character = Character_Controller.instance.character;
         }
 
         // Update is called once per frame

@@ -59,12 +59,7 @@ namespace SK
             Debug.Log("玩家受到伤害");
         }
 
-        public IEnumerator BusyFor(float _seconds)
-        {
-            isbusy = true;
-            yield return new WaitForSeconds(_seconds);
-            isbusy = false;
-        }
+        
 
 
     }

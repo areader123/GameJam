@@ -5,15 +5,15 @@ using UnityEngine;
 namespace SK
 {
 
-    public class SkeletonGroundState : EnemyState
+    public class Arrower_Grounded_State : EnemyState
     {
-        protected Enemy_Skeleton enemy;
-        public SkeletonGroundState(Enemy enemyBase, EnemyStateMachine stateMachine, string animBoolName, Enemy_Skeleton enemy) : base(stateMachine, enemyBase, animBoolName)
+        protected Enemy_Arrower enemy;
+        public Arrower_Grounded_State(EnemyStateMachine stateMachine, Enemy enemyBase, string animBoolName,Enemy_Arrower enemy) : base(stateMachine, enemyBase, animBoolName)
         {
             this.enemy = enemy;
         }
 
-        public override void Enter()
+         public override void Enter()
         {
             base.Enter();
           
@@ -24,12 +24,12 @@ namespace SK
             base.Exit();
         }
 
-        public override void Update()
+         public override void Update()
         {
             base.Update();
             if(enemy.IsCharacterFightingWith() && enemy.CanAttack())
             {
-                stateMachine.ChangeState(enemy.Skeleton_BattleState);
+                stateMachine.ChangeState(enemy.arrower_Battle_State);
             }
         }
     }

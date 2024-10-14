@@ -21,6 +21,10 @@ namespace SK
             {
                 SkillManager.instance.clone_Skill.CanUseSkill();
             }
+            // if(Keyboard.current.tabKey.wasPressedThisFrame)
+            // {
+            //     stateMachine.ChangeState();
+            // }
 
         }
         public override void Exit()

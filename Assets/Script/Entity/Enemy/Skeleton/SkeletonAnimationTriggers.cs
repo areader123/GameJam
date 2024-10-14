@@ -7,7 +7,7 @@ namespace SK
     public class SkeletonAnimationTriggers : MonoBehaviour
     {
         private Enemy_Skeleton enemy => GetComponent<Enemy_Skeleton>();
-        private Enemy_Stat enemy_Stat => GetComponentInParent<Enemy_Stat>();
+        private Enemy_Stat enemy_Stat => GetComponent<Enemy_Stat>();
         private void Start()
         {
 

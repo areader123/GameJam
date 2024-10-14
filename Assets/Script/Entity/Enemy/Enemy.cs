@@ -45,7 +45,7 @@ namespace SK
         [SerializeField] private Transform characterFightingWithTransform;
         [SerializeField] private float characterFightingWithRadius;
 
-        private int faceDir = 1;
+        
 
 
 
@@ -83,19 +83,7 @@ namespace SK
             }
         }
 
-        private void FlipControll()
-        {
-            if (last_face_reigon == 2 && faceDir == 1)
-            {
-                transform.Rotate(0, 180, 0);
-                faceDir *= -1;
-            }
-            if (last_face_reigon == 3 && faceDir == -1)
-            {
-                transform.Rotate(0, 180, 0);
-                faceDir *= -1;
-            }
-        }
+       
 
         //指攻击时可被打算
         public virtual void OpenCounterAttackWindow()

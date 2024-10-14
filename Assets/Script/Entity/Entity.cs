@@ -16,6 +16,9 @@ namespace SK
     public float horizonal =0;
     public float vertical =0;
     public float last_face_reigon;
+    public int faceDir = 1;
+
+    public bool isbusy;
     
     
 
@@ -61,11 +64,30 @@ namespace SK
     }
     #endregion
 
-
+    
+     protected void FlipControll()
+        {
+            if (last_face_reigon == 2 && faceDir == 1)
+            {
+                transform.Rotate(0, 180, 0);
+                faceDir *= -1;
+            }
+            if (last_face_reigon == 3 && faceDir == -1)
+            {
+                transform.Rotate(0, 180, 0);
+                faceDir *= -1;
+            }
+        }
      protected virtual void OnDrawGizmos()
      {
         
      }
+     public IEnumerator BusyFor(float _seconds)
+        {
+            isbusy = true;
+            yield return new WaitForSeconds(_seconds);
+            isbusy = false;
+        }
 }
 
 }
