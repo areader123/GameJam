@@ -43,7 +43,7 @@ namespace SK
 
         [Header("Battle Info")]
         [SerializeField] private Transform characterFightingWithTransform;
-        [SerializeField]private float characterFightingWithRadius;
+        [SerializeField] private float characterFightingWithRadius;
 
         private int faceDir = 1;
 
@@ -62,15 +62,17 @@ namespace SK
 
             stateMachine.currentState.Update();
 
+            IsCharacterDectected();
             CalculateDirection();
             FlipControll();
             FaceReigonControll();
         }
 
-      
+
 
         private void FaceReigonControll()
         {
+
             if (rb.velocity.x > 0.01f)
             {
                 last_face_reigon = 3;
@@ -85,12 +87,12 @@ namespace SK
         {
             if (last_face_reigon == 2 && faceDir == 1)
             {
-                transform.Rotate(0,180,0);
+                transform.Rotate(0, 180, 0);
                 faceDir *= -1;
             }
             if (last_face_reigon == 3 && faceDir == -1)
             {
-                 transform.Rotate(0,180,0);
+                transform.Rotate(0, 180, 0);
                 faceDir *= -1;
             }
         }
@@ -142,25 +144,27 @@ namespace SK
 
         public bool IsCharacterAttackable()
         {
-            if(Vector2.Distance(charactersDetected.transform.position,characterAttackedTransform.position) < characterAttackRadius )
+            if (charactersDetected == null)
+                return false;
+            if (Vector2.Distance(charactersDetected.transform.position, characterAttackedTransform.position) < characterAttackRadius)
             {
                 return true;
             }
             return false;
         }
-          public bool IsCharacterFightingWith()
+        public bool IsCharacterFightingWith()
         {
-           Collider2D[] colliders = Physics2D.OverlapCircleAll(characterFightingWithTransform.position, characterFightingWithRadius);
-           if(colliders == null)
-           return false;
-           foreach(var hit in colliders) 
-           {
-                if(hit.GetComponent<Character>() != null)
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(characterFightingWithTransform.position, characterFightingWithRadius);
+            if (colliders == null)
+                return false;
+            foreach (var hit in colliders)
+            {
+                if (hit.GetComponent<Character>() != null)
                 {
                     return true;
-                } 
-           }
-           return true;
+                }
+            }
+            return false;
         }
 
         public bool IsCharacterDectected()
@@ -195,6 +199,8 @@ namespace SK
         {
             if (charactersDetected != null)
                 characterDirection = (charactersDetected.transform.position - transform.position).normalized;
+            else
+                characterDirection = Vector3.zero;
         }
 
         protected override void OnDrawGizmos()
@@ -216,6 +222,16 @@ namespace SK
         //     Gizmos.DrawLine(transform.position, new Vector3(transform.position.x + attackDistance * faceDir, transform.position.y));
         // }
         //������enemystate�еķ�����¶��enemy�� ���� ������skeletonAnimationtriggers ������triggers������ʹ�� ���Ҹ������˵�triggers��Ҫ���ڶ����ϵ�
+        public bool CanAttack()
+        {
+            if (Time.time >= lastTimeAttack + attackCooldown)
+            {
+                return true;
+            }
+            return false;
+        }
+
+
         public virtual void AnimationFinishTrigger() => stateMachine.currentState.AnimationFinishTrigger();
     }
 }

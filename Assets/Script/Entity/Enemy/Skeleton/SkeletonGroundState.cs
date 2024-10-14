@@ -28,7 +28,7 @@ namespace SK
         public override void Update()
         {
             base.Update();
-            if(enemy.IsCharacterFightingWith())
+            if(enemy.IsCharacterFightingWith() && enemy.CanAttack())
             {
                 stateMachine.ChangeState(enemy.Skeleton_BattleState);
             }

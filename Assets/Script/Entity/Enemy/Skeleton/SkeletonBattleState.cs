@@ -28,41 +28,35 @@ namespace SK
         public override void Update()
         {
             base.Update();
-
-           
-         
-         
-
-                if (enemy.IsCharacterFightingWith())
+            if (enemy.IsCharacterFightingWith())
+            {
+                if (enemy.IsCharacterAttackable())
                 {
-
-                    // Debug.Log("入战");
-                    stateTimer = enemy.battleTime;
-                    if (enemy.IsCharacterAttackable())
+                    if (DoAttack())
                     {
-                        if (CanAttack())
-                        {
-                            stateMachine.ChangeState(enemy.Skeleton_AttackState);
-                        }
-
+                        //如果可以攻击则攻击
+                        stateMachine.ChangeState(enemy.Skeleton_AttackState);
+                    }
+                    else
+                    {
+                        //在攻击范围内 但攻击冷却中
+                        stateMachine.ChangeState(enemy.Skeleton_IdolState);
                     }
                 }
-                else
-                {
-                    if (stateTimer < 0 || enemy.IsCharacterFightingWith())
-                    {
-                        Debug.Log("脱战");
-                        stateMachine.ChangeState(enemy.Skeleton_MoveState);
-                    }
-                }
-       
-           
+            }
+            else
+            {
+                Debug.Log("脱战");
+                stateMachine.ChangeState(enemy.Skeleton_MoveState);
+            }
+
+
             //设置速度
-          enemy.SetVelocity(enemy.characterDirection.x,enemy.characterDirection.y,enemy.battleSpeed);
-         
+            enemy.SetVelocity(enemy.characterDirection.x, enemy.characterDirection.y, enemy.battleSpeed);
+
 
         }
-        private bool CanAttack()
+        private bool DoAttack()
         {
             if (Time.time >= enemy.lastTimeAttack + enemy.attackCooldown)
             {
@@ -71,5 +65,7 @@ namespace SK
             }
             return false;
         }
+
+
     }
 }

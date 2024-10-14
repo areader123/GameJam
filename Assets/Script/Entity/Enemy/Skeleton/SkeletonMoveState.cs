@@ -25,7 +25,7 @@ namespace SK
         {
             base.Update();
             enemy.SetVelocity(enemy.characterDirection.x,enemy.characterDirection.y,enemy.movementSpeed);
-            if(!enemy.IsCharacterDectected())
+            if(!enemy.IsCharacterDectected() && !enemy.IsCharacterAttackable())
             {
                 stateMachine.ChangeState(enemy.Skeleton_IdolState);
             }
