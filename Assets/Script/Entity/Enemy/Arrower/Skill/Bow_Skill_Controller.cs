@@ -60,7 +60,7 @@ namespace SK
 
         private void OnTriggerEnter2D(Collider2D hit)
         {
-            if (hit.GetComponent<Character>() != null)
+            if (hit.GetComponent<Character_Stat>() != null)
             {
                 hit.GetComponent<Character_Stat>().TakeDamage(arrowDamage);
                 Destroy(gameObject);

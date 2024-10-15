@@ -21,11 +21,10 @@ namespace SK
             {
                 SkillManager.instance.clone_Skill.CanUseSkill();
             }
-            // if(Keyboard.current.tabKey.wasPressedThisFrame)
-            // {
-            //     stateMachine.ChangeState();
-            // }
-
+            if(Mouse.current.leftButton.wasPressedThisFrame)
+            {
+                stateMachine.ChangeState(character.player_Attack_State);
+            }
         }
         public override void Exit()
         {

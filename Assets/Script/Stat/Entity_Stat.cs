@@ -70,7 +70,7 @@ namespace SK
         public bool isIce;
         public bool isLighting;
 
-        [SerializeField] private float AilmentDuration = 4f;
+       // [SerializeField] private float AilmentDuration = 4f;
 
 
         private float fireDamage;
@@ -237,7 +237,7 @@ namespace SK
                 Debug.Log("暴击" + totalDamage);
             }
             totalDamage = CheckTargetArmor(target, totalDamage);
-            TakeDamage(totalDamage);
+            DecreaseHealthOnly(totalDamage);
         }
 
         protected virtual bool TargetCanAvoidAttack()
@@ -335,8 +335,6 @@ namespace SK
             lightingTimer -= Time.deltaTime;
 
 
-
-
             if (canGetItemTimer > 0)
             {
                 canGetItem = false;
@@ -365,6 +363,8 @@ namespace SK
             {
                 isLighting = false;
             }
+
+          
 
 
         }

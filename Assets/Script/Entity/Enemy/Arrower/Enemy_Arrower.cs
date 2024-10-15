@@ -32,6 +32,15 @@ namespace SK
         {
             base.Update();
         }
+        public override void Damage()
+        {
+            fx.Entity_FX_White();
+        }
+        public override void Die()
+        {
+            //无死亡状态的话 无法启用物品掉落
+           // base.Die();
+        }
 
 
     }

@@ -45,6 +45,9 @@ namespace SK
         [SerializeField] private Transform characterFightingWithTransform;
         [SerializeField] private float characterFightingWithRadius;
 
+
+        private Enemy_Drop enemy_Drop;
+
         
 
 
@@ -54,6 +57,7 @@ namespace SK
         {
             base.Awake();
             stateMachine = new EnemyStateMachine();
+            enemy_Drop = GetComponent<Enemy_Drop>();
 
         }
         protected override void Update()
@@ -221,8 +225,16 @@ namespace SK
 
         public override void Damage()
         {
+              
             //敌人实体受击打效果
         }
+
+        public override void Die()
+        {
+            base.Die();
+            enemy_Drop.InstantiatePrefab();
+        }
+
 
 
         public virtual void AnimationFinishTrigger() => stateMachine.currentState.AnimationFinishTrigger();

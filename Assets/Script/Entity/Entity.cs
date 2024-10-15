@@ -47,6 +47,11 @@ namespace SK
         //实体受击效果
     }
 
+    public virtual void Die()
+    {
+        
+    }
+
     // protected virtual IEnumerator HitKnockback()
     // {
 

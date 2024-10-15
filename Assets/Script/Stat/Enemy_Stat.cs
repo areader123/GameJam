@@ -7,14 +7,13 @@ namespace SK
     {
         Enemy enemy;
         //ItemDrop itemDropSystem;
-        public int _strength;
-        public int _damage;
+        public int perLevelIncreaseMonsterStrength;
+        public int perLevelIncreaseMonsterDamage;
 
 
         protected override void Start()
         {
             enemy = GetComponent<Enemy>();
-            //itemDropSystem = GetComponent<ItemDrop>();
             Modifier();
             base.Start();
         }
@@ -22,26 +21,34 @@ namespace SK
         public override void TakeDamage(float damage)
         {
             base.TakeDamage(damage);
-
-            enemy.Damage();
+            if (!isDead)
+            {
+                enemy.Damage();
+            }
         }
+
+        public override void DoDamage(Entity_Stat target)
+        {
+            base.DoDamage(target);
+            if(!isDead)
+            {
+                enemy.Damage();
+            }
+        }
+
+
+
         protected override void Die()
         {
             base.Die();
-            //死亡方式
-            // enemy_Skeleton.stateMachine
-            // enemy_Skeleton.animator.speed = 0;
-            // enemy_Skeleton.GetComponent<CapsuleCollider2D>().enabled = false;
-            // //enemy_Skeleton.SetVelocity()
-            // enemy_Skeleton.rb.gravityScale = 30;
-            //死亡掉落
-            //itemDropSystem.generateDrop();
+            enemy.Die();
         }
         //属性更改
         public void Modifier()
         {
-            strength.AddModifiers(_strength);
-            damage.AddModifiers(_damage);
+            int level = Character_Controller.instance.GetLevel();
+            strength.AddModifiers(perLevelIncreaseMonsterStrength * level);
+            damage.AddModifiers(perLevelIncreaseMonsterDamage * level);
         }
     }
 }

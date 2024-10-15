@@ -50,7 +50,7 @@ namespace SK
 
         public void UnlockSkillSlot()
         {
-            if (Character_Controller.instance.HaveEnoughcurrnecy(skillPrice) == false)
+            if (Character_Controller.instance.HaveEnoughSkillPoint(skillPrice) == false)
             {
                 return;
             }
@@ -72,7 +72,7 @@ namespace SK
                     return;
                 }
             }
-
+            //在这里扣除技能点
             unLock = true;
             skillImage.color = Color.white;
         }
@@ -83,25 +83,25 @@ namespace SK
             Vector2 mousePosition = Input.mousePosition;
             // Debug.Log(mousePosition);
 
-            float xOffset = 0;
-            float yOffset = 0;
+            // float xOffset = 0;
+            // float yOffset = 0;
 
-            if (mousePosition.x > 800)
-            {
-                xOffset = -150;
-            }
-            else
-            {
-                xOffset = 150;
-            }
-            if (mousePosition.y > 500)
-            {
-                yOffset = -150;
-            }
-            else
-            {
-                yOffset = 150;
-            }
+            // if (mousePosition.x > 800)
+            // {
+            //     xOffset = -150;
+            // }
+            // else
+            // {
+            //     xOffset = 150;
+            // }
+            // if (mousePosition.y > 500)
+            // {
+            //     yOffset = -150;
+            // }
+            // else
+            // {
+            //     yOffset = 150;
+            // }
 
           //  ui.uI_Stat_Tool_Tip.transform.position = new Vector2(mousePosition.x + xOffset, mousePosition.y + yOffset);
 

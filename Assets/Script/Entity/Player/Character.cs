@@ -10,7 +10,8 @@ namespace SK
         public InputHandler inputHandler;
         Vector2 moveDirection;
 
-        public bool isbusy { get; private set; }
+        public Transform attackableTransform;
+        public float attackRadius;
 
 
         #region Player_State
@@ -21,6 +22,9 @@ namespace SK
         public Player_Dash_State player_Dash_State { get; private set; }
 
         public Player_Grounded_State player_Grounded_State { get; private set; }
+
+        public Player_Attack_State player_Attack_State { get; private set; }
+        public Player_Die_State player_Die_State { get; private set; }
         #endregion
 
         protected override void Awake()
@@ -31,6 +35,10 @@ namespace SK
             player_Move_State = new Player_Move_State("Move", stateMachine, this);
             player_Dash_State = new Player_Dash_State("Dash", stateMachine, this);
             player_Grounded_State = new Player_Grounded_State("Isground", stateMachine, this);
+            player_Attack_State = new Player_Attack_State("Attack", stateMachine, this);
+            player_Die_State = new Player_Die_State("Die", stateMachine, this);
+
+
             inputHandler = GetComponent<InputHandler>();
         }
 
@@ -49,9 +57,10 @@ namespace SK
             // Debug.Log("Vertical" +vertical);
             // Debug.Log("horizonal" + horizonal);
             //Debug.Log("inputHandler.vertical" + inputHandler.vertical);
+            FlipControll();
             stateMachine.currentstate.Update();
         }
-
+        public void AnimationTrigger() => stateMachine.currentstate.AnimationFinishTrigger();
         public override void Damage()
         {
             base.Damage();
@@ -59,9 +68,24 @@ namespace SK
             Debug.Log("玩家受到伤害");
         }
 
-        
+        public void Destroy()
+        {
+             // Destroy(gameObject);
+              //使用协程报错
+            StopAllCoroutines();
+            StartCoroutine("DestroySelf");
+        }
 
+        private IEnumerator DestroySelf()
+        {
+            yield return new WaitForSeconds(2f);
+            Destroy(gameObject);
+        }
 
+        protected override void OnDrawGizmos()
+        {
+            Gizmos.DrawWireSphere(attackableTransform.position, attackRadius);
+        }
     }
 }
 

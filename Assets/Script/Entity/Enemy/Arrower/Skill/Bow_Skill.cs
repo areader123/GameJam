@@ -18,6 +18,7 @@ namespace SK
 
 
         [SerializeField] private float arrowSpeed;
+        [SerializeField]private Transform arrowInstantiateTransform;
 
 
         private Bow_Skill_Controller bow_Skill_Controller;
@@ -37,8 +38,7 @@ namespace SK
 
         public void CreatArrow(Transform transform)
         {
-            GameObject newArrow = Instantiate(arrow, transform.position + offset * enemy_Arrower.faceDir, quaternion.identity);
-            Debug.Log("创造了剑");
+            GameObject newArrow = Instantiate(arrow, arrowInstantiateTransform.position, quaternion.identity);
             bow_Skill_Controller = newArrow.GetComponent<Bow_Skill_Controller>();
             bow_Skill_Controller.SetArrow(arrowDamage, arrowExistTime, arrowSpeed, enemy_Arrower.charactersDetected,offset,enemy_Arrower);
         }

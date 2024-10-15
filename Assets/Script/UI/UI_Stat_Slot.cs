@@ -7,7 +7,6 @@ using UnityEngine.EventSystems;
 
 namespace SK
 {
-
     public class UI_Stat_Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         private UI ui;

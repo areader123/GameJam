@@ -28,14 +28,17 @@ namespace SK
         [SerializeField] private Image flaskCoolDownImage;
         private float flaskCoolDown;
 
-        [SerializeField] private TextMeshProUGUI currencyText;
+        [SerializeField] private TextMeshProUGUI lightingNumberText;
+        [SerializeField]private TextMeshProUGUI expNumberText;
+        [SerializeField]private TextMeshProUGUI levelNumberText;
+        [SerializeField]private TextMeshProUGUI SkillPointNumberText;
+
 
         [SerializeField] private Image cloneCoolDownImage;
         [SerializeField] private Image cloneCoolDownImageLocked;
         private float cloneCoolDown;
 
 
-        private int currency;
 
 
         private void Awake()
@@ -45,8 +48,8 @@ namespace SK
         private void Start()
         {
 
-            //character_Stat = Character_Controller.instance.character.GetComponent<Character_Stat>();
-
+            character_Stat = Character_Controller.instance.character.GetComponent<Character_Stat>();
+            character_Stat.OnHealthChange += UpdataHealthBar;
             // if (character_Stat != null)
             // {
             //     character_Stat.OnHealthChange += UpdataHealthBar;
@@ -65,7 +68,10 @@ namespace SK
         void Update()
         {
 
-            //currencyText.text = Character_Controller.instance.GetCurrency().ToString("#,#");
+            lightingNumberText.text = Character_Controller.instance.GetLightingNumber().ToString("#,#");
+            expNumberText.text = Character_Controller.instance.GetExp().ToString("#,#");
+            levelNumberText.text = Character_Controller.instance.GetLevel().ToString("#,#");
+            SkillPointNumberText.text = Character_Controller.instance. pointCanbeUsed.ToString();
             if( SkillManager.instance.dash_Skill.dashUnlocked)
             {
                 dashCoolDownImageLocked.fillAmount =0;

@@ -11,6 +11,7 @@ namespace SK
          public SkeletonMoveState Skeleton_MoveState { get; private set; }
          public SkeletonBattleState Skeleton_BattleState {  get; private set; }
          public SkeletonAttackState Skeleton_AttackState {  get; private set; }  
+         public SkeletonDieState Skeleton_DieState  {get;private set;}
         // public SkeletonStunnedState Skeleton_StunnedState { get; private set; } 
         protected override void Awake()
         {
@@ -19,6 +20,8 @@ namespace SK
              Skeleton_MoveState = new SkeletonMoveState(this,stateMachine,"Move",this);
              Skeleton_BattleState = new SkeletonBattleState(this, stateMachine, "Battle", this);
              Skeleton_AttackState = new SkeletonAttackState(this, stateMachine, "Attack", this);
+             Skeleton_DieState = new SkeletonDieState(stateMachine,this,"Die",this);
+
             // Skeleton_StunnedState = new SkeletonStunnedState(this, stateMachine, "Stunned", this);
         }
 
@@ -41,7 +44,24 @@ namespace SK
             }
             return false;
         }
+        public override void Damage()
+        {
+            base.Damage();
+            fx.Entity_FX_White();
+        }
+    
 
-        
+        public override void Die()
+        {
+            base.Die();
+            stateMachine.ChangeState(Skeleton_DieState);
+        }
+
+        public void Destroy()
+        {
+            Destroy(gameObject);
+        }
+
+
     }
 }
