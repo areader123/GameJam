@@ -18,7 +18,7 @@ namespace SK
         }
         private IEnumerator FlashFX()
         {
-           // sp.material = hittedMaterial;
+            // sp.material = hittedMaterial;
             Color orignColor = sp.color;
             sp.color = Color.black;
             Debug.Log("FX Start");
@@ -29,8 +29,32 @@ namespace SK
         }
         public void Entity_FX_White()
         {
-            //StopAllCoroutines();
+            StopAllCoroutines();
             StartCoroutine("FlashFX");
         }
+
+        public void CancleColorChange()
+        {
+            CancelInvoke();
+            sp.color = Color.white;
+        }
+
+        private void RedColorBlink()
+        {
+            if (sp.color != Color.white)
+            {
+                sp.color = Color.white;
+            }
+            else
+                sp.color = Color.red;
+        }
+
+        public void RedColorBlinkFor (float _second) 
+        {
+            InvokeRepeating("RedColorBlink",0,.15f);
+            Invoke("CancleColorChange",_second);    
+        }
+
+
     }
 }

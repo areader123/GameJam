@@ -34,7 +34,8 @@ namespace SK
         }
         public override void Damage()
         {
-            fx.Entity_FX_White();
+            base.Damage();
+            fx.RedColorBlinkFor(.3f);
         }
         public override void Die()
         {

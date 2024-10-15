@@ -48,7 +48,7 @@ namespace SK
 
         private Enemy_Drop enemy_Drop;
 
-        
+
 
 
 
@@ -68,26 +68,15 @@ namespace SK
 
             IsCharacterDectected();
             CalculateDirection();
-            FlipControll();
-            FaceReigonControll();
+            if (IsCharacterDectected())
+                FlipControll(charactersDetected.transform.position.x - transform.position.x);
+
         }
 
 
 
-        private void FaceReigonControll()
-        {
 
-            if (rb.velocity.x > 0.01f)
-            {
-                last_face_reigon = 3;
-            }
-            if (rb.velocity.x < -0.01f)
-            {
-                last_face_reigon = 2;
-            }
-        }
 
-       
 
         //指攻击时可被打算
         public virtual void OpenCounterAttackWindow()
@@ -225,7 +214,7 @@ namespace SK
 
         public override void Damage()
         {
-              
+
             //敌人实体受击打效果
         }
 

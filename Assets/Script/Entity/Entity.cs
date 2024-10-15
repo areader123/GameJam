@@ -15,7 +15,7 @@ namespace SK
     public float movementSpeed = 5;
     public float horizonal =0;
     public float vertical =0;
-    public float last_face_reigon;
+    public bool faceRight{get;private set;} = true;
     public int faceDir = 1;
 
     public bool isbusy;
@@ -33,7 +33,6 @@ namespace SK
 
     protected virtual void Start()
     {
-        last_face_reigon =1;
     }
 
     protected virtual void Update()
@@ -65,22 +64,24 @@ namespace SK
         //     return;
         // }
         float speed = movementSpeed;
-        rb.velocity = new Vector2(_xVelocity, _yVelocity) * speed;
+        rb.velocity = new Vector2(_xVelocity, _yVelocity).normalized * speed;
     }
     #endregion
 
     
-     protected void FlipControll()
+     protected void FlipControll(float Input)
         {
-            if (last_face_reigon == 2 && faceDir == 1)
+            if (Input < 0 && faceRight)
             {
                 transform.Rotate(0, 180, 0);
                 faceDir *= -1;
+                faceRight = !faceRight;
             }
-            if (last_face_reigon == 3 && faceDir == -1)
+            if (Input > 0 && !faceRight)
             {
                 transform.Rotate(0, 180, 0);
                 faceDir *= -1;
+                faceRight = !faceRight;
             }
         }
      protected virtual void OnDrawGizmos()

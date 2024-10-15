@@ -28,12 +28,12 @@ namespace SK
             if (character.inputHandler.horizonal > 0.55f)
             {
                 character.horizonal = 1;
-                character.last_face_reigon = 3;
+        
             }
             if (character.inputHandler.horizonal < -0.55f)
             {
                 character.horizonal = -1;
-                character.last_face_reigon = 2;
+               
             }
             if(character.inputHandler.horizonal <=0.55f && character.inputHandler.horizonal>=-0.55f)
             {
@@ -42,12 +42,12 @@ namespace SK
             if (character.inputHandler.vertical > 0.55f)
             {
                 character.vertical = 1;
-                character.last_face_reigon = 0;
+            
             }
             if (character.inputHandler.vertical < -0.55f)
             {
                 character.vertical = -1;
-                character.last_face_reigon = 1;
+               
             }
             if(character.inputHandler.vertical <=0.55f && character.inputHandler.vertical>=-0.55f)
             {

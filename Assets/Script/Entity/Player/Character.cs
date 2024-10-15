@@ -57,21 +57,21 @@ namespace SK
             // Debug.Log("Vertical" +vertical);
             // Debug.Log("horizonal" + horizonal);
             //Debug.Log("inputHandler.vertical" + inputHandler.vertical);
-            FlipControll();
+            FlipControll(horizonal);
             stateMachine.currentstate.Update();
         }
         public void AnimationTrigger() => stateMachine.currentstate.AnimationFinishTrigger();
         public override void Damage()
         {
             base.Damage();
-            fx.Entity_FX_White();
+            fx.RedColorBlinkFor(.3f);
             Debug.Log("玩家受到伤害");
         }
 
         public void Destroy()
         {
-             // Destroy(gameObject);
-              //使用协程报错
+            // Destroy(gameObject);
+            //使用协程报错
             StopAllCoroutines();
             StartCoroutine("DestroySelf");
         }

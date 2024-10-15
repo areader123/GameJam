@@ -14,7 +14,6 @@ public class Player_Dash_State : Player_Grounded_State
     {
         base.Enter();
         stateTimer = SkillManager.instance.dash_Skill.dashDuration;
-        character.animator.SetFloat("Face_Reigon",character.last_face_reigon/3f);
 
     }
     public override void Exit()
@@ -32,22 +31,15 @@ public class Player_Dash_State : Player_Grounded_State
         }
         else
         {
-            if (character.last_face_reigon == 0)
+            if (character.faceRight)
             {
-                character.SetVelocity(0, 1, SkillManager.instance.dash_Skill.dashSpeed);
+                character.SetVelocity(1,0 , SkillManager.instance.dash_Skill.dashSpeed);
             }
-            if (character.last_face_reigon == 1)
-            {
-                character.SetVelocity(0, -1, SkillManager.instance.dash_Skill.dashSpeed);
-            }
-            if (character.last_face_reigon == 2)
+            if (!character.faceRight)
             {
                 character.SetVelocity(-1, 0, SkillManager.instance.dash_Skill.dashSpeed);
             }
-            if (character.last_face_reigon == 3)
-            {
-                character.SetVelocity(1, 0, SkillManager.instance.dash_Skill.dashSpeed);
-            }
+         
         }
         if(stateTimer < 0)
         {

@@ -45,7 +45,15 @@ namespace SK
             rb.velocity = direction.normalized * arrowSpeed;
         }
 
-        public void SetArrow(float _arrowDamage, float _arrowExistTime, float _arrowSpeed, Character _target,Vector3 _offset,Enemy _orignTarget)
+        private void SetRotation(Character _target,Enemy _orignTarget)
+        {
+            transform.LookAt(_target.transform.position);
+            transform.Rotate(0,90,0);
+            // Quaternion newQuaternion = Quaternion.LookRotation(_target.transform.position - _orignTarget.transform.position);
+            // transform.rotation = newQuaternion;
+        }
+
+        public void SetArrow(float _arrowDamage, float _arrowExistTime, float _arrowSpeed, Character _target, Vector3 _offset, Enemy _orignTarget)
         {
 
             arrowDamage = _arrowDamage;
@@ -53,14 +61,16 @@ namespace SK
             arrowSpeed = _arrowSpeed;
             target = _target;
             offset = _offset;
-            orignTarget =_orignTarget;
+            orignTarget = _orignTarget;
             SetVelocity();
+            SetRotation(_target,_orignTarget);
+
         }
 
 
         private void OnTriggerEnter2D(Collider2D hit)
         {
-            if (hit.GetComponent<Character_Stat>() != null)
+            if (hit.GetComponent<Character_Stat>() != null && hit.GetComponent<Character>() != null)
             {
                 hit.GetComponent<Character_Stat>().TakeDamage(arrowDamage);
                 Destroy(gameObject);

@@ -26,7 +26,6 @@ namespace SK
 
         private void IdelDirection () 
         {
-            character.animator.SetFloat("Face_Reigon",character.last_face_reigon/3f);
             // character.animator.SetFloat("X_Face",character.horizonal,0.1f,Time.deltaTime);
             // character.animator.SetFloat("Y_Face",character.vertical,0.1f,Time.deltaTime);
         }

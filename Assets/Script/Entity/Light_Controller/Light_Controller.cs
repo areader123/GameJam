@@ -18,12 +18,15 @@ namespace SK
 
         [SerializeField] private int DecreaseLightingNumber;
         [SerializeField] private float timeDuration;
+        [Header("lightGrow Info")]
+        [SerializeField] private float scaleSpeed;
         private Character character;
 
         private int _maxLightingNumber;
         private int _lightingNumber;
         private float finalScale;
         private float timeCounter;
+        private float scaleTimeCounter;
 
 
 
@@ -46,8 +49,15 @@ namespace SK
         {
             if (Character_Controller.instance.canChangeLightScale())
             {
-                ChangeSize();
+
+                CaculateScale();
+
             }
+            DecreaseWhenDetectEnemy();
+        }
+
+        private void DecreaseWhenDetectEnemy()
+        {
             if (DetectEnemy())
             {
                 timeCounter -= Time.deltaTime;
@@ -59,13 +69,16 @@ namespace SK
             }
         }
 
-        private void ChangeSize()
+        private void CaculateScale()
         {
             _lightingNumber = Character_Controller.instance.GetLightingNumber();
             _maxLightingNumber = Character_Controller.instance.GetMaxLightingNumber();
             finalScale = Mathf.Lerp(minScale, maxScale, (float)_lightingNumber / _maxLightingNumber);
-            transform.localScale = new Vector3(finalScale, finalScale, 1);
+            //  transform.localScale = Vector2.Lerp(new Vector2(minScale, minScale), new Vector2(finalScale, finalScale), scaleSpeed * Time.deltaTime);
+            transform.localScale = new Vector2(finalScale, finalScale);
+
         }
+
 
         private bool DetectEnemy()
         {

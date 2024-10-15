@@ -19,6 +19,10 @@ public class Player_Attack_State : PlayerState
     {
         base.Update();
         character.SetVelocity(Vector3.zero.x,Vector3.zero.y,0);
+        // if(character.inputHandler.moveAmount > 0.4f)
+        // {
+        //      stateMachine.ChangeState(character.player_Move_State);
+        // }
         if(triggercalled)
         {
             stateMachine.ChangeState(character.player_Idel_State);

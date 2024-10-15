@@ -47,7 +47,7 @@ namespace SK
         public override void Damage()
         {
             base.Damage();
-            fx.Entity_FX_White();
+            fx.RedColorBlinkFor(.3f);
         }
     
 
