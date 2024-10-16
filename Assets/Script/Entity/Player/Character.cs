@@ -5,8 +5,13 @@ using UnityEngine;
 
 namespace SK
 {
+
     public class Character : Entity
     {
+        //public GameObject character1;
+        //public GameObject character2;
+        //public GameObject character3;
+
         public InputHandler inputHandler;
         Vector2 moveDirection;
 
@@ -37,7 +42,6 @@ namespace SK
             player_Grounded_State = new Player_Grounded_State("Isground", stateMachine, this);
             player_Attack_State = new Player_Attack_State("Attack", stateMachine, this);
             player_Die_State = new Player_Die_State("Die", stateMachine, this);
-
 
             inputHandler = GetComponent<InputHandler>();
         }

@@ -11,7 +11,7 @@ namespace SK
     {
         public static Character_Controller instance;
 
-        public Character character;
+        public Character character = new Character();
         //此处为光亮值
         [Header("Current Value")]
         [SerializeField] [Range(0,Mathf.Infinity)]private int lightingNumber;
