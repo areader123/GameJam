@@ -26,10 +26,12 @@ namespace SK
         [Header("Move Info")]
         public float battleSpeed;
         public float MoveSpeed;
-      //  public float battleTime;
+        //  public float battleTime;
         public float defaultMoveSpeed;
 
         [Header("Attack info")]
+        public bool attackting;
+        public bool attcakUnFollow;
         public float attackCooldown;
         [SerializeField] public float lastTimeAttack;
         [SerializeField] private Transform characterAttackedTransform;
@@ -45,8 +47,8 @@ namespace SK
         [SerializeField] private Transform characterFightingWithTransform;
         [SerializeField] private float characterFightingWithRadius;
         [Header("Skill Info")]
-        [SerializeField]public float skill_One_Cooldown;
-        [SerializeField]public float lastTimeSkill_One;
+        [SerializeField] public float skill_One_Cooldown;
+        [SerializeField] public float lastTimeSkill_One;
 
 
         protected Enemy_Drop enemy_Drop;
@@ -70,10 +72,13 @@ namespace SK
             base.Update();
 
             stateMachine.currentState.Update();
-
+            if (!attcakUnFollow)
+            {
+                attackting = false;
+            }
             IsCharacterDectected();
             CalculateDirection();
-            if (IsCharacterDectected() && !enemy_Stat.isDead)
+            if (IsCharacterDectected() && !enemy_Stat.isDead && !attackting)
                 FlipControll(charactersDetected.transform.position.x - transform.position.x);
 
         }
@@ -217,11 +222,32 @@ namespace SK
             return false;
         }
 
-        public override void Damage(Entity_Stat entity_Stat = null)
+        public override void Damage(Skill skill = null,Entity_Stat entity_Stat = null)
         {
-            if(!isKoncked)
+            int expression = 0;
+            if (entity_Stat != null)
+                expression = 0;
+            if (skill != null)
+                expression = 1;
+            switch (expression)
             {
-                StartCoroutine("HitKnockback");
+                case 0:
+                    if (!isKoncked && entity_Stat.canHitBack == CanHitBack.can)
+                    {
+
+                        Debug.Log("entity_Stat.canHitBack");
+                        StartCoroutine("HitKnockback");
+                    }
+                    break;
+                case 1:
+                    if (!isKoncked && skill.skillHitBack == SkillHitBack.can)
+                    {
+                        Debug.Log("skill.skillHitBack");
+                        StartCoroutine("HitKnockback");
+                    }
+                    break;
+                default:
+                    break;
             }
             //敌人实体受击打效果
         }
@@ -230,6 +256,10 @@ namespace SK
         {
             base.Die();
             enemy_Drop.InstantiatePrefab();
+        }
+        protected override IEnumerator HitKnockback()
+        {
+            return base.HitKnockback();
         }
 
 

@@ -21,6 +21,11 @@ namespace SK
         private Enemy orignTarget;
 
         private Rigidbody2D rb;
+        private float damagepPerTime;
+        private float damageTimeCounter;
+        private bool destroySelfAfterDamage;
+        private bool RotationWhileDamage;
+        private Skill  skill;
 
         private void Awake()
         {
@@ -33,10 +38,13 @@ namespace SK
         private void Update()
         {
             timeCounter -= Time.deltaTime;
+            damageTimeCounter -= Time.deltaTime;
             if (timeCounter < 0)
             {
                 Destroy(gameObject);
             }
+            if (RotationWhileDamage)
+                SetRotation(target, orignTarget);
         }
 
         private void SetVelocity()
@@ -45,15 +53,15 @@ namespace SK
             rb.velocity = direction.normalized * arrowSpeed;
         }
 
-        private void SetRotation(Character _target,Enemy _orignTarget)
+        private void SetRotation(Character _target, Enemy _orignTarget)
         {
             transform.LookAt(_target.transform.position);
-            transform.Rotate(0,90,0);
+            transform.Rotate(0, 90, 0);
             // Quaternion newQuaternion = Quaternion.LookRotation(_target.transform.position - _orignTarget.transform.position);
             // transform.rotation = newQuaternion;
         }
 
-        public void SetArrow(float _arrowDamage, float _arrowExistTime, float _arrowSpeed, Character _target, Vector3 _offset, Enemy _orignTarget)
+        public void SetArrow(float _arrowDamage, float _arrowExistTime, float _arrowSpeed, Character _target, Vector3 _offset, Enemy _orignTarget, float _damagepPerTime, bool _destroySelfAfterDamage, bool _RotationWhileDamage,Skill _skill)
         {
 
             arrowDamage = _arrowDamage;
@@ -62,18 +70,36 @@ namespace SK
             target = _target;
             offset = _offset;
             orignTarget = _orignTarget;
+            damagepPerTime = _damagepPerTime;
+            destroySelfAfterDamage = _destroySelfAfterDamage;
+            RotationWhileDamage = _RotationWhileDamage;
+            skill = _skill;
             SetVelocity();
-            SetRotation(_target,_orignTarget);
+
+            SetRotation(_target, _orignTarget);
+
 
         }
 
 
         private void OnTriggerEnter2D(Collider2D hit)
         {
-            if (hit.GetComponent<Character_Stat>() != null && hit.GetComponent<Character>() != null)
+            if (hit.GetComponent<Character_Stat>() != null && hit.GetComponent<Character>() != null && destroySelfAfterDamage)
             {
-                hit.GetComponent<Character_Stat>().TakeDamage(arrowDamage);
+                hit.GetComponent<Character_Stat>().TakeDamage(arrowDamage,skill);
                 Destroy(gameObject);
+            }
+        }
+
+        private void OnTriggerStay2D(Collider2D hit)
+        {
+            if (hit.GetComponent<Character_Stat>() != null && hit.GetComponent<Character>() != null && !destroySelfAfterDamage)
+            {
+                if (damageTimeCounter <= 0)
+                {
+                    hit.GetComponent<Character_Stat>().TakeDamage(arrowDamage,skill);
+                    damageTimeCounter = damagepPerTime;
+                }
             }
         }
     }

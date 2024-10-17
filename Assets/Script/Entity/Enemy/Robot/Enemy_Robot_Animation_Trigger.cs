@@ -22,7 +22,7 @@ namespace SK
 
         private void Skill_OneAnimationTrigger()
         {
-            //enemy_Robot.GetComponent<Robot_Skill_One_Skill>().CanUseSkill();
+            enemy_Robot.GetComponent<Robot_Skill_One_Skill>().CanUseSkill();
         }
     }
 }

@@ -44,11 +44,13 @@ namespace SK
             }
             return false;
         }
-        public override void Damage(Entity_Stat  entity_Stat)
+        public override void Damage(Skill skill, Entity_Stat entity_Stat)
         {
-            base.Damage(entity_Stat);
             if (!enemy_Stat.isDead)
+            {
+                base.Damage(skill, entity_Stat);
                 fx.RedColorBlinkFor(.3f);
+            }
         }
 
 

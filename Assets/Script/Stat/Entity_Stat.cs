@@ -124,7 +124,7 @@ namespace SK
             return false;
         }
 
-        public virtual void TakeDamage(float damage)
+        public virtual void TakeDamage(float damage,Skill skill)
         {
             DecreaseHealthOnly(damage);
             Debug.Log("受到" + damage + "伤害");
@@ -162,7 +162,7 @@ namespace SK
 
         protected virtual void Start()
         {
-            _currentHP = maxHP.GetValue();
+            _currentHP = GetMaxHealth();
             critPower.SetDefaultValue(150);
         }
 

@@ -44,7 +44,7 @@ namespace SK
 
     }
 
-    public virtual void Damage(Entity_Stat  entity_Stat = null)
+    public virtual void Damage(Skill skill = null,Entity_Stat  entity_Stat = null)
     {
         
         //实体受击效果
@@ -59,16 +59,11 @@ namespace SK
     {
         isKoncked = true;
         animator.speed =0;
-        Debug.Log("HitKnockback Start");
         rb.velocity = new Vector2(konckedSpeed * (-faceDir), 0);
         yield return new WaitForSeconds(konckbackDuration);
          rb.velocity =  Vector2.zero;
         animator.speed =1;
-        //rb.velocity = new Vector2(0,0);
-        Debug.Log("HitKnockback End");
         isKoncked = false;
-        
-       
     }
 
     #region Velocity

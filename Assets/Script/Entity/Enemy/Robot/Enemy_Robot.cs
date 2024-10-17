@@ -19,12 +19,12 @@ namespace SK
         protected override void Awake()
         {
             base.Awake();
-            robot_Attack_State = new Robot_Attack_State(stateMachine,this,"Attack",this);
-            robot_Dead_State = new Robot_Dead_State(stateMachine,this,"Dead",this);
-            robot_Idel_State = new Robot_Idel_State(stateMachine,this,"Idel", this);
-            robot_Walk_State = new Robot_Walk_State(stateMachine,this,"Walk",this);
-            robot_Skill_Attack_State = new Robot_Skill_Attack_State(stateMachine,this,"Skill_Attack",this);
-            robot_Battle_State = new Robot_Battle_State(stateMachine,this,"Battle",this);
+            robot_Attack_State = new Robot_Attack_State(stateMachine, this, "Attack", this);
+            robot_Dead_State = new Robot_Dead_State(stateMachine, this, "Dead", this);
+            robot_Idel_State = new Robot_Idel_State(stateMachine, this, "Idel", this);
+            robot_Walk_State = new Robot_Walk_State(stateMachine, this, "Walk", this);
+            robot_Skill_Attack_State = new Robot_Skill_Attack_State(stateMachine, this, "Skill_Attack", this);
+            robot_Battle_State = new Robot_Battle_State(stateMachine, this, "Battle", this);
         }
         protected override void Start()
         {
@@ -32,13 +32,16 @@ namespace SK
             stateMachine.Intialize(robot_Idel_State);
         }
 
-        public override void Damage(Entity_Stat  entity_Stat)
+        public override void Damage(Skill skill, Entity_Stat entity_Stat)
         {
-            base.Damage(entity_Stat);
-            fx.RedColorBlinkFor(.3f);
+            if (enemy_Stat.isDead)
+            {
+                base.Damage(skill, entity_Stat);
+                fx.RedColorBlinkFor(.3f);
+            }
         }
 
-         public override void Die()
+        public override void Die()
         {
             base.Die();
             stateMachine.ChangeState(robot_Dead_State);

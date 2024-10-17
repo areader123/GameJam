@@ -20,6 +20,10 @@ namespace SK
         [SerializeField] private float arrowSpeed;
         [SerializeField]private Transform arrowInstantiateTransform;
 
+        [SerializeField]private bool destroySelfAfterDamage;
+        [SerializeField]private bool RotationWhileDamage;
+        [SerializeField]private float damagepPerTime;
+
 
         private Bow_Skill_Controller bow_Skill_Controller;
 
@@ -33,19 +37,18 @@ namespace SK
         {
             enemy = GetComponent<Enemy>();
             base.Start();
-
         }
 
-        public void CreatArrow(Transform transform)
+        public void CreatArrow()
         {
-            GameObject newArrow = Instantiate(arrow, arrowInstantiateTransform.position, quaternion.identity);
+            GameObject newArrow = Instantiate(arrow, arrowInstantiateTransform.position + offset, quaternion.identity);
             bow_Skill_Controller = newArrow.GetComponent<Bow_Skill_Controller>();
-            bow_Skill_Controller.SetArrow(arrowDamage, arrowExistTime, arrowSpeed, enemy.charactersDetected,offset,enemy);
+            bow_Skill_Controller.SetArrow(arrowDamage, arrowExistTime, arrowSpeed, enemy.charactersDetected,offset,enemy,damagepPerTime,destroySelfAfterDamage,RotationWhileDamage,this);
         }
         public override void UseSkill()
         {
             base.UseSkill();
-            CreatArrow(enemy.transform);
+            CreatArrow();
         }
     }
 }

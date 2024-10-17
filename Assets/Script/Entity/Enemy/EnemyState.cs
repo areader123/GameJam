@@ -12,7 +12,7 @@ namespace SK
         protected Enemy enemyBase;
         protected Rigidbody2D rb;
 
-        protected bool triggerCalled;
+        public bool triggerCalled;
         private string animBoolName;
         protected float stateTimer;
 

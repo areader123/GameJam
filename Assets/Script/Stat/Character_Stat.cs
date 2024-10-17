@@ -17,12 +17,12 @@ namespace SK
             character = GetComponent<Character>();
         }
 
-        public override void TakeDamage(float damage)
+        public override void TakeDamage(float damage,Skill skill)
         {
-            base.TakeDamage(damage);
+            base.TakeDamage(damage,skill);
             if (!isDead)
             {
-                character.Damage();
+                character.Damage(skill);
             }
         }
 
@@ -31,7 +31,7 @@ namespace SK
             base.DoDamage(target);
             if (!isDead)
             {
-                character.Damage(target);
+                character.Damage(null,target);
             }
         }
 

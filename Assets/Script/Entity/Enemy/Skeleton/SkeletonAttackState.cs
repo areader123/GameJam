@@ -16,6 +16,7 @@ namespace SK
         public override void Enter()
         {
             base.Enter();
+            enemy.attackting= true;
             enemy.SetVelocity(Vector3.zero.x,Vector3.zero.y,0);
         }
 
@@ -32,6 +33,7 @@ namespace SK
             enemy.SetVelocity(Vector3.zero.x,Vector3.zero.y,0);
             if (triggerCalled)
             {
+                enemy.attackting= false;
                 stateMachine.ChangeState(enemy.Skeleton_BattleState);
             }
 

@@ -64,18 +64,28 @@ namespace SK
             }
         }
         public void AnimationTrigger() => stateMachine.currentstate.AnimationFinishTrigger();
-        public override void Damage(Entity_Stat entity_Stat = null)
+        public override void Damage(Skill skill = null, Entity_Stat entity_Stat = null)
         {
-            base.Damage(entity_Stat);
+            base.Damage(skill, entity_Stat);
             fx.RedColorBlinkFor(.3f);
+            int expression = 0;
             if (entity_Stat != null)
+                expression = 0;
+            if (skill != null)
+                expression = 1;
+            switch (expression)
             {
-                if (!isKoncked && entity_Stat.canHitBack == CanHitBack.can)
-                {
-                    StartCoroutine("HitKnockback");
-                }
+                case 0:
+                    if (!isKoncked && entity_Stat.canHitBack == CanHitBack.can)
+                        StartCoroutine("HitKnockback");
+                    break;
+                case 1:
+                    if (!isKoncked && skill.skillHitBack == SkillHitBack.can)
+                        StartCoroutine("HitKnockback");
+                    break;
+                default:
+                    break;
             }
-            Debug.Log("玩家受到伤害");
         }
 
         public void Destroy()

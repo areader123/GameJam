@@ -13,9 +13,14 @@ namespace SK
         Dash,
         Clone
     }
+    public enum SkillHitBack
+    {
+        can,canNot
+    }
     public class Skill : MonoBehaviour
     {
         public SkillName skillName;
+        public SkillHitBack skillHitBack;
         public KeyCode keyCode;
         public float cooldown;
         protected float cooldowmTImer;

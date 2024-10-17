@@ -18,12 +18,12 @@ namespace SK
             base.Start();
         }
 
-        public override void TakeDamage(float damage)
+        public override void TakeDamage(float damage ,Skill skill)
         {
-            base.TakeDamage(damage);
+            base.TakeDamage(damage,skill);
             if (!isDead)
             {
-                enemy.Damage();
+                enemy.Damage(skill);
             }
         }
 
@@ -32,7 +32,7 @@ namespace SK
             base.DoDamage(target);
             if(!isDead)
             {
-                enemy.Damage(target);
+                enemy.Damage(null,target);
             }
         }
 
