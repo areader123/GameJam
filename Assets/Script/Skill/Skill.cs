@@ -1,17 +1,25 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using SK;
 using UnityEngine;
+using UnityEditor;
 
 namespace SK
 {
 
+    public enum SkillName
+    {
+        Dash,
+        Clone
+    }
     public class Skill : MonoBehaviour
     {
+        public SkillName skillName;
         public KeyCode keyCode;
         public float cooldown;
         protected float cooldowmTImer;
-       
+
         // Start is called before the first frame update
         protected virtual void Start()
         {

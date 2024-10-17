@@ -26,7 +26,7 @@ namespace SK
         [Header("Move Info")]
         public float battleSpeed;
         public float MoveSpeed;
-        public float battleTime;
+      //  public float battleTime;
         public float defaultMoveSpeed;
 
         [Header("Attack info")]
@@ -44,9 +44,11 @@ namespace SK
         [Header("Battle Info")]
         [SerializeField] private Transform characterFightingWithTransform;
         [SerializeField] private float characterFightingWithRadius;
-
-
-        private Enemy_Drop enemy_Drop;
+        [Header("Skill Info")]
+        [SerializeField]public float skill_One_Cooldown;
+        [SerializeField]public float lastTimeSkill_One;
+        protected Enemy_Drop enemy_Drop;
+        protected Enemy_Stat enemy_Stat;
 
 
 
@@ -58,6 +60,7 @@ namespace SK
             base.Awake();
             stateMachine = new EnemyStateMachine();
             enemy_Drop = GetComponent<Enemy_Drop>();
+            enemy_Stat = GetComponent<Enemy_Stat>();
 
         }
         protected override void Update()
@@ -68,7 +71,7 @@ namespace SK
 
             IsCharacterDectected();
             CalculateDirection();
-            if (IsCharacterDectected())
+            if (IsCharacterDectected() && !enemy_Stat.isDead)
                 FlipControll(charactersDetected.transform.position.x - transform.position.x);
 
         }

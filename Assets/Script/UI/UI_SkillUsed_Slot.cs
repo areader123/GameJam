@@ -14,9 +14,10 @@ namespace SK
         private Image image;
         public bool Unlock;
         public Skill skill;
+        public SkillName skillName;
         private UI_InGame uI_InGame;
         private void Awake()
-        {
+        {   
             uI_Skill_Slot = GetComponentInChildren<UI_Skill_Slot>();
             uI_SkillTree_Slot = GetComponentInParent<UI_SkillTree_Slot>();
             image = GetComponent<Image>();
@@ -24,7 +25,7 @@ namespace SK
         }
         void Start()
         {
-
+            skill = SkillManager.instance.GetSkillByName(skillName);
         }
 
         public void ShowSkillUsedSlot()

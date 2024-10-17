@@ -23,7 +23,7 @@ namespace SK
 
         private Bow_Skill_Controller bow_Skill_Controller;
 
-        private Enemy_Arrower enemy_Arrower;
+        private Enemy enemy;
 
         protected override void Update()
         {
@@ -31,7 +31,7 @@ namespace SK
         }
         protected override void Start()
         {
-            enemy_Arrower = GetComponent<Enemy_Arrower>();
+            enemy = GetComponent<Enemy>();
             base.Start();
 
         }
@@ -40,12 +40,12 @@ namespace SK
         {
             GameObject newArrow = Instantiate(arrow, arrowInstantiateTransform.position, quaternion.identity);
             bow_Skill_Controller = newArrow.GetComponent<Bow_Skill_Controller>();
-            bow_Skill_Controller.SetArrow(arrowDamage, arrowExistTime, arrowSpeed, enemy_Arrower.charactersDetected,offset,enemy_Arrower);
+            bow_Skill_Controller.SetArrow(arrowDamage, arrowExistTime, arrowSpeed, enemy.charactersDetected,offset,enemy);
         }
         public override void UseSkill()
         {
             base.UseSkill();
-            CreatArrow(enemy_Arrower.transform);
+            CreatArrow(enemy.transform);
         }
     }
 }
