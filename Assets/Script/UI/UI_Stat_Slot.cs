@@ -49,10 +49,6 @@ namespace SK
                 {
                     statValueText.text = (player_Stat.critChance.GetValue() + player_Stat.agility.GetValue()).ToString();
                 }
-                if (statType == StatType.evasion)
-                {
-                    statValueText.text = (player_Stat.evasion.GetValue() + player_Stat.agility.GetValue()).ToString();
-                }
                 if (statType == StatType.MagicResistance)
                 {
                     statValueText.text = (player_Stat.MagicResistance.GetValue() + player_Stat.intelligence.GetValue()).ToString();

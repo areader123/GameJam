@@ -54,12 +54,7 @@ namespace SK
             // }
         }
 
-        public override void OnEvasion()
-        {
-            Debug.Log("闪避成功");
-            //闪避
-            //SkillManger.Instance.dodge_Skill.CreateMirageOnDodge();
-        }
+       
 
         protected override void Update()
         {

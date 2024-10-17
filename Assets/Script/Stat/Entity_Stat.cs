@@ -7,7 +7,6 @@ namespace SK
     public enum StatType
     {
         strength,
-        agility,
         intelligence,
         vitality,
         critChance,
@@ -15,11 +14,8 @@ namespace SK
         damage,
         maxHP,
         armor,
-        evasion,
         MagicResistance,
-        ignite,
-        ice,
-        lighting
+        agility
     }
     //本类执行 数值的储存 数值的计算函数 
     //被攻击者调用自身的计算函数 括号内函数参数（Entity_Stat）为攻击者的 
@@ -28,7 +24,7 @@ namespace SK
     //这里是物理和魔法攻击一起计算的
     public enum CanHitBack
     {
-        can,canNot
+        can, canNot
     }
     public class Entity_Stat : MonoBehaviour
     {
@@ -36,10 +32,9 @@ namespace SK
 
         [Header("Major Stats")]
         public Stat strength;
-        public Stat agility;
         public Stat intelligence;
         public Stat vitality;
-
+        public Stat agility;
         [Header("Offensive Stats")]
         public Stat critChance;
         public Stat critPower;
@@ -48,36 +43,7 @@ namespace SK
         [Header("Defensive stats")]
         public Stat maxHP;
         public Stat armor;
-        public Stat evasion;
         public Stat MagicResistance;
-
-        [Header("Magic Attack")]
-        public Stat ignite;
-        public Stat ice;
-        public Stat lighting;
-
-
-        [Header("Magic Effect")]
-
-
-        private float igniteTimer;
-        public float igniteDamageCoolDown;
-        private float igniteDamageTimer;
-        private float iceTimer;
-        private float lightingTimer;
-
-
-
-
-
-        public bool isIgnite;
-        public bool isIce;
-        public bool isLighting;
-
-       // [SerializeField] private float AilmentDuration = 4f;
-
-
-        private float fireDamage;
 
         [Header("Character")]
 
@@ -99,180 +65,53 @@ namespace SK
 
         public virtual void DoDamage(Entity_Stat target)
         {
-            if (TargetCanAvoidAttack())
-            {
-                return;
-            }
-
             CaculateAttack(target);
-            CaculateMagic(target);
-
-        }
-
-        public virtual void DoMagicDamage(Entity_Stat target)
-        {
-            if (TargetCanAvoidAttack())
-            {
-                return;
-            }
-            CaculateMagic(target);
-        }
-
-
-        public void CaculateMagic(Entity_Stat target)
-        {
-            float igniteDamage = target.ignite.GetValue();
-            float iceDamage = target.ice.GetValue();
-            float lightingDamage = target.lighting.GetValue();
-            float totalDamage = target.intelligence.GetValue() + igniteDamage + lightingDamage + iceDamage;
-            totalDamage -= target.MagicResistance.GetValue() + target.intelligence.GetValue() * 3;
-            totalDamage = Mathf.Clamp(totalDamage, 0, int.MaxValue);
-            DecreaseHealthOnly(totalDamage);
-            if (Mathf.Max(igniteDamage, iceDamage, lightingDamage) == 0)
-            {
-                return;
-            }
-
-
-            bool canIgnite = igniteDamage > iceDamage && igniteDamage > lightingDamage;
-            bool canIce = iceDamage > lightingDamage && iceDamage > igniteDamage;
-            bool canLighting = lightingDamage > iceDamage && lightingDamage > igniteDamage;
-
-            while (canIgnite || canIce || canLighting)
-            {
-                if (Random.value < .3f && igniteDamage > 0)
-                {
-                    igniteTimer = 4;
-                    canIgnite = true;
-                    SetFireDamage(target);
-                    //AppAliment(canIgnite, canIce, canLighting);
-                    Debug.Log("火");
-                    return;
-                }
-
-                if (Random.value < .5f && iceDamage > 0)
-                {
-                    iceTimer = 4;
-                    canIce = true;
-                    //AppAliment(canIgnite, canIce, canLighting);
-                    Debug.Log("冰");
-                    return;
-                }
-                if (Random.value < .5f && lightingDamage > 0)
-                {
-                    lightingTimer = 4;
-                    canLighting = true;
-                    Debug.Log(canLighting);
-                    Debug.Log("雷");
-                    // AppAliment(canIgnite, canIce, canLighting);
-                    return;
-                }
-            }
-
-
-
-
-
+            CalculateMagic(target);
         }
 
 
 
-        public void AppAliment(bool _isIgnite, bool _isIce, bool _isLighting)
-        {
-            if (!_isIce && !_isLighting && !_isIgnite)
-            {
-                Debug.Log("isIgnite" + _isIgnite);
-                Debug.Log("_isIce" + _isIce);
-                Debug.Log("_isLighting" + _isLighting);
-                Debug.Log("退出");
-                return;
-            }
-            if (_isIgnite)
-            {
-                isIgnite = _isIgnite;
-                isIce = false;
-                isLighting = false;
-                //fx.CancelInvoke();
-                //fx.IgniteFXFor(AilmentDuration);
-                Debug.Log("isIgnite" + isIgnite);
-            }
-            if (_isIce)
-            {
-                isIce = _isIce;
-                isIgnite = false;
-                isLighting = false;
-                Debug.Log("isIce" + isIce);
-                //fx.CancelInvoke();
-                //fx.ChillFXFor(AilmentDuration);
-            }
-            if (_isLighting)
-            {
-                isLighting = _isLighting;
-                isIce = false;
-                isIgnite = false;
-                // fx.CancelInvoke();
-                //  fx.LightingFXFor(AilmentDuration);
-                Debug.Log("isLighting" + isLighting);
-            }
 
-        }
+
+
         private float CheckTargetArmor(Entity_Stat target, float totalDamage)
         {
-            if (isIce)
-            {
-                totalDamage -= target.armor.GetValue() * .8f;
-            }
-            else
-            {
-                totalDamage -= target.armor.GetValue();
-            }
+
+            totalDamage = totalDamage / (totalDamage + target.armor.GetValue()) * totalDamage;
+            //totalDamage -= target.armor.GetValue();
+
             totalDamage = Mathf.Clamp(totalDamage, 0, int.MaxValue);
-            Debug.Log("totalDamage:" + totalDamage);
             return totalDamage;
+        }
+
+        private float CheckTargetMagicResistance(Entity_Stat target, float totalDamage)
+        {
+            totalDamage = totalDamage / (totalDamage + target.MagicResistance.GetValue()) * totalDamage;
+            totalDamage = Mathf.Clamp(totalDamage, 0, int.MaxValue);
+            return totalDamage;
+        }
+
+        private void CalculateMagic(Entity_Stat target)
+        {
+            float totalDamage = target.damage.GetValue() + target.intelligence.GetValue();
+            totalDamage = CheckTargetMagicResistance(target, totalDamage);
         }
 
         private void CaculateAttack(Entity_Stat target)
         {
             float totalDamage = target.damage.GetValue() + target.strength.GetValue();
-            if (CritChance(target))
-            {
-                Debug.Log("totalDamage:" + totalDamage);
-                totalDamage *= (target.critPower.GetValue() + target.strength.GetValue()) * 0.01f;
-                totalDamage = (int)totalDamage;
-                Debug.Log("暴击" + totalDamage);
-            }
+            // if (CritChance(target))
+            // {
+            //     Debug.Log("totalDamage:" + totalDamage);
+            //     totalDamage *= (target.critPower.GetValue() + target.strength.GetValue()) * 0.01f;
+            //     totalDamage = (int)totalDamage;
+            //     Debug.Log("暴击" + totalDamage);
+            // }
             totalDamage = CheckTargetArmor(target, totalDamage);
             DecreaseHealthOnly(totalDamage);
         }
 
-        protected virtual bool TargetCanAvoidAttack()
-        {
-            float totalEvasion = agility.GetValue() + evasion.GetValue();
-            if (isLighting)
-            {
-                totalEvasion -= 20;
-            }
-            else
-            {
-                totalEvasion = agility.GetValue() + evasion.GetValue();
-            }
-            Debug.Log(totalEvasion + ",");
-            Debug.Log(agility.GetValue() + ",");
-            Debug.Log(evasion.GetValue() + ",");
-            if (Random.Range(0, 100) < totalEvasion)
-            {
-                Debug.Log("闪避成功");
-                OnEvasion();
-                return true;
-            }
 
-            return false;
-        }
-
-        public virtual void OnEvasion()
-        {
-
-        }
 
 
         public bool CritChance(Entity_Stat target)
@@ -325,56 +164,15 @@ namespace SK
         {
             _currentHP = maxHP.GetValue();
             critPower.SetDefaultValue(150);
-            igniteDamageCoolDown = .3f;
-            //fx = GetComponent<EntityFX>();
         }
 
         // Update is called once per frame
         protected virtual void Update()
         {
-            igniteDamageTimer -= Time.deltaTime;
-            igniteTimer -= Time.deltaTime;
-            canGetItemTimer -= Time.deltaTime;
-
-            iceTimer -= Time.deltaTime;
-            lightingTimer -= Time.deltaTime;
-
-
-            if (canGetItemTimer > 0)
-            {
-                canGetItem = false;
-            }
-            else
-            {
-                canGetItemTimer = 0;
-                canGetItem = true;
-            }
-
-            if (igniteTimer < 0)
-            {
-                isIgnite = false;
-            }
-            if (igniteDamageTimer < 0 && isIgnite)
-            {
-                Debug.Log("以下为火焰伤害");
-                DecreaseHealthOnly(fireDamage);
-                igniteDamageTimer = igniteDamageCoolDown;
-            }
-            if (iceTimer < 0)
-            {
-                isIce = false;
-            }
-            if (lightingTimer < 0)
-            {
-                isLighting = false;
-            }
-
-          
 
 
         }
 
-        private void SetFireDamage(Entity_Stat target) => fireDamage = target.ignite.GetValue() * 0.2f;
 
         protected virtual void Die()
         {
@@ -410,8 +208,6 @@ namespace SK
                 return strength;
             if (_statType == StatType.damage)
                 return damage;
-            if (_statType == StatType.evasion)
-                return evasion;
             if (_statType == StatType.agility)
                 return agility;
             if (_statType == StatType.armor)
@@ -428,13 +224,6 @@ namespace SK
                 return maxHP;
             if (_statType == StatType.vitality)
                 return vitality;
-            if (_statType == StatType.ignite)
-                return ignite;
-            if (_statType == StatType.ice)
-                return ice;
-            if (_statType == StatType.lighting)
-                return lighting;
-
             return null;
 
 

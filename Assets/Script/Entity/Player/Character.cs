@@ -57,7 +57,7 @@ namespace SK
             // Debug.Log("Vertical" +vertical);
             // Debug.Log("horizonal" + horizonal);
             //Debug.Log("inputHandler.vertical" + inputHandler.vertical);
-            if (!uI.ifTimeStop || !isKoncked)
+            if (!uI.ifTimeStop && !isKoncked)
             {
                 FlipControll(inputHandler.horizonal);
                 stateMachine.currentstate.Update();

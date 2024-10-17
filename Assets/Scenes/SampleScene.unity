@@ -175,13 +175,13 @@ MonoBehaviour:
   strength:
     value: 0
     modifiers: 
-  agility:
-    value: 0
-    modifiers: 
   intelligence:
     value: 0
     modifiers: 
   vitality:
+    value: 0
+    modifiers: 
+  agility:
     value: 0
     modifiers: 
   critChance:
@@ -199,25 +199,9 @@ MonoBehaviour:
   armor:
     value: 0
     modifiers: 
-  evasion:
-    value: 0
-    modifiers: 
   MagicResistance:
     value: 0
     modifiers: 
-  ignite:
-    value: 0
-    modifiers: 
-  ice:
-    value: 0
-    modifiers: 
-  lighting:
-    value: 0
-    modifiers: 
-  igniteDamageCoolDown: 0
-  isIgnite: 0
-  isIce: 0
-  isLighting: 0
   isDead: 0
   canGetItem: 1
   canGetItemCoolDown: 1
@@ -5934,13 +5918,13 @@ MonoBehaviour:
   strength:
     value: 2
     modifiers: 
-  agility:
-    value: 2
-    modifiers: 
   intelligence:
     value: 2
     modifiers: 
   vitality:
+    value: 2
+    modifiers: 
+  agility:
     value: 2
     modifiers: 
   critChance:
@@ -5958,25 +5942,9 @@ MonoBehaviour:
   armor:
     value: 1
     modifiers: 
-  evasion:
-    value: 1
-    modifiers: 
   MagicResistance:
     value: 1
     modifiers: 
-  ignite:
-    value: 0
-    modifiers: 
-  ice:
-    value: 0
-    modifiers: 
-  lighting:
-    value: 0
-    modifiers: 
-  igniteDamageCoolDown: 0
-  isIgnite: 0
-  isIce: 0
-  isLighting: 0
   isDead: 0
   canGetItem: 1
   canGetItemCoolDown: 1
@@ -8300,13 +8268,13 @@ MonoBehaviour:
   strength:
     value: 0
     modifiers: 
-  agility:
-    value: 0
-    modifiers: 
   intelligence:
     value: 0
     modifiers: 
   vitality:
+    value: 0
+    modifiers: 
+  agility:
     value: 0
     modifiers: 
   critChance:
@@ -8324,25 +8292,9 @@ MonoBehaviour:
   armor:
     value: 0
     modifiers: 
-  evasion:
-    value: 0
-    modifiers: 
   MagicResistance:
     value: 0
     modifiers: 
-  ignite:
-    value: 0
-    modifiers: 
-  ice:
-    value: 0
-    modifiers: 
-  lighting:
-    value: 0
-    modifiers: 
-  igniteDamageCoolDown: 0
-  isIgnite: 0
-  isIce: 0
-  isLighting: 0
   isDead: 0
   canGetItem: 1
   canGetItemCoolDown: 1
@@ -8788,13 +8740,13 @@ MonoBehaviour:
   strength:
     value: 4
     modifiers: 
-  agility:
-    value: 3
-    modifiers: 
   intelligence:
     value: 3
     modifiers: 
   vitality:
+    value: 3
+    modifiers: 
+  agility:
     value: 3
     modifiers: 
   critChance:
@@ -8812,25 +8764,9 @@ MonoBehaviour:
   armor:
     value: 1
     modifiers: 
-  evasion:
-    value: 1
-    modifiers: 
   MagicResistance:
     value: 2
     modifiers: 
-  ignite:
-    value: 0
-    modifiers: 
-  ice:
-    value: 0
-    modifiers: 
-  lighting:
-    value: 0
-    modifiers: 
-  igniteDamageCoolDown: 0
-  isIgnite: 0
-  isIce: 0
-  isLighting: 0
   isDead: 0
   canGetItem: 1
   canGetItemCoolDown: 1
@@ -9619,6 +9555,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2376496301577124449, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2376496301577124457, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
+      propertyPath: canHitBack
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2376496301577124462, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
