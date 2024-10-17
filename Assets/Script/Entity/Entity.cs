@@ -19,6 +19,10 @@ namespace SK
     public int faceDir = 1;
 
     public bool isbusy;
+
+    public bool isKoncked;
+    [SerializeField]private float konckedSpeed;
+    [SerializeField]private float konckbackDuration;
     
     
 
@@ -40,7 +44,7 @@ namespace SK
 
     }
 
-    public virtual void Damage()
+    public virtual void Damage(Entity_Stat  entity_Stat = null)
     {
         
         //实体受击效果
@@ -51,18 +55,29 @@ namespace SK
         
     }
 
-    // protected virtual IEnumerator HitKnockback()
-    // {
-
-    // }
+      protected virtual IEnumerator HitKnockback()
+    {
+        isKoncked = true;
+        animator.speed =0;
+        Debug.Log("HitKnockback Start");
+        rb.velocity = new Vector2(konckedSpeed * (-faceDir), 0);
+        yield return new WaitForSeconds(konckbackDuration);
+         rb.velocity =  Vector2.zero;
+        animator.speed =1;
+        //rb.velocity = new Vector2(0,0);
+        Debug.Log("HitKnockback End");
+        isKoncked = false;
+        
+       
+    }
 
     #region Velocity
     public void SetVelocity(float _xVelocity, float _yVelocity,float movementSpeed)
     {
-        // if (isKoncked)
-        // {
-        //     return;
-        // }
+         if (isKoncked)
+         {
+             return;
+         }
         float speed = movementSpeed;
         rb.velocity = new Vector2(_xVelocity, _yVelocity).normalized * speed;
     }

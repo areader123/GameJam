@@ -31,7 +31,7 @@ namespace SK
             base.DoDamage(target);
             if (!isDead)
             {
-                character.Damage();
+                character.Damage(target);
             }
         }
 

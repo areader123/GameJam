@@ -10,6 +10,7 @@ namespace SK
         private Material orignMaterial;
         [SerializeField] private float flashDuration;
         SpriteRenderer sp;
+        private Entity entity;
 
         private void Start()
         {
@@ -54,6 +55,8 @@ namespace SK
             InvokeRepeating("RedColorBlink",0,.15f);
             Invoke("CancleColorChange",_second);    
         }
+
+     
 
 
     }

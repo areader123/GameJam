@@ -57,17 +57,24 @@ namespace SK
             // Debug.Log("Vertical" +vertical);
             // Debug.Log("horizonal" + horizonal);
             //Debug.Log("inputHandler.vertical" + inputHandler.vertical);
-            FlipControll(horizonal);
-            if (!uI.ifTimeStop)
+            if (!uI.ifTimeStop || !isKoncked)
             {
+                FlipControll(inputHandler.horizonal);
                 stateMachine.currentstate.Update();
             }
         }
         public void AnimationTrigger() => stateMachine.currentstate.AnimationFinishTrigger();
-        public override void Damage()
+        public override void Damage(Entity_Stat entity_Stat = null)
         {
-            base.Damage();
+            base.Damage(entity_Stat);
             fx.RedColorBlinkFor(.3f);
+            if (entity_Stat != null)
+            {
+                if (!isKoncked && entity_Stat.canHitBack == CanHitBack.can)
+                {
+                    StartCoroutine("HitKnockback");
+                }
+            }
             Debug.Log("玩家受到伤害");
         }
 
@@ -89,6 +96,11 @@ namespace SK
         {
             Gizmos.DrawWireSphere(attackableTransform.position, attackRadius);
         }
+
+
+
+
+
     }
 }
 

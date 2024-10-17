@@ -32,7 +32,7 @@ namespace SK
             base.DoDamage(target);
             if(!isDead)
             {
-                enemy.Damage();
+                enemy.Damage(target);
             }
         }
 

@@ -44,9 +44,9 @@ namespace SK
             }
             return false;
         }
-        public override void Damage()
+        public override void Damage(Entity_Stat  entity_Stat)
         {
-            base.Damage();
+            base.Damage(entity_Stat);
             if (!enemy_Stat.isDead)
                 fx.RedColorBlinkFor(.3f);
         }

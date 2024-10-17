@@ -26,6 +26,10 @@ namespace SK
     //计算得到的伤害数值 给到TakeDamage（） 用于扣除自身血量
 
     //这里是物理和魔法攻击一起计算的
+    public enum CanHitBack
+    {
+        can,canNot
+    }
     public class Entity_Stat : MonoBehaviour
     {
         public float _currentHP;
@@ -81,6 +85,7 @@ namespace SK
         public bool canGetItem = true;
         private float canGetItemTimer;
         public float canGetItemCoolDown = 1f;
+        public CanHitBack canHitBack;
 
 
 

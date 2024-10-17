@@ -47,6 +47,8 @@ namespace SK
         [Header("Skill Info")]
         [SerializeField]public float skill_One_Cooldown;
         [SerializeField]public float lastTimeSkill_One;
+
+
         protected Enemy_Drop enemy_Drop;
         protected Enemy_Stat enemy_Stat;
 
@@ -215,9 +217,12 @@ namespace SK
             return false;
         }
 
-        public override void Damage()
+        public override void Damage(Entity_Stat entity_Stat = null)
         {
-
+            if(!isKoncked)
+            {
+                StartCoroutine("HitKnockback");
+            }
             //敌人实体受击打效果
         }
 

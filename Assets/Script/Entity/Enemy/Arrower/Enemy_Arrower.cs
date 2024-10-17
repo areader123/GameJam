@@ -32,15 +32,16 @@ namespace SK
         {
             base.Update();
         }
-        public override void Damage()
+        public override void Damage(Entity_Stat  entity_Stat)
         {
-            base.Damage();
+            base.Damage(entity_Stat);
             fx.RedColorBlinkFor(.3f);
         }
         public override void Die()
         {
             //无死亡状态的话 无法启用物品掉落
-           // base.Die();
+            base.Die();
+            Destroy(gameObject);
         }
 
 
