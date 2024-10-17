@@ -12,6 +12,7 @@ namespace SK
 
         public Transform attackableTransform;
         public float attackRadius;
+        [SerializeField] private UI uI;
 
 
         #region Player_State
@@ -53,12 +54,14 @@ namespace SK
         {
             float delta = Time.deltaTime;
             inputHandler.TickInput(delta);
-
             // Debug.Log("Vertical" +vertical);
             // Debug.Log("horizonal" + horizonal);
             //Debug.Log("inputHandler.vertical" + inputHandler.vertical);
             FlipControll(horizonal);
-            stateMachine.currentstate.Update();
+            if (!uI.ifTimeStop)
+            {
+                stateMachine.currentstate.Update();
+            }
         }
         public void AnimationTrigger() => stateMachine.currentstate.AnimationFinishTrigger();
         public override void Damage()

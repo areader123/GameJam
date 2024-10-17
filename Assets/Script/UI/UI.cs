@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 namespace SK
 {
 
     public class UI : MonoBehaviour
     {
         [SerializeField] private GameObject character;
-        [SerializeField] private GameObject skillTree;
+        [SerializeField] public GameObject skillTree;
         [SerializeField] private GameObject craft;
         [SerializeField] private GameObject setting;
 
@@ -16,9 +17,10 @@ namespace SK
 
 
         public UI_Stat_Tool_Tip uI_Stat_Tool_Tip;
-
-
         public UI_Skill_Tool ui_Skill_Tip;
+
+        public UI_SkillUsed_Slot[] uI_SkillUsed_Slots;
+        public bool ifTimeStop;
         // Start is called before the first frame update
         void Start()
         {
@@ -31,6 +33,7 @@ namespace SK
             if (Input.GetKeyDown(KeyCode.B))
             {
                 SwithWithKeyTo(character);
+
             }
             // if (Input.GetKeyDown(KeyCode.B))
             // {
@@ -39,6 +42,7 @@ namespace SK
             if (Input.GetKeyDown(KeyCode.K))
             {
                 SwithWithKeyTo(skillTree);
+
             }
             // if (Input.GetKeyDown(KeyCode.O))
             // {
@@ -65,7 +69,9 @@ namespace SK
                 CheckForGameUI();
                 return;
             }
-
+            Time.timeScale = 0;
+            Character_Controller.instance.character.animator.speed =0;
+            ifTimeStop = true;
             SwithTo(_menu);
         }
 
@@ -76,7 +82,9 @@ namespace SK
                 if (transform.GetChild(i).gameObject.activeSelf)
                     return;
             }
-
+            Character_Controller.instance.character.animator.speed =1;
+            Time.timeScale = 1;
+            ifTimeStop = false;
             SwithTo(game);
         }
     }

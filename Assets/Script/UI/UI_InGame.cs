@@ -11,9 +11,9 @@ namespace SK
         [SerializeField] private Slider slider;
         [SerializeField] private Character_Stat character_Stat;
 
-        [SerializeField] private Image dashCoolDownImage;
-        [SerializeField] private Image dashCoolDownImageLocked;
-        private float dashCoolDown;
+        [SerializeField] private Image FirstCoolDownImage;
+
+        private float FirstCoolDown;
         [SerializeField] private Image parryCoolDownImage;
         private float parryCoolDown;
 
@@ -29,20 +29,24 @@ namespace SK
         private float flaskCoolDown;
 
         [SerializeField] private TextMeshProUGUI lightingNumberText;
-        [SerializeField]private TextMeshProUGUI expNumberText;
-        [SerializeField]private TextMeshProUGUI levelNumberText;
-        [SerializeField]private TextMeshProUGUI SkillPointNumberText;
+        [SerializeField] private TextMeshProUGUI expNumberText;
+        [SerializeField] private TextMeshProUGUI levelNumberText;
+        [SerializeField] private TextMeshProUGUI SkillPointNumberText;
 
 
-        [SerializeField] private Image cloneCoolDownImage;
-        [SerializeField] private Image cloneCoolDownImageLocked;
-        private float cloneCoolDown;
+        [SerializeField] private Image SecondCoolDownImage;
+        private float SecondCoolDown;
+
+        private UI uI;
+
+        [SerializeField]private List<UI_Skill_CoolDown_Slot> uI_Skill_CoolDown_Slots;
 
 
 
 
         private void Awake()
         {
+            uI = GetComponentInParent<UI>();
         }
 
         private void Start()
@@ -56,7 +60,7 @@ namespace SK
             // }
             //???????? 报错
             // dashCoolDown = SkillManager.instance.dash_Skill.cooldown;
-            // cloneCoolDown = SkillManager.instance.clone_Skill.cooldown;
+            // SecondCoolDown = SkillManager.instance.Second_Skill.cooldown;
             // parryCoolDown = skillManger.parry_Skill.cooldown;
             // crystalCoolDown = skillManger.crystal_Skill.cooldown;
             // swordCoolDown = skillManger.throwSword.cooldown;
@@ -71,52 +75,84 @@ namespace SK
             lightingNumberText.text = Character_Controller.instance.GetLightingNumber().ToString("#,#");
             expNumberText.text = Character_Controller.instance.GetExp().ToString("#,#");
             levelNumberText.text = Character_Controller.instance.GetLevel().ToString("#,#");
-            SkillPointNumberText.text = Character_Controller.instance. pointCanbeUsed.ToString();
-            if( SkillManager.instance.dash_Skill.dashUnlocked)
-            {
-                dashCoolDownImageLocked.fillAmount =0;
-            }
-            if( SkillManager.instance.clone_Skill.cloneUnlocked)
-            {
-                cloneCoolDownImageLocked.fillAmount =0;
-            }
+            SkillPointNumberText.text = Character_Controller.instance.pointCanbeUsed.ToString();
 
-            if (Input.GetKeyDown(KeyCode.LeftShift) && SkillManager.instance.dash_Skill.dashUnlocked)
-            {
-                SetCoolDown(dashCoolDownImage);
-            }
-            // if (Input.GetKeyDown(KeyCode.Q) && skillManger.parry_Skill.parryUnlock)
-            // {
-            //     SetCoolDown(parryCoolDownImage);
-            // }
-            // if (Input.GetKeyDown(KeyCode.F) && skillManger.crystal_Skill.crystalUnlock)
-            // {
-            //     SetCoolDown(crystalCoolDownImage);
-            // }
-            // if (Input.GetKeyUp(KeyCode.Mouse1))
-            // {
-            //     SetCoolDown(swordCoolDownImage);
-            // }
-            // if (Input.GetKeyDown(KeyCode.N))
-            // {
-            //     SetCoolDown(blackholeCoolDownImage);
-            // }
-            // if (Input.GetKeyDown(KeyCode.Alpha1) && Inventor.instance.GetSingleEquipment(Equipment.Flask) != null)
-            // {
-            //     SetCoolDown(flaskCoolDownImage);
-            // }
-            if (Input.GetKeyDown(KeyCode.C) && SkillManager.instance.clone_Skill.cloneUnlocked)
-            {
-                SetCoolDown(cloneCoolDownImage);
-            }
 
-            CheckCoolDownOf(dashCoolDownImage, SkillManager.instance.dash_Skill.cooldown);
-            // CheckCoolDownOf(parryCoolDownImage, parryCoolDown);
-            // CheckCoolDownOf(crystalCoolDownImage, crystalCoolDown);
-            // CheckCoolDownOf(swordCoolDownImage, swordCoolDown);
-            // CheckCoolDownOf(blackholeCoolDownImage, blackholeCoolDown);
-            // CheckCoolDownOf(flaskCoolDownImage, Inventor.instance.flaskCoolDown);
-            CheckCoolDownOf(cloneCoolDownImage, SkillManager.instance.clone_Skill.cooldown);
+            UpdateSkillShowedSlot();
+            SetCoolDown();
+            CheckCoolDown();
+            // if (Input.GetKeyDown(KeyCode.LeftShift) && SkillManager.instance.dash_Skill.dashUnlocked && SkillManager.instance.dash_Skill.dashSkillUsedUnlocked)
+            // {
+            //     SetCoolDown(FirstCoolDownImage);
+            // }
+            // // if (Input.GetKeyDown(KeyCode.Q) && skillManger.parry_Skill.parryUnlock)
+            // // {
+            // //     SetCoolDown(parryCoolDownImage);
+            // // }
+            // // if (Input.GetKeyDown(KeyCode.F) && skillManger.crystal_Skill.crystalUnlock)
+            // // {
+            // //     SetCoolDown(crystalCoolDownImage);
+            // // }
+            // // if (Input.GetKeyUp(KeyCode.Mouse1))
+            // // {
+            // //     SetCoolDown(swordCoolDownImage);
+            // // }
+            // // if (Input.GetKeyDown(KeyCode.N))
+            // // {
+            // //     SetCoolDown(blackholeCoolDownImage);
+            // // }
+            // // if (Input.GetKeyDown(KeyCode.Alpha1) && Inventor.instance.GetSingleEquipment(Equipment.Flask) != null)
+            // // {
+            // //     SetCoolDown(flaskCoolDownImage);
+            // // }
+            // if (Input.GetKeyDown(KeyCode.C) && SkillManager.instance.clone_Skill.cloneUnlocked && SkillManager.instance.clone_Skill.cloneSkillUsedUnlock)
+            // {
+            //     SetCoolDown(SecondCoolDownImage);
+            // }
+
+            // CheckCoolDownOf(FirstCoolDownImage, SkillManager.instance.dash_Skill.cooldown);
+            // // CheckCoolDownOf(parryCoolDownImage, parryCoolDown);
+            // // CheckCoolDownOf(crystalCoolDownImage, crystalCoolDown);
+            // // CheckCoolDownOf(swordCoolDownImage, swordCoolDown);
+            // // CheckCoolDownOf(blackholeCoolDownImage, blackholeCoolDown);
+            // // CheckCoolDownOf(flaskCoolDownImage, Inventor.instance.flaskCoolDown);
+            // CheckCoolDownOf(SecondCoolDownImage, SkillManager.instance.clone_Skill.cooldown);
+        }
+
+        private void UpdateSkillShowedSlot()
+        {
+            // UI_SkillTree_Slot uI_SkillTree_Slot = uI.skillTree.GetComponent<UI_SkillTree_Slot>();
+            UI_SkillUsed_Slot[] uI_SkillUsed_Slots = uI.uI_SkillUsed_Slots;
+            int i = 0;
+            foreach (UI_SkillUsed_Slot obj in uI_SkillUsed_Slots)
+            {
+                if (obj.Unlock)
+                {
+                    uI_Skill_CoolDown_Slots[i].SetUpSkillCoolDownSlot(obj.uI_Skill_Slot, obj.skill);
+                    i++;
+                }
+            }
+        }
+
+        private void CheckCoolDown()
+        {
+            for(int i = 0; i <2 ; i++) 
+            {
+                if(uI_Skill_CoolDown_Slots[i] != null)
+                {
+                    uI_Skill_CoolDown_Slots[i].CheckCoolDown();
+                }
+            }
+        }
+        private void SetCoolDown()
+        {
+             for(int i = 0; i <2 ; i++) 
+            {
+                if(uI_Skill_CoolDown_Slots[i] != null)
+                {
+                    uI_Skill_CoolDown_Slots[i].SetCoolDown();
+                }
+            }
         }
 
         private void UpdataHealthBar()

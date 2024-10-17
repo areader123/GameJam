@@ -1,0 +1,48 @@
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace SK
+{
+
+    public class UI_SkillUsed_Slot : MonoBehaviour
+    {
+        [SerializeField] public UI_Skill_Slot uI_Skill_Slot;
+        [SerializeField] private UI_SkillTree_Slot uI_SkillTree_Slot;
+        private Image image;
+        public bool Unlock;
+        public Skill skill;
+        private UI_InGame uI_InGame;
+        private void Awake()
+        {
+            uI_Skill_Slot = GetComponentInChildren<UI_Skill_Slot>();
+            uI_SkillTree_Slot = GetComponentInParent<UI_SkillTree_Slot>();
+            image = GetComponent<Image>();
+            image.color = new Vector4(1, 1, 1, 0);
+        }
+        void Start()
+        {
+
+        }
+
+        public void ShowSkillUsedSlot()
+        {
+            image.color = new Vector4(1, 1, 1, 1);
+            Unlock = true;
+            uI_SkillTree_Slot.AddQueue(this);
+
+        }
+
+        public void HideSkillUsedSlot()
+        {
+            image.color = new Vector4(1, 1, 1, 0);
+            Unlock = false;
+        }
+
+
+
+    }
+
+}

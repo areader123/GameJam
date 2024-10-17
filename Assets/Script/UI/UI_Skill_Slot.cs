@@ -7,8 +7,8 @@ using UnityEngine.UI;
 namespace SK
 {
 
-    public class UI_Skill_Slot : MonoBehaviour, 
-    //ISaveManager,
+    public class UI_Skill_Slot : MonoBehaviour,
+     //ISaveManager,
      IPointerEnterHandler,
       IPointerExitHandler
     {
@@ -22,7 +22,10 @@ namespace SK
         [SerializeField] private UI_Skill_Slot[] shouldBeLock;
         [SerializeField] private UI_Skill_Slot[] shouldBeUnlock;
 
-        [SerializeField] private Image skillImage;
+        [SerializeField] public Image skillImage;
+
+        private UI_SkillUsed_Slot uI_SkillUsed_Slot;
+
 
         private UI ui => GetComponentInParent<UI>();
 
@@ -30,6 +33,7 @@ namespace SK
         {
             Button button = GetComponent<Button>();
             button.onClick.AddListener(() => UnlockSkillSlot());
+           // button.onClick.AddListener(() => SwitchSkillUsedSlot());
         }
 
         private void Start()
@@ -41,6 +45,10 @@ namespace SK
             {
                 skillImage.color = Color.white;
             }
+            if (GetComponentInParent<UI_SkillUsed_Slot>() != null)
+            {
+                uI_SkillUsed_Slot = GetComponentInParent<UI_SkillUsed_Slot>();
+            }
 
         }
         private void OnValidate()
@@ -50,6 +58,10 @@ namespace SK
 
         public void UnlockSkillSlot()
         {
+            if (unLock)
+            {
+                SwitchSkillUsedSlot();
+            }
             if (Character_Controller.instance.HaveEnoughSkillPoint(skillPrice) == false)
             {
                 return;
@@ -72,9 +84,15 @@ namespace SK
                     return;
                 }
             }
-            //在这里扣除技能点
+
             unLock = true;
             skillImage.color = Color.white;
+        }
+
+        private void SwitchSkillUsedSlot()
+        {
+            if (unLock)
+                uI_SkillUsed_Slot.ShowSkillUsedSlot();
         }
 
         public void OnPointerEnter(PointerEventData eventData)
@@ -103,7 +121,7 @@ namespace SK
                 yOffset = 150;
             }
 
-           ui.uI_Stat_Tool_Tip.transform.position = new Vector2(mousePosition.x + xOffset, mousePosition.y + yOffset);
+            ui.uI_Stat_Tool_Tip.transform.position = new Vector2(mousePosition.x + xOffset, mousePosition.y + yOffset);
             Debug.Log("button");
             ui.ui_Skill_Tip.ShowSkillTip(skillDescription, skillName);
 

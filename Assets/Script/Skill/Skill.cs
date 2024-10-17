@@ -8,7 +8,7 @@ namespace SK
 
     public class Skill : MonoBehaviour
     {
-
+        public KeyCode keyCode;
         public float cooldown;
         protected float cooldowmTImer;
        

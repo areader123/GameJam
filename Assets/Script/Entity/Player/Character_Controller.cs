@@ -26,6 +26,7 @@ namespace SK
         [SerializeField] private int maxExpNumber_First;
         [SerializeField] private int perLevelMaxExpNumberAdded;
         [SerializeField] private int perLevelAddSkillPoint;
+        public int maxSkillNumber;
 
 
         private bool canChangeLightScaleFlag = true;

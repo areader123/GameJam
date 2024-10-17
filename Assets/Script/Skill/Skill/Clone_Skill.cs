@@ -8,7 +8,9 @@ namespace SK
     public class Clone_Skill : Skill
     {
         public bool cloneUnlocked;
+        public bool cloneSkillUsedUnlock;
         [SerializeField] private UI_Skill_Slot cloneUnlockButton;
+        [SerializeField] private UI_SkillUsed_Slot uI_SkillUsed_Slot;
         [Header("Clone Info")]
         [SerializeField] private GameObject clonePrefab;
         [SerializeField] private float cloneDuration;
@@ -34,8 +36,9 @@ namespace SK
         public override void UseSkill()
         {
             base.UseSkill();
-            if (cloneUnlocked)
+            if (cloneUnlocked && uI_SkillUsed_Slot.Unlock)
             {
+                cloneSkillUsedUnlock = uI_SkillUsed_Slot.Unlock;
                 CreatClone(character.transform,Vector3.zero);
             }
         }
