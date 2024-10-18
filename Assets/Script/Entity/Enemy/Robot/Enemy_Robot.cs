@@ -14,6 +14,7 @@ namespace SK
         public Robot_Skill_Attack_State robot_Skill_Attack_State;
         public Robot_Walk_State robot_Walk_State;
         public Robot_Battle_State robot_Battle_State;
+        public bool CanskillUsedInBattleRange;
 
         // Start is called before the first frame update
         protected override void Awake()

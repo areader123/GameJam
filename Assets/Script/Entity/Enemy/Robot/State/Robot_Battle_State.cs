@@ -27,6 +27,15 @@ public class Robot_Battle_State : EnemyState
         base.Update();
         if (enemy.IsCharacterFightingWith())
         {
+            if (enemy.CanskillUsedInBattleRange)
+            {
+                if (DoSkill_One())
+                {
+                    stateMachine.ChangeState(enemy.robot_Skill_Attack_State);
+                    return;
+                }
+            }
+
             if (enemy.IsCharacterAttackable())
             {
                 if (DoAttack())
@@ -36,7 +45,7 @@ public class Robot_Battle_State : EnemyState
                     //{
                     //return; 记得return 释放完技能后 就不会再次普攻了
                     //}
-                    if (DoSkill_One())
+                    if (DoSkill_One() && !enemy.CanskillUsedInBattleRange)
                     {
                         stateMachine.ChangeState(enemy.robot_Skill_Attack_State);
                         return;
@@ -63,6 +72,7 @@ public class Robot_Battle_State : EnemyState
 
 
     }
+
     private bool DoAttack()
     {
         if (Time.time >= enemy.lastTimeAttack + enemy.attackCooldown)

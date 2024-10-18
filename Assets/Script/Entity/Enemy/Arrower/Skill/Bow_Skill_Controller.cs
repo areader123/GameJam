@@ -25,7 +25,10 @@ namespace SK
         private float damageTimeCounter;
         private bool destroySelfAfterDamage;
         private bool RotationWhileDamage;
-        private Skill  skill;
+        private Skill skill;
+        private bool slowRotationWhileDamage;
+        private float slowRotationSpeed;
+        private Transform InstantiateTransform;
 
         private void Awake()
         {
@@ -44,7 +47,17 @@ namespace SK
                 Destroy(gameObject);
             }
             if (RotationWhileDamage)
-                SetRotation(target, orignTarget);
+            {
+
+                if (slowRotationWhileDamage)
+                {
+                    SlowRotation();
+                }
+                else
+                {
+                    SetRotation();
+                }
+            }
         }
 
         private void SetVelocity()
@@ -53,15 +66,22 @@ namespace SK
             rb.velocity = direction.normalized * arrowSpeed;
         }
 
-        private void SetRotation(Character _target, Enemy _orignTarget)
+        private void SetRotation()
         {
-            transform.LookAt(_target.transform.position);
-            transform.Rotate(0, 90, 0);
+            transform.LookAt(target.transform.position);
             // Quaternion newQuaternion = Quaternion.LookRotation(_target.transform.position - _orignTarget.transform.position);
             // transform.rotation = newQuaternion;
+            transform.Rotate(0, -90, 0);
+        }
+        private void SlowRotation()
+        {
+           Vector3 direction =  target.transform.position - transform.position;
+           Vector3 directionNormalized = direction.normalized;
+           transform.localRotation = Quaternion.Slerp(transform.localRotation,Quaternion.LookRotation(target.transform.position-transform.position,target.transform.position-transform.position),slowRotationSpeed);
+            //transform.rotation.SetFromToRotation(temp1.eulerAngles,temp2.eulerAngles);
         }
 
-        public void SetArrow(float _arrowDamage, float _arrowExistTime, float _arrowSpeed, Character _target, Vector3 _offset, Enemy _orignTarget, float _damagepPerTime, bool _destroySelfAfterDamage, bool _RotationWhileDamage,Skill _skill)
+        public void SetArrow(float _arrowDamage, float _arrowExistTime, float _arrowSpeed, Character _target, Vector3 _offset, Enemy _orignTarget, float _damagepPerTime, bool _destroySelfAfterDamage, bool _RotationWhileDamage, Skill _skill, bool _slowRotationWhileDamage,float _slowRotationSpeed,Transform _InstantiateTransform)
         {
 
             arrowDamage = _arrowDamage;
@@ -74,11 +94,12 @@ namespace SK
             destroySelfAfterDamage = _destroySelfAfterDamage;
             RotationWhileDamage = _RotationWhileDamage;
             skill = _skill;
+            slowRotationWhileDamage = _slowRotationWhileDamage;
+            slowRotationSpeed = _slowRotationSpeed;
+            InstantiateTransform = _InstantiateTransform;
             SetVelocity();
-
-            SetRotation(_target, _orignTarget);
-
-
+           // SetRotation();
+            
         }
 
 
@@ -86,7 +107,7 @@ namespace SK
         {
             if (hit.GetComponent<Character_Stat>() != null && hit.GetComponent<Character>() != null && destroySelfAfterDamage)
             {
-                hit.GetComponent<Character_Stat>().TakeDamage(arrowDamage,skill);
+                hit.GetComponent<Character_Stat>().TakeDamage(arrowDamage, skill);
                 Destroy(gameObject);
             }
         }
@@ -97,7 +118,7 @@ namespace SK
             {
                 if (damageTimeCounter <= 0)
                 {
-                    hit.GetComponent<Character_Stat>().TakeDamage(arrowDamage,skill);
+                    hit.GetComponent<Character_Stat>().TakeDamage(arrowDamage, skill);
                     damageTimeCounter = damagepPerTime;
                 }
             }
