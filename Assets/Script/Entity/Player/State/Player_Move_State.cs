@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Playables;
 namespace SK
 {
@@ -14,6 +15,10 @@ namespace SK
             base.Update();
             character.SetVelocity(character.inputHandler.horizonal,character.inputHandler.vertical,character.movementSpeed);
             MoveDirection();
+            if(Mouse.current.leftButton.wasPressedThisFrame)
+            {
+                stateMachine.ChangeState(character.player_Move_Attack_State);
+            }
             if (character.inputHandler.moveAmount == 0f)
             {
                 stateMachine.ChangeState(character.player_Idel_State);

@@ -26,6 +26,7 @@ namespace SK
 
         public Player_Attack_State player_Attack_State { get; private set; }
         public Player_Die_State player_Die_State { get; private set; }
+        public Player_Move_Attack_State player_Move_Attack_State{ get; private set; }
         #endregion
 
         protected override void Awake()
@@ -36,8 +37,9 @@ namespace SK
             player_Move_State = new Player_Move_State("Move", stateMachine, this);
             player_Dash_State = new Player_Dash_State("Dash", stateMachine, this);
             player_Grounded_State = new Player_Grounded_State("Isground", stateMachine, this);
-            player_Attack_State = new Player_Attack_State("Attack", stateMachine, this);
+            player_Attack_State = new Player_Attack_State("Stand_Attack", stateMachine, this);
             player_Die_State = new Player_Die_State("Die", stateMachine, this);
+           player_Move_Attack_State = new Player_Move_Attack_State("Move_Attack",stateMachine,this);
 
             capsuleCollider2D = GetComponent<CapsuleCollider2D>();
             inputHandler = GetComponent<InputHandler>();

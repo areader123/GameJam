@@ -18,9 +18,9 @@ namespace SK
             base.Start();
         }
 
-        public override void TakeDamage(float damage ,Skill skill)
+        public override void TakeDamage(float damage, Skill skill)
         {
-            base.TakeDamage(damage,skill);
+            base.TakeDamage(damage, skill);
             if (!isDead)
             {
                 enemy.Damage(skill);
@@ -30,9 +30,9 @@ namespace SK
         public override void DoDamage(Entity_Stat target)
         {
             base.DoDamage(target);
-            if(!isDead)
+            if (!isDead)
             {
-                enemy.Damage(null,target);
+                enemy.Damage(null, target);
             }
         }
 
@@ -41,8 +41,11 @@ namespace SK
         protected override void Die()
         {
             base.Die();
-             isDead = true;
-            enemy.Die();
+            if (!isDead)
+            {
+                enemy.Die();
+                isDead = true;
+            }
         }
         //属性更改
         public void Modifier()

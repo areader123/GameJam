@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 483970217007670018, guid: b66f03cf9cfcc60469670ad8fe15f42f, type: 3}
       propertyPath: m_FlipX
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3278133888613005780, guid: b66f03cf9cfcc60469670ad8fe15f42f, type: 3}
       propertyPath: m_RootOrder

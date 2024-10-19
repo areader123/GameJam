@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using SK;
 using UnityEngine;
 
-public class Player_Dash_State : Player_Grounded_State
+public class Player_Dash_State : PlayerState
 {
     public Player_Dash_State(string _animboolname, StateMachine _stateMachine, Character _character) : base(_animboolname, _stateMachine, _character)
     {

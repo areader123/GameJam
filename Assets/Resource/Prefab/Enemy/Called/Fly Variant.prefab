@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6779438547609966033, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
       propertyPath: m_Name
-      value: Fly
+      value: Fly Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6779438547609966033, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
       propertyPath: m_IsActive
@@ -57,6 +57,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6779438547609966040, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779438547609966043, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
+      propertyPath: RotationWhileDamage
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

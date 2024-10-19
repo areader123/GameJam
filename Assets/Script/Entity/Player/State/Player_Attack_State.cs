@@ -4,7 +4,7 @@ using SK;
 using UnityEngine;
 using UnityEngine.Playables;
 
-public class Player_Attack_State : PlayerState
+public class Player_Attack_State : Player_Grounded_State
 {
     public Player_Attack_State(string _animboolname, StateMachine _stateMachine, Character _character) : base(_animboolname, _stateMachine, _character)
     {

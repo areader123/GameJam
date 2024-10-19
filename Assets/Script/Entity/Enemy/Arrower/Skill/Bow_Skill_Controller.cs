@@ -100,7 +100,7 @@ namespace SK
             slowRotationSpeed = _slowRotationSpeed;
             InstantiateTransform = _InstantiateTransform;
             SetVelocity();
-            // SetRotation();
+            SetRotation();
 
         }
 

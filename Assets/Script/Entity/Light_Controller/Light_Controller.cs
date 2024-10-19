@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -30,6 +31,8 @@ namespace SK
 
 
 
+
+
         private void Awake()
         {
             if (instance != null)
@@ -51,9 +54,23 @@ namespace SK
             {
 
                 CaculateScale();
-
             }
+            UpdateScale();
             DecreaseWhenDetectEnemy();
+        }
+
+        private void UpdateScale()
+        {
+            if(transform.localScale.x> finalScale)
+            {
+                float delta = finalScale *scaleSpeed *Time.deltaTime;
+                transform.localScale -= new Vector3(delta,delta,0);
+            }
+            if(transform.localScale.x < finalScale)
+            {
+                float delta = finalScale *scaleSpeed *Time.deltaTime;
+                transform.localScale += new Vector3(delta,delta,0);
+            }
         }
 
         private void DecreaseWhenDetectEnemy()
@@ -75,8 +92,6 @@ namespace SK
             _maxLightingNumber = Character_Controller.instance.GetMaxLightingNumber();
             finalScale = Mathf.Lerp(minScale, maxScale, (float)_lightingNumber / _maxLightingNumber);
             //  transform.localScale = Vector2.Lerp(new Vector2(minScale, minScale), new Vector2(finalScale, finalScale), scaleSpeed * Time.deltaTime);
-            transform.localScale = new Vector2(finalScale, finalScale);
-
         }
 
 
