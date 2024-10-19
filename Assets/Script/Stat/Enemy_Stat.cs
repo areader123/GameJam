@@ -41,6 +41,7 @@ namespace SK
         protected override void Die()
         {
             base.Die();
+             isDead = true;
             enemy.Die();
         }
         //属性更改

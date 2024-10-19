@@ -1,0 +1,147 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using SK;
+using UnityEngine;
+public enum Target
+{
+    enemy, character
+}
+
+public class Enemy_MultiTransmit_Skill_Controller : MonoBehaviour
+{
+    private Target target;
+    private float arrowDamage;
+
+    private float arrowExistTime;
+
+    private float timeCounter;
+
+    private float arrowSpeed;
+
+
+    private Rigidbody2D rb;
+    private float damagepPerTime;
+    private float damageTimeCounter;
+    private bool destroySelfAfterDamage;
+    private Skill skill;
+
+
+
+    private float timePerSplit;
+    private float timePerSplitCounter;
+
+    private Enemy_MultiTransmit_Skill enemy_MultiTransmit_Skill;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        if (GetComponent<Enemy_MultiTransmit_Skill>() != null)
+        {
+            enemy_MultiTransmit_Skill = GetComponent<Enemy_MultiTransmit_Skill>();
+        }
+    }
+    void Start()
+    {
+        timePerSplitCounter = timePerSplit;
+        timeCounter = arrowExistTime;
+    }
+    private void Update()
+    {
+        timeCounter -= Time.deltaTime;
+        damageTimeCounter -= Time.deltaTime;
+        timePerSplitCounter -= Time.deltaTime;
+        if (timeCounter < 0)
+        {
+            Destroy(gameObject);
+        }
+        SetVelocity();
+        Split();
+    }
+
+    private void SetVelocity()
+    {
+        // Vector2 direction = Character_Controller.instance.character.transform.position - (orignTarget.transform.position + offset);
+        // rb.velocity = direction.normalized * arrowSpeed;
+        transform.position += transform.right * arrowSpeed * Time.deltaTime;
+    }
+
+
+    public void SetArrow(float _arrowDamage, float _arrowExistTime, float _arrowSpeed, float _damagepPerTime, bool _destroySelfAfterDamage, Skill _skill, Target _target, float _timePerSplit)
+    {
+        target = _target;
+        arrowDamage = _arrowDamage;
+        arrowExistTime = _arrowExistTime;
+        arrowSpeed = _arrowSpeed;
+
+        damagepPerTime = _damagepPerTime;
+        destroySelfAfterDamage = _destroySelfAfterDamage;
+
+        skill = _skill;
+        timePerSplit = _timePerSplit;
+
+        // SetRotation();
+
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D hit)
+    {
+        if (target == Target.character)
+        {
+            if (hit.GetComponent<Character_Stat>() != null && hit.GetComponent<Character>() != null && destroySelfAfterDamage)
+            {
+                hit.GetComponent<Character_Stat>().TakeDamage(arrowDamage, skill);
+                Destroy(gameObject);
+            }
+        }
+        else
+        {
+            if (hit.GetComponent<Enemy_Stat>() != null && hit.GetComponent<Enemy>() != null && destroySelfAfterDamage)
+            {
+                hit.GetComponent<Enemy_Stat>().TakeDamage(arrowDamage, skill);
+                Destroy(gameObject);
+            }
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D hit)
+    {
+        if (target == Target.character)
+        {
+
+            if (hit.GetComponent<Character_Stat>() != null && hit.GetComponent<Character>() != null && !destroySelfAfterDamage)
+            {
+                if (damageTimeCounter <= 0)
+                {
+                    hit.GetComponent<Character_Stat>().TakeDamage(arrowDamage, skill);
+                    damageTimeCounter = damagepPerTime;
+                }
+            }
+        }
+        else
+        {
+            if (hit.GetComponent<Enemy_Stat>() != null && hit.GetComponent<Enemy>() != null && !destroySelfAfterDamage)
+            {
+                if (damageTimeCounter <= 0)
+                {
+                    hit.GetComponent<Enemy_Stat>().TakeDamage(arrowDamage, skill);
+                    damageTimeCounter = damagepPerTime;
+                }
+            }
+        }
+    }
+
+    private void Split()
+    {
+        if (enemy_MultiTransmit_Skill != null)
+        {
+
+            if (timePerSplitCounter < 0)
+            {
+                enemy_MultiTransmit_Skill.CanUseSkill();
+                timePerSplitCounter = timePerSplit;
+            }
+        }
+    }
+}

@@ -13,7 +13,7 @@ namespace SK
         public Transform attackableTransform;
         public float attackRadius;
         [SerializeField] private UI uI;
-
+        private CapsuleCollider2D capsuleCollider2D;
 
         #region Player_State
         public StateMachine stateMachine { get; private set; }
@@ -39,7 +39,7 @@ namespace SK
             player_Attack_State = new Player_Attack_State("Attack", stateMachine, this);
             player_Die_State = new Player_Die_State("Die", stateMachine, this);
 
-
+            capsuleCollider2D = GetComponent<CapsuleCollider2D>();
             inputHandler = GetComponent<InputHandler>();
         }
 
@@ -107,7 +107,19 @@ namespace SK
             Gizmos.DrawWireSphere(attackableTransform.position, attackRadius);
         }
 
+        protected override IEnumerator HitKnockback()
+        {
+            isKoncked = true;
+            animator.speed = 0;
+            rb.velocity = new Vector2(konckedSpeed * (-faceDir), 0);
+            capsuleCollider2D.enabled =false;
+            yield return new WaitForSeconds(konckbackDuration);
+            capsuleCollider2D.enabled = true;
+            rb.velocity = Vector2.zero;
+            animator.speed = 1;
+            isKoncked = false;
 
+        }
 
 
 

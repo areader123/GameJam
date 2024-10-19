@@ -2,9 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using SK;
-using Unity.Mathematics;
-using Unity.VisualScripting;
-using UnityEditor.Tilemaps;
 using UnityEngine;
 
 namespace SK
@@ -44,19 +41,18 @@ namespace SK
         public Vector3 characterDirection;
 
         [Header("Battle Info")]
-        [SerializeField] private Transform characterFightingWithTransform;
-        [SerializeField] private float characterFightingWithRadius;
+        [SerializeField]private Transform characterFightingWithTransform;
+        [SerializeField]private float characterFightingWithRadius;
         [Header("Skill Info")]
-        [SerializeField] public float skill_One_Cooldown;
-        [SerializeField] public float lastTimeSkill_One;
+        [SerializeField]public float skill_One_Cooldown;
+        [SerializeField]public float lastTimeSkill_One;
+
+        [SerializeField]public float skill_Two_Cooldown;
+        [SerializeField]public float lastTimeSkill_Two;
 
 
         protected Enemy_Drop enemy_Drop;
         protected Enemy_Stat enemy_Stat;
-
-
-
-
 
 
         protected override void Awake()
@@ -80,7 +76,6 @@ namespace SK
             CalculateDirection();
             if (IsCharacterDectected() && !enemy_Stat.isDead && !attackting)
                 FlipControll(charactersDetected.transform.position.x - transform.position.x);
-
         }
 
 

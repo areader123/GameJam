@@ -21,8 +21,8 @@ namespace SK
     public bool isbusy;
 
     public bool isKoncked;
-    [SerializeField]private float konckedSpeed;
-    [SerializeField]private float konckbackDuration;
+    [SerializeField]protected float konckedSpeed;
+    [SerializeField]protected float konckbackDuration;
     
     
 
