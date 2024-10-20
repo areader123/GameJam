@@ -12,8 +12,9 @@ namespace SK
         [SerializeField] private GameObject prefab;
         [SerializeField] private float existTime;
         [SerializeField]private bool destroyAfterDamage;   
-        [SerializeField]private float damagepPerTime;
+        [SerializeField]private float timePerDamage;
         [SerializeField]private Vector3 offset;
+        [SerializeField]private float damageValue;
        
 
         private void Awake()
@@ -25,10 +26,17 @@ namespace SK
             if (enemy.charactersDetected != null)
             {
                 UnityEngine.Debug.Log("Instantiate");
-                GameObject newCreate = Instantiate(prefab, enemy.charactersDetected.transform.position + offset, Quaternion.identity);
+                GameObject newCreate = Instantiate(prefab, RandomPosition () , Quaternion.identity);
                 Enemy_Create_Skill_Controller enemy_Create_Skill_Controller = newCreate.GetComponent<Enemy_Create_Skill_Controller>();  
-                enemy_Create_Skill_Controller.SetUp(existTime,this,damagepPerTime,destroyAfterDamage);
+                enemy_Create_Skill_Controller.SetUp(existTime,this,timePerDamage,destroyAfterDamage,damageValue);
             }
+        }
+
+        private Vector3 RandomPosition () 
+        {
+            float randomX = Random.Range(enemy.charactersDetected.transform.position.x - offset.x,enemy.charactersDetected.transform.position.x + offset.x);
+          //  float randomY = Random.Range(enemy.charactersDetected.transform.position.y - offset.y,enemy.charactersDetected.transform.position.y + offset.y);
+          return new Vector3(randomX,enemy.charactersDetected.transform.position.y + offset.y,0);
         }
         public override void UseSkill()
         {

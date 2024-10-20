@@ -35,6 +35,15 @@ namespace SK
             }
         }
 
+        public override void DoMagicDamage(Entity_Stat target)
+        {
+            base.DoMagicDamage(target);
+            if (!isDead)
+            {
+                character.Damage(null, target);
+            }
+        }
+
         protected override void Die()
         {
             base.Die();

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.U2D.IK;
+using UnityEngine.UI;
 
 
 namespace SK
@@ -14,6 +16,10 @@ namespace SK
         [SerializeField] private StatType statType;
         [SerializeField] private TextMeshProUGUI statNameText;
         [SerializeField] private TextMeshProUGUI statValueText;
+        [SerializeField] private int increaseAmount;
+        [SerializeField] private Button button;
+        [SerializeField] private ColorBlock buttonFailColor;
+        [SerializeField] private ColorBlock buttonSuccessColor;
 
         [TextArea]
         [SerializeField] private string statDescription;
@@ -26,7 +32,36 @@ namespace SK
         {
             UpdateValue();
             ui = GetComponentInParent<UI>();
+            button.onClick.AddListener(CheckUpgrade);
+            CheckButtoncolor();
         }
+
+        private void CheckUpgrade()
+        {
+            if (Character_Controller.instance.UseSkillPoint())
+            {
+                UpGradeStat();
+                UpdateValue();
+                CheckButtoncolor();
+            }
+        }
+        private void CheckButtoncolor()
+        {
+            if (!Character_Controller.instance.CheckSkillPoint())
+            {
+                button.colors = buttonFailColor;
+            }
+            else
+            {
+                button.colors = buttonSuccessColor;
+            }
+        }
+
+        private void Update()
+        {
+
+        }
+
         public void UpdateValue()
         {
             Character_Stat player_Stat = Character_Controller.instance.character.GetComponent<Character_Stat>();
@@ -53,6 +88,15 @@ namespace SK
                 {
                     statValueText.text = (player_Stat.MagicResistance.GetValue() + player_Stat.intelligence.GetValue()).ToString();
                 }
+                if (statType == StatType.armor)
+                {
+                    statValueText.text = player_Stat.armor.GetValue().ToString();
+                }
+                if (statType == StatType.intelligence)
+                {
+                    statValueText.text = player_Stat.intelligence.GetValue().ToString();
+                }
+
             }
         }
 
@@ -65,5 +109,39 @@ namespace SK
         {
             ui.uI_Stat_Tool_Tip.HideToolTip();
         }
+
+        private void UpGradeStat()
+        {
+            Character_Stat player_Stat = Character_Controller.instance.character.GetComponent<Character_Stat>();
+            if (statType == StatType.maxHP)
+            {
+                player_Stat.GetStat(statType).AddModifiers(increaseAmount);
+            }
+            if (statType == StatType.damage)
+            {
+                player_Stat.GetStat(statType).AddModifiers(increaseAmount);
+            }
+            if (statType == StatType.critPower)
+            {
+                player_Stat.GetStat(statType).AddModifiers(increaseAmount);
+            }
+            if (statType == StatType.critChance)
+            {
+                player_Stat.GetStat(statType).AddModifiers(increaseAmount);
+            }
+            if (statType == StatType.MagicResistance)
+            {
+                player_Stat.GetStat(statType).AddModifiers(increaseAmount);
+            }
+            if (statType == StatType.armor)
+            {
+                player_Stat.GetStat(statType).AddModifiers(increaseAmount);
+            }
+            if (statType == StatType.intelligence)
+            {
+                player_Stat.GetStat(statType).AddModifiers(increaseAmount);
+            }
+        }
+
     }
 }

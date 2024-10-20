@@ -7,12 +7,12 @@ namespace SK
 
     public class UI : MonoBehaviour
     {
-        [SerializeField] private GameObject character;
+        [SerializeField] public GameObject character;
         [SerializeField] public GameObject skillTree;
         [SerializeField] private GameObject craft;
         [SerializeField] private GameObject setting;
 
-        [SerializeField] private GameObject game;
+        [SerializeField] public GameObject game;
 
 
 
@@ -30,20 +30,12 @@ namespace SK
         // Update is called once per frame
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.B))
-            {
-                SwithWithKeyTo(character);
-
-            }
+           
             // if (Input.GetKeyDown(KeyCode.B))
             // {
             //     SwithWithKeyTo(craft);
             // }
-            if (Input.GetKeyDown(KeyCode.K))
-            {
-                SwithWithKeyTo(skillTree);
-
-            }
+           
             // if (Input.GetKeyDown(KeyCode.O))
             // {
             //     SwithWithKeyTo(setting);

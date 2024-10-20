@@ -19,14 +19,14 @@ namespace SK
         }
         private IEnumerator FlashFX()
         {
-            // sp.material = hittedMaterial;
+             sp.material = hittedMaterial;
             Color orignColor = sp.color;
-            sp.color = Color.black;
+            sp.color = Color.white;
             Debug.Log("FX Start");
             yield return new WaitForSeconds(flashDuration);
             sp.color = orignColor;
             Debug.Log("FX end");
-            //sp.material = orignMaterial;
+            sp.material = orignMaterial;
         }
         public void Entity_FX_White()
         {

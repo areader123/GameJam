@@ -12,8 +12,10 @@ public class UI_Skill_CoolDown_Slot : MonoBehaviour
     [SerializeField] private Image skill_Image;
     [SerializeField] private Color coolDownColor;
     private float cooldown;
+    private float cooldownTimeCounter;
     private UI_Skill_Slot skillSlot;
     private Skill skill;
+    
     private void Awake()
     {
         ClearUp();
@@ -23,6 +25,7 @@ public class UI_Skill_CoolDown_Slot : MonoBehaviour
     {
         this.skill = skill;
         this.skillSlot = skillSlot;
+        cooldown = skill.cooldown;
     }
 
     private void Update()
@@ -33,16 +36,8 @@ public class UI_Skill_CoolDown_Slot : MonoBehaviour
             skill_Image.color = skillSlot.skillImage.color;
             coolDown_Image.sprite = skillSlot.skillImage.sprite;
             coolDown_Image.color = coolDownColor;
-            if (Input.GetKeyDown(skill.keyCode))
-            {
-                SetCoolDown();
-            }
-            CheckCoolDown();
         }
-        else
-        {
-
-        }
+       
     }
 
     public void CheckCoolDown()
@@ -54,7 +49,9 @@ public class UI_Skill_CoolDown_Slot : MonoBehaviour
         if (coolDown_Image.fillAmount > 0)
         {
             Debug.Log("CoolDown");
-            coolDown_Image.fillAmount -= 1 / skill.cooldown * Time.deltaTime;
+            //  cooldownTimeCounter -= 1 / cooldown * Time.deltaTime;
+            //  coolDown_Image.fillAmount = cooldownTimeCounter;
+         coolDown_Image.fillAmount -= 1 / cooldown * Time.deltaTime;
         }
     }
 
@@ -67,6 +64,7 @@ public class UI_Skill_CoolDown_Slot : MonoBehaviour
         if (coolDown_Image.fillAmount <= 0 && Input.GetKeyDown(skill.keyCode))
         {
             coolDown_Image.fillAmount = 1;
+            cooldownTimeCounter = 1;
         }
     }
 

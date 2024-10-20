@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DamageNumbersPro;
 namespace SK
 {
     public enum StatType
@@ -53,6 +53,9 @@ namespace SK
         public float canGetItemCoolDown = 1f;
         public CanHitBack canHitBack;
 
+        [SerializeField] private DamageNumberMesh damageNumberMesh;
+       
+
 
 
 
@@ -65,41 +68,46 @@ namespace SK
 
         public virtual void DoDamage(Entity_Stat target)
         {
-            CaculateAttack(target);
-            CalculateMagic(target);
+            int totalDamage = CaculateAttack(target);
+            DamageNumber damageNumber = damageNumberMesh.Spawn(transform.position,totalDamage);
+            DecreaseHealthOnly(totalDamage);
+        }
+
+        public virtual void DoMagicDamage(Entity_Stat target)
+        {
+            int totalDamage =CalculateMagic(target);
+            DamageNumber damageNumber = damageNumberMesh.Spawn(transform.position,totalDamage);
+            DecreaseHealthOnly(totalDamage);
         }
 
 
-
-
-
-
-        private float CheckTargetArmor(Entity_Stat target, float totalDamage)
+        private int CheckTargetArmor(Entity_Stat target, int totalDamage)
         {
 
-            totalDamage = totalDamage / (totalDamage + target.armor.GetValue()) * totalDamage;
+            totalDamage = (int)(totalDamage / (totalDamage + target.armor.GetValue()) * totalDamage);
             //totalDamage -= target.armor.GetValue();
 
             totalDamage = Mathf.Clamp(totalDamage, 0, int.MaxValue);
             return totalDamage;
         }
 
-        private float CheckTargetMagicResistance(Entity_Stat target, float totalDamage)
+        private int CheckTargetMagicResistance(Entity_Stat target, int totalDamage)
         {
-            totalDamage = totalDamage / (totalDamage + target.MagicResistance.GetValue()) * totalDamage;
+            totalDamage = (int)(totalDamage / (totalDamage + target.MagicResistance.GetValue()) * totalDamage);
             totalDamage = Mathf.Clamp(totalDamage, 0, int.MaxValue);
             return totalDamage;
         }
 
-        private void CalculateMagic(Entity_Stat target)
+        private int CalculateMagic(Entity_Stat target)
         {
-            float totalDamage = target.damage.GetValue() + target.intelligence.GetValue();
+            int totalDamage = (int)(target.damage.GetValue() + target.intelligence.GetValue());
             totalDamage = CheckTargetMagicResistance(target, totalDamage);
+            return totalDamage;
         }
 
-        private void CaculateAttack(Entity_Stat target)
+        private int CaculateAttack(Entity_Stat target)
         {
-            float totalDamage = target.damage.GetValue() + target.strength.GetValue();
+            int totalDamage = (int)(target.damage.GetValue() + target.strength.GetValue());
             // if (CritChance(target))
             // {
             //     Debug.Log("totalDamage:" + totalDamage);
@@ -108,7 +116,8 @@ namespace SK
             //     Debug.Log("暴击" + totalDamage);
             // }
             totalDamage = CheckTargetArmor(target, totalDamage);
-            DecreaseHealthOnly(totalDamage);
+            return totalDamage;
+            // DecreaseHealthOnly(totalDamage);
         }
 
 
@@ -124,9 +133,10 @@ namespace SK
             return false;
         }
 
-        public virtual void TakeDamage(float damage,Skill skill)
+        public virtual void TakeDamage(float damage, Skill skill)
         {
             DecreaseHealthOnly(damage);
+            DamageNumber damageNumber = damageNumberMesh.Spawn(transform.position,damage);
             Debug.Log("受到" + damage + "伤害");
         }
 
@@ -164,6 +174,7 @@ namespace SK
         {
             _currentHP = GetMaxHealth();
             critPower.SetDefaultValue(150);
+           
         }
 
         // Update is called once per frame

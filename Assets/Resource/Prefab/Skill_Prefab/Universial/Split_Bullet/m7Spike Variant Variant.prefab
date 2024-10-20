@@ -89,7 +89,7 @@ MonoBehaviour:
   transmitInstantiateTransform: {fileID: 6622120661732554721}
   destroySelfAfterDamage: 1
   damagepPerTime: 0
-  timePerSplit: 1
+  timePerSplit: 0
 --- !u!4 &6622120661732554721 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5806467377997897387, guid: c6e637c5113d9bf44ae0e92508ed32d4, type: 3}

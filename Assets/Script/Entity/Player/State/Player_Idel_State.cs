@@ -27,6 +27,7 @@ namespace SK
         public override void Enter()
         {
             base.Enter();
+            character.SetVelocity(0,0,0);
             IdelDirection();
         }
 

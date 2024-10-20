@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 
@@ -11,6 +12,7 @@ namespace SK
         [SerializeField] private UI_SkillUsed_Slot[] uI_SkillUsed_Slots;
         [SerializeField] private Queue<UI_SkillUsed_Slot> queue;
         //[SerializeField] private int maxQueueSize;
+
         private void Awake()
         {
             uI_SkillUsed_Slots = GetComponentsInChildren<UI_SkillUsed_Slot>();
@@ -36,6 +38,9 @@ namespace SK
                 }
                     return true;
             }
+        }
+
+        private void Update() {
         }
 
     }

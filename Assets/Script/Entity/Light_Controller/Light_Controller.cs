@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 namespace SK
 {
@@ -10,6 +11,7 @@ namespace SK
     public class Light_Controller : MonoBehaviour
     {
         [Header("Light Info")]
+        [SerializeField]private new Light2D light;
         public static Light_Controller instance;
         [SerializeField] private float minScale;
         [SerializeField] private float radius;
@@ -52,7 +54,6 @@ namespace SK
         {
             if (Character_Controller.instance.canChangeLightScale())
             {
-
                 CaculateScale();
             }
             UpdateScale();
@@ -61,15 +62,15 @@ namespace SK
 
         private void UpdateScale()
         {
-            if(transform.localScale.x> finalScale)
+            if(light.pointLightOuterRadius> finalScale)
             {
                 float delta = finalScale *scaleSpeed *Time.deltaTime;
-                transform.localScale -= new Vector3(delta,delta,0);
+                light.pointLightOuterRadius -= delta;
             }
-            if(transform.localScale.x < finalScale)
+            if(light.pointLightOuterRadius < finalScale)
             {
                 float delta = finalScale *scaleSpeed *Time.deltaTime;
-                transform.localScale += new Vector3(delta,delta,0);
+                light.pointLightOuterRadius += delta;
             }
         }
 

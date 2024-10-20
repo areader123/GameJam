@@ -25,6 +25,18 @@ namespace SK
             }
         }
 
+        private void Skill_Roar_Trigger()
+        {
+            enemy.GetComponent<Enemy_Roar_Skill>().CanUseSkill();
+        }
+
+        private void Skill_MultiBullet_Trigger()
+        {
+            enemy.GetComponent<Enemy_MultiTransmit_Skill>().CanUseSkill();
+        }
+
+
+
         // private void OpenCounterAttackWindow() => enemy.OpenCounterAttackWindow();
         // private void CloseCounterAttackWindow() => enemy.CloseCounterAttackWindow();
     }

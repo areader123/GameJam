@@ -26,7 +26,7 @@ namespace SK
 
         public Player_Attack_State player_Attack_State { get; private set; }
         public Player_Die_State player_Die_State { get; private set; }
-        public Player_Move_Attack_State player_Move_Attack_State{ get; private set; }
+        public Player_Move_Attack_State player_Move_Attack_State { get; private set; }
         #endregion
 
         protected override void Awake()
@@ -39,7 +39,7 @@ namespace SK
             player_Grounded_State = new Player_Grounded_State("Isground", stateMachine, this);
             player_Attack_State = new Player_Attack_State("Stand_Attack", stateMachine, this);
             player_Die_State = new Player_Die_State("Die", stateMachine, this);
-           player_Move_Attack_State = new Player_Move_Attack_State("Move_Attack",stateMachine,this);
+            player_Move_Attack_State = new Player_Move_Attack_State("Move_Attack", stateMachine, this);
 
             capsuleCollider2D = GetComponent<CapsuleCollider2D>();
             inputHandler = GetComponent<InputHandler>();
@@ -61,15 +61,16 @@ namespace SK
             //Debug.Log("inputHandler.vertical" + inputHandler.vertical);
             if (!uI.ifTimeStop && !isKoncked)
             {
+                stateMachine.currentstate.Update();   
                 FlipControll(inputHandler.horizonal);
-                stateMachine.currentstate.Update();
             }
         }
         public void AnimationTrigger() => stateMachine.currentstate.AnimationFinishTrigger();
         public override void Damage(Skill skill = null, Entity_Stat entity_Stat = null)
         {
             base.Damage(skill, entity_Stat);
-            fx.RedColorBlinkFor(.3f);
+            fx.Entity_FX_White();
+            //fx.RedColorBlinkFor(.3f);
             int expression = 0;
             if (entity_Stat != null)
                 expression = 0;
@@ -92,8 +93,6 @@ namespace SK
 
         public void Destroy()
         {
-            // Destroy(gameObject);
-            //使用协程报错
             StopAllCoroutines();
             StartCoroutine("DestroySelf");
         }
@@ -114,13 +113,12 @@ namespace SK
             isKoncked = true;
             animator.speed = 0;
             rb.velocity = new Vector2(konckedSpeed * (-faceDir), 0);
-            capsuleCollider2D.enabled =false;
+            capsuleCollider2D.enabled = false;
             yield return new WaitForSeconds(konckbackDuration);
             capsuleCollider2D.enabled = true;
             rb.velocity = Vector2.zero;
             animator.speed = 1;
             isKoncked = false;
-
         }
 
 

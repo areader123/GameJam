@@ -1,0 +1,1953 @@
+fileFormatVersion: 2
+guid: 5fa9b37f67cfedd448a642ce8b67cc0f
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 391
+        width: 424
+        height: 367
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57f8a8b716ef5ec4aabd61632a6c4e08
+      internalID: 1338609808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_1
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 712
+        width: 51
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e902dd38c0a0464789d88a051176af9
+      internalID: -1403755771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_2
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 712
+        width: 53
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38f3b016cd05b1a48a1ba8da19ee4184
+      internalID: 458334906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_3
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 712
+        width: 152
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3869f1ef2cccfe045b0e3ca328231bc7
+      internalID: -867235066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_4
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 711
+        width: 87
+        height: 45
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3421c8f6198328d448d802e85263e266
+      internalID: 1142242583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_5
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 712
+        width: 102
+        height: 45
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75fc6195c3bf160478a2a417af2d20fc
+      internalID: -1463233530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_6
+      rect:
+        serializedVersion: 2
+        x: 1012
+        y: 711
+        width: 121
+        height: 45
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49f35f0473128f44098b3f25fd64fde1
+      internalID: 1268785668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_7
+      rect:
+        serializedVersion: 2
+        x: 1136
+        y: 711
+        width: 128
+        height: 45
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5eebed079d0010c4199ffae70225c186
+      internalID: 1129216981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_8
+      rect:
+        serializedVersion: 2
+        x: 1269
+        y: 711
+        width: 257
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1eff04a0ae347943ab6115666f14ef3
+      internalID: 1275875778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_9
+      rect:
+        serializedVersion: 2
+        x: 1538
+        y: 711
+        width: 120
+        height: 45
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17119782d00b7d342860b938d50e26ce
+      internalID: -327686377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_10
+      rect:
+        serializedVersion: 2
+        x: 1664
+        y: 711
+        width: 257
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ef30f813a7cda44980a8b7733882fee
+      internalID: -279330641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_11
+      rect:
+        serializedVersion: 2
+        x: 1924
+        y: 711
+        width: 124
+        height: 45
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bd2b5a66946ac14b85485abaacf1d34
+      internalID: -1138541596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_12
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 662
+        width: 53
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6272d4d8b529c9469113d933555775a
+      internalID: 659967891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_13
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 662
+        width: 210
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fb3c194109536a4b9cd9b7b77924d9d
+      internalID: -2072119052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_14
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 657
+        width: 92
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 228a826591446ca4ba73c567f39b21ab
+      internalID: -1803364541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_15
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 608
+        width: 242
+        height: 102
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -37, y: -51}
+        - {x: -37, y: -32}
+        - {x: -36, y: -32}
+        - {x: -36, y: -51}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5019549a93b1c3a4b85936a6fe242a1a
+      internalID: -902952552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_16
+      rect:
+        serializedVersion: 2
+        x: 1138
+        y: 655
+        width: 910
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10430c821bf2e6740955d019826d8cf5
+      internalID: -3824188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_17
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 609
+        width: 50
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e46191078a7f18542ad92b88e80b9c2a
+      internalID: 307335834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_18
+      rect:
+        serializedVersion: 2
+        x: 527
+        y: 609
+        width: 52
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ec6ba3ac8ca3f24187fe3c5eb303671
+      internalID: 377034050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_19
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 609
+        width: 152
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbfb1319aa004a64db7935876a44e3b1
+      internalID: -924395644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_20
+      rect:
+        serializedVersion: 2
+        x: 769
+        y: 607
+        width: 70
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 504fb99960da595469b559ea5672e018
+      internalID: 795475532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_21
+      rect:
+        serializedVersion: 2
+        x: 1158
+        y: 607
+        width: 75
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83b8711fa5dd059479ac18ff7b73f183
+      internalID: -63359842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_22
+      rect:
+        serializedVersion: 2
+        x: 1292
+        y: 606
+        width: 72
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c4eb02fbbe666e4c812c96dc30d4dcb
+      internalID: -1948645286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_23
+      rect:
+        serializedVersion: 2
+        x: 1423
+        y: 607
+        width: 72
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2adcf0a324c9672418e3a80077c59db1
+      internalID: -316099278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_24
+      rect:
+        serializedVersion: 2
+        x: 1558
+        y: 608
+        width: 69
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26bc13b5502b89b42aa789e3dde6d329
+      internalID: -1415570496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_25
+      rect:
+        serializedVersion: 2
+        x: 1686
+        y: 607
+        width: 72
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36154d4306cd49447851848c5e856e94
+      internalID: -330496919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_26
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 557
+        width: 44
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49b2a631fc20f134088041a71a20e185
+      internalID: -642608734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_27
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 557
+        width: 43
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3cfebed43118fa48b8767946432628e
+      internalID: -1472237573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_28
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 557
+        width: 64
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f525a12ecb176a844aa4d5b6d2c2913e
+      internalID: -188443914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_29
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 557
+        width: 60
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8abb021922a6a9d4aad26bd59debcb09
+      internalID: -2075691087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_30
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 504
+        width: 44
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 071900c45460635478bc4d8aabef101f
+      internalID: -1855087548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_31
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 504
+        width: 44
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6499072d43bee9148b24c9ac701b3946
+      internalID: 1951127621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_32
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 503
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daa2441acd27bc24492eab18d0025697
+      internalID: -666948788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_33
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 503
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3efad1c87f231424aba24182240248ef
+      internalID: 817730880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_34
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 452
+        width: 45
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77ba1f4bf01118545ad4db2882142b2d
+      internalID: 627881077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_35
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 452
+        width: 45
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d5f39ea3ff1e4a4b867871f37d5e9c8
+      internalID: -1445050102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_36
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 452
+        width: 50
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf03c1f63afb07a4d80867a10ea4401b
+      internalID: -1513279434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_37
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 452
+        width: 50
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 781b063f9edbb504fb0850146828c443
+      internalID: -1718123209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_38
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 400
+        width: 56
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ea2eb831f7660445b4f0d5f3e969147
+      internalID: -1866302093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_39
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 400
+        width: 55
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05f1b8a2e075caa4a968a90c852e1657
+      internalID: 1975888180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_40
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 398
+        width: 54
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bda704b6e8118824aafcc4966f7a55c9
+      internalID: -1179141123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_41
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 398
+        width: 55
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5616e6e43cfdb8841927a1b261ab2ee2
+      internalID: 1791572729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_42
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 328
+        width: 53
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 441d0f524d18f9b4fb8bb8db7bc62405
+      internalID: -1105098460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_43
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 323
+        width: 63
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 207b59792bdb78c46acb91549215c30b
+      internalID: -73804929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_44
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 324
+        width: 62
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d78b6b31fcb22e94190032a82d5a976f
+      internalID: 820132881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_45
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 321
+        width: 66
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cdf845844e080145aa2ce972c3876f5
+      internalID: 1042601287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_46
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 330
+        width: 105
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70fd8b1cac28392408194cf8ba923cdc
+      internalID: 457050898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_47
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 326
+        width: 102
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6acdaee0bba53f248a8812cd5bff0ff1
+      internalID: -1101642608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_48
+      rect:
+        serializedVersion: 2
+        x: 1015
+        y: 323
+        width: 99
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baf7d120aa67cf148ba8900e01cc9b57
+      internalID: 1548474421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_49
+      rect:
+        serializedVersion: 2
+        x: 1148
+        y: 326
+        width: 101
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22afbe9ca0bae92409970f73d7040b3d
+      internalID: 629462173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_50
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 239
+        width: 75
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e38fb697aa595149a6a498ba7991985
+      internalID: 980014832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_51
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 239
+        width: 76
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68a65a241859b5d4a97964f793dc54c5
+      internalID: 318957308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_52
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 247
+        width: 63
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 535f2cbcdf2863742b53d3d29c40e4ea
+      internalID: 7338463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_53
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 247
+        width: 64
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0656031ab6f947e42b0640a443d4485e
+      internalID: 330854061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_54
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 248
+        width: 74
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f38cc79b2f702045aff9d5cea636693
+      internalID: 219320281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_55
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 247
+        width: 67
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34b7ad76e851a554aaee3656b4c9c08d
+      internalID: -1347669064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_56
+      rect:
+        serializedVersion: 2
+        x: 1021
+        y: 244
+        width: 83
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 760a487c44b30a04583e1c63111e3627
+      internalID: -1578743697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_57
+      rect:
+        serializedVersion: 2
+        x: 1164
+        y: 250
+        width: 61
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b0218d3c79f7f140a630252340d0ab8
+      internalID: 1641151655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_58
+      rect:
+        serializedVersion: 2
+        x: 1289
+        y: 252
+        width: 72
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 778a50dabc813854181e53c818d81add
+      internalID: -146370356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_59
+      rect:
+        serializedVersion: 2
+        x: 1421
+        y: 247
+        width: 73
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef17dd17f91052f4cb42d237913156ae
+      internalID: 349823964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_60
+      rect:
+        serializedVersion: 2
+        x: 1550
+        y: 246
+        width: 78
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3554f039cf6d3a44971a2503008e20d
+      internalID: -964954734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_61
+      rect:
+        serializedVersion: 2
+        x: 1688
+        y: 250
+        width: 63
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f383a27adee58664193824b38c7077eb
+      internalID: 168005155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_62
+      rect:
+        serializedVersion: 2
+        x: 769
+        y: 165
+        width: 62
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d123bef8bb024934197b0fc133eac5d6
+      internalID: 503283708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_63
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 168
+        width: 60
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68eb8bf5c1897b44994d2d454d5a2adf
+      internalID: -2092432189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_64
+      rect:
+        serializedVersion: 2
+        x: 1033
+        y: 166
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62f595b7bc0bb324fb8c16e242fdf8d7
+      internalID: 1578268002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_65
+      rect:
+        serializedVersion: 2
+        x: 1164
+        y: 166
+        width: 60
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2db145d304195a546b9d7655669f4cb5
+      internalID: 1986569506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_66
+      rect:
+        serializedVersion: 2
+        x: 1299
+        y: 169
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f6bca9160d37f04bbb5ff84a12a230f
+      internalID: -699080189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_67
+      rect:
+        serializedVersion: 2
+        x: 1428
+        y: 169
+        width: 58
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16b3e1363abd4ff44b6777e9fe147b11
+      internalID: -1636576715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_68
+      rect:
+        serializedVersion: 2
+        x: 1560
+        y: 169
+        width: 58
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f25064eb96f04c14396cd6659fa25d4b
+      internalID: -542019548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_69
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 83
+        width: 70
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d75ff2178e33504986fa2b2d924487f
+      internalID: -1813056985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_70
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 83
+        width: 72
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e061f1f0ffdf8349a82f8689e8ad322
+      internalID: -1608119860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_71
+      rect:
+        serializedVersion: 2
+        x: 1028
+        y: 82
+        width: 71
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b047388ac07f5ed47b95a53cf1c942fa
+      internalID: -313610289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_72
+      rect:
+        serializedVersion: 2
+        x: 1163
+        y: 88
+        width: 61
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c7e08c9379c35b43a5a0e5aa8ea3741
+      internalID: -861515061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_73
+      rect:
+        serializedVersion: 2
+        x: 1292
+        y: 85
+        width: 67
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25c432be88a3a2e4faf6e5d89c3a7395
+      internalID: -322936360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_74
+      rect:
+        serializedVersion: 2
+        x: 1424
+        y: 83
+        width: 68
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 818b3d59962f5d141aefb919bc3cf9ac
+      internalID: 1095286983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_75
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 14
+        width: 53
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10674358efefbe841ab61fc9f32da648
+      internalID: -1328344255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_76
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 14
+        width: 54
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 213eaca205fae4a4591235067c7562bd
+      internalID: 289110524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_77
+      rect:
+        serializedVersion: 2
+        x: 1036
+        y: 14
+        width: 55
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b13b41c4f2ae3b944af1520a8b1a212a
+      internalID: -969868484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_78
+      rect:
+        serializedVersion: 2
+        x: 1167
+        y: 14
+        width: 55
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9e8374ed0fc7fa429508b0f750e030a
+      internalID: -1991568988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_79
+      rect:
+        serializedVersion: 2
+        x: 1299
+        y: 14
+        width: 53
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36c6f553a04fee648b5528739457ccef
+      internalID: 982708500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_80
+      rect:
+        serializedVersion: 2
+        x: 1432
+        y: 14
+        width: 51
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75d2766c8cbb4f247b282c50113167f3
+      internalID: 1833811745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_81
+      rect:
+        serializedVersion: 2
+        x: 1564
+        y: 15
+        width: 49
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77d70d529c2f985498d029b99f49e534
+      internalID: 1503671246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sg_shmup_shot_sheet_red 1_82
+      rect:
+        serializedVersion: 2
+        x: 1695
+        y: 14
+        width: 51
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 156a54778ee3d9d4095eeb5e2c652eb8
+      internalID: 966997295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      sg_shmup_shot_sheet_red 1_0: 1338609808
+      sg_shmup_shot_sheet_red 1_1: -1403755771
+      sg_shmup_shot_sheet_red 1_10: -279330641
+      sg_shmup_shot_sheet_red 1_11: -1138541596
+      sg_shmup_shot_sheet_red 1_12: 659967891
+      sg_shmup_shot_sheet_red 1_13: -2072119052
+      sg_shmup_shot_sheet_red 1_14: -1803364541
+      sg_shmup_shot_sheet_red 1_15: -902952552
+      sg_shmup_shot_sheet_red 1_16: -3824188
+      sg_shmup_shot_sheet_red 1_17: 307335834
+      sg_shmup_shot_sheet_red 1_18: 377034050
+      sg_shmup_shot_sheet_red 1_19: -924395644
+      sg_shmup_shot_sheet_red 1_2: 458334906
+      sg_shmup_shot_sheet_red 1_20: 795475532
+      sg_shmup_shot_sheet_red 1_21: -63359842
+      sg_shmup_shot_sheet_red 1_22: -1948645286
+      sg_shmup_shot_sheet_red 1_23: -316099278
+      sg_shmup_shot_sheet_red 1_24: -1415570496
+      sg_shmup_shot_sheet_red 1_25: -330496919
+      sg_shmup_shot_sheet_red 1_26: -642608734
+      sg_shmup_shot_sheet_red 1_27: -1472237573
+      sg_shmup_shot_sheet_red 1_28: -188443914
+      sg_shmup_shot_sheet_red 1_29: -2075691087
+      sg_shmup_shot_sheet_red 1_3: -867235066
+      sg_shmup_shot_sheet_red 1_30: -1855087548
+      sg_shmup_shot_sheet_red 1_31: 1951127621
+      sg_shmup_shot_sheet_red 1_32: -666948788
+      sg_shmup_shot_sheet_red 1_33: 817730880
+      sg_shmup_shot_sheet_red 1_34: 627881077
+      sg_shmup_shot_sheet_red 1_35: -1445050102
+      sg_shmup_shot_sheet_red 1_36: -1513279434
+      sg_shmup_shot_sheet_red 1_37: -1718123209
+      sg_shmup_shot_sheet_red 1_38: -1866302093
+      sg_shmup_shot_sheet_red 1_39: 1975888180
+      sg_shmup_shot_sheet_red 1_4: 1142242583
+      sg_shmup_shot_sheet_red 1_40: -1179141123
+      sg_shmup_shot_sheet_red 1_41: 1791572729
+      sg_shmup_shot_sheet_red 1_42: -1105098460
+      sg_shmup_shot_sheet_red 1_43: -73804929
+      sg_shmup_shot_sheet_red 1_44: 820132881
+      sg_shmup_shot_sheet_red 1_45: 1042601287
+      sg_shmup_shot_sheet_red 1_46: 457050898
+      sg_shmup_shot_sheet_red 1_47: -1101642608
+      sg_shmup_shot_sheet_red 1_48: 1548474421
+      sg_shmup_shot_sheet_red 1_49: 629462173
+      sg_shmup_shot_sheet_red 1_5: -1463233530
+      sg_shmup_shot_sheet_red 1_50: 980014832
+      sg_shmup_shot_sheet_red 1_51: 318957308
+      sg_shmup_shot_sheet_red 1_52: 7338463
+      sg_shmup_shot_sheet_red 1_53: 330854061
+      sg_shmup_shot_sheet_red 1_54: 219320281
+      sg_shmup_shot_sheet_red 1_55: -1347669064
+      sg_shmup_shot_sheet_red 1_56: -1578743697
+      sg_shmup_shot_sheet_red 1_57: 1641151655
+      sg_shmup_shot_sheet_red 1_58: -146370356
+      sg_shmup_shot_sheet_red 1_59: 349823964
+      sg_shmup_shot_sheet_red 1_6: 1268785668
+      sg_shmup_shot_sheet_red 1_60: -964954734
+      sg_shmup_shot_sheet_red 1_61: 168005155
+      sg_shmup_shot_sheet_red 1_62: 503283708
+      sg_shmup_shot_sheet_red 1_63: -2092432189
+      sg_shmup_shot_sheet_red 1_64: 1578268002
+      sg_shmup_shot_sheet_red 1_65: 1986569506
+      sg_shmup_shot_sheet_red 1_66: -699080189
+      sg_shmup_shot_sheet_red 1_67: -1636576715
+      sg_shmup_shot_sheet_red 1_68: -542019548
+      sg_shmup_shot_sheet_red 1_69: -1813056985
+      sg_shmup_shot_sheet_red 1_7: 1129216981
+      sg_shmup_shot_sheet_red 1_70: -1608119860
+      sg_shmup_shot_sheet_red 1_71: -313610289
+      sg_shmup_shot_sheet_red 1_72: -861515061
+      sg_shmup_shot_sheet_red 1_73: -322936360
+      sg_shmup_shot_sheet_red 1_74: 1095286983
+      sg_shmup_shot_sheet_red 1_75: -1328344255
+      sg_shmup_shot_sheet_red 1_76: 289110524
+      sg_shmup_shot_sheet_red 1_77: -969868484
+      sg_shmup_shot_sheet_red 1_78: -1991568988
+      sg_shmup_shot_sheet_red 1_79: 982708500
+      sg_shmup_shot_sheet_red 1_8: 1275875778
+      sg_shmup_shot_sheet_red 1_80: 1833811745
+      sg_shmup_shot_sheet_red 1_81: 1503671246
+      sg_shmup_shot_sheet_red 1_82: 966997295
+      sg_shmup_shot_sheet_red 1_9: -327686377
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

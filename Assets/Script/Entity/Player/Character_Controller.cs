@@ -52,8 +52,12 @@ namespace SK
 
         public bool canChangeLightScale() => canChangeLightScaleFlag;
 
-        public bool HaveEnoughSkillPoint(int _price)
+        public bool HaveEnoughSkillPoint(int _price,bool unLock)
         {
+            if(unLock)
+            {
+                return false;
+            }
             return UseSkillPoint();
         }
 
@@ -65,7 +69,14 @@ namespace SK
         //     //取消所有的技能
 
         // }
-
+        public bool CheckSkillPoint () 
+        {
+            if (pointToSkill > pointToSkillUsed)
+            {
+                return true;
+            }
+            return false;
+        }
         public bool UseSkillPoint()
         {
             if (pointToSkill > pointToSkillUsed)

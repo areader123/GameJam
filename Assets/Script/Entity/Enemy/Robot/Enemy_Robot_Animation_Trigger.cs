@@ -24,5 +24,10 @@ namespace SK
         {
             enemy_Robot.GetComponent<Robot_Skill_One_Skill>().CanUseSkill();
         }
+
+        private void Skill_Multi_Skill()
+        {
+            enemy_Robot.GetComponent<Enemy_MultiTransmit_Skill>().CanUseSkill();
+        }
     }
 }

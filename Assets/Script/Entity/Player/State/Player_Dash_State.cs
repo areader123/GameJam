@@ -19,7 +19,6 @@ public class Player_Dash_State : PlayerState
     public override void Exit()
     {
         base.Exit();
-        character.SetVelocity(0,0,0);
     }
 
     public override void Update()
@@ -30,16 +29,8 @@ public class Player_Dash_State : PlayerState
             character.SetVelocity(character.horizonal, character.vertical, SkillManager.instance.dash_Skill.dashSpeed);
         }
         else
-        {
-            if (character.faceRight)
-            {
-                character.SetVelocity(1,0 , SkillManager.instance.dash_Skill.dashSpeed);
-            }
-            if (!character.faceRight)
-            {
-                character.SetVelocity(-1, 0, SkillManager.instance.dash_Skill.dashSpeed);
-            }
-         
+        {  
+                character.SetVelocity(character.faceDir,0 , SkillManager.instance.dash_Skill.dashSpeed);
         }
         if(stateTimer < 0)
         {

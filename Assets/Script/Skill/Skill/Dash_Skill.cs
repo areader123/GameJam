@@ -10,8 +10,13 @@ namespace SK
     {
 
         public bool dashUnlocked;
-        public bool dashSkillUsedUnlocked;
+        public bool dashUseWithOutLightingLocked;
+        public bool dashWithObjectToDamageLocked;
+        public bool unHittableDuringDashLocked;
+        public bool lowCoolingDownWhileLowLighting;
+        public bool dashWithCloneLocked;
 
+        public bool dashSkillUsedUnlocked;
         [SerializeField] public UI_Skill_Slot dash_UI_Skill_Slot;
         [SerializeField] private UI_SkillUsed_Slot uI_SkillUsed_Slot;
         public float dashDuration;
@@ -30,6 +35,13 @@ namespace SK
             if (dashUnlocked && uI_SkillUsed_Slot.Unlock)
             {
                 dashSkillUsedUnlocked = uI_SkillUsed_Slot.Unlock;
+                if (dashUseWithOutLightingLocked)
+                {
+                    character.stateMachine.ChangeState(character.player_Dash_State);
+                    return;
+                }
+
+                //消耗光亮值 否则无法释放
                 character.stateMachine.ChangeState(character.player_Dash_State);
             }
             // character.stateMachine.ChangeState();
