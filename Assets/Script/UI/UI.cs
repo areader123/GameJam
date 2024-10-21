@@ -25,6 +25,7 @@ namespace SK
         void Start()
         {
             SwithTo(game);
+            
         }
 
         // Update is called once per frame

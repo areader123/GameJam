@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wakl_WithDamage_Skill : MonoBehaviour
+public class Blood_Skill_Controller : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()

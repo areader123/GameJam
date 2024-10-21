@@ -9,13 +9,12 @@ namespace SK
 
     public class UI_SkillTree_Slot : MonoBehaviour
     {
-        [SerializeField] private UI_SkillUsed_Slot[] uI_SkillUsed_Slots;
+      
         [SerializeField] private Queue<UI_SkillUsed_Slot> queue;
         //[SerializeField] private int maxQueueSize;
 
         private void Awake()
         {
-            uI_SkillUsed_Slots = GetComponentsInChildren<UI_SkillUsed_Slot>();
             queue = new Queue<UI_SkillUsed_Slot>();
         }
 

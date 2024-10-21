@@ -33,7 +33,6 @@ namespace SK
         {
             Button button = GetComponent<Button>();
             button.onClick.AddListener(() => UnlockSkillSlot());
-            // button.onClick.AddListener(() => SwitchSkillUsedSlot());
         }
 
         private void Start()
@@ -58,14 +57,10 @@ namespace SK
 
         public void UnlockSkillSlot()
         {
-             if (unLock)
-            {
+           
+            Debug.Log("11111111111111111111111111111111111");
                 SwitchSkillUsedSlot();
-            }
-            if (Character_Controller.instance.HaveEnoughSkillPoint(skillPrice,unLock) == false)
-            {
-                return;
-            }
+           
 
             for (int i = 0; i < shouldBeLock.Length; i++)
             {
@@ -85,9 +80,11 @@ namespace SK
                 }
             }
 
+            if (Character_Controller.instance.HaveEnoughSkillPoint(skillPrice,unLock) == false)
+            {
+                return;
+            }
             unLock = true;
-
-           
             skillImage.color = Color.white;
         }
 

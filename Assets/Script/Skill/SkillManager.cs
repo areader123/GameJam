@@ -10,6 +10,7 @@ namespace SK
 
         public Dash_Skill dash_Skill { get; private set; }
         public Clone_Skill clone_Skill { get; private set; }
+        public ChangeWithEnemy_Skill changeWithEnemy_Skill{ get; private set; }
 
         private void Awake()
         {
@@ -27,6 +28,7 @@ namespace SK
         {
             dash_Skill = GetComponent<Dash_Skill>();
             clone_Skill = GetComponent<Clone_Skill>();
+            changeWithEnemy_Skill = GetComponent<ChangeWithEnemy_Skill>();
         }
       
         public Skill GetSkillByName(SkillName skillName)
@@ -38,6 +40,10 @@ namespace SK
             if(skillName == SkillName.Clone)
             {
                 return clone_Skill;
+            }
+            if(skillName == SkillName.SpeedUp)
+            {
+                return changeWithEnemy_Skill;
             }
             return null;
         }

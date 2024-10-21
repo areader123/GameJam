@@ -15,18 +15,12 @@ namespace SK
 
         private float FirstCoolDown;
         [SerializeField] private Image parryCoolDownImage;
-        private float parryCoolDown;
 
-        [SerializeField] private Image crystalCoolDownImage;
-        private float crystalCoolDown;
+     
 
-        [SerializeField] private Image swordCoolDownImage;
-        private float swordCoolDown;
-        [SerializeField] private Image blackholeCoolDownImage;
-        private float blackholeCoolDown;
+     
 
-        [SerializeField] private Image flaskCoolDownImage;
-        private float flaskCoolDown;
+      
 
         [SerializeField] private TextMeshProUGUI lightingNumberText;
         [SerializeField] private TextMeshProUGUI expNumberText;
@@ -38,6 +32,7 @@ namespace SK
         private float SecondCoolDown;
 
         private UI uI;
+        [SerializeField]private UI_SkillTree_Slot uI_SkillTree_Slot;
 
         [SerializeField]private List<UI_Skill_CoolDown_Slot> uI_Skill_CoolDown_Slots;
 

@@ -58,7 +58,7 @@ namespace SK
             {
                 return false;
             }
-            return UseSkillPoint();
+            return UseSkillPoint(_price);
         }
 
         // public void GiveBackSkillPoint()
@@ -77,11 +77,11 @@ namespace SK
             }
             return false;
         }
-        public bool UseSkillPoint()
+        public bool UseSkillPoint(int _price = 1)
         {
-            if (pointToSkill > pointToSkillUsed)
+            if (pointToSkill >= pointToSkillUsed + _price)
             {
-                pointToSkillUsed += 1;
+                pointToSkillUsed += _price;
                 pointCanbeUsed = pointToSkill - pointToSkillUsed;
                 return true;
             }

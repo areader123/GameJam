@@ -13,7 +13,7 @@ namespace SK
         public Transform attackableTransform;
         public float attackRadius;
         [SerializeField] private UI uI;
-        private CapsuleCollider2D capsuleCollider2D;
+        public CapsuleCollider2D capsuleCollider2D;
 
         #region Player_State
         public StateMachine stateMachine { get; private set; }

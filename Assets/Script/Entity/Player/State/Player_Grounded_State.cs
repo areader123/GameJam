@@ -13,13 +13,17 @@ namespace SK
         public override void Update()
         {
             base.Update();
-            if (Keyboard.current.shiftKey.wasPressedThisFrame && SkillManager.instance.dash_Skill.dashUnlocked)
+            if (Input.GetKeyDown(SkillManager.instance.dash_Skill.keyCode) && SkillManager.instance.dash_Skill.dashUnlocked)
             {
                 SkillManager.instance.dash_Skill.CanUseSkill();
             }
-            if(Keyboard.current.cKey.wasPressedThisFrame && SkillManager.instance.clone_Skill.cloneUnlocked)
+            if(Input.GetKeyDown(SkillManager.instance.clone_Skill.keyCode) && SkillManager.instance.clone_Skill.cloneUnlocked)
             {
                 SkillManager.instance.clone_Skill.CanUseSkill();
+            }
+            if(Input.GetKeyDown(SkillManager.instance.changeWithEnemy_Skill.keyCode) && SkillManager.instance.changeWithEnemy_Skill.speedUpLocked)
+            {
+                SkillManager.instance.changeWithEnemy_Skill.CanUseSkill();
             }
         }
         public override void Exit()
