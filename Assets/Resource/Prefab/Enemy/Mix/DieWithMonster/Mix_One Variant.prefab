@@ -38,6 +38,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 245029217, guid: 128eaccc8af5bcb49a60a1702c892174, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7024237887607405400, guid: 128eaccc8af5bcb49a60a1702c892174, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -146,6 +150,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7024237888559777550, guid: 128eaccc8af5bcb49a60a1702c892174, type: 3}
+      propertyPath: flashDuration
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 7024237888559777551, guid: 128eaccc8af5bcb49a60a1702c892174, type: 3}
       propertyPath: damageNumberMesh
       value: 
@@ -184,7 +192,7 @@ MonoBehaviour:
   - {x: 0.60089153, y: -0.4627843, z: 0}
   m_ShapePathHash: 148872836
   m_Mesh: {fileID: 0}
-  m_InstanceId: 29190
+  m_InstanceId: 109902
   m_LocalBounds:
     m_Center: {x: -0.0016787052, y: -0.38368464, z: 0}
     m_Extent: {x: 0.6025702, y: 0.09588753, z: 0}

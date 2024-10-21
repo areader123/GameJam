@@ -11,7 +11,7 @@ public class UI_Skill_CoolDown_Slot : MonoBehaviour
     [SerializeField] private Image coolDown_Image;
     [SerializeField] private Image skill_Image;
     [SerializeField] private Color coolDownColor;
-    private float cooldown;
+   
     private float cooldownTimeCounter;
     private UI_Skill_Slot skillSlot;
     private Skill skill;
@@ -29,7 +29,6 @@ public class UI_Skill_CoolDown_Slot : MonoBehaviour
     {
         this.skill = skill;
         this.skillSlot = skillSlot;
-        cooldown = skill.cooldown;
     }
 
     private void Update()
@@ -56,7 +55,7 @@ public class UI_Skill_CoolDown_Slot : MonoBehaviour
             Debug.Log("CoolDown");
             //  cooldownTimeCounter -= 1 / cooldown * Time.deltaTime;
             //  coolDown_Image.fillAmount = cooldownTimeCounter;
-         coolDown_Image.fillAmount -= 1 / cooldown * Time.deltaTime;
+         coolDown_Image.fillAmount -= 1 / skill.cooldown * Time.deltaTime;
         }
     }
 

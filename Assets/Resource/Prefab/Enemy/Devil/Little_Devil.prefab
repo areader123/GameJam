@@ -139,6 +139,8 @@ MonoBehaviour:
   characterFightingWithRadius: 2.7
   skill_One_Cooldown: 0
   lastTimeSkill_One: 0
+  skill_Two_Cooldown: 0
+  lastTimeSkill_Two: 0
 --- !u!114 &8246701552588117427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,8 +202,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d574a3a3c3c170a4d9351ba503f98fb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hittedMaterial: {fileID: 0}
-  flashDuration: 0
+  hittedMaterial: {fileID: 2100000, guid: 720bc9e85074aff49a11e6ba0a77fca5, type: 2}
+  flashDuration: 0.1
+  hitPrefab: {fileID: 5804554030685631269, guid: b8d45efb2c9ac3a49ac58d412af57e1c, type: 3}
+  scale: {x: 1, y: 1}
+  fxInstantiateTranform: {fileID: 8246701552843043325}
 --- !u!114 &8246701552588117431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,8 +230,11 @@ MonoBehaviour:
   arrowSpeed: 0
   arrowInstantiateTransform: {fileID: 8246701553436446556}
   destroySelfAfterDamage: 0
-  RotationWhileDamage: 0
   damagepPerTime: 0.3
+  RotationWhileDamage: 0
+  slowRotationWhileDamage: 0
+  slowRotationSpeed: 0
+  stickIn: 0
 --- !u!114 &8246701552588117430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,6 +320,7 @@ MonoBehaviour:
   canGetItem: 1
   canGetItemCoolDown: 1
   canHitBack: 1
+  damageNumberMesh: {fileID: 0}
   perLevelIncreaseMonsterStrength: 0
   perLevelIncreaseMonsterDamage: 0
 --- !u!1 &8246701552843043324

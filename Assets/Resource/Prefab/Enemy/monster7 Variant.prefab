@@ -226,7 +226,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 74822294678092665, guid: 912f096b666b75f4ea4ca3210c610072, type: 3}
       propertyPath: m_Name
-      value: monster7
+      value: monster7 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 74822294678092665, guid: 912f096b666b75f4ea4ca3210c610072, type: 3}
       propertyPath: m_Layer
@@ -373,6 +373,7 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   amount: 4
   angleRange: 360
+  deltaAngle: 0
   transmitDamage: 5
   transmitExistTime: 5
   transmitSpeed: 1
@@ -380,6 +381,9 @@ MonoBehaviour:
   destroySelfAfterDamage: 0
   damagepPerTime: 0
   timePerSplit: 0
+  bulletType: 0
+  fanAngle: 0
+  canStickIn: 0
 --- !u!114 &2134241902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -506,6 +510,7 @@ MonoBehaviour:
   canGetItem: 1
   canGetItemCoolDown: 1
   canHitBack: 0
+  damageNumberMesh: {fileID: 0}
   perLevelIncreaseMonsterStrength: 0
   perLevelIncreaseMonsterDamage: 0
 --- !u!114 &2134241908
@@ -520,8 +525,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d574a3a3c3c170a4d9351ba503f98fb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hittedMaterial: {fileID: 0}
-  flashDuration: 0.3
+  hittedMaterial: {fileID: 2100000, guid: 720bc9e85074aff49a11e6ba0a77fca5, type: 2}
+  flashDuration: 0.1
+  hitPrefab: {fileID: 5804554030685631269, guid: b8d45efb2c9ac3a49ac58d412af57e1c, type: 3}
+  scale: {x: 1, y: 1}
+  fxInstantiateTranform: {fileID: 532637022}
 --- !u!4 &7326617128650204047 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 74822294678092666, guid: 912f096b666b75f4ea4ca3210c610072, type: 3}

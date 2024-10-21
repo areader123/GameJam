@@ -316,8 +316,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d574a3a3c3c170a4d9351ba503f98fb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hittedMaterial: {fileID: 0}
+  hittedMaterial: {fileID: 2100000, guid: 720bc9e85074aff49a11e6ba0a77fca5, type: 2}
   flashDuration: 0.2
+  hitPrefab: {fileID: 5804554030685631269, guid: b8d45efb2c9ac3a49ac58d412af57e1c, type: 3}
+  scale: {x: 0, y: 0}
+  fxInstantiateTranform: {fileID: 6809386163896683820}
 --- !u!114 &6809386163795657366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,6 +409,7 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   amount: 9
   angleRange: 90
+  deltaAngle: 0
   transmitDamage: 4
   transmitExistTime: 6
   transmitSpeed: 5

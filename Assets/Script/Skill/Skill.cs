@@ -12,7 +12,9 @@ namespace SK
     {
         Dash,
         Clone,
-        SpeedUp
+        SpeedUp,
+        Bullet_Circle,
+        Bullet_Fan
     }
     public enum SkillHitBack
     {

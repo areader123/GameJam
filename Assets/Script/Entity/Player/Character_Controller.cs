@@ -69,6 +69,19 @@ namespace SK
         //     //取消所有的技能
 
         // }
+        public bool UseSkillCostLighting(int _delet)
+        {
+            if (lightingNumber - _delet >= 0)
+            {
+                lightingNumber -= _delet;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public bool CheckSkillPoint () 
         {
             if (pointToSkill > pointToSkillUsed)

@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 3986279792451140588}
   - component: {fileID: 5586763232164299530}
   - component: {fileID: 4697397078019081849}
-  - component: {fileID: 3861253597657397839}
+  - component: {fileID: -3610782824861675073}
+  - component: {fileID: 7737433039643654879}
   m_Layer: 0
-  m_Name: Character
+  m_Name: Character_Bullet_Large
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 6635171440073500957}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -146,7 +147,7 @@ CapsuleCollider2D:
   m_Offset: {x: -0.31987315, y: 0.016863272}
   m_Size: {x: 0.34644398, y: 0.12059414}
   m_Direction: 1
---- !u!114 &3861253597657397839
+--- !u!114 &-3610782824861675073
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -155,6 +156,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 6635171440073500957}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5f5109ce01599843811a70e31be04d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 427c8e8a04c427848aeac85491747528, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7737433039643654879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6635171440073500957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95de68e74787dbd42a5daa58a0afa4a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillName: 0
+  skillHitBack: 1
+  keyCode: 0
+  cooldown: 0
+  target: 0
+  transmit: {fileID: 6635171440073500957, guid: ebc8e2ab36806254aad3bd67c3563605, type: 3}
+  offset: {x: 0, y: 0, z: 0}
+  amount: 3
+  angleRange: 360
+  deltaAngle: 0
+  transmitDamage: 3
+  transmitExistTime: 3
+  transmitSpeed: 3
+  transmitInstantiateTransform: {fileID: 3713997662432636263}
+  destroySelfAfterDamage: 1
+  damagepPerTime: 0
+  timePerSplit: 2
+  bulletType: 0
+  fanAngle: 0
+  canStickIn: 0

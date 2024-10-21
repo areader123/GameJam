@@ -50,10 +50,11 @@ namespace SK
         }
         public override void Damage(Skill skill, Entity_Stat entity_Stat)
         {
+           // base.Damage();
             if (!enemy_Stat.isDead)
             {
                 base.Damage(skill, entity_Stat);
-                fx.RedColorBlinkFor(.3f);
+                //fx.RedColorBlinkFor(.3f);
             }
         }
 

@@ -12,7 +12,6 @@ namespace SK
     {
         [Header("Light Info")]
         [SerializeField]private new Light2D light;
-        public static Light_Controller instance;
         [SerializeField] private float minScale;
         [SerializeField] private float radius;
         [SerializeField] private float maxScale;
@@ -37,17 +36,6 @@ namespace SK
 
         private void Awake()
         {
-            if (instance != null)
-            {
-                if (instance != null)
-                {
-                    Destroy(instance.gameObject);
-                }
-                else
-                {
-                    instance = this;
-                }
-            }
         }
 
         private void Update()

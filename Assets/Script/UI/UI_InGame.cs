@@ -141,7 +141,7 @@ namespace SK
         }
         private void SetCoolDown()
         {
-             for(int i = 0; i <2 ; i++) 
+             for(int i = 0; i <uI_Skill_CoolDown_Slots.Count ; i++) 
             {
                 if(uI_Skill_CoolDown_Slots[i] != null)
                 {
@@ -154,22 +154,6 @@ namespace SK
         {
             slider.maxValue = character_Stat.GetMaxHealth();
             slider.value = character_Stat._currentHP;
-        }
-
-        private void SetCoolDown(Image _image)
-        {
-            if (_image.fillAmount <= 0)
-            {
-                _image.fillAmount = 1;
-            }
-        }
-
-        private void CheckCoolDownOf(Image _image, float _coolDown)
-        {
-            if (_image.fillAmount > 0)
-            {
-                _image.fillAmount -= 1 / _coolDown * Time.deltaTime;
-            }
         }
     }
 

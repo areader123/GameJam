@@ -25,6 +25,14 @@ namespace SK
             {
                 SkillManager.instance.changeWithEnemy_Skill.CanUseSkill();
             }
+            if(Input.GetKeyDown(SkillManager.instance.bullet_Skill.keyCode) &&SkillManager.instance.bullet_Skill.bulletWithLightingUnLocked )
+            {
+                SkillManager.instance.bullet_Skill.CanUseSkill();
+            }
+            if(Input.GetKeyDown(SkillManager.instance.bullet_Fan_Skill.keyCode) &&SkillManager.instance.bullet_Fan_Skill.bulletWithLightingUnLocked )
+            {
+                SkillManager.instance.bullet_Fan_Skill.CanUseSkill();
+            }
         }
         public override void Exit()
         {

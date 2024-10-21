@@ -58,6 +58,30 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2376496301577124456, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
+      propertyPath: scale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2376496301577124456, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
+      propertyPath: scale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2376496301577124456, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
+      propertyPath: hitPrefab
+      value: 
+      objectReference: {fileID: 5804554030685631269, guid: b8d45efb2c9ac3a49ac58d412af57e1c, type: 3}
+    - target: {fileID: 2376496301577124456, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
+      propertyPath: flashDuration
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2376496301577124456, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
+      propertyPath: hittedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 720bc9e85074aff49a11e6ba0a77fca5, type: 2}
+    - target: {fileID: 2376496301577124456, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
+      propertyPath: fxInstantiateTranform
+      value: 
+      objectReference: {fileID: 5093619314305030024}
     - target: {fileID: 2376496301577124457, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
       propertyPath: canHitBack
       value: 1
@@ -154,6 +178,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.139
       objectReference: {fileID: 0}
+    - target: {fileID: 2376496303267091026, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.133
+      objectReference: {fileID: 0}
     - target: {fileID: 2376496303520123794, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.08
@@ -203,6 +231,7 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   amount: 8
   angleRange: 360
+  deltaAngle: 0
   transmitDamage: 5
   transmitExistTime: 4
   transmitSpeed: 3
@@ -210,3 +239,11 @@ MonoBehaviour:
   destroySelfAfterDamage: 1
   damagepPerTime: 0
   timePerSplit: 0
+  bulletType: 0
+  fanAngle: 0
+  canStickIn: 0
+--- !u!4 &5093619314305030024 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2376496303267091026, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
+  m_PrefabInstance: {fileID: 7371030349129434586}
+  m_PrefabAsset: {fileID: 0}

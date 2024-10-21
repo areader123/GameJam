@@ -35,6 +35,18 @@ PrefabInstance:
       propertyPath: damageNumberMesh
       value: 
       objectReference: {fileID: 3556049430689764048, guid: f579f93fb891e7645ab1d336cc27d1c4, type: 3}
+    - target: {fileID: 3572765053811339121, guid: c99e401568db231409177029a5758dcb, type: 3}
+      propertyPath: hitPrefab
+      value: 
+      objectReference: {fileID: 5804554030685631269, guid: b8d45efb2c9ac3a49ac58d412af57e1c, type: 3}
+    - target: {fileID: 3572765053811339121, guid: c99e401568db231409177029a5758dcb, type: 3}
+      propertyPath: flashDuration
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3572765053811339121, guid: c99e401568db231409177029a5758dcb, type: 3}
+      propertyPath: hittedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 720bc9e85074aff49a11e6ba0a77fca5, type: 2}
     - target: {fileID: 3572765053811339124, guid: c99e401568db231409177029a5758dcb, type: 3}
       propertyPath: m_FlipX
       value: 0
@@ -97,7 +109,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3572765053811339126, guid: c99e401568db231409177029a5758dcb, type: 3}
       propertyPath: m_Name
-      value: Tree
+      value: Tree Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3572765053811339126, guid: c99e401568db231409177029a5758dcb, type: 3}
       propertyPath: m_IsActive

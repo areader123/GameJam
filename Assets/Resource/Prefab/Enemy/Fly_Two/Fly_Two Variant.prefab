@@ -9,11 +9,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6779438547609966033, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
       propertyPath: m_Name
-      value: Fly_Two Variant (1)
+      value: Fly_Two Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6779438547609966033, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779438547609966035, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
+      propertyPath: scale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779438547609966035, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
+      propertyPath: scale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779438547609966035, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
+      propertyPath: flashDuration
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6779438547609966040, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
       propertyPath: m_RootOrder

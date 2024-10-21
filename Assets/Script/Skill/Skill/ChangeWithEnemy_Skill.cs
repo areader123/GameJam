@@ -139,7 +139,7 @@ public class ChangeWithEnemy_Skill : Skill
         Collider2D[] colliders = Physics2D.OverlapCircleAll(character.transform.position, findFarthestEnemyRadius);
         float Max = 0;
 
-        GameObject enemy = null;
+        Enemy enemy = null;
         foreach (var hit in colliders)
         {
             if (hit.GetComponent<Enemy>() != null)
@@ -149,16 +149,19 @@ public class ChangeWithEnemy_Skill : Skill
                 if (distance > Max)
                 {
                     Max = distance;
-                    enemy = hit.gameObject;
+                    enemy = hit.GetComponent<Enemy>();
+                    Debug.Log("Old"+enemy.transform.position);
                     //hit.gameObject.transform.position = character.transform.position;
                 }
             }
         }
         if (enemy != null)
         {
-            character.transform.position = enemy.transform.position;
             Transform temp = character.transform;
-            enemy.transform.position = temp.position;
+            Debug.Log("temp" + character.transform.position);
+            character.transform.position = enemy.transform.position;
+            enemy.gameObject.transform.position = temp.position;
+             Debug.Log("new"+enemy.transform.position);
         }
     }
 
@@ -173,8 +176,8 @@ public class ChangeWithEnemy_Skill : Skill
         Character_Controller.instance.character.transform.position = _transform.position;
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(character.transform.position, findFarthestEnemyRadius);
-    }
+    // private void OnDrawGizmos()
+    // {
+    //     Gizmos.DrawWireSphere(character.transform.position, findFarthestEnemyRadius);
+    // }
 }

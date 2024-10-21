@@ -38,7 +38,7 @@ namespace SK
             if (enemy_Stat.isDead)
             {
                 base.Damage(skill, entity_Stat);
-                fx.RedColorBlinkFor(.3f);
+                //fx.RedColorBlinkFor(.3f);
             }
         }
 

@@ -117,7 +117,7 @@ namespace SK
             yield return new WaitForSeconds(konckbackDuration);
             capsuleCollider2D.enabled = true;
             rb.velocity = Vector2.zero;
-            animator.speed = 1;
+            //animator.speed = 1;
             isKoncked = false;
         }
 

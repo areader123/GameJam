@@ -10,6 +10,7 @@ namespace SK
         public Rigidbody2D rb { get; private set; }
         public SpriteRenderer sr { get; private set; }
         public Entity_FX fx { get; private set; }
+        public CapsuleCollider2D cc{ get; private set; }
         #endregion
         [SerializeField]
         public float movementSpeed = 5;
@@ -32,6 +33,7 @@ namespace SK
             animator = GetComponent<Animator>();
             rb = GetComponent<Rigidbody2D>();
             fx = GetComponent<Entity_FX>();
+            cc = GetComponent<CapsuleCollider2D>();
         }
 
 
