@@ -14,7 +14,8 @@ namespace SK
         Clone,
         SpeedUp,
         Bullet_Circle,
-        Bullet_Fan
+        Bullet_Fan,
+        Light
     }
     public enum SkillHitBack
     {

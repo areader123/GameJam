@@ -54,7 +54,8 @@ namespace SK
         public CanHitBack canHitBack;
 
         [SerializeField] private DamageNumberMesh damageNumberMesh;
-       
+        [SerializeField] private DamageNumberMesh healthNumberMesh;
+
 
 
 
@@ -69,14 +70,14 @@ namespace SK
         public virtual void DoDamage(Entity_Stat target)
         {
             int totalDamage = CaculateAttack(target);
-            DamageNumber damageNumber = damageNumberMesh.Spawn(transform.position,totalDamage);
+            DamageNumber damageNumber = damageNumberMesh.Spawn(transform.position, totalDamage);
             DecreaseHealthOnly(totalDamage);
         }
 
         public virtual void DoMagicDamage(Entity_Stat target)
         {
-            int totalDamage =CalculateMagic(target);
-            DamageNumber damageNumber = damageNumberMesh.Spawn(transform.position,totalDamage);
+            int totalDamage = CalculateMagic(target);
+            DamageNumber damageNumber = damageNumberMesh.Spawn(transform.position, totalDamage);
             DecreaseHealthOnly(totalDamage);
         }
 
@@ -136,22 +137,29 @@ namespace SK
         public virtual void TakeDamage(float damage, Skill skill)
         {
             DecreaseHealthOnly(damage);
-            DamageNumber damageNumber = damageNumberMesh.Spawn(transform.position,damage);
+            DamageNumber damageNumber = damageNumberMesh.Spawn(transform.position, damage);
             Debug.Log("受到" + damage + "伤害");
         }
 
         public virtual void IncreaseHealthOnly(int _amount)
         {
-            _currentHP += _amount;
-
-            if (_currentHP > GetMaxHealth())
+            if (_currentHP + _amount >= GetMaxHealth())
             {
                 _currentHP = GetMaxHealth();
+            }
+            else
+            {
+                _currentHP += _amount;
+                if (healthNumberMesh != null)
+                {
+                    DamageNumber healthNumber = healthNumberMesh.Spawn(transform.position, _amount);
+                }
             }
             if (OnHealthChange != null)
             {
                 OnHealthChange();
             }
+
 
         }
 
@@ -174,7 +182,7 @@ namespace SK
         {
             _currentHP = GetMaxHealth();
             critPower.SetDefaultValue(150);
-           
+
         }
 
         // Update is called once per frame

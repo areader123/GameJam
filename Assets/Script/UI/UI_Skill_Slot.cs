@@ -58,8 +58,8 @@ namespace SK
         public void UnlockSkillSlot()
         {
            
-            Debug.Log("11111111111111111111111111111111111");
-                SwitchSkillUsedSlot();
+           
+            SwitchSkillUsedSlot();
            
 
             for (int i = 0; i < shouldBeLock.Length; i++)
@@ -126,7 +126,6 @@ namespace SK
             }
 
             ui.uI_Stat_Tool_Tip.transform.position = new Vector2(mousePosition.x + xOffset, mousePosition.y + yOffset);
-            Debug.Log("button");
             ui.ui_Skill_Tip.ShowSkillTip(skillDescription, skillName);
 
         }

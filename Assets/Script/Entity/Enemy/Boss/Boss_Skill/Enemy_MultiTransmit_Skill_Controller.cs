@@ -99,10 +99,10 @@ public class Enemy_MultiTransmit_Skill_Controller : MonoBehaviour
     {
         if (target == Target.character)
         {
-            if (hit.GetComponent<Character_Stat>() != null && hit.GetComponent<Character>() != null && destroySelfAfterDamage)
+            if (hit.GetComponent<Character_Stat>() != null && hit.GetComponent<Character>() != null )
             {
                 hit.GetComponent<Character_Stat>().TakeDamage(arrowDamage, skill);
-                if (canStickIn)
+                if (canStickIn && !destroySelfAfterDamage)
                 {
                     ifHitted = true;
                     capsuleCollider2D.enabled = false;
@@ -119,10 +119,10 @@ public class Enemy_MultiTransmit_Skill_Controller : MonoBehaviour
         }
         else
         {
-            if (hit.GetComponent<Enemy_Stat>() != null && hit.GetComponent<Enemy>() != null && destroySelfAfterDamage)
+            if (hit.GetComponent<Enemy_Stat>() != null && hit.GetComponent<Enemy>() != null )
             {
                 hit.GetComponent<Enemy_Stat>().TakeDamage(arrowDamage, skill);
-                if (canStickIn)
+                if (canStickIn && !destroySelfAfterDamage)
                 {
                     ifHitted = true;
                     capsuleCollider2D.enabled = false;

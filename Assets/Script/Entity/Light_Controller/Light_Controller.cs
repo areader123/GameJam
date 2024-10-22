@@ -10,11 +10,13 @@ namespace SK
 
     public class Light_Controller : MonoBehaviour
     {
+        public static Light_Controller instance;
+        public CircleCollider2D cd;
         [Header("Light Info")]
-        [SerializeField]private new Light2D light;
+        [SerializeField] private new Light2D light;
         [SerializeField] private float minScale;
         [SerializeField] private float radius;
-        [SerializeField] private float maxScale;
+        public float maxScale;
 
         [Header("LightNumber Info")]
 
@@ -32,12 +34,27 @@ namespace SK
 
 
 
-
+        private List<Enemy> enemies;
+       
 
         private void Awake()
         {
+            if (instance != null)
+            {
+                Destroy(instance);
+            }
+            else
+            {
+                instance = this;
+            }
+
         }
 
+        private void Start()
+        {
+            cd = GetComponent<CircleCollider2D>();
+            enemies = new List<Enemy>();
+        }
         private void Update()
         {
             if (Character_Controller.instance.canChangeLightScale())
@@ -46,19 +63,26 @@ namespace SK
             }
             UpdateScale();
             DecreaseWhenDetectEnemy();
+
+            SkillManager.instance.light_Skill.CanUseSkill();
+
+            DoSkillDamage();
+
         }
 
         private void UpdateScale()
         {
-            if(light.pointLightOuterRadius> finalScale)
+            if (light.pointLightOuterRadius > finalScale && cd.radius > finalScale)
             {
-                float delta = finalScale *scaleSpeed *Time.deltaTime;
+                float delta = finalScale * scaleSpeed * Time.deltaTime;
                 light.pointLightOuterRadius -= delta;
+                cd.radius -= delta;
             }
-            if(light.pointLightOuterRadius < finalScale)
+            if (light.pointLightOuterRadius < finalScale&& cd.radius < finalScale)
             {
-                float delta = finalScale *scaleSpeed *Time.deltaTime;
+                float delta = finalScale * scaleSpeed * Time.deltaTime;
                 light.pointLightOuterRadius += delta;
+                cd.radius += delta;
             }
         }
 
@@ -83,10 +107,65 @@ namespace SK
             //  transform.localScale = Vector2.Lerp(new Vector2(minScale, minScale), new Vector2(finalScale, finalScale), scaleSpeed * Time.deltaTime);
         }
 
+        void OnTriggerEnter2D(Collider2D hit)
+        {
+
+
+            if (hit.GetComponent<Enemy>() != null)
+            {
+                enemies.Add(hit.GetComponent<Enemy>());
+                if (SkillManager.instance.light_Skill.lightWithMonsterSpeedDownUnlocked)
+                {
+                    SkillManager.instance.light_Skill.EnemySpeedDown(hit.GetComponent<Enemy>());
+                    if (SkillManager.instance.light_Skill.lightWithMonsterAniSlowUnLocked)
+                    {
+                        SkillManager.instance.light_Skill.EnemyAniDown(hit.GetComponent<Enemy>());
+                    }
+
+                }
+            }
+
+        }
+
+        private void DoSkillDamage()
+        {
+            foreach (Enemy obj in enemies)
+            {
+                if (SkillManager.instance.light_Skill.lightWithMonsterDamagedUnLocked)
+                {
+                    SkillManager.instance.light_Skill.EnemyDamaged(obj);
+                }
+            }
+        }
+
+      
+
+        void OnTriggerExit2D(Collider2D hit)
+        {
+            if (hit.GetComponent<Enemy>() != null)
+            {
+                if (enemies.Remove(hit.GetComponent<Enemy>()))
+                {
+                    if (SkillManager.instance.light_Skill.lightWithMonsterSpeedDownUnlocked)
+                    {
+                        SkillManager.instance.light_Skill.EnemySpeedUp(hit.GetComponent<Enemy>());
+                        if (SkillManager.instance.light_Skill.lightWithMonsterAniSlowUnLocked)
+                        {
+                            SkillManager.instance.light_Skill.EnemyAniUp(hit.GetComponent<Enemy>());
+                        }
+
+                    }
+                }
+            }
+        }
+
+
+
+
 
         private bool DetectEnemy()
         {
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, finalScale * radius);
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, finalScale);
             if (colliders == null)
             {
                 return false;
@@ -105,6 +184,8 @@ namespace SK
         {
             Gizmos.DrawWireSphere(transform.position, finalScale * radius);
         }
+
+      
 
 
 
