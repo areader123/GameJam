@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DamageNumbersPro;
+using System;
 namespace SK
 {
     public class Enemy_Stat : Entity_Stat
@@ -9,9 +10,17 @@ namespace SK
         Enemy enemy;
         //ItemDrop itemDropSystem;
         public int perLevelIncreaseMonsterStrength;
-        public int perLevelIncreaseMonsterDamage;
-        
+        public int perLevelIncreaseMonstermaxHP;
 
+        protected override void Update()
+        {
+            base.Update();
+           
+        }
+
+      
+        private void Awake() {
+        }
 
         protected override void Start()
         {
@@ -32,10 +41,19 @@ namespace SK
         public override void DoDamage(Entity_Stat target)
         {
             base.DoDamage(target);
+            int totalDamage = CaculateAttack(target);
+            //被动吸血
+            int blood = (int)(totalDamage * target.GetStat(StatType.Blood).GetValue() / 100);
+            Debug.Log("blood" + blood);
+            Character_Controller.instance.character.GetComponent<Character_Stat>().IncreaseHealthOnly(blood);
+            SkillManager.instance.blood_Skill.BloodToLighting(totalDamage);
+            SkillManager.instance.blood_Skill.MoreLightingMoreDuration(totalDamage);
+            //玩家主动吸血
             if (!isDead)
             {
                 enemy.Damage(null, target);
             }
+
         }
         public override void DoMagicDamage(Entity_Stat target)
         {
@@ -62,7 +80,7 @@ namespace SK
         {
             int level = Character_Controller.instance.GetLevel();
             strength.AddModifiers(perLevelIncreaseMonsterStrength * level);
-            damage.AddModifiers(perLevelIncreaseMonsterDamage * level);
+            maxHP.AddModifiers(perLevelIncreaseMonstermaxHP * level);
         }
     }
 }

@@ -29,6 +29,7 @@ namespace SK
         public override void DoDamage(Entity_Stat target)
         {
             base.DoDamage(target);
+            
             if (!isDead)
             {
                 character.Damage(null,target);

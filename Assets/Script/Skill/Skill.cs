@@ -15,7 +15,8 @@ namespace SK
         SpeedUp,
         Bullet_Circle,
         Bullet_Fan,
-        Light
+        Light,
+        blood
     }
     public enum SkillHitBack
     {

@@ -15,7 +15,8 @@ namespace SK
         maxHP,
         armor,
         MagicResistance,
-        agility
+        agility,
+        Blood
     }
     //本类执行 数值的储存 数值的计算函数 
     //被攻击者调用自身的计算函数 括号内函数参数（Entity_Stat）为攻击者的 
@@ -35,6 +36,7 @@ namespace SK
         public Stat intelligence;
         public Stat vitality;
         public Stat agility;
+        public Stat blood;
         [Header("Offensive Stats")]
         public Stat critChance;
         public Stat critPower;
@@ -106,7 +108,7 @@ namespace SK
             return totalDamage;
         }
 
-        private int CaculateAttack(Entity_Stat target)
+        protected int CaculateAttack(Entity_Stat target)
         {
             int totalDamage = (int)(target.damage.GetValue() + target.strength.GetValue());
             // if (CritChance(target))
@@ -143,8 +145,19 @@ namespace SK
 
         public virtual void IncreaseHealthOnly(int _amount)
         {
+
+
             if (_currentHP + _amount >= GetMaxHealth())
             {
+                if ((int)(GetMaxHealth() - _currentHP) == 0)
+                {
+                    DamageNumber healthNumber = healthNumberMesh.Spawn(transform.position, 1);
+                }
+                else if ((int)(GetMaxHealth() - _currentHP) > 0)
+                {
+                    DamageNumber healthNumber2 = healthNumberMesh.Spawn(transform.position, GetMaxHealth() - _currentHP);
+                    Debug.Log("GetMaxHealth() - _currentHP" + (GetMaxHealth() - _currentHP));
+                }
                 _currentHP = GetMaxHealth();
             }
             else
@@ -152,9 +165,11 @@ namespace SK
                 _currentHP += _amount;
                 if (healthNumberMesh != null)
                 {
+                    Debug.Log("2");
                     DamageNumber healthNumber = healthNumberMesh.Spawn(transform.position, _amount);
                 }
             }
+
             if (OnHealthChange != null)
             {
                 OnHealthChange();
@@ -241,6 +256,8 @@ namespace SK
                 return maxHP;
             if (_statType == StatType.vitality)
                 return vitality;
+            if (_statType == StatType.Blood)
+                return blood;
             return null;
 
 

@@ -14,6 +14,7 @@ namespace SK
         public Bullet_Skill bullet_Skill ;
         public Bullet_Fan_Skill bullet_Fan_Skill;
         public Light_Skill light_Skill;
+        public Blood_Skill blood_Skill;
 
         private void Awake()
         {
@@ -35,6 +36,7 @@ namespace SK
             bullet_Skill = GetComponent<Bullet_Skill>();
             bullet_Fan_Skill = GetComponent<Bullet_Fan_Skill>();
             light_Skill = GetComponent<Light_Skill>();
+            blood_Skill = GetComponent<Blood_Skill>();
         }
       
         public Skill GetSkillByName(SkillName skillName)
@@ -62,6 +64,10 @@ namespace SK
             if(skillName == SkillName.Light)
             {
                 return light_Skill;
+            }
+            if(skillName == SkillName.blood)
+            {
+                return blood_Skill;
             }
             return null;
         }

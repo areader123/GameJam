@@ -33,6 +33,10 @@ namespace SK
             {
                 SkillManager.instance.bullet_Fan_Skill.CanUseSkill();
             }
+            if(Input.GetKeyDown(SkillManager.instance.blood_Skill.keyCode) &&SkillManager.instance.blood_Skill.bloodLocked)
+            {
+                SkillManager.instance.blood_Skill.CanUseSkill();
+            }
         }
         public override void Exit()
         {

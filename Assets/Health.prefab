@@ -412,15 +412,15 @@ MonoBehaviour:
     characterSpacing: 0
     size: 0
   durationFadeIn: 0.2
-  enableOffsetFadeIn: 1
+  enableOffsetFadeIn: 0
   offsetFadeIn: {x: 0.5, y: 0}
   enableScaleFadeIn: 1
-  scaleFadeIn: {x: 2, y: 2}
+  scaleFadeIn: {x: 1, y: 2}
   enableCrossScaleFadeIn: 0
   crossScaleFadeIn: {x: 1, y: 1.5}
-  enableShakeFadeIn: 0
+  enableShakeFadeIn: 1
   shakeOffsetFadeIn: {x: 0, y: 1.5}
-  shakeFrequencyFadeIn: 4
+  shakeFrequencyFadeIn: 2
   durationFadeOut: 0.2
   enableOffsetFadeOut: 0
   offsetFadeOut: {x: 0.5, y: 0}
@@ -431,15 +431,15 @@ MonoBehaviour:
   enableShakeFadeOut: 1
   shakeOffsetFadeOut: {x: 0, y: -1}
   shakeFrequencyFadeOut: 2
-  enableLerp: 0
+  enableLerp: 1
   lerpSettings:
     speed: 5
-    minX: -0.1
-    maxX: 0.1
-    minY: 0.6
-    maxY: 0.8
+    minX: -0.4
+    maxX: 0.4
+    minY: 0.5
+    maxY: 1
     randomFlip: 0
-  enableVelocity: 1
+  enableVelocity: 0
   velocitySettings:
     minX: -1
     maxX: 1
@@ -462,9 +462,9 @@ MonoBehaviour:
   minRotation: -4
   maxRotation: 4
   rotationRandomFlip: 0
-  enableRotateOverTime: 1
-  minRotationSpeed: -10
-  maxRotationSpeed: 10
+  enableRotateOverTime: 0
+  minRotationSpeed: -15
+  maxRotationSpeed: 15
   rotationSpeedRandomFlip: 0
   rotateOverTime:
     serializedVersion: 2
@@ -479,8 +479,17 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.2
+      time: 0.4
       value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.8
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -504,8 +513,8 @@ MonoBehaviour:
     fromNumber: 0
     toNumber: 1000
     fromScale: 1
-    toScale: 1.25
-  enableScaleOverTime: 1
+    toScale: 1.2
+  enableScaleOverTime: 0
   scaleOverTime:
     serializedVersion: 2
     m_Curve:
@@ -520,7 +529,7 @@ MonoBehaviour:
       outWeight: 0
     - serializedVersion: 3
       time: 1
-      value: 0.8
+      value: 0.7
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -530,13 +539,13 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  spamGroup: 
-  enableCombination: 0
+  spamGroup: Default
+  enableCombination: 1
   combinationSettings:
-    method: 0
+    method: 1
     maxDistance: 10
-    spawnDelay: 0.2
-    absorbDuration: 0.4
+    spawnDelay: 0.25
+    absorbDuration: 0.35
     scaleCurve:
       serializedVersion: 2
       m_Curve:
@@ -550,8 +559,17 @@ MonoBehaviour:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
+        time: 0.7
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
         time: 1
-        value: 0.5
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -566,6 +584,15 @@ MonoBehaviour:
       m_Curve:
       - serializedVersion: 3
         time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.5
         value: 1
         inSlope: 0
         outSlope: 0
@@ -651,8 +678,8 @@ MonoBehaviour:
     desiredDirection: {x: 0, y: 0, z: 0}
   enablePush: 0
   pushSettings:
-    radius: 4
-    pushOffset: 0.5
+    radius: 3
+    pushOffset: 1
   updateDelay: 0.0125
   enablePooling: 0
   poolSize: 50
