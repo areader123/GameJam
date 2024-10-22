@@ -53,7 +53,7 @@ public class UI_Skill_CoolDown_Slot : MonoBehaviour
         }
         if (coolDown_Image.fillAmount > 0)
         {
-            Debug.Log("CoolDown");
+            //Debug.Log("CoolDown");
             coolDown_Image.fillAmount -= 1 / skill.cooldown * Time.deltaTime;
         }
     }

@@ -24,7 +24,7 @@ namespace SK
         {
             if (enemy.charactersDetected != null)
             {
-                UnityEngine.Debug.Log("Instantiate");
+                //UnityEngine.Debug.Log("Instantiate");
                 GameObject newCreate = Instantiate(prefab, enemy.charactersDetected.transform.position + offset, Quaternion.identity);
                 Enemy_Create_Skill_Controller enemy_Create_Skill_Controller = newCreate.GetComponent<Enemy_Create_Skill_Controller>();  
                 enemy_Create_Skill_Controller.SetUp(existTime,this,damagepPerTime,destroyAfterDamage);

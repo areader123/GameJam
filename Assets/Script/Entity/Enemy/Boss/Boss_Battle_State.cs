@@ -56,7 +56,7 @@ public class Boss_Battle_State : EnemyState
         }
         else
         {
-            Debug.Log("脱战");
+            //Debug.Log("脱战");
             stateMachine.ChangeState(enemy.boss_Move_State);
             return;
         }

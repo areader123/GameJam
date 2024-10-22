@@ -46,7 +46,7 @@ namespace SK
             }
             else
             {
-                Debug.Log("脱战");
+                //Debug.Log("脱战");
                 stateMachine.ChangeState(enemy.Skeleton_MoveState);
             }
             //设置速度

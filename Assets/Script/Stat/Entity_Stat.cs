@@ -127,7 +127,7 @@ namespace SK
         public virtual void TakeDamage(float damage,Skill skill)
         {
             DecreaseHealthOnly(damage);
-            Debug.Log("受到" + damage + "伤害");
+            //Debug.Log("受到" + damage + "伤害");
         }
 
         public virtual void IncreaseHealthOnly(int _amount)
@@ -156,7 +156,7 @@ namespace SK
             if (_currentHP <= 0)
             {
                 Die();
-                Debug.Log("死亡");
+                //Debug.Log("死亡");
             }
         }
 

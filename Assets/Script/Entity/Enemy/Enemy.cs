@@ -230,14 +230,14 @@ namespace SK
                     if (!isKoncked && entity_Stat.canHitBack == CanHitBack.can)
                     {
 
-                        Debug.Log("entity_Stat.canHitBack");
+                        //Debug.Log("entity_Stat.canHitBack");
                         StartCoroutine("HitKnockback");
                     }
                     break;
                 case 1:
                     if (!isKoncked && skill.skillHitBack == SkillHitBack.can)
                     {
-                        Debug.Log("skill.skillHitBack");
+                        //Debug.Log("skill.skillHitBack");
                         StartCoroutine("HitKnockback");
                     }
                     break;

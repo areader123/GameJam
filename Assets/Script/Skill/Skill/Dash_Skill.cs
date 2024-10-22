@@ -43,10 +43,10 @@ namespace SK
 
         public void UnlockDash()
         {
-            Debug.Log("尝试");
+           // Debug.Log("尝试");
             if (dash_UI_Skill_Slot.unLock)
             {
-                Debug.Log("成功");
+                //Debug.Log("成功");
                 dashUnlocked = true;
             }
         }
