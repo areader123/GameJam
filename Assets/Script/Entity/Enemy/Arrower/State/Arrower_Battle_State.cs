@@ -47,7 +47,7 @@ namespace SK
             }
             else
             {
-                Debug.Log("脱战");
+                //Debug.Log("脱战");
                 stateMachine.ChangeState(enemy.arrower_Move_State);
                 return;
             }

@@ -63,7 +63,7 @@ public class Robot_Battle_State : EnemyState
         }
         else
         {
-            Debug.Log("脱战");
+            //Debug.Log("脱战");
             stateMachine.ChangeState(enemy.robot_Walk_State);
             return;
         }
