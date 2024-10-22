@@ -63,6 +63,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: m3Projectile Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1509856878078853610, guid: 7e76bc5606465db4ab2c5e6e75f9c0a3, type: 3}
+      propertyPath: m_TagString
+      value: Bullet
+      objectReference: {fileID: 0}
     - target: {fileID: 2055570096741680439, guid: 7e76bc5606465db4ab2c5e6e75f9c0a3, type: 3}
       propertyPath: m_FlipX
       value: 0

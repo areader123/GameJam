@@ -69,7 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2913406709435193534, guid: 002642d0cd2abc64790b665be1596afa, type: 3}
       propertyPath: m_Name
-      value: Fly_Two Variant Variant
+      value: Fly_Two Variant_Multi
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 002642d0cd2abc64790b665be1596afa, type: 3}

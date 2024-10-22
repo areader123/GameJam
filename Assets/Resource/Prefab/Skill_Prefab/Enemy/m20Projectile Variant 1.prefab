@@ -53,7 +53,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7471376322689407496, guid: 4aa658e04f5667d4a8f9976d5ef374de, type: 3}
       propertyPath: m_Name
-      value: m20Projectile
+      value: m20Projectile Variant 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7471376322689407496, guid: 4aa658e04f5667d4a8f9976d5ef374de, type: 3}
+      propertyPath: m_TagString
+      value: Bullet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4aa658e04f5667d4a8f9976d5ef374de, type: 3}

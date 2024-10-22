@@ -41,7 +41,6 @@ public class UI_Skill_CoolDown_Slot : MonoBehaviour
             coolDown_Image.color = coolDownColor;
             skill.keyCode = keyCodeCoolDown;
         }
-       
     }
 
     public void CheckCoolDown()
@@ -55,7 +54,7 @@ public class UI_Skill_CoolDown_Slot : MonoBehaviour
             Debug.Log("CoolDown");
             //  cooldownTimeCounter -= 1 / cooldown * Time.deltaTime;
             //  coolDown_Image.fillAmount = cooldownTimeCounter;
-         coolDown_Image.fillAmount -= 1 / skill.cooldown * Time.deltaTime;
+         coolDown_Image.fillAmount -= 1 / skill.cooldown * Time.deltaTime * skill.cooldownDecrease;
         }
     }
 
@@ -65,7 +64,7 @@ public class UI_Skill_CoolDown_Slot : MonoBehaviour
         {
             return;
         }
-        if (coolDown_Image.fillAmount <= 0 && Input.GetKeyDown(keyCodeCoolDown))
+        if (coolDown_Image.fillAmount <= 0 && Input.GetKeyDown(keyCodeCoolDown) && skill.cooldowmTImer > 0.1f)
         {
             coolDown_Image.fillAmount = 1;
             cooldownTimeCounter = 1;

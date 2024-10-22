@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: damageNumberMesh
       value: 
       objectReference: {fileID: 3556049430689764048, guid: f579f93fb891e7645ab1d336cc27d1c4, type: 3}
+    - target: {fileID: 6779438547609966032, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
+      propertyPath: healthNumberMesh
+      value: 
+      objectReference: {fileID: 3425425705960489199, guid: a8cfac2de49fca140a1b7e0e7aca15b9, type: 3}
     - target: {fileID: 6779438547609966033, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
       propertyPath: m_Name
       value: Fly_Called
@@ -76,8 +80,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6779438547609966043, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
+      propertyPath: stickIn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779438547609966043, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
+      propertyPath: skillHitBack
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779438547609966043, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
       propertyPath: RotationWhileDamage
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779438547609966043, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
+      propertyPath: destroySelfAfterDamage
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
@@ -100,4 +116,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeSkill: 0
   statType: 6
-  increaseAmount: 50
+  increaseAmount: 100

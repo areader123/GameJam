@@ -73,6 +73,8 @@ namespace SK
             {
                 enemy.Die();
                 isDead = true;
+                Debug.Log("怪物死亡");
+                Character_Controller.instance.ifEnemyKilled = true;
             }
         }
         //属性更改

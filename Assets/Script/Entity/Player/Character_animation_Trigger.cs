@@ -23,14 +23,31 @@ namespace SK
         private void AttackTirgger()
         {
             Collider2D[] collider2Ds = Physics2D.OverlapCircleAll(character.attackableTransform.position, character.attackRadius);
-
             foreach (var hit in collider2Ds)
             {
-                if(hit.GetComponent<Enemy_Stat>() != null)
+                if (hit.GetComponent<Enemy_Stat>() != null)
                 {
                     hit.GetComponent<Enemy_Stat>().DoDamage(character_Stat);
                 }
             }
         }
+
+        private void DamageBullet()
+        {
+            if (SkillManager.instance.attack_SpeedUp_Skill.skilling_Four)
+            {
+                Collider2D[] collider2Ds = Physics2D.OverlapCircleAll(character.destroyTransform.position, character.destroyRadius);
+                Debug.Log("尝试DamageBullet");
+                foreach (var hit in collider2Ds)
+                {
+                    if (hit.tag == "Bullet")
+                    {
+                        Debug.Log("Destroy(hit.gameObject)");
+                        Destroy(hit.gameObject);
+                    }
+                }
+            }
+        }
+
     }
 }

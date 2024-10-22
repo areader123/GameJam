@@ -189,7 +189,6 @@ namespace SK
             if (_currentHP <= 0)
             {
                 Die();
-                Debug.Log("死亡");
             }
         }
 

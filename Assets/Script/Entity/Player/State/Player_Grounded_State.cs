@@ -37,6 +37,10 @@ namespace SK
             {
                 SkillManager.instance.blood_Skill.CanUseSkill();
             }
+            if(Input.GetKeyDown(SkillManager.instance.attack_SpeedUp_Skill.keyCode) &&SkillManager.instance.attack_SpeedUp_Skill.attackSpeedUpWithHPAndLightingUnlocked)
+            {
+                SkillManager.instance.attack_SpeedUp_Skill.CanUseSkill();
+            }
         }
         public override void Exit()
         {

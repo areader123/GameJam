@@ -16,7 +16,8 @@ namespace SK
         Bullet_Circle,
         Bullet_Fan,
         Light,
-        blood
+        blood,
+        AttackSpeedUp
     }
     public enum SkillHitBack
     {
@@ -28,7 +29,12 @@ namespace SK
         public SkillHitBack skillHitBack;
         public KeyCode keyCode;
         public float cooldown;
-        protected float cooldowmTImer;
+        public float cooldowmTImer;
+
+        public float cooldownDecrease;
+
+        protected int cost;
+        protected int Cost_HP;
 
         // Start is called before the first frame update
         protected virtual void Start()
@@ -45,7 +51,7 @@ namespace SK
 
         public virtual bool CanUseSkill()
         {
-            if (cooldowmTImer < 0)
+            if (cooldowmTImer < 0 && Character_Controller.instance.GetLightingNumber() >= cost && Character_Controller.instance.character.GetComponent<Character_Stat>()._currentHP > Cost_HP)
             {
                 UseSkill();
                 cooldowmTImer = cooldown;

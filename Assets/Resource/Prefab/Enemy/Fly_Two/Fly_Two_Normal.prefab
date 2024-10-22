@@ -7,9 +7,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6779438547609966032, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
+      propertyPath: healthNumberMesh
+      value: 
+      objectReference: {fileID: 3425425705960489199, guid: a8cfac2de49fca140a1b7e0e7aca15b9, type: 3}
     - target: {fileID: 6779438547609966033, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
       propertyPath: m_Name
-      value: Fly_Two Variant
+      value: Fly_Two_Normal
       objectReference: {fileID: 0}
     - target: {fileID: 6779438547609966033, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
       propertyPath: m_IsActive

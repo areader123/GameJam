@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: m20Projectile Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7471376322689407496, guid: 4aa658e04f5667d4a8f9976d5ef374de, type: 3}
+      propertyPath: m_TagString
+      value: Bullet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4aa658e04f5667d4a8f9976d5ef374de, type: 3}
 --- !u!4 &6887252254625759735 stripped
@@ -120,11 +124,14 @@ MonoBehaviour:
   skillHitBack: 1
   keyCode: 0
   cooldown: 0
+  cooldowmTImer: 0
+  cooldownDecrease: 0
   target: 1
   transmit: {fileID: 8494641995629809650, guid: 66cbfd10a33713d48a740ac04f16c505, type: 3}
   offset: {x: 0, y: 0, z: 0}
   amount: 8
   angleRange: 360
+  deltaAngle: 0
   transmitDamage: 4
   transmitExistTime: 4
   transmitSpeed: 6
@@ -132,6 +139,9 @@ MonoBehaviour:
   destroySelfAfterDamage: 1
   damagepPerTime: 0
   timePerSplit: 0
+  bulletType: 0
+  fanAngle: 0
+  canStickIn: 0
 --- !u!114 &706916477176655941
 MonoBehaviour:
   m_ObjectHideFlags: 0

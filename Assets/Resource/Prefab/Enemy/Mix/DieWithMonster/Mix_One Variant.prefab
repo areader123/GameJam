@@ -150,6 +150,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7024237888559777549, guid: 128eaccc8af5bcb49a60a1702c892174, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 43341ae4f90f1254e93f80037214a2a2, type: 2}
     - target: {fileID: 7024237888559777550, guid: 128eaccc8af5bcb49a60a1702c892174, type: 3}
       propertyPath: flashDuration
       value: 0.1
@@ -160,6 +164,11 @@ PrefabInstance:
       objectReference: {fileID: 3556049430689764048, guid: f579f93fb891e7645ab1d336cc27d1c4, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 128eaccc8af5bcb49a60a1702c892174, type: 3}
+--- !u!4 &1697170903945392614 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 245029217, guid: 128eaccc8af5bcb49a60a1702c892174, type: 3}
+  m_PrefabInstance: {fileID: 1697170904038107271}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8572202584354582400 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7024237888559777543, guid: 128eaccc8af5bcb49a60a1702c892174, type: 3}
@@ -192,7 +201,7 @@ MonoBehaviour:
   - {x: 0.60089153, y: -0.4627843, z: 0}
   m_ShapePathHash: 148872836
   m_Mesh: {fileID: 0}
-  m_InstanceId: 109902
+  m_InstanceId: 66546
   m_LocalBounds:
     m_Center: {x: -0.0016787052, y: -0.38368464, z: 0}
     m_Extent: {x: 0.6025702, y: 0.09588753, z: 0}
@@ -212,18 +221,20 @@ MonoBehaviour:
   skillHitBack: 0
   keyCode: 0
   cooldown: 0
+  cooldowmTImer: 0
+  cooldownDecrease: 0
   prefabCalledList:
   - {fileID: 4741728285098954996, guid: 47cdc4f71fa67e846ab148339c8901bb, type: 3}
   intializeAmount: 3
   intialzeTransform: {fileID: 767188798}
   intialzaDistance: 0.81
   callOrBuff: 0
-  prefabBuff: {fileID: 0}
-  buffCenter: {fileID: 0}
-  buffRange: 0
-  increaseSpeed: 0
-  bufferExistTime: 0
-  bufferPrefabExistTime: 0
+  prefabBuff: {fileID: 4892188663176944331, guid: e86d3fdf8cf22ce4f86d4c7a6d5df724, type: 3}
+  buffCenter: {fileID: 1697170903945392614}
+  buffRange: 3.62
+  increaseSpeed: 1
+  bufferExistTime: 5
+  bufferPrefabExistTime: 5
 --- !u!4 &8572202584354582415 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7024237888559777544, guid: 128eaccc8af5bcb49a60a1702c892174, type: 3}

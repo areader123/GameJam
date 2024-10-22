@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using SK;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class Blood_Skill : Skill
@@ -32,7 +33,7 @@ public class Blood_Skill : Skill
    private bool blooding_2;
    [SerializeField] private int basicBlood_4;
    private bool basic_4;
-   [SerializeField] private float newlightingCost;
+   [SerializeField] private int newlightingCost;
    [SerializeField] private float newSkillDuration;
    [SerializeField] private UI_Skill_Slot bloodMoreLightingMoreTime;
    [Space(10)]
@@ -70,7 +71,8 @@ public class Blood_Skill : Skill
          bloodSkillUsedLocked = uI_SkillUsed_Slot.Unlock;
          if (morebloodLocked)
          {
-            Blood_Two();
+            if (Character_Controller.instance.UseSkillCostLighting(lightingCost))
+               Blood_Two();
             //高比例
             if (bloodTransformedLightingLocked)
             {
@@ -95,7 +97,8 @@ public class Blood_Skill : Skill
             }
 
          }
-         Blood_One();
+         if (Character_Controller.instance.UseSkillCostLighting(lightingCost))
+            Blood_One();
          //低比例吸血
       }
    }
@@ -192,6 +195,7 @@ public class Blood_Skill : Skill
          if (!basic_1)
          {
             character_Stat.GetStat(StatType.Blood).AddModifiers(basicBlood_1);
+            cost = lightingCost;
             basic_1 = true;
          }
       }
@@ -235,6 +239,7 @@ public class Blood_Skill : Skill
          if (!basic_4)
          {
             basic_4 = true;
+            cost = newlightingCost;
             character_Stat.GetStat(StatType.Blood).AddModifiers(basicBlood_4);
          }
       }

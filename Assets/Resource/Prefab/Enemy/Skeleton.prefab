@@ -113,14 +113,18 @@ MonoBehaviour:
   vertical: 0
   faceDir: 1
   isbusy: 0
+  isKoncked: 0
+  konckedSpeed: 0
+  konckbackDuration: 0
   timeFrozen: 0
   stunDuration: 0
   stunDirection: {x: 0, y: 0}
   counterImage: {fileID: 0}
   battleSpeed: 1.5
   MoveSpeed: 1
-  battleTime: 3
   defaultMoveSpeed: 0
+  attackting: 0
+  attcakUnFollow: 0
   attackCooldown: 1
   lastTimeAttack: 0
   characterAttackedTransform: {fileID: 2376496303520123794}
@@ -131,6 +135,12 @@ MonoBehaviour:
   characterDirection: {x: 0, y: 0, z: 0}
   characterFightingWithTransform: {fileID: 2376496302496630333}
   characterFightingWithRadius: 1.98
+  skill_One_Cooldown: 0
+  lastTimeSkill_One: 0
+  skill_Two_Cooldown: 0
+  lastTimeSkill_Two: 0
+  CanskillUsedInBattleRange: 0
+  ifHaveSkill: 0
 --- !u!95 &2376496301577124459
 Animator:
   serializedVersion: 5
@@ -215,6 +225,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hittedMaterial: {fileID: 0}
   flashDuration: 0.2
+  hitPrefab: {fileID: 0}
+  scale: {x: 0, y: 0}
+  fxInstantiateTranform: {fileID: 0}
 --- !u!114 &2376496301577124457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,14 +244,17 @@ MonoBehaviour:
   strength:
     value: 3
     modifiers: 
-  agility:
-    value: 3
-    modifiers: 
   intelligence:
     value: 3
     modifiers: 
   vitality:
     value: 3
+    modifiers: 
+  agility:
+    value: 3
+    modifiers: 
+  blood:
+    value: 0
     modifiers: 
   critChance:
     value: 3
@@ -255,30 +271,17 @@ MonoBehaviour:
   armor:
     value: 3
     modifiers: 
-  evasion:
-    value: 3
-    modifiers: 
   MagicResistance:
     value: 3
     modifiers: 
-  ignite:
-    value: 0
-    modifiers: 
-  ice:
-    value: 0
-    modifiers: 
-  lighting:
-    value: 0
-    modifiers: 
-  igniteDamageCoolDown: 0
-  isIgnite: 0
-  isIce: 0
-  isLighting: 0
   isDead: 0
   canGetItem: 1
   canGetItemCoolDown: 1
+  canHitBack: 0
+  damageNumberMesh: {fileID: 3556049430689764048, guid: f579f93fb891e7645ab1d336cc27d1c4, type: 3}
+  healthNumberMesh: {fileID: 3425425705960489199, guid: a8cfac2de49fca140a1b7e0e7aca15b9, type: 3}
   perLevelIncreaseMonsterStrength: 0
-  perLevelIncreaseMonsterDamage: 0
+  perLevelIncreaseMonstermaxHP: 0
 --- !u!114 &2376496301577124471
 MonoBehaviour:
   m_ObjectHideFlags: 0

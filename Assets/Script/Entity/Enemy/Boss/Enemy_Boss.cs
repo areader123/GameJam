@@ -24,7 +24,8 @@ public class Enemy_Boss : Enemy
     [SerializeField] public float Attack_Two_Animation_Duration;
     [SerializeField] public float Attack_Three_Animation_Duration;
     [SerializeField] public float rollSpeed;
-    [SerializeField] public float speedTime;
+    [SerializeField] public float timePerRollDamage;
+    private float PerRollDamageTimeCounter;
 
     protected override void Awake()
     {
@@ -47,7 +48,7 @@ public class Enemy_Boss : Enemy
     protected override void Update()
     {
         base.Update();
-
+        PerRollDamageTimeCounter -= Time.deltaTime;
     }
     public override bool CanBeStunned()
     {
@@ -117,8 +118,11 @@ public class Enemy_Boss : Enemy
         {
             if (hit.GetComponent<Character>() != null)
             {
-                hit.GetComponent<Character_Stat>().DoDamage(enemy_Stat);
-
+                if (PerRollDamageTimeCounter < 0)
+                {
+                    hit.GetComponent<Character_Stat>().DoDamage(enemy_Stat);
+                    PerRollDamageTimeCounter = timePerRollDamage;
+                }
             }
         }
     }

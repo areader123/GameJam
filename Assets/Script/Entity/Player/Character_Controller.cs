@@ -28,7 +28,8 @@ namespace SK
         [SerializeField] private int perLevelAddSkillPoint;
         public int maxSkillNumber;
 
-
+        [Header("Kill Info")]
+        public bool ifEnemyKilled;
         private bool canChangeLightScaleFlag = true;
 
 

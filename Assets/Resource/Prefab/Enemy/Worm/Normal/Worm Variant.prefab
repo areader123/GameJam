@@ -63,10 +63,14 @@ PrefabInstance:
       propertyPath: damageNumberMesh
       value: 
       objectReference: {fileID: 3556049430689764048, guid: f579f93fb891e7645ab1d336cc27d1c4, type: 3}
+    - target: {fileID: 2376496301577124457, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
+      propertyPath: healthNumberMesh
+      value: 
+      objectReference: {fileID: 3425425705960489199, guid: a8cfac2de49fca140a1b7e0e7aca15b9, type: 3}
     - target: {fileID: 2376496301577124459, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 9a2978ceb75195f4d91d4607972e7f0e, type: 2}
+      objectReference: {fileID: 9100000, guid: d6c65557e7c493042bb5c23b2ba227ce, type: 2}
     - target: {fileID: 2376496301577124461, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
       propertyPath: m_Size.x
       value: 0.29182333

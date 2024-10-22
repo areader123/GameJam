@@ -280,6 +280,10 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 74822294678092667, guid: 912f096b666b75f4ea4ca3210c610072, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c3bb11502b86e2c44a8780c10715b97a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 912f096b666b75f4ea4ca3210c610072, type: 3}
 --- !u!1 &7326617128650204044 stripped
@@ -340,18 +344,20 @@ MonoBehaviour:
   skillHitBack: 0
   keyCode: 0
   cooldown: 0
+  cooldowmTImer: 0
+  cooldownDecrease: 0
   prefabCalledList:
   - {fileID: 8983254249799433573, guid: 35784d91aebca41439cb9aebf1ca28ec, type: 3}
   intializeAmount: 1
   intialzeTransform: {fileID: 2143722057}
   intialzaDistance: 2
-  callOrBuff: 0
-  prefabBuff: {fileID: 0}
-  buffCenter: {fileID: 0}
-  buffRange: 0
-  increaseSpeed: 0
-  bufferExistTime: 0
-  bufferPrefabExistTime: 0
+  callOrBuff: 2
+  prefabBuff: {fileID: 4892188663176944331, guid: e86d3fdf8cf22ce4f86d4c7a6d5df724, type: 3}
+  buffCenter: {fileID: 532637022}
+  buffRange: 1.98
+  increaseSpeed: 1
+  bufferExistTime: 5
+  bufferPrefabExistTime: 5
 --- !u!114 &2134241901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,6 +374,8 @@ MonoBehaviour:
   skillHitBack: 0
   keyCode: 0
   cooldown: 0
+  cooldowmTImer: 0
+  cooldownDecrease: 0
   target: 1
   transmit: {fileID: 4923077899588088387, guid: 6a297cdb33b6fff4baee8eff2a169a99, type: 3}
   offset: {x: 0, y: 0, z: 0}
@@ -488,6 +496,9 @@ MonoBehaviour:
   agility:
     value: 1
     modifiers: 
+  blood:
+    value: 0
+    modifiers: 
   critChance:
     value: 1
     modifiers: 
@@ -510,9 +521,10 @@ MonoBehaviour:
   canGetItem: 1
   canGetItemCoolDown: 1
   canHitBack: 0
-  damageNumberMesh: {fileID: 0}
+  damageNumberMesh: {fileID: 3556049430689764048, guid: f579f93fb891e7645ab1d336cc27d1c4, type: 3}
+  healthNumberMesh: {fileID: 3425425705960489199, guid: a8cfac2de49fca140a1b7e0e7aca15b9, type: 3}
   perLevelIncreaseMonsterStrength: 0
-  perLevelIncreaseMonsterDamage: 0
+  perLevelIncreaseMonstermaxHP: 0
 --- !u!114 &2134241908
 MonoBehaviour:
   m_ObjectHideFlags: 0

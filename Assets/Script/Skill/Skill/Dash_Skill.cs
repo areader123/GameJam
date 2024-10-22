@@ -10,8 +10,11 @@ namespace SK
     {
 
         public bool dashUnlocked;
-        [SerializeField] private int dashUseWithOutLightingAmountUsed;
+        [SerializeField] private int dashUseWithLightingAmountUsed;
+        private bool basic_1;
+        [SerializeField] public UI_Skill_Slot dash_UI_Skill_Slot;
         public bool dashUseWithOutLightingLocked;
+        private bool basic_2;
         [SerializeField] public UI_Skill_Slot dashUseWithOutLighting;
         public bool dashWithCloneLocked;
         [SerializeField] public UI_Skill_Slot dashWithClone;
@@ -41,13 +44,12 @@ namespace SK
         [SerializeField] public UI_Skill_Slot lowCoolingDownButHighLighting;
 
         public bool dashSkillUsedUnlocked;
-        [SerializeField] public UI_Skill_Slot dash_UI_Skill_Slot;
         [SerializeField] private UI_SkillUsed_Slot uI_SkillUsed_Slot;
 
         public float dashDuration;
         public float dashSpeed;
         private Character character;
-        private void Awake() 
+        private void Awake()
         {
         }
         protected override void Start()
@@ -60,7 +62,7 @@ namespace SK
             dashWithObjectToDamage.GetComponent<Button>().onClick.AddListener(UnlockDashWithObjectToDamage);
             unHittableDuringDash.GetComponent<Button>().onClick.AddListener(UnlockUnHittableDuringDash);
             lowCoolingDownButHighLighting.GetComponent<Button>().onClick.AddListener(UnlockLowCoolingDownWhileHighLighting);
-            
+
         }
 
         protected override void Update()
@@ -120,7 +122,7 @@ namespace SK
                 }
 
                 //消耗光亮值 否则无法释放
-                if (Character_Controller.instance.DecreaseLightingNumber(dashUseWithOutLightingAmountUsed))
+                if (Character_Controller.instance.DecreaseLightingNumber(dashUseWithLightingAmountUsed))
                 {
                     character.stateMachine.ChangeState(character.player_Dash_State);
                 }
@@ -187,13 +189,17 @@ namespace SK
 
         public void UnlockDashUseWithOutLighting()
         {
-             Debug.Log("22222222222222222222222222222222222");
             Debug.Log("尝试");
             if (dashUseWithOutLighting.unLock)
             {
-                 Debug.Log("3333333333333333333333333333333333333333");
+
                 Debug.Log("成功");
                 dashUseWithOutLightingLocked = true;
+                if (!basic_2)
+                {
+                    basic_2 = true;
+                    cost =0;
+                }
             }
         }
 
@@ -205,6 +211,11 @@ namespace SK
             {
                 Debug.Log("成功");
                 dashUnlocked = true;
+                if (!basic_1)
+                {
+                    cost = dashUseWithLightingAmountUsed;
+                    basic_1 = true;
+                }
             }
         }
     }

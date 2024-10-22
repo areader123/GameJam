@@ -219,6 +219,7 @@ public class Bullet_Fan_Skill : Skill
         {
             Debug.Log("成功");
             bulletWithLightingUnLocked = true;
+            cost = lightingCost;
         }
     }
 }

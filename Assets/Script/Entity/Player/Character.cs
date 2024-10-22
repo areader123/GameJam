@@ -14,6 +14,9 @@ namespace SK
         public float attackRadius;
         [SerializeField] private UI uI;
         public CapsuleCollider2D capsuleCollider2D;
+        public Transform destroyTransform;
+        public float destroyRadius;
+        [SerializeField]private float unHittableDuration;
 
         #region Player_State
         public StateMachine stateMachine { get; private set; }
@@ -61,8 +64,11 @@ namespace SK
             //Debug.Log("inputHandler.vertical" + inputHandler.vertical);
             if (!uI.ifTimeStop && !isKoncked)
             {
-                stateMachine.currentstate.Update();   
-                FlipControll(inputHandler.horizonal);
+                if (!GetComponent<Character_Stat>().isDead)
+                {
+                    stateMachine.currentstate.Update();
+                    FlipControll(inputHandler.horizonal);
+                }
             }
         }
         public void AnimationTrigger() => stateMachine.currentstate.AnimationFinishTrigger();
@@ -76,15 +82,29 @@ namespace SK
                 expression = 0;
             if (skill != null)
                 expression = 1;
+            if (skill == null && entity_Stat == null)
+            {
+                return;
+            }
             switch (expression)
             {
                 case 0:
                     if (!isKoncked && entity_Stat.canHitBack == CanHitBack.can)
-                        StartCoroutine("HitKnockback");
+                    {
+                        // StopCoroutine("HitKnockbackCharacter");
+                         StartCoroutine("HitKnockbackCharacter");
+                      //  StopCoroutine("HitKnockbackCharacterCollider2D");
+                         StartCoroutine("HitKnockbackCharacterCollider2D");
+                    }
                     break;
                 case 1:
                     if (!isKoncked && skill.skillHitBack == SkillHitBack.can)
-                        StartCoroutine("HitKnockback");
+                    {
+                        // StopCoroutine("HitKnockbackCharacter");
+                        StartCoroutine("HitKnockbackCharacter");
+                      //  StopCoroutine("HitKnockbackCharacterCollider2D");
+                        StartCoroutine("HitKnockbackCharacterCollider2D");
+                    }
                     break;
                 default:
                     break;
@@ -106,21 +126,28 @@ namespace SK
         protected override void OnDrawGizmos()
         {
             Gizmos.DrawWireSphere(attackableTransform.position, attackRadius);
+            Gizmos.DrawWireSphere(destroyTransform.position,destroyRadius);
         }
 
-        protected override IEnumerator HitKnockback()
+
+        protected IEnumerator HitKnockbackCharacter()
         {
             isKoncked = true;
             animator.speed = 0;
-            rb.velocity = new Vector2(konckedSpeed * (-faceDir), 0);
-            capsuleCollider2D.enabled = false;
+            rb.velocity -= new Vector2(konckedSpeed * (-faceDir), 0);
+          //  capsuleCollider2D.enabled = false;
             yield return new WaitForSeconds(konckbackDuration);
-            capsuleCollider2D.enabled = true;
+         //   capsuleCollider2D.enabled = true;
             rb.velocity = Vector2.zero;
-            //animator.speed = 1;
+            animator.speed = 1;
             isKoncked = false;
         }
-
+        protected IEnumerator HitKnockbackCharacterCollider2D()
+        {   
+            capsuleCollider2D.enabled = false;
+            yield return new WaitForSeconds(unHittableDuration);
+            capsuleCollider2D.enabled = true;
+        }
 
 
     }

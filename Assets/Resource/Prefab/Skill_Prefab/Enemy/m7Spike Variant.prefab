@@ -59,6 +59,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: m7Spike Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8221571475009759319, guid: 3a357603f8d27f84abcb251ebe476aae, type: 3}
+      propertyPath: m_TagString
+      value: Bullet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a357603f8d27f84abcb251ebe476aae, type: 3}
 --- !u!1 &5701699776490543881 stripped

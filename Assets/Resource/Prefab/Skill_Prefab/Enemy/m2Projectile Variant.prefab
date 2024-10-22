@@ -59,6 +59,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: m2Projectile Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5742571993579605129, guid: b66f03cf9cfcc60469670ad8fe15f42f, type: 3}
+      propertyPath: m_TagString
+      value: Bullet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b66f03cf9cfcc60469670ad8fe15f42f, type: 3}
 --- !u!1 &5676853827565950395 stripped

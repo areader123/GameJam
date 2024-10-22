@@ -62,6 +62,10 @@ PrefabInstance:
       propertyPath: fxInstantiateTranform
       value: 
       objectReference: {fileID: 245029217}
+    - target: {fileID: 5093619312757014451, guid: eb422f12eef42e140a3c60163c31598e, type: 3}
+      propertyPath: healthNumberMesh
+      value: 
+      objectReference: {fileID: 3425425705960489199, guid: a8cfac2de49fca140a1b7e0e7aca15b9, type: 3}
     - target: {fileID: 5093619312757014452, guid: eb422f12eef42e140a3c60163c31598e, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -132,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5093619312757014459, guid: eb422f12eef42e140a3c60163c31598e, type: 3}
       propertyPath: m_Name
-      value: Mix Variant (1)
+      value: Mix Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5093619312757014459, guid: eb422f12eef42e140a3c60163c31598e, type: 3}
       propertyPath: m_IsActive

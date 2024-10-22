@@ -15,6 +15,7 @@ namespace SK
         public Bullet_Fan_Skill bullet_Fan_Skill;
         public Light_Skill light_Skill;
         public Blood_Skill blood_Skill;
+        public Attack_SpeedUp_Skill attack_SpeedUp_Skill;
 
         private void Awake()
         {
@@ -37,6 +38,7 @@ namespace SK
             bullet_Fan_Skill = GetComponent<Bullet_Fan_Skill>();
             light_Skill = GetComponent<Light_Skill>();
             blood_Skill = GetComponent<Blood_Skill>();
+            attack_SpeedUp_Skill = GetComponent<Attack_SpeedUp_Skill>();
         }
       
         public Skill GetSkillByName(SkillName skillName)
@@ -68,6 +70,10 @@ namespace SK
             if(skillName == SkillName.blood)
             {
                 return blood_Skill;
+            }
+            if(skillName == SkillName.AttackSpeedUp)
+            {
+                return attack_SpeedUp_Skill;
             }
             return null;
         }

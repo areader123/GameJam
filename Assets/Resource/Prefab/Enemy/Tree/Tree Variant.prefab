@@ -35,6 +35,10 @@ PrefabInstance:
       propertyPath: damageNumberMesh
       value: 
       objectReference: {fileID: 3556049430689764048, guid: f579f93fb891e7645ab1d336cc27d1c4, type: 3}
+    - target: {fileID: 3572765053811339120, guid: c99e401568db231409177029a5758dcb, type: 3}
+      propertyPath: healthNumberMesh
+      value: 
+      objectReference: {fileID: 3425425705960489199, guid: a8cfac2de49fca140a1b7e0e7aca15b9, type: 3}
     - target: {fileID: 3572765053811339121, guid: c99e401568db231409177029a5758dcb, type: 3}
       propertyPath: hitPrefab
       value: 
@@ -145,6 +149,8 @@ MonoBehaviour:
   skillHitBack: 0
   keyCode: 0
   cooldown: 0
+  cooldowmTImer: 0
+  cooldownDecrease: 0
   prefab: {fileID: 2372413945405008392, guid: c6d50cc135716a3428d461198317ae9c, type: 3}
   existTime: 1
   destroyAfterDamage: 0

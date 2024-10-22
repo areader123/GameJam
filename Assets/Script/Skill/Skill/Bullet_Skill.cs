@@ -18,6 +18,7 @@ public class Bullet_Skill : Skill
     [SerializeField] private float transmitExistTime;
     [SerializeField] private float transmitSpeed;
     [SerializeField] private int lightingCost;
+    private bool basic_1;
     
     [SerializeField] public UI_Skill_Slot bulletWithLighting;
     [Space(10)]
@@ -34,6 +35,7 @@ public class Bullet_Skill : Skill
     public bool bulletWithLessLightingLocked;
 
     [SerializeField] private int lessLightingCost;
+     private bool basic_2;
     [SerializeField] private int damageIncreasePerSkilled_4;
     [SerializeField] public UI_Skill_Slot bulletWithLessLighting;
     [Space(10)]
@@ -212,6 +214,11 @@ public class Bullet_Skill : Skill
         {
             Debug.Log("成功");
             bulletWithLessLightingLocked = true;
+            if(!basic_2)
+            {
+                cost = lessLightingCost;
+                basic_2 = true;
+            }
         }
     }
 
@@ -244,6 +251,11 @@ public class Bullet_Skill : Skill
         {
             Debug.Log("成功");
             bulletWithLightingUnLocked = true;
+            if(!basic_1)
+            {
+                cost = lightingCost;
+                basic_1 = true;
+            }
         }
     }
 }

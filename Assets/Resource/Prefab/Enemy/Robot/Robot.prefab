@@ -256,6 +256,9 @@ MonoBehaviour:
   agility:
     value: 2
     modifiers: 
+  blood:
+    value: 0
+    modifiers: 
   critChance:
     value: 2
     modifiers: 
@@ -278,9 +281,10 @@ MonoBehaviour:
   canGetItem: 1
   canGetItemCoolDown: 1
   canHitBack: 1
-  damageNumberMesh: {fileID: 0}
+  damageNumberMesh: {fileID: 3556049430689764048, guid: f579f93fb891e7645ab1d336cc27d1c4, type: 3}
+  healthNumberMesh: {fileID: 3425425705960489199, guid: a8cfac2de49fca140a1b7e0e7aca15b9, type: 3}
   perLevelIncreaseMonsterStrength: 0
-  perLevelIncreaseMonsterDamage: 0
+  perLevelIncreaseMonstermaxHP: 0
 --- !u!114 &3572765053811339123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,6 +318,8 @@ MonoBehaviour:
   skillHitBack: 1
   keyCode: 0
   cooldown: 0
+  cooldowmTImer: 0
+  cooldownDecrease: 0
   arrow: {fileID: 1399805051277630619, guid: ba10f8e56f1a6ff4e8dacd8e10a63176, type: 3}
   offset: {x: 0, y: 0, z: 0}
   arrowDamage: 3
@@ -342,6 +348,8 @@ MonoBehaviour:
   skillHitBack: 0
   keyCode: 0
   cooldown: 0
+  cooldowmTImer: 0
+  cooldownDecrease: 0
   effect: {fileID: 2770356434834602557, guid: c794f8515c2e7bb49a1b1254bc22b81a, type: 3}
   effectInstantiateTransform: {fileID: 3572765054506429504}
   existtime: 0.5

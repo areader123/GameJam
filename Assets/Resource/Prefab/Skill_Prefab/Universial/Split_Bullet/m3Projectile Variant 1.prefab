@@ -63,6 +63,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: m3Projectile Variant 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1509856878078853610, guid: 7e76bc5606465db4ab2c5e6e75f9c0a3, type: 3}
+      propertyPath: m_TagString
+      value: Bullet
+      objectReference: {fileID: 0}
     - target: {fileID: 2055570096741680439, guid: 7e76bc5606465db4ab2c5e6e75f9c0a3, type: 3}
       propertyPath: m_FlipX
       value: 0
@@ -132,11 +136,14 @@ MonoBehaviour:
   skillHitBack: 0
   keyCode: 0
   cooldown: 0
+  cooldowmTImer: 0
+  cooldownDecrease: 0
   target: 1
   transmit: {fileID: 2243875560851918992, guid: 9a59374b141e28d45816574c2f19e83c, type: 3}
   offset: {x: 0, y: 0, z: 0}
   amount: 5
   angleRange: 360
+  deltaAngle: 0
   transmitDamage: 3
   transmitExistTime: 4
   transmitSpeed: 3
