@@ -21,6 +21,7 @@ public class Enemy_Roar_Skill_Controller : MonoBehaviour
     private void Awake()
     {
         bufferPrefabExsitCounter = buffPrefabExistTime;
+        
     }
 
     private void Update()

@@ -41,14 +41,14 @@ namespace SK
         public Vector3 characterDirection;
 
         [Header("Battle Info")]
-        [SerializeField]private Transform characterFightingWithTransform;
-        [SerializeField]private float characterFightingWithRadius;
+        [SerializeField] private Transform characterFightingWithTransform;
+        [SerializeField] private float characterFightingWithRadius;
         [Header("Skill Info")]
-        [SerializeField]public float skill_One_Cooldown;
-        [SerializeField]public float lastTimeSkill_One;
+        [SerializeField] public float skill_One_Cooldown;
+        [SerializeField] public float lastTimeSkill_One;
 
-        [SerializeField]public float skill_Two_Cooldown;
-        [SerializeField]public float lastTimeSkill_Two;
+        [SerializeField] public float skill_Two_Cooldown;
+        [SerializeField] public float lastTimeSkill_Two;
 
 
         protected Enemy_Drop enemy_Drop;
@@ -217,7 +217,7 @@ namespace SK
             return false;
         }
 
-        public override void Damage(Skill skill = null,Entity_Stat entity_Stat = null)
+        public override void Damage(Skill skill = null, Entity_Stat entity_Stat = null)
         {
             int expression = 0;
             if (entity_Stat != null)
@@ -244,6 +244,8 @@ namespace SK
                 default:
                     break;
             }
+            fx.HitFX();
+            fx.Entity_FX_White();
             //敌人实体受击打效果
         }
 

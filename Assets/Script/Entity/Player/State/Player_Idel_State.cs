@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using SK;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 namespace SK
 {
 
@@ -17,10 +19,15 @@ namespace SK
             {
                 stateMachine.ChangeState(character.player_Move_State);
             }
+            if(Mouse.current.leftButton.wasPressedThisFrame)
+            {
+                stateMachine.ChangeState(character.player_Attack_State);
+            }
         }
         public override void Enter()
         {
             base.Enter();
+            character.SetVelocity(0,0,0);
             IdelDirection();
         }
 

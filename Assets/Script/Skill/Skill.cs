@@ -11,7 +11,12 @@ namespace SK
     public enum SkillName
     {
         Dash,
-        Clone
+        Clone,
+        SpeedUp,
+        Bullet_Circle,
+        Bullet_Fan,
+        Light,
+        blood
     }
     public enum SkillHitBack
     {
@@ -28,6 +33,7 @@ namespace SK
         // Start is called before the first frame update
         protected virtual void Start()
         {
+            CheckUnlock();
         }
 
         // Update is called once per frame

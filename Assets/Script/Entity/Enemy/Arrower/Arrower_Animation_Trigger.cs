@@ -25,5 +25,9 @@ namespace SK
               enemy.GetComponent<Bow_Skill>().CanUseSkill();
             }
         }
+        private void Skill_MultiBullet_Trigger()
+        {
+          enemy.GetComponent<Enemy_MultiTransmit_Skill>().CanUseSkill();
+        }
     }
 }

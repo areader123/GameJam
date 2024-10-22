@@ -38,6 +38,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 588233468, guid: 3a948063be4e1d14ca6a3ace8ac89699, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6809386163396395400, guid: 3a948063be4e1d14ca6a3ace8ac89699, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.010000005
@@ -46,13 +50,25 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.010000005
       objectReference: {fileID: 0}
+    - target: {fileID: 6809386163795657365, guid: 3a948063be4e1d14ca6a3ace8ac89699, type: 3}
+      propertyPath: scale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6809386163795657365, guid: 3a948063be4e1d14ca6a3ace8ac89699, type: 3}
+      propertyPath: scale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6809386163795657365, guid: 3a948063be4e1d14ca6a3ace8ac89699, type: 3}
+      propertyPath: flashDuration
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6809386163795657366, guid: 3a948063be4e1d14ca6a3ace8ac89699, type: 3}
       propertyPath: maxHP.value
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6809386163795657367, guid: 3a948063be4e1d14ca6a3ace8ac89699, type: 3}
       propertyPath: m_Name
-      value: Fly
+      value: Fly Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6809386163795657367, guid: 3a948063be4e1d14ca6a3ace8ac89699, type: 3}
       propertyPath: m_IsActive

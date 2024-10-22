@@ -91,7 +91,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.51666665
-    functionName: AttackTrigger
+    functionName: Skill_MultiBullet_Trigger
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

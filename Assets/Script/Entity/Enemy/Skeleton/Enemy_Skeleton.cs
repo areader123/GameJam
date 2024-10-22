@@ -13,6 +13,9 @@ namespace SK
         public SkeletonAttackState Skeleton_AttackState { get; private set; }
         public SkeletonDieState Skeleton_DieState { get; private set; }
         // public SkeletonStunnedState Skeleton_StunnedState { get; private set; } 
+        public Skeleton_Skill_Attack_State skeleton_Skill_Attack_State;
+        public bool CanskillUsedInBattleRange;
+        public bool ifHaveSkill;
         protected override void Awake()
         {
             base.Awake();
@@ -21,6 +24,7 @@ namespace SK
             Skeleton_BattleState = new SkeletonBattleState(this, stateMachine, "Battle", this);
             Skeleton_AttackState = new SkeletonAttackState(this, stateMachine, "Attack", this);
             Skeleton_DieState = new SkeletonDieState(stateMachine, this, "Die", this);
+            skeleton_Skill_Attack_State = new Skeleton_Skill_Attack_State(stateMachine, this, "Skill_Attack", this);
 
             // Skeleton_StunnedState = new SkeletonStunnedState(this, stateMachine, "Stunned", this);
         }
@@ -46,10 +50,11 @@ namespace SK
         }
         public override void Damage(Skill skill, Entity_Stat entity_Stat)
         {
+           // base.Damage();
             if (!enemy_Stat.isDead)
             {
                 base.Damage(skill, entity_Stat);
-                fx.RedColorBlinkFor(.3f);
+                //fx.RedColorBlinkFor(.3f);
             }
         }
 
@@ -63,6 +68,17 @@ namespace SK
         public void Destroy()
         {
             Destroy(gameObject);
+        }
+
+        public bool DoSkill_One()
+        {
+
+            if (Time.time >= lastTimeSkill_One + skill_One_Cooldown)
+            {
+                lastTimeSkill_One = Time.time;
+                return true;
+            }
+            return false;
         }
 
 

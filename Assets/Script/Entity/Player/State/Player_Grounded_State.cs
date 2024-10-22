@@ -13,17 +13,29 @@ namespace SK
         public override void Update()
         {
             base.Update();
-            if (Keyboard.current.shiftKey.wasPressedThisFrame && SkillManager.instance.dash_Skill.dashUnlocked)
+            if (Input.GetKeyDown(SkillManager.instance.dash_Skill.keyCode) && SkillManager.instance.dash_Skill.dashUnlocked)
             {
                 SkillManager.instance.dash_Skill.CanUseSkill();
             }
-            if(Keyboard.current.cKey.wasPressedThisFrame && SkillManager.instance.clone_Skill.cloneUnlocked)
+            if(Input.GetKeyDown(SkillManager.instance.clone_Skill.keyCode) && SkillManager.instance.clone_Skill.cloneUnlocked)
             {
                 SkillManager.instance.clone_Skill.CanUseSkill();
             }
-            if(Mouse.current.leftButton.wasPressedThisFrame)
+            if(Input.GetKeyDown(SkillManager.instance.changeWithEnemy_Skill.keyCode) && SkillManager.instance.changeWithEnemy_Skill.speedUpLocked)
             {
-                stateMachine.ChangeState(character.player_Attack_State);
+                SkillManager.instance.changeWithEnemy_Skill.CanUseSkill();
+            }
+            if(Input.GetKeyDown(SkillManager.instance.bullet_Skill.keyCode) &&SkillManager.instance.bullet_Skill.bulletWithLightingUnLocked )
+            {
+                SkillManager.instance.bullet_Skill.CanUseSkill();
+            }
+            if(Input.GetKeyDown(SkillManager.instance.bullet_Fan_Skill.keyCode) &&SkillManager.instance.bullet_Fan_Skill.bulletWithLightingUnLocked )
+            {
+                SkillManager.instance.bullet_Fan_Skill.CanUseSkill();
+            }
+            if(Input.GetKeyDown(SkillManager.instance.blood_Skill.keyCode) &&SkillManager.instance.blood_Skill.bloodLocked)
+            {
+                SkillManager.instance.blood_Skill.CanUseSkill();
             }
         }
         public override void Exit()

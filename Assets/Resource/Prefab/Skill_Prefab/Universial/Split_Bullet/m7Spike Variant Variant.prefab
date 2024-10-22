@@ -75,13 +75,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: 0
-  skillHitBack: 0
+  skillHitBack: 1
   keyCode: 0
-  cooldown: 0
+  cooldown: 1
   target: 1
   transmit: {fileID: 2531329399065239691, guid: 8fa059f4f50990441b2eeefbf1b55d28, type: 3}
   offset: {x: 0, y: 0, z: 0}
-  amount: 3
+  amount: 4
   angleRange: 360
   transmitDamage: 3
   transmitExistTime: 5
@@ -89,7 +89,7 @@ MonoBehaviour:
   transmitInstantiateTransform: {fileID: 6622120661732554721}
   destroySelfAfterDamage: 1
   damagepPerTime: 0
-  timePerSplit: 3
+  timePerSplit: 0
 --- !u!4 &6622120661732554721 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5806467377997897387, guid: c6e637c5113d9bf44ae0e92508ed32d4, type: 3}

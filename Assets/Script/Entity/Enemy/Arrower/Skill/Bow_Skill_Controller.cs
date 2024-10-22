@@ -30,6 +30,7 @@ namespace SK
         private float slowRotationSpeed;
         private Transform InstantiateTransform;
         private CapsuleCollider2D capsuleCollider2D;
+        private bool stickIn;
 
         private void Awake()
         {
@@ -78,12 +79,18 @@ namespace SK
         private void SlowRotation()
         {
             Vector3 direction = target.transform.position - transform.position;
-            Vector3 directionNormalized = direction.normalized;
-            transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.LookRotation(target.transform.position - transform.position, target.transform.position - transform.position), slowRotationSpeed);
+            float directionAngle = Vector2.Angle( direction,Vector2.right);
+            if(target.transform.position.y - transform.position.y < 0)
+            {
+               directionAngle = (180 - directionAngle) * 2 + directionAngle;
+            }
+           float tempAngle= Mathf.Lerp(transform.rotation.z,directionAngle,slowRotationSpeed * Time.deltaTime);
+             transform.Rotate(0,0,tempAngle);
+            // transform.Rotate(0, -90, 0);
             //transform.rotation.SetFromToRotation(temp1.eulerAngles,temp2.eulerAngles);
         }
 
-        public void SetArrow(float _arrowDamage, float _arrowExistTime, float _arrowSpeed, Character _target, Vector3 _offset, Enemy _orignTarget, float _damagepPerTime, bool _destroySelfAfterDamage, bool _RotationWhileDamage, Skill _skill, bool _slowRotationWhileDamage, float _slowRotationSpeed, Transform _InstantiateTransform)
+        public void SetArrow(float _arrowDamage, float _arrowExistTime, float _arrowSpeed, Character _target, Vector3 _offset, Enemy _orignTarget, float _damagepPerTime, bool _destroySelfAfterDamage, bool _RotationWhileDamage, Skill _skill, bool _slowRotationWhileDamage, float _slowRotationSpeed, Transform _InstantiateTransform, bool _stickIn)
         {
 
             arrowDamage = _arrowDamage;
@@ -99,9 +106,13 @@ namespace SK
             slowRotationWhileDamage = _slowRotationWhileDamage;
             slowRotationSpeed = _slowRotationSpeed;
             InstantiateTransform = _InstantiateTransform;
+            stickIn = _stickIn;
             SetVelocity();
-            // SetRotation();
-
+            if (!slowRotationWhileDamage)
+            {
+                SetRotation();
+            }
+           
         }
 
 
@@ -109,10 +120,18 @@ namespace SK
         {
             if (hit.GetComponent<Character_Stat>() != null && hit.GetComponent<Character>() != null && destroySelfAfterDamage)
             {
-                hit.GetComponent<Character_Stat>().TakeDamage(arrowDamage, skill);        
-                // capsuleCollider2D.enabled = false;      
-                // rb.isKinematic = true;     
-                // rb.constraints = RigidbodyConstraints2D.FreezeAll;
+                hit.GetComponent<Character_Stat>().TakeDamage(arrowDamage, skill);
+                if (stickIn)
+                {
+                    capsuleCollider2D.enabled = false;
+                    rb.isKinematic = true;
+                    rb.constraints = RigidbodyConstraints2D.FreezeAll;
+                    gameObject.transform.SetParent(hit.transform);
+                }
+                else
+                {
+                    Destroy(gameObject);
+                }
             }
         }
 

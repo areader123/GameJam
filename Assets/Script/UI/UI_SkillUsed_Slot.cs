@@ -15,13 +15,19 @@ namespace SK
         public bool Unlock;
         public Skill skill;
         public SkillName skillName;
-        private UI_InGame uI_InGame;
         private void Awake()
         {   
             uI_Skill_Slot = GetComponentInChildren<UI_Skill_Slot>();
             uI_SkillTree_Slot = GetComponentInParent<UI_SkillTree_Slot>();
             image = GetComponent<Image>();
             image.color = new Vector4(1, 1, 1, 0);
+        }
+        private void Update() 
+        {
+            if(skill ==null)
+            {
+              skill = SkillManager.instance.GetSkillByName(skillName);
+            }
         }
         void Start()
         {

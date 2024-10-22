@@ -15,18 +15,12 @@ namespace SK
 
         private float FirstCoolDown;
         [SerializeField] private Image parryCoolDownImage;
-        private float parryCoolDown;
 
-        [SerializeField] private Image crystalCoolDownImage;
-        private float crystalCoolDown;
+     
 
-        [SerializeField] private Image swordCoolDownImage;
-        private float swordCoolDown;
-        [SerializeField] private Image blackholeCoolDownImage;
-        private float blackholeCoolDown;
+     
 
-        [SerializeField] private Image flaskCoolDownImage;
-        private float flaskCoolDown;
+      
 
         [SerializeField] private TextMeshProUGUI lightingNumberText;
         [SerializeField] private TextMeshProUGUI expNumberText;
@@ -38,6 +32,7 @@ namespace SK
         private float SecondCoolDown;
 
         private UI uI;
+        [SerializeField]private UI_SkillTree_Slot uI_SkillTree_Slot;
 
         [SerializeField]private List<UI_Skill_CoolDown_Slot> uI_Skill_CoolDown_Slots;
 
@@ -136,7 +131,7 @@ namespace SK
 
         private void CheckCoolDown()
         {
-            for(int i = 0; i <2 ; i++) 
+            for(int i = 0; i <uI_Skill_CoolDown_Slots.Count ; i++) 
             {
                 if(uI_Skill_CoolDown_Slots[i] != null)
                 {
@@ -146,7 +141,7 @@ namespace SK
         }
         private void SetCoolDown()
         {
-             for(int i = 0; i <2 ; i++) 
+             for(int i = 0; i <uI_Skill_CoolDown_Slots.Count ; i++) 
             {
                 if(uI_Skill_CoolDown_Slots[i] != null)
                 {
@@ -159,22 +154,6 @@ namespace SK
         {
             slider.maxValue = character_Stat.GetMaxHealth();
             slider.value = character_Stat._currentHP;
-        }
-
-        private void SetCoolDown(Image _image)
-        {
-            if (_image.fillAmount <= 0)
-            {
-                _image.fillAmount = 1;
-            }
-        }
-
-        private void CheckCoolDownOf(Image _image, float _coolDown)
-        {
-            if (_image.fillAmount > 0)
-            {
-                _image.fillAmount -= 1 / _coolDown * Time.deltaTime;
-            }
         }
     }
 

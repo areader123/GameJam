@@ -26,6 +26,8 @@ namespace SK
         [SerializeField] private bool slowRotationWhileDamage;
         [SerializeField] private float slowRotationSpeed;
 
+        [SerializeField]private bool stickIn;
+
 
         private Bow_Skill_Controller bow_Skill_Controller;
 
@@ -47,7 +49,7 @@ namespace SK
             bow_Skill_Controller = newArrow.GetComponent<Bow_Skill_Controller>();
             if (enemy.charactersDetected != null)
             {
-                bow_Skill_Controller.SetArrow(arrowDamage, arrowExistTime, arrowSpeed, enemy.charactersDetected, offset, enemy, damagepPerTime, destroySelfAfterDamage, RotationWhileDamage, this, slowRotationWhileDamage, slowRotationSpeed, arrowInstantiateTransform);
+                bow_Skill_Controller.SetArrow(arrowDamage, arrowExistTime, arrowSpeed, enemy.charactersDetected, offset, enemy, damagepPerTime, destroySelfAfterDamage, RotationWhileDamage, this, slowRotationWhileDamage, slowRotationSpeed, arrowInstantiateTransform,stickIn);
             }
         }
         public override void UseSkill()

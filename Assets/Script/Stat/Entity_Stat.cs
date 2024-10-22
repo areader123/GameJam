@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DamageNumbersPro;
 namespace SK
 {
     public enum StatType
@@ -15,7 +15,8 @@ namespace SK
         maxHP,
         armor,
         MagicResistance,
-        agility
+        agility,
+        Blood
     }
     //本类执行 数值的储存 数值的计算函数 
     //被攻击者调用自身的计算函数 括号内函数参数（Entity_Stat）为攻击者的 
@@ -35,6 +36,7 @@ namespace SK
         public Stat intelligence;
         public Stat vitality;
         public Stat agility;
+        public Stat blood;
         [Header("Offensive Stats")]
         public Stat critChance;
         public Stat critPower;
@@ -53,6 +55,10 @@ namespace SK
         public float canGetItemCoolDown = 1f;
         public CanHitBack canHitBack;
 
+        [SerializeField] private DamageNumberMesh damageNumberMesh;
+        [SerializeField] private DamageNumberMesh healthNumberMesh;
+
+
 
 
 
@@ -65,41 +71,46 @@ namespace SK
 
         public virtual void DoDamage(Entity_Stat target)
         {
-            CaculateAttack(target);
-            CalculateMagic(target);
+            int totalDamage = CaculateAttack(target);
+            DamageNumber damageNumber = damageNumberMesh.Spawn(transform.position, totalDamage);
+            DecreaseHealthOnly(totalDamage);
+        }
+
+        public virtual void DoMagicDamage(Entity_Stat target)
+        {
+            int totalDamage = CalculateMagic(target);
+            DamageNumber damageNumber = damageNumberMesh.Spawn(transform.position, totalDamage);
+            DecreaseHealthOnly(totalDamage);
         }
 
 
-
-
-
-
-        private float CheckTargetArmor(Entity_Stat target, float totalDamage)
+        private int CheckTargetArmor(Entity_Stat target, int totalDamage)
         {
 
-            totalDamage = totalDamage / (totalDamage + target.armor.GetValue()) * totalDamage;
+            totalDamage = (int)(totalDamage / (totalDamage + target.armor.GetValue()) * totalDamage);
             //totalDamage -= target.armor.GetValue();
 
             totalDamage = Mathf.Clamp(totalDamage, 0, int.MaxValue);
             return totalDamage;
         }
 
-        private float CheckTargetMagicResistance(Entity_Stat target, float totalDamage)
+        private int CheckTargetMagicResistance(Entity_Stat target, int totalDamage)
         {
-            totalDamage = totalDamage / (totalDamage + target.MagicResistance.GetValue()) * totalDamage;
+            totalDamage = (int)(totalDamage / (totalDamage + target.MagicResistance.GetValue()) * totalDamage);
             totalDamage = Mathf.Clamp(totalDamage, 0, int.MaxValue);
             return totalDamage;
         }
 
-        private void CalculateMagic(Entity_Stat target)
+        private int CalculateMagic(Entity_Stat target)
         {
-            float totalDamage = target.damage.GetValue() + target.intelligence.GetValue();
+            int totalDamage = (int)(target.damage.GetValue() + target.intelligence.GetValue());
             totalDamage = CheckTargetMagicResistance(target, totalDamage);
+            return totalDamage;
         }
 
-        private void CaculateAttack(Entity_Stat target)
+        protected int CaculateAttack(Entity_Stat target)
         {
-            float totalDamage = target.damage.GetValue() + target.strength.GetValue();
+            int totalDamage = (int)(target.damage.GetValue() + target.strength.GetValue());
             // if (CritChance(target))
             // {
             //     Debug.Log("totalDamage:" + totalDamage);
@@ -108,7 +119,8 @@ namespace SK
             //     Debug.Log("暴击" + totalDamage);
             // }
             totalDamage = CheckTargetArmor(target, totalDamage);
-            DecreaseHealthOnly(totalDamage);
+            return totalDamage;
+            // DecreaseHealthOnly(totalDamage);
         }
 
 
@@ -124,24 +136,45 @@ namespace SK
             return false;
         }
 
-        public virtual void TakeDamage(float damage,Skill skill)
+        public virtual void TakeDamage(float damage, Skill skill)
         {
             DecreaseHealthOnly(damage);
-            //Debug.Log("受到" + damage + "伤害");
+            DamageNumber damageNumber = damageNumberMesh.Spawn(transform.position, damage);
+            Debug.Log("受到" + damage + "伤害");
         }
 
         public virtual void IncreaseHealthOnly(int _amount)
         {
-            _currentHP += _amount;
 
-            if (_currentHP > GetMaxHealth())
+
+            if (_currentHP + _amount >= GetMaxHealth())
             {
+                if ((int)(GetMaxHealth() - _currentHP) == 0)
+                {
+                    DamageNumber healthNumber = healthNumberMesh.Spawn(transform.position, 1);
+                }
+                else if ((int)(GetMaxHealth() - _currentHP) > 0)
+                {
+                    DamageNumber healthNumber2 = healthNumberMesh.Spawn(transform.position, GetMaxHealth() - _currentHP);
+                    Debug.Log("GetMaxHealth() - _currentHP" + (GetMaxHealth() - _currentHP));
+                }
                 _currentHP = GetMaxHealth();
             }
+            else
+            {
+                _currentHP += _amount;
+                if (healthNumberMesh != null)
+                {
+                    Debug.Log("2");
+                    DamageNumber healthNumber = healthNumberMesh.Spawn(transform.position, _amount);
+                }
+            }
+
             if (OnHealthChange != null)
             {
                 OnHealthChange();
             }
+
 
         }
 
@@ -156,7 +189,7 @@ namespace SK
             if (_currentHP <= 0)
             {
                 Die();
-                //Debug.Log("死亡");
+                Debug.Log("死亡");
             }
         }
 
@@ -164,13 +197,12 @@ namespace SK
         {
             _currentHP = GetMaxHealth();
             critPower.SetDefaultValue(150);
+
         }
 
         // Update is called once per frame
         protected virtual void Update()
         {
-
-
         }
 
 
@@ -224,6 +256,8 @@ namespace SK
                 return maxHP;
             if (_statType == StatType.vitality)
                 return vitality;
+            if (_statType == StatType.Blood)
+                return blood;
             return null;
 
 

@@ -30,17 +30,32 @@ namespace SK
             base.Update();
             if (enemy.IsCharacterFightingWith())
             {
+                if (enemy.CanskillUsedInBattleRange && enemy.ifHaveSkill)
+                {
+                    if (enemy.DoSkill_One())
+                    {
+                        stateMachine.ChangeState(enemy.skeleton_Skill_Attack_State);
+                        return;
+                    }
+                }
                 if (enemy.IsCharacterAttackable())
                 {
                     if (DoAttack())
                     {
+                        if (enemy.DoSkill_One() && !enemy.CanskillUsedInBattleRange  && enemy.ifHaveSkill)
+                        {
+                            stateMachine.ChangeState(enemy.skeleton_Skill_Attack_State);
+                            return;
+                        }
                         //如果可以攻击则攻击
                         stateMachine.ChangeState(enemy.Skeleton_AttackState);
+                         return;
                     }
                     else
                     {
                         //在攻击范围内 但攻击冷却中
                         stateMachine.ChangeState(enemy.Skeleton_IdolState);
+                         return;
                     }
                 }
             }
@@ -48,6 +63,7 @@ namespace SK
             {
                 //Debug.Log("脱战");
                 stateMachine.ChangeState(enemy.Skeleton_MoveState);
+                 return;
             }
             //设置速度
             enemy.SetVelocity(enemy.characterDirection.x, enemy.characterDirection.y, enemy.battleSpeed);
@@ -63,6 +79,8 @@ namespace SK
             }
             return false;
         }
+
+
 
 
     }

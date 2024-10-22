@@ -59,6 +59,10 @@ PrefabInstance:
       propertyPath: m_FlipY
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6060353462617912625, guid: 07cfb000b1642ea47ac8c7a4311d2c65, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6642479790973752419, guid: 07cfb000b1642ea47ac8c7a4311d2c65, type: 3}
       propertyPath: m_Name
       value: m16AttackFX Variant

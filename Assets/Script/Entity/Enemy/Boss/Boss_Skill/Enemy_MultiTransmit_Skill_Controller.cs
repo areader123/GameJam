@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using SK;
 using UnityEngine;
+using UnityEngine.AI;
 public enum Target
 {
     enemy, character
@@ -30,12 +31,16 @@ public class Enemy_MultiTransmit_Skill_Controller : MonoBehaviour
 
     private float timePerSplit;
     private float timePerSplitCounter;
+    private bool canStickIn;
 
     private Enemy_MultiTransmit_Skill enemy_MultiTransmit_Skill;
+    private CapsuleCollider2D capsuleCollider2D;
+    private bool ifHitted;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        capsuleCollider2D = GetComponent<CapsuleCollider2D>();
         if (GetComponent<Enemy_MultiTransmit_Skill>() != null)
         {
             enemy_MultiTransmit_Skill = GetComponent<Enemy_MultiTransmit_Skill>();
@@ -55,7 +60,11 @@ public class Enemy_MultiTransmit_Skill_Controller : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        SetVelocity();
+        if(!ifHitted)
+        {
+             SetVelocity();
+        }
+        
         Split();
     }
 
@@ -67,7 +76,7 @@ public class Enemy_MultiTransmit_Skill_Controller : MonoBehaviour
     }
 
 
-    public void SetArrow(float _arrowDamage, float _arrowExistTime, float _arrowSpeed, float _damagepPerTime, bool _destroySelfAfterDamage, Skill _skill, Target _target, float _timePerSplit)
+    public void SetArrow(float _arrowDamage, float _arrowExistTime, float _arrowSpeed, float _damagepPerTime, bool _destroySelfAfterDamage, Skill _skill, Target _target, float _timePerSplit,bool _canStickIn)
     {
         target = _target;
         arrowDamage = _arrowDamage;
@@ -79,7 +88,8 @@ public class Enemy_MultiTransmit_Skill_Controller : MonoBehaviour
 
         skill = _skill;
         timePerSplit = _timePerSplit;
-
+        canStickIn = _canStickIn;
+       
         // SetRotation();
 
     }
@@ -89,18 +99,42 @@ public class Enemy_MultiTransmit_Skill_Controller : MonoBehaviour
     {
         if (target == Target.character)
         {
-            if (hit.GetComponent<Character_Stat>() != null && hit.GetComponent<Character>() != null && destroySelfAfterDamage)
+            if (hit.GetComponent<Character_Stat>() != null && hit.GetComponent<Character>() != null )
             {
                 hit.GetComponent<Character_Stat>().TakeDamage(arrowDamage, skill);
-                Destroy(gameObject);
+                if (canStickIn && !destroySelfAfterDamage)
+                {
+                    ifHitted = true;
+                    capsuleCollider2D.enabled = false;
+                    rb.isKinematic = true;
+                    rb.velocity = Vector2.zero;
+                    rb.constraints = RigidbodyConstraints2D.FreezeAll;
+                    gameObject.transform.SetParent(hit.transform);
+                }
+                else
+                {
+                    Destroy(gameObject);
+                }
             }
         }
         else
         {
-            if (hit.GetComponent<Enemy_Stat>() != null && hit.GetComponent<Enemy>() != null && destroySelfAfterDamage)
+            if (hit.GetComponent<Enemy_Stat>() != null && hit.GetComponent<Enemy>() != null )
             {
                 hit.GetComponent<Enemy_Stat>().TakeDamage(arrowDamage, skill);
-                Destroy(gameObject);
+                if (canStickIn && !destroySelfAfterDamage)
+                {
+                    ifHitted = true;
+                    capsuleCollider2D.enabled = false;
+                    rb.isKinematic = true;
+                    rb.velocity = Vector2.zero;
+                    rb.constraints = RigidbodyConstraints2D.FreezeAll;
+                    gameObject.transform.SetParent(hit.transform);
+                }
+                 else
+                {
+                    Destroy(gameObject);
+                }
             }
         }
     }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using SK;
+using UnityEditor;
 public class Enemy_Create_Skill_Controller : MonoBehaviour
 {
     private float existTime;
@@ -11,7 +12,7 @@ public class Enemy_Create_Skill_Controller : MonoBehaviour
     private Rigidbody2D rb;
     private Skill skill;
     private float damageTimeCounter;
-    private float damagepPerTime;
+    private float timePerDamage;
     private void Start()
     {
         existCounter = existTime;
@@ -24,12 +25,13 @@ public class Enemy_Create_Skill_Controller : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public void SetUp(float _existTime,Skill _skill,float _damagepPerTime,bool _destroyAfterDamage)
+    public void SetUp(float _existTime,Skill _skill,float _timePerDamage,bool _destroyAfterDamage,float _damageValue)
     {
         existTime = _existTime;
         skill =_skill;
-        damagepPerTime = _damagepPerTime;
+        timePerDamage = _timePerDamage;
         destroyAfterDamage = _destroyAfterDamage;
+        damageValue =_damageValue;
     }
      private void OnTriggerEnter2D(Collider2D hit)
         {
@@ -47,7 +49,7 @@ public class Enemy_Create_Skill_Controller : MonoBehaviour
                 if (damageTimeCounter <= 0)
                 {
                     hit.GetComponent<Character_Stat>().TakeDamage(damageValue, skill);
-                    damageTimeCounter = damagepPerTime;
+                    damageTimeCounter = timePerDamage;
                 }
             }
         }

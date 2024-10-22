@@ -9,11 +9,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2102243932059818791, guid: 26b29ebebd2fb744cb07c54fd800a49a, type: 3}
       propertyPath: m_FlipX
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5254700990745878713, guid: 26b29ebebd2fb744cb07c54fd800a49a, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254700990745878713, guid: 26b29ebebd2fb744cb07c54fd800a49a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254700990745878713, guid: 26b29ebebd2fb744cb07c54fd800a49a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5254700990745878713, guid: 26b29ebebd2fb744cb07c54fd800a49a, type: 3}
       propertyPath: m_LocalPosition.x

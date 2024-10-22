@@ -70,6 +70,7 @@ public class Enemy_Roar_Skill : Skill
     void OnDrawGizmos()
     {
         Gizmos.DrawWireCube(intialzeTransform.position, new Vector3(intialzaDistance * 2, intialzaDistance * 2, 0));
+        Gizmos.DrawWireSphere(buffCenter.position,buffRange);
     }
 
 }

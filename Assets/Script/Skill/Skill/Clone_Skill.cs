@@ -43,6 +43,11 @@ namespace SK
             }
         }
 
+        public void UseByOutside()
+        {
+            CreatClone(character.transform,Vector3.zero);
+        }
+
         protected override void CheckUnlock()
         {
             UnlockClone();
