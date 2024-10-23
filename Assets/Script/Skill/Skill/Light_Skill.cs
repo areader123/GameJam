@@ -29,7 +29,7 @@ public class Light_Skill : Skill
     [SerializeField] private float newRangePercent_3;
     private bool new_3;
 
-    [SerializeField][Range(0,1)] private float decreaseSpeedPercent;
+    [SerializeField][Range(0, 1)] private float decreaseSpeedPercent;
     [SerializeField] public UI_Skill_Slot lightWithMonsterSpeedDown;
     [Space(10)]
     public bool lightWithMonsterDamagedUnLocked;
@@ -53,29 +53,33 @@ public class Light_Skill : Skill
     [SerializeField] private float newRangePercent_6;
     private bool new_6;
 
-    [SerializeField][Range(0,1)] private float lowHealthPercentsBoardary;
+    [SerializeField][Range(0, 1)] private float lowHealthPercentsBoardary;
     [SerializeField] private float timePerUnhittable;
     private float timeCounterUnittable;
-    [SerializeField]private float timeDuration;
-    [SerializeField]private float alphaPercent;
+    [SerializeField] private float timeDuration;
+    [SerializeField] private float alphaPercent;
     [SerializeField] private UI_Skill_Slot lightwhenLowHealthUnhittable;
 
     private Character character;
     private Character_Controller character_Controller;
 
+    private void Awake()
+    {
+          light_Controller = Light_Controller.instance;
+        character = Character_Controller.instance.character;
+        character_Controller = Character_Controller.instance;
+    }
 
     protected override void Start()
     {
         base.Start();
         lightCanBeIncreaseByTime.GetComponent<Button>().onClick.AddListener(UnlocklightCanBeIncreaseByTime);
-        lightWithHealthRecover.GetComponent<Button>().onClick.AddListener( UnlocklightWithHealthRecover);
+        lightWithHealthRecover.GetComponent<Button>().onClick.AddListener(UnlocklightWithHealthRecover);
         lightWithMonsterSpeedDown.GetComponent<Button>().onClick.AddListener(UnlocklightWithMonsterSpeedDown);
         lightWithMonsterDamaged.GetComponent<Button>().onClick.AddListener(UnlocklightWithMonsterDamaged);
         lightWithMonsterAniSlow.GetComponent<Button>().onClick.AddListener(UnlocklightWithMonsterAniSlowUnLocked);
         lightwhenLowHealthUnhittable.GetComponent<Button>().onClick.AddListener(UnlocklightwhenLowHealthUnhittable);
-         light_Controller = Light_Controller.instance;
-        character = Character_Controller.instance.character;
-        character_Controller = Character_Controller.instance;
+
         Debug.Log("start");
     }
 
@@ -86,7 +90,7 @@ public class Light_Skill : Skill
         timeCounterHealth -= Time.deltaTime;
         timeCounterLight -= Time.deltaTime;
         timeCounterUnittable -= Time.deltaTime;
-       
+
     }
 
     public override void UseSkill()
@@ -95,7 +99,7 @@ public class Light_Skill : Skill
         if (lightCanBeIncreaseByTimeUnlock)
         {
             //玩家光亮值自行增加
-          
+
             if (character_Controller.GetLightingNumber() + increaseLightAmount <= character_Controller.GetMaxLightingNumber() && timeCounterLight < 0)
             {
                 for (int i = 0; i < increaseLightAmount; i++)
@@ -107,7 +111,7 @@ public class Light_Skill : Skill
             }
             if (lightWithHealthRecoverUnLocked)
             {
-                
+
                 if (timeCounterHealth < 0)
                 {
                     Debug.Log("玩家回血");
@@ -117,24 +121,24 @@ public class Light_Skill : Skill
                 }
                 if (lightWithMonsterSpeedDownUnlocked)
                 {
-                    
+
                     //怪物速度降低
                     //在lighting_Controller中触发
                     if (lightWithMonsterDamagedUnLocked)
                     {
-                      
+
                         //怪物受到伤害
-                         //在lighting_Controller中触发
+                        //在lighting_Controller中触发
                         if (lightWithMonsterAniSlowUnLocked)
                         {
-                           
+
                             //怪物动画速度降低
-                             //在lighting_Controller中触发
+                            //在lighting_Controller中触发
                             if (lightwhenLowHealthUnhittableUnlock)
                             {
-                               
+
                                 //低血量时免疫
-                                if(character.GetComponent<Character_Stat>()._currentHP <= lowHealthPercentsBoardary * character.GetComponent<Character_Stat>().GetMaxHealth() 
+                                if (character.GetComponent<Character_Stat>()._currentHP <= lowHealthPercentsBoardary * character.GetComponent<Character_Stat>().GetMaxHealth()
                                 && timeCounterUnittable < 0)
                                 {
                                     StopCoroutine("UnHittable");
@@ -153,12 +157,12 @@ public class Light_Skill : Skill
     private IEnumerator UnHittable()
     {
         character.capsuleCollider2D.enabled = false;
-        character.GetComponent<SpriteRenderer>().color = new Vector4(1,1,1,character.GetComponent<SpriteRenderer>().color.a * alphaPercent);
+        character.GetComponent<SpriteRenderer>().color = new Vector4(1, 1, 1, character.GetComponent<SpriteRenderer>().color.a * alphaPercent);
         yield return new WaitForSeconds(timeDuration);
         character.capsuleCollider2D.enabled = true;
-        character.GetComponent<SpriteRenderer>().color = new Vector4(1,1,1,character.GetComponent<SpriteRenderer>().color.a / alphaPercent);
+        character.GetComponent<SpriteRenderer>().color = new Vector4(1, 1, 1, character.GetComponent<SpriteRenderer>().color.a / alphaPercent);
     }
-   
+
 
     public void EnemySpeedDown(Enemy enemy)
     {
@@ -183,12 +187,12 @@ public class Light_Skill : Skill
 
     public void EnemyAniDown(Enemy enemy)
     {
-        enemy.animator.speed *=  decreaseAniPercent;
+        enemy.animator.speed *= decreaseAniPercent;
     }
 
     public void EnemyAniUp(Enemy enemy)
     {
-        enemy.animator.speed /=  decreaseAniPercent;
+        enemy.animator.speed /= decreaseAniPercent;
     }
 
 
@@ -210,10 +214,10 @@ public class Light_Skill : Skill
         {
             Debug.Log("成功");
             lightwhenLowHealthUnhittableUnlock = true;
-            if(!new_6)
+            if (!new_6)
             {
                 new_1 = true;
-                 light_Controller.maxScale *=  newRangePercent_6;
+                light_Controller.maxScale *= newRangePercent_6;
             }
         }
     }
@@ -225,10 +229,10 @@ public class Light_Skill : Skill
         {
             Debug.Log("成功");
             lightWithMonsterAniSlowUnLocked = true;
-            if(!new_5)
+            if (!new_5)
             {
                 new_5 = true;
-                light_Controller.maxScale *=  newRangePercent_5;
+                light_Controller.maxScale *= newRangePercent_5;
             }
         }
     }
@@ -241,10 +245,10 @@ public class Light_Skill : Skill
         {
             Debug.Log("成功");
             lightWithMonsterDamagedUnLocked = true;
-            if(!new_4)
+            if (!new_4)
             {
                 new_4 = true;
-                light_Controller.maxScale *=  newRangePercent_4;
+                light_Controller.maxScale *= newRangePercent_4;
             }
         }
     }
@@ -256,10 +260,10 @@ public class Light_Skill : Skill
         {
             Debug.Log("成功");
             lightWithMonsterSpeedDownUnlocked = true;
-            if(!new_3)
+            if (!new_3)
             {
                 new_3 = true;
-                light_Controller.maxScale *=  newRangePercent_3;
+                light_Controller.maxScale *= newRangePercent_3;
             }
         }
     }
@@ -272,10 +276,10 @@ public class Light_Skill : Skill
 
             Debug.Log("成功");
             lightWithHealthRecoverUnLocked = true;
-            if(!new_2)
+            if (!new_2)
             {
                 new_2 = true;
-                light_Controller.maxScale *=  newRangePercent_2;
+                light_Controller.maxScale *= newRangePercent_2;
             }
         }
     }
@@ -288,10 +292,10 @@ public class Light_Skill : Skill
         {
             Debug.Log("成功");
             lightCanBeIncreaseByTimeUnlock = true;
-            if(!new_1)
+            if (!new_1)
             {
                 new_1 = true;
-                light_Controller.maxScale *=  newRangePercent_1;
+                light_Controller.maxScale *= newRangePercent_1;
             }
         }
     }

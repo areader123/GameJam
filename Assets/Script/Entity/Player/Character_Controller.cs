@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using BayatGames.SaveGameFree;
 using SK;
 using Unity.Mathematics;
 using UnityEngine;
@@ -7,19 +8,19 @@ using UnityEngine;
 namespace SK
 {
 
-    public class Character_Controller : MonoBehaviour
+    public class Character_Controller : MonoBehaviour,ISaveManager
     {
         public static Character_Controller instance;
 
         public Character character;
         //此处为光亮值
         [Header("Current Value")]
-        [SerializeField] [Range(0,Mathf.Infinity)]private int lightingNumber;
-        [SerializeField] private int exp;
-        [SerializeField] private int level;
+        [SerializeField] [Range(0,Mathf.Infinity)]private int lightingNumber;//记录
+        [SerializeField] private int exp;//记录
+        [SerializeField] private int level;//记录
         private int pointToSkill;
         private int pointToSkillUsed;
-        public int pointCanbeUsed;
+        public int pointCanbeUsed;//记录
         [Header("Max Value")]
 
         [SerializeField] private int maxLightingNumber;
@@ -43,7 +44,12 @@ namespace SK
             else
             {
                 instance = this;
+               
             }
+        }
+        void OnApplicationQuit()
+        {
+           
         }
         public int GetLightingNumber() => lightingNumber;
         public int GetExp() => exp;
@@ -176,6 +182,34 @@ namespace SK
         private void Update()
         {
 
+        }
+
+        public void LoadData(GameData _data)
+        {
+             if(SaveGame.Exists("lightingNumber"))
+                {
+                    lightingNumber = SaveGame.Load<int>("lightingNumber");
+                }
+                if(SaveGame.Exists("exp"))
+                {
+                    exp = SaveGame.Load<int>("exp");
+                }
+                if(SaveGame.Exists("level"))
+                {
+                    level = SaveGame.Load<int>("level");
+                }
+                if(SaveGame.Exists("pointCanbeUsed"))
+                {
+                    pointCanbeUsed = SaveGame.Load<int>("pointCanbeUsed");
+                }
+        }
+
+        public void SaveData(ref GameData _data)
+        {
+             SaveGame.Save<int>("lightingNumber", lightingNumber);
+            SaveGame.Save<int>("exp", exp);
+            SaveGame.Save<int>("level", level);
+            SaveGame.Save<int>("pointCanbeUsed", pointCanbeUsed);
         }
 
 

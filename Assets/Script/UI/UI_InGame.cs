@@ -74,8 +74,8 @@ namespace SK
 
 
             UpdateSkillShowedSlot();
-            SetCoolDown();
             CheckCoolDown();
+            SetCoolDown();
             // if (Input.GetKeyDown(KeyCode.LeftShift) && SkillManager.instance.dash_Skill.dashUnlocked && SkillManager.instance.dash_Skill.dashSkillUsedUnlocked)
             // {
             //     SetCoolDown(FirstCoolDownImage);
@@ -135,6 +135,7 @@ namespace SK
             {
                 if(uI_Skill_CoolDown_Slots[i] != null)
                 {
+                    Debug.Log("CheckCoolDown");
                     uI_Skill_CoolDown_Slots[i].CheckCoolDown();
                 }
             }

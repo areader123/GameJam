@@ -25,18 +25,18 @@ namespace SK
         void Start()
         {
             SwithTo(game);
-            
+
         }
 
         // Update is called once per frame
         void Update()
         {
-           
+
             // if (Input.GetKeyDown(KeyCode.B))
             // {
             //     SwithWithKeyTo(craft);
             // }
-           
+
             // if (Input.GetKeyDown(KeyCode.O))
             // {
             //     SwithWithKeyTo(setting);
@@ -63,7 +63,7 @@ namespace SK
                 return;
             }
             Time.timeScale = 0;
-            Character_Controller.instance.character.animator.speed =0;
+            Character_Controller.instance.character.animator.speed = 0;
             ifTimeStop = true;
             SwithTo(_menu);
         }
@@ -75,10 +75,23 @@ namespace SK
                 if (transform.GetChild(i).gameObject.activeSelf)
                     return;
             }
-            Character_Controller.instance.character.animator.speed =1;
+            Character_Controller.instance.character.animator.speed = 1;
             Time.timeScale = 1;
             ifTimeStop = false;
             SwithTo(game);
+        }
+
+        public UI_SkillUsed_Slot GetSkillUsedSlotByName(string _skillName)
+        {
+            foreach (UI_SkillUsed_Slot obj in uI_SkillUsed_Slots)
+            {
+                if (obj.skillName.ToString() == _skillName)
+                {
+                    return obj;
+                }
+            }
+            return null;
+
         }
     }
 }

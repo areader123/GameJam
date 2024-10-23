@@ -11,6 +11,7 @@ namespace SK
     {
       
         [SerializeField] private Queue<UI_SkillUsed_Slot> queue;
+       // [SerializeField]private 
         //[SerializeField] private int maxQueueSize;
 
         private void Awake()
@@ -20,6 +21,7 @@ namespace SK
 
         public bool AddQueue(UI_SkillUsed_Slot uI_SkillUsed_Slot)
         {
+
             if (queue.Contains(uI_SkillUsed_Slot))
             {
                 return false;

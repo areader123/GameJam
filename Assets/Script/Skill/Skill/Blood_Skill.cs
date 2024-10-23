@@ -42,6 +42,11 @@ public class Blood_Skill : Skill
 
 
    private Character_Stat character_Stat;
+   private void Awake()
+   {
+
+      character_Stat = Character_Controller.instance.character.GetComponent<Character_Stat>();
+   }
 
    protected override void Update()
    {
@@ -56,7 +61,6 @@ public class Blood_Skill : Skill
       moreblood.GetComponent<Button>().onClick.AddListener(Unlockmoreblood);
       bloodTransformedLighting.GetComponent<Button>().onClick.AddListener(UnlockbloodTransformedLighting);
       bloodMoreLightingMoreTime.GetComponent<Button>().onClick.AddListener(UnlockbloodMoreLightingMoreTime);
-      character_Stat = Character_Controller.instance.character.GetComponent<Character_Stat>();
    }
    public override void UseSkill()
    {

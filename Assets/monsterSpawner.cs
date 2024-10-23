@@ -4,44 +4,44 @@ using UnityEngine;
 
 public class monsterSpawner : MonoBehaviour
 {
-    public GameObject[] monsterPrefabs; // ´æ´¢¶à¸öµĞÈËµÄÔ¤ÖÆÌå
-    public float spawnInterval = 2f; // Ã¿¸ö¹ÖÎïÉú³É¼ä¸ô
-    public float spawnDistance = 1f; // Ë¢ĞÂ¾àÀë£¨ÔÚÆÁÄ»Íâ£©
-    public float replenishDelay = 10f; // ²¹³ä¹ÖÎïµÄÑÓ³ÙÊ±¼ä
+    public GameObject[] monsterPrefabs; // ï¿½æ´¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½Ô¤ï¿½ï¿½ï¿½ï¿½
+    public float spawnInterval = 2f; // Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¼ï¿½ï¿½
+    public float spawnDistance = 1f; // Ë¢ï¿½Â¾ï¿½ï¿½ë£¨ï¿½ï¿½ï¿½ï¿½Ä»ï¿½â£©
+    public float replenishDelay = 10f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó³ï¿½Ê±ï¿½ï¿½
 
-    private Camera mainCamera; // Ö÷ÉãÏñ»ú
-    private List<GameObject> activeMonsters = new List<GameObject>(); // µ±Ç°»îÔ¾µÄ¹ÖÎïÁĞ±í
-    private int previousMonsters = 1; // ì³²¨ÄÇÆõÊıÁĞµÄÇ°Ò»Ïî
-    private int currentMonsters = 1; // ì³²¨ÄÇÆõÊıÁĞµÄµ±Ç°Ïî
+    private Camera mainCamera; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    private List<GameObject> activeMonsters = new List<GameObject>(); // ï¿½ï¿½Ç°ï¿½ï¿½Ô¾ï¿½Ä¹ï¿½ï¿½ï¿½ï¿½Ğ±ï¿½
+    private int previousMonsters = 1; // ì³²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğµï¿½Ç°Ò»ï¿½ï¿½
+    private int currentMonsters = 1; // ì³²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ĞµÄµï¿½Ç°ï¿½ï¿½
 
     void Start()
     {
-        mainCamera = Camera.main; // »ñÈ¡Ö÷ÉãÏñ»ú
+        mainCamera = Camera.main; // ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     }
 
     void Update()
     {
-        // °´ÏÂ T ¼ü¿ªÊ¼Éú³ÉÏÂÒ»²¨¹ÖÎï
+        // ï¿½ï¿½ï¿½ï¿½ T ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if (Input.GetKeyDown(KeyCode.T))
         {
             StartCoroutine(SpawnMonsterWave());
         }
 
-        // ÇåÀíÒÑÏú»ÙµÄ¹ÖÎï
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÙµÄ¹ï¿½ï¿½ï¿½
         activeMonsters.RemoveAll(monster => monster == null);
     }
 
     private IEnumerator SpawnMonsterWave()
     {
-        yield return new WaitForSeconds(replenishDelay); // µÈ´ı 10 Ãëºó¿ªÊ¼Éú³É¹ÖÎï
+        yield return new WaitForSeconds(replenishDelay); // ï¿½È´ï¿½ 10 ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½
 
         for (int i = 0; i < currentMonsters; i++)
         {
             SpawnMonster();
-            yield return new WaitForSeconds(spawnInterval); // Ã¿¸ö¹ÖÎïÉú³É¼ä¸ô
+            yield return new WaitForSeconds(spawnInterval); // Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¼ï¿½ï¿½
         }
 
-        // ¼ÆËãÏÂÒ»²¨¹ÖÎïÊıÁ¿£ºì³²¨ÄÇÆõÊıÁĞµÄÏÂÒ»Ïî
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì³²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğµï¿½ï¿½ï¿½Ò»ï¿½ï¿½
         int nextMonsters = previousMonsters + currentMonsters;
         previousMonsters = currentMonsters;
         currentMonsters = nextMonsters;
@@ -49,11 +49,11 @@ public class monsterSpawner : MonoBehaviour
 
     private bool IsOutsideCameraView(Vector2 position)
     {
-        // »ñÈ¡ÉãÏñ»úµÄÊÓÒ°±ß½ç
+        // ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò°ï¿½ß½ï¿½
         Vector2 screenBounds = GetScreenBounds();
         Vector2 cameraPosition = mainCamera.transform.position;
 
-        // ¼ì²éÉú³ÉÎ»ÖÃÊÇ·ñÔÚÉãÏñ»úµÄÊÓÒ°Íâ
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò°ï¿½ï¿½
         return position.x < cameraPosition.x - screenBounds.x ||
                position.x > cameraPosition.x + screenBounds.x ||
                position.y < cameraPosition.y - screenBounds.y ||
@@ -65,18 +65,18 @@ public class monsterSpawner : MonoBehaviour
         Vector2 screenBounds = GetScreenBounds();
         Vector2 spawnPosition;
 
-        // ±£Ö¤¹ÖÎïÔÚÆÁÄ»ÍâÉú³É
+        // ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         do
         {
             spawnPosition = GetRandomSpawnPosition(screenBounds);
         }
         while (!IsOutsideCameraView(spawnPosition));
 
-        // Ëæ»úÑ¡ÔñµĞÈËÔ¤ÖÆÌå
+        // ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½ï¿½ï¿½
         int randomIndex = Random.Range(0, monsterPrefabs.Length);
         GameObject selectedMonsterPrefab = monsterPrefabs[randomIndex];
 
-        // ÊµÀı»¯¹ÖÎï²¢Ìí¼Óµ½»îÔ¾¹ÖÎïÁĞ±í
+        // Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï²¢ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½Ô¾ï¿½ï¿½ï¿½ï¿½ï¿½Ğ±ï¿½
         GameObject monster = Instantiate(selectedMonsterPrefab, spawnPosition, Quaternion.identity);
         activeMonsters.Add(monster);
     }
@@ -84,7 +84,7 @@ public class monsterSpawner : MonoBehaviour
 
     private Vector2 GetScreenBounds()
     {
-        // ¼ÆËãÆÁÄ»µÄÊÀ½ç×ø±ê·¶Î§
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê·¶Î§
         Camera camera = Camera.main;
         float screenHeight = camera.orthographicSize * 2;
         float screenWidth = screenHeight * camera.aspect;
@@ -94,22 +94,22 @@ public class monsterSpawner : MonoBehaviour
 
     private Vector2 GetRandomSpawnPosition(Vector2 screenBounds)
     {
-        // Ëæ»úÑ¡ÔñÆÁÄ»ÍâµÄ·½Ïò
-        int side = Random.Range(0, 4); // 0:ÉÏ, 1:ÏÂ, 2:×ó, 3:ÓÒ
+        // ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½Ä·ï¿½ï¿½ï¿½
+        int side = Random.Range(0, 4); // 0:ï¿½ï¿½, 1:ï¿½ï¿½, 2:ï¿½ï¿½, 3:ï¿½ï¿½
         Vector2 spawnPosition = Vector2.zero;
 
         switch (side)
         {
-            case 0: // ÉÏ·½
+            case 0: // ï¿½Ï·ï¿½
                 spawnPosition = new Vector2(Random.Range(-screenBounds.x, screenBounds.x), screenBounds.y + spawnDistance);
                 break;
-            case 1: // ÏÂ·½
+            case 1: // ï¿½Â·ï¿½
                 spawnPosition = new Vector2(Random.Range(-screenBounds.x, screenBounds.x), -screenBounds.y - spawnDistance);
                 break;
-            case 2: // ×ó²à
+            case 2: // ï¿½ï¿½ï¿½
                 spawnPosition = new Vector2(-screenBounds.x - spawnDistance, Random.Range(-screenBounds.y, screenBounds.y));
                 break;
-            case 3: // ÓÒ²à
+            case 3: // ï¿½Ò²ï¿½
                 spawnPosition = new Vector2(screenBounds.x + spawnDistance, Random.Range(-screenBounds.y, screenBounds.y));
                 break;
         }

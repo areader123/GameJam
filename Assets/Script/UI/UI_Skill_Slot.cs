@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using BayatGames.SaveGameFree;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -8,7 +9,7 @@ namespace SK
 {
 
     public class UI_Skill_Slot : MonoBehaviour,
-     //ISaveManager,
+     ISaveManager,
      IPointerEnterHandler,
       IPointerExitHandler
     {
@@ -18,7 +19,7 @@ namespace SK
 
         [SerializeField] private Color skillLockedColor;
         [SerializeField] private int skillPrice;
-        public bool unLock;
+        public bool unLock;//记录
         [SerializeField] private UI_Skill_Slot[] shouldBeLock;
         [SerializeField] private UI_Skill_Slot[] shouldBeUnlock;
 
@@ -31,13 +32,19 @@ namespace SK
 
         private void Awake()
         {
+            
             Button button = GetComponent<Button>();
             button.onClick.AddListener(() => UnlockSkillSlot());
+            skillImage = GetComponent<Image>();
+        }
+
+        void OnApplicationQuit()
+        {
+            
         }
 
         private void Start()
         {
-            skillImage = GetComponent<Image>();
             skillImage.color = skillLockedColor;
 
             if (unLock)
@@ -57,11 +64,7 @@ namespace SK
 
         public void UnlockSkillSlot()
         {
-           
-           
             SwitchSkillUsedSlot();
-           
-
             for (int i = 0; i < shouldBeLock.Length; i++)
             {
                 if (shouldBeLock[i].unLock == true)
@@ -133,6 +136,19 @@ namespace SK
         public void OnPointerExit(PointerEventData eventData)
         {
             ui.ui_Skill_Tip.HideSkillTip();
+        }
+
+        public void LoadData(GameData _data)
+        {
+            if(SaveGame.Exists(skillName))
+            {
+                unLock = SaveGame.Load<bool>(skillName);
+            }
+        }
+
+        public void SaveData(ref GameData _data)
+        {
+            SaveGame.Save<bool>(skillName,unLock);
         }
 
         // public void LoadData(GameData _data)

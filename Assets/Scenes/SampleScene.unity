@@ -2076,14 +2076,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1722021306, guid: eae308e13841ad2439cf8177acefc70e, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3464,7 +3464,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.7249999, y: -1.43, z: -9.7}
+  m_LocalPosition: {x: 0.72499985, y: -1.43, z: -9.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3557,10 +3557,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 619d461c933795742a3de0380e56b56b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coolDownSlotName: 3
   coolDown_Image: {fileID: 241473711}
   skill_Image: {fileID: 531833829}
   coolDownColor: {r: 0.7176471, g: 0.7176471, b: 0.7176471, a: 1}
   keyCodeCoolDown: 51
+  skill_CoolDown_Slot_Name: Three
 --- !u!114 &531833829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3574,14 +3576,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1722021306, guid: eae308e13841ad2439cf8177acefc70e, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4137,8 +4139,8 @@ RectTransform:
   m_Father: {fileID: 543171572}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5131,7 +5133,7 @@ GameObject:
   - component: {fileID: 638639042}
   - component: {fileID: 638639041}
   m_Layer: 5
-  m_Name: SkillTree_Name:Bullet_Fan
+  m_Name: SkillTree_Name:Bullet_Fan_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5149,7 +5151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 731742f847591d843b966d2f68d81df4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: Bullet_Fan
+  skillName: Bullet_Fan_0
   skillDescription: 'TEXT
 
 '
@@ -6159,14 +6161,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1721863749, guid: eae308e13841ad2439cf8177acefc70e, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6217,10 +6219,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 619d461c933795742a3de0380e56b56b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coolDownSlotName: 1
   coolDown_Image: {fileID: 768352631}
   skill_Image: {fileID: 727452348}
   coolDownColor: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
   keyCodeCoolDown: 49
+  skill_CoolDown_Slot_Name: One
 --- !u!1 &768352629
 GameObject:
   m_ObjectHideFlags: 0
@@ -6272,14 +6276,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6132076, g: 0.61127925, b: 0.61127925, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1721863749, guid: eae308e13841ad2439cf8177acefc70e, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6412,14 +6416,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1722021306, guid: eae308e13841ad2439cf8177acefc70e, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6470,10 +6474,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 619d461c933795742a3de0380e56b56b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coolDownSlotName: 2
   coolDown_Image: {fileID: 1042544984}
   skill_Image: {fileID: 811587557}
   coolDownColor: {r: 0.7176471, g: 0.7176471, b: 0.7176471, a: 1}
   keyCodeCoolDown: 50
+  skill_CoolDown_Slot_Name: Two
 --- !u!1 &840354403
 GameObject:
   m_ObjectHideFlags: 0
@@ -6488,7 +6494,7 @@ GameObject:
   - component: {fileID: 840354405}
   - component: {fileID: 840354404}
   m_Layer: 5
-  m_Name: SkillTree_Name:Light
+  m_Name: SkillTree_Name:Light_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6506,7 +6512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 731742f847591d843b966d2f68d81df4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: Light
+  skillName: Light_0
   skillDescription: 'TEXT
 
 '
@@ -7927,6 +7933,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 999259816}
   m_CullTransparentMesh: 1
+--- !u!1 &1007740867
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1007740869}
+  - component: {fileID: 1007740868}
+  m_Layer: 0
+  m_Name: SaveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1007740868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007740867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8fc4ed7f91b7f74abfa50cfe6ae03bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileName: 
+--- !u!4 &1007740869
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1007740867}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -24.228676, y: -27.735971, z: -0.5145321}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1017544841
 GameObject:
   m_ObjectHideFlags: 0
@@ -8436,14 +8487,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1722021306, guid: eae308e13841ad2439cf8177acefc70e, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8672,7 +8723,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1103496674}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.7249999, y: -1.43, z: -9.7}
+  m_LocalPosition: {x: 0.72499985, y: -1.43, z: -9.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10075,7 +10126,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1239519647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10180,7 +10231,7 @@ GameObject:
   - component: {fileID: 1251151523}
   - component: {fileID: 1251151522}
   m_Layer: 5
-  m_Name: SkillTree_Name:Dash
+  m_Name: SkillTree_Name:Dash_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10256,7 +10307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 731742f847591d843b966d2f68d81df4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: Dash
+  skillName: Dash_0
   skillDescription: 'TEXT
 
 '
@@ -12363,7 +12414,7 @@ GameObject:
   - component: {fileID: 1528789465}
   - component: {fileID: 1528789464}
   m_Layer: 5
-  m_Name: SkillTree_Name:SpeedUp
+  m_Name: SkillTree_Name:SpeedUp_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12381,7 +12432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 731742f847591d843b966d2f68d81df4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: SpeedUp
+  skillName: SpeedUp_0
   skillDescription: 'TEXT
 
 '
@@ -12527,7 +12578,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -14402,7 +14453,7 @@ GameObject:
   - component: {fileID: 1816167672}
   - component: {fileID: 1816167671}
   m_Layer: 5
-  m_Name: SkillTree_Name:AttackSpeedUp
+  m_Name: SkillTree_Name:AttackSpeedUp_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14420,7 +14471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 731742f847591d843b966d2f68d81df4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: AttackSpeedUp
+  skillName: AttackSpeedUp_0
   skillDescription: 'TEXT
 
 '
@@ -16434,7 +16485,7 @@ GameObject:
   - component: {fileID: 1924537982}
   - component: {fileID: 1924537981}
   m_Layer: 5
-  m_Name: SkillTree_Name:Bullet_circle
+  m_Name: SkillTree_Name:Bullet_circle_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16452,7 +16503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 731742f847591d843b966d2f68d81df4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: Bullet_circle
+  skillName: Bullet_circle_0
   skillDescription: 'TEXT
 
 '
@@ -18694,6 +18745,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: monster7 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7326617128650204044, guid: 6a4596288dc46884aa01fbf3295740ae, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7326617128650204047, guid: 6a4596288dc46884aa01fbf3295740ae, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -18990,7 +19045,7 @@ GameObject:
   - component: {fileID: 2145704002}
   - component: {fileID: 2145704001}
   m_Layer: 5
-  m_Name: SkillTree_Name:Blood
+  m_Name: SkillTree_Name:Blood_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19008,7 +19063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 731742f847591d843b966d2f68d81df4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: Blood
+  skillName: Blood_0
   skillDescription: 'TEXT
 
 '
