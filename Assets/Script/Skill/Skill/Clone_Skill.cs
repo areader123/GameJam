@@ -17,12 +17,15 @@ namespace SK
         [SerializeField] private bool canAttack;
         private Clone_Skill_Controller clone_Skill_Controller;
         private Character character;
+        private void Awake()
+        {
 
+            character = Character_Controller.instance.character;
+        }
         protected override void Start()
         {
             base.Start();
-             character = Character_Controller.instance.character;
-            
+
             cloneUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockClone);
         }
 
@@ -39,13 +42,13 @@ namespace SK
             if (cloneUnlocked && uI_SkillUsed_Slot.Unlock)
             {
                 cloneSkillUsedUnlock = uI_SkillUsed_Slot.Unlock;
-                CreatClone(character.transform,Vector3.zero);
+                CreatClone(character.transform, Vector3.zero);
             }
         }
 
         public void UseByOutside()
         {
-            CreatClone(character.transform,Vector3.zero);
+            CreatClone(character.transform, Vector3.zero);
         }
 
         protected override void CheckUnlock()
@@ -57,7 +60,7 @@ namespace SK
         {
             if (cloneUnlockButton.unLock)
             {
-                cloneUnlocked =true;
+                cloneUnlocked = true;
             }
         }
     }
