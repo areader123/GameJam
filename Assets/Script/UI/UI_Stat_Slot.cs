@@ -96,6 +96,10 @@ namespace SK
                 {
                     statValueText.text = player_Stat.intelligence.GetValue().ToString();
                 }
+                if(statType == StatType.Blood)
+                {
+                    statValueText.text = player_Stat.blood.GetValue().ToString();
+                }
 
             }
         }
@@ -138,6 +142,10 @@ namespace SK
                 player_Stat.GetStat(statType).AddModifiers(increaseAmount);
             }
             if (statType == StatType.intelligence)
+            {
+                player_Stat.GetStat(statType).AddModifiers(increaseAmount);
+            }
+            if(statType == StatType.Blood)
             {
                 player_Stat.GetStat(statType).AddModifiers(increaseAmount);
             }

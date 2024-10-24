@@ -99,10 +99,10 @@ namespace SK
         }
         public bool UseSkillPoint(int _price = 1)
         {
-            if (pointToSkill >= pointToSkillUsed + _price)
+            if (pointCanbeUsed >=  _price)
             {
-                pointToSkillUsed += _price;
-                pointCanbeUsed = pointToSkill - pointToSkillUsed;
+              //  pointToSkillUsed += _price;
+                pointCanbeUsed -= _price;
                 return true;
             }
             return false;
@@ -153,7 +153,7 @@ namespace SK
                     level += 1;
 
                     pointToSkill = level / perLevelAddSkillPoint;
-                    pointCanbeUsed = pointToSkill;
+                    pointCanbeUsed += 1;
                 }
             }
         }
