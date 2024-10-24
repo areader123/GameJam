@@ -8,7 +8,7 @@ public class UI_Building : MonoBehaviour
 {
     [SerializeField] private GameObject textMesh;
     [SerializeField] private UI uI;
-
+    private float timeCounter;
     private void Start()
     {
         textMesh.SetActive(false);
@@ -20,6 +20,10 @@ public class UI_Building : MonoBehaviour
 
     private void Update()
     {
+        if (!monsterSpawner.instance.isResting)
+        {
+             textMesh.SetActive(false);
+        }
         if (textMesh.activeSelf)
         {
             if (Input.GetKeyDown(KeyCode.B))
@@ -38,7 +42,10 @@ public class UI_Building : MonoBehaviour
     {
         if (hit.GetComponent<Character>() != null)
         {
-            textMesh.SetActive(true);
+            if (monsterSpawner.instance.isResting)
+            {
+                textMesh.SetActive(true);
+            }
         }
     }
     private void OnTriggerExit2D(Collider2D hit)
@@ -48,6 +55,7 @@ public class UI_Building : MonoBehaviour
             textMesh.SetActive(false);
         }
     }
+
 
 
 }

@@ -225,7 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hittedMaterial: {fileID: 0}
   flashDuration: 0.2
-  hitPrefab: {fileID: 0}
+  hitPrefab: {fileID: 5804554030685631269, guid: b8d45efb2c9ac3a49ac58d412af57e1c, type: 3}
   scale: {x: 0, y: 0}
   fxInstantiateTranform: {fileID: 0}
 --- !u!114 &2376496301577124457

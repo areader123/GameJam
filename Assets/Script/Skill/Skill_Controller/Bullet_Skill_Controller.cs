@@ -23,7 +23,8 @@ public class Bullet_Skill_Controller : MonoBehaviour
     private bool canSplit;
 
     private Enemy_MultiTransmit_Skill enemy_MultiTransmit_Skill;
-
+    private int damageAdded;
+    private Character_Stat character_Stat;
 
 
     private void Awake()
@@ -32,6 +33,11 @@ public class Bullet_Skill_Controller : MonoBehaviour
         {
             enemy_MultiTransmit_Skill = GetComponent<Enemy_MultiTransmit_Skill>();
         }
+        if (GetComponent<Character_Stat>() != null)
+        {
+            damageAdded = (int)character_Stat.intelligence.GetValue();
+        }
+
     }
     void Start()
     {
@@ -58,7 +64,7 @@ public class Bullet_Skill_Controller : MonoBehaviour
     }
 
 
-    public void SetArrow(float _arrowDamage, float _arrowExistTime, float _arrowSpeed, Skill _skill, float _timePerSplit, bool _canSplit, int damageUpgraded,bool _destroyAfterDamage,int _damagepPerTime)
+    public void SetArrow(float _arrowDamage, float _arrowExistTime, float _arrowSpeed, Skill _skill, float _timePerSplit, bool _canSplit, int damageUpgraded, bool _destroyAfterDamage, int _damagepPerTime)
     {
 
         arrowDamage = _arrowDamage + damageUpgraded;
@@ -78,7 +84,7 @@ public class Bullet_Skill_Controller : MonoBehaviour
     {
         if (hit.GetComponent<Enemy_Stat>() != null && hit.GetComponent<Enemy>() != null && destroyAfterDamage)
         {
-            hit.GetComponent<Enemy_Stat>().TakeDamage(arrowDamage, skill);
+            hit.GetComponent<Enemy_Stat>().TakeDamage(arrowDamage+damageAdded, skill);
             Destroy(gameObject);
         }
     }
@@ -93,7 +99,7 @@ public class Bullet_Skill_Controller : MonoBehaviour
         {
             if (damageTimeCounter <= 0)
             {
-                hit.GetComponent<Enemy_Stat>().TakeDamage(arrowDamage, skill);
+                hit.GetComponent<Enemy_Stat>().TakeDamage(arrowDamage + damageAdded, skill);
                 damageTimeCounter = damagepPerTime;
             }
         }

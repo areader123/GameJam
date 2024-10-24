@@ -151,7 +151,7 @@ namespace SK
             {
                 if ((int)(GetMaxHealth() - _currentHP) == 0)
                 {
-                    DamageNumber healthNumber = healthNumberMesh.Spawn(transform.position, 1);
+                    //DamageNumber healthNumber = healthNumberMesh.Spawn(transform.position, 1);
                 }
                 else if ((int)(GetMaxHealth() - _currentHP) > 0)
                 {

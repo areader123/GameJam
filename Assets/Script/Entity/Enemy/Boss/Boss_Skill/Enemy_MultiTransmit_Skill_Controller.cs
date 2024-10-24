@@ -36,6 +36,8 @@ public class Enemy_MultiTransmit_Skill_Controller : MonoBehaviour
     private Enemy_MultiTransmit_Skill enemy_MultiTransmit_Skill;
     private CapsuleCollider2D capsuleCollider2D;
     private bool ifHitted;
+    private Enemy_Stat enemy_Stat;
+    private int damageAdded;
 
     private void Awake()
     {
@@ -44,6 +46,10 @@ public class Enemy_MultiTransmit_Skill_Controller : MonoBehaviour
         if (GetComponent<Enemy_MultiTransmit_Skill>() != null)
         {
             enemy_MultiTransmit_Skill = GetComponent<Enemy_MultiTransmit_Skill>();
+        }
+        if(GetComponent<Enemy_Stat>() != null)
+        {
+            damageAdded = (int)enemy_Stat.intelligence.GetValue();
         }
     }
     void Start()
@@ -101,7 +107,7 @@ public class Enemy_MultiTransmit_Skill_Controller : MonoBehaviour
         {
             if (hit.GetComponent<Character_Stat>() != null && hit.GetComponent<Character>() != null )
             {
-                hit.GetComponent<Character_Stat>().TakeDamage(arrowDamage, skill);
+                hit.GetComponent<Character_Stat>().TakeDamage(arrowDamage + damageAdded, skill);
                 if (canStickIn && !destroySelfAfterDamage)
                 {
                     ifHitted = true;
@@ -121,7 +127,7 @@ public class Enemy_MultiTransmit_Skill_Controller : MonoBehaviour
         {
             if (hit.GetComponent<Enemy_Stat>() != null && hit.GetComponent<Enemy>() != null )
             {
-                hit.GetComponent<Enemy_Stat>().TakeDamage(arrowDamage, skill);
+                hit.GetComponent<Enemy_Stat>().TakeDamage(arrowDamage + damageAdded, skill);
                 if (canStickIn && !destroySelfAfterDamage)
                 {
                     ifHitted = true;
