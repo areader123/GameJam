@@ -281,6 +281,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 74822294678092667, guid: 912f096b666b75f4ea4ca3210c610072, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 74822294678092667, guid: 912f096b666b75f4ea4ca3210c610072, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 74822294678092667, guid: 912f096b666b75f4ea4ca3210c610072, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c3bb11502b86e2c44a8780c10715b97a, type: 2}
@@ -388,7 +396,7 @@ MonoBehaviour:
   transmitInstantiateTransform: {fileID: 1390904729}
   destroySelfAfterDamage: 0
   damagepPerTime: 0
-  timePerSplit: 0
+  timePerSplit: 1
   bulletType: 0
   fanAngle: 0
   canStickIn: 0
@@ -422,8 +430,8 @@ MonoBehaviour:
   faceDir: 1
   isbusy: 0
   isKoncked: 0
-  konckedSpeed: 0.1
-  konckbackDuration: 0.5
+  konckedSpeed: 2
+  konckbackDuration: 0.15
   timeFrozen: 0
   stunDuration: 0
   stunDirection: {x: 0, y: 0}
@@ -453,7 +461,7 @@ MonoBehaviour:
   Attack_Two_Animation_Duration: 1
   Attack_Three_Animation_Duration: 1
   rollSpeed: 3
-  timePerRollDamage: 0
+  timePerRollDamage: 0.3
 --- !u!114 &2134241906
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -209,8 +209,8 @@ MonoBehaviour:
   faceDir: 1
   isbusy: 0
   isKoncked: 0
-  konckedSpeed: 0.1
-  konckbackDuration: 1
+  konckedSpeed: 3
+  konckbackDuration: 0.25
   timeFrozen: 0
   stunDuration: 0
   stunDirection: {x: 0, y: 0}
@@ -223,13 +223,13 @@ MonoBehaviour:
   attackCooldown: 5
   lastTimeAttack: 0
   characterAttackedTransform: {fileID: 6809386163396395400}
-  characterAttackRadius: 1.62
+  characterAttackRadius: 1.37
   characterDetectedTransform: {fileID: 6809386163574136452}
   characterDetectedRadius: 5.58
   charactersDetected: {fileID: 0}
   characterDirection: {x: 0, y: 0, z: 0}
   characterFightingWithTransform: {fileID: 6809386163896683820}
-  characterFightingWithRadius: 3.8
+  characterFightingWithRadius: 2.17
   skill_One_Cooldown: 0
   lastTimeSkill_One: 0
   skill_Two_Cooldown: 0

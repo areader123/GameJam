@@ -172,8 +172,10 @@ namespace SK
                 _currentHP += _amount;
                 if (healthNumberMesh != null)
                 {
-                    Debug.Log("2");
-                    DamageNumber healthNumber = healthNumberMesh.Spawn(transform.position, _amount);
+                    if (_amount != 0)
+                    {
+                        DamageNumber healthNumber = healthNumberMesh.Spawn(transform.position, _amount);
+                    }
                 }
             }
 

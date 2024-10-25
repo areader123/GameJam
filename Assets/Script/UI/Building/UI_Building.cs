@@ -22,7 +22,7 @@ public class UI_Building : MonoBehaviour
     {
         if (!monsterSpawner.instance.isResting)
         {
-             textMesh.SetActive(false);
+            textMesh.SetActive(false);
         }
         if (textMesh.activeSelf)
         {
@@ -39,6 +39,16 @@ public class UI_Building : MonoBehaviour
 
 
     private void OnTriggerEnter2D(Collider2D hit)
+    {
+        if (hit.GetComponent<Character>() != null)
+        {
+            if (monsterSpawner.instance.isResting)
+            {
+                textMesh.SetActive(true);
+            }
+        }
+    }
+    private void OnTriggerStay2D(Collider2D hit)
     {
         if (hit.GetComponent<Character>() != null)
         {

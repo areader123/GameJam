@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using BayatGames.SaveGameFree;
@@ -10,6 +11,7 @@ namespace SK
 
     public class Character_Controller : MonoBehaviour,ISaveManager
     {
+        public System.Action UpdateBar;
         public static Character_Controller instance;
 
         public Character character;
@@ -81,6 +83,7 @@ namespace SK
             if (lightingNumber - _delet >= 0)
             {
                 lightingNumber -= _delet;
+                UpdateBar();
                 return true;
             }
             else
@@ -113,6 +116,7 @@ namespace SK
             if (lightingNumber < maxLightingNumber)
             {
                 lightingNumber += 1;
+                UpdateBar();
                 if (lightingNumber == maxLightingNumber)
                 {
                     canChangeLightScaleFlag = true;
@@ -132,11 +136,13 @@ namespace SK
             if (lightingNumber - _delet > 0)
             {
                 lightingNumber -= _delet;
+                UpdateBar();
                 return true;
             }
             else
             {
                 lightingNumber = 0;
+                UpdateBar();
                 canChangeLightScaleFlag = false;
                 return false;
             }
@@ -147,11 +153,12 @@ namespace SK
             if (exp < GetMaxExp())
             {
                 exp += 1;
+                UpdateBar();
                 if (exp == GetMaxExp())
                 {
                     exp = 0;
                     level += 1;
-
+                    UpdateBar();
                     //pointToSkill = level / perLevelAddSkillPoint;
                     pointCanbeUsed += perLevelAddSkillPoint;
                 }
@@ -161,7 +168,10 @@ namespace SK
         public void UpdateLightingNumberPerSecond()
         {
             if (lightingNumber > 0)
+            {
                 lightingNumber -= (int)(1 / Time.deltaTime);
+                UpdateBar();
+            }
         }
 
         public bool CheckIfLightingNumberFilled()

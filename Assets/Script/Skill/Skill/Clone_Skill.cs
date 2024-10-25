@@ -20,6 +20,12 @@ namespace SK
         private void Awake()
         {
 
+        }
+
+
+        protected override void Start()
+        {
+            base.Start();
             character = Character_Controller.instance.character;
         }
         public void CreatClone(Transform _cloneTransform, Vector3 _offset)

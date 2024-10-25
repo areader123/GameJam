@@ -33,6 +33,7 @@ namespace SK
         {
             UpdateValue();
             ui = GetComponentInParent<UI>();
+            
             button.onClick.AddListener(CheckUpgrade);
             CheckButtoncolor();
         }

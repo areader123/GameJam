@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class Bullet_Skill : Skill
 {
-   
+
     [SerializeField] private Transform bulletTransformIntialized;
     public bool bulletWithLightingUnLocked;
     [SerializeField] private int damageIncreasePerSkilled_1;
@@ -19,38 +19,43 @@ public class Bullet_Skill : Skill
     [SerializeField] private float transmitSpeed;
     [SerializeField] private int lightingCost;
     private bool basic_1;
-    
+
     [SerializeField] public UI_Skill_Slot bulletWithLighting;
     [Space(10)]
     public bool bulletWithMoreAmountLocked;
     [SerializeField] private int moreAmount;
     [SerializeField] private int damageIncreasePerSkilled_2;
+    private bool basic_2;
     [SerializeField] public UI_Skill_Slot bulletWithMoreAmount;
     [Space(10)]
     public bool bulletWithLargerLocked;
     [SerializeField] private GameObject largePrefab;
     [SerializeField] private int damageIncreasePerSkilled_3;
     [SerializeField] public UI_Skill_Slot bulletWithLarger;
+    private bool basic_3;
     [Space(10)]
     public bool bulletWithLessLightingLocked;
 
     [SerializeField] private int lessLightingCost;
-     private bool basic_2;
+    private bool basic_4;
     [SerializeField] private int damageIncreasePerSkilled_4;
     [SerializeField] public UI_Skill_Slot bulletWithLessLighting;
     [Space(10)]
     public bool bulletWithSplitableLocked;
     [SerializeField] private int damageIncreasePerSkilled_5;
-    [SerializeField]private float newCoolDown_1;
+    [SerializeField] private float newCoolDown_1;
     [SerializeField] public UI_Skill_Slot bulletWithSplitable;
     [SerializeField] private float splitTime;
     [Space(10)]
+    private bool basic_5;
+
     public bool bulletWithMoreTimesLocked;
     [SerializeField] private int waves;
-    [SerializeField]private float deltaTime;
-    [SerializeField]private float newCoolDown_2;
+    [SerializeField] private float deltaTime;
+    [SerializeField] private float newCoolDown_2;
     [SerializeField] private int damageIncreasePerSkilled_6;
     [SerializeField] public UI_Skill_Slot bulletWithMoreTimes;
+    private bool basic_6;
     [Space(10)]
     public bool bulletSkillUsedUnlocked;
     [SerializeField] private UI_SkillUsed_Slot uI_SkillUsed_Slot;
@@ -110,7 +115,7 @@ public class Bullet_Skill : Skill
                                 {
                                     GameObject _gameObject = Instantiate(largePrefab, bulletTransformIntialized.position, transform.rotation * Quaternion.AngleAxis(angleRange / moreAmount * i, Vector3.forward));
                                     Bullet_Skill_Controller bullet_Skill_Controller = _gameObject.GetComponent<Bullet_Skill_Controller>();
-                                    bullet_Skill_Controller.SetArrow(transmitDamage, transmitExistTime, transmitSpeed, this, splitTime, bulletWithSplitableLocked,damageIncreasePerSkilled_5,true,0);
+                                    bullet_Skill_Controller.SetArrow(transmitDamage, transmitExistTime, transmitSpeed, this, splitTime, bulletWithSplitableLocked, damageIncreasePerSkilled_5, true, 0);
                                 }
                             }
                             return;
@@ -121,7 +126,7 @@ public class Bullet_Skill : Skill
                             {
                                 GameObject _gameObject = Instantiate(largePrefab, bulletTransformIntialized.position, transform.rotation * Quaternion.AngleAxis(angleRange / moreAmount * i, Vector3.forward));
                                 Bullet_Skill_Controller bullet_Skill_Controller = _gameObject.GetComponent<Bullet_Skill_Controller>();
-                                bullet_Skill_Controller.SetArrow(transmitDamage, transmitExistTime, transmitSpeed, this, splitTime, bulletWithSplitableLocked,damageIncreasePerSkilled_4,true,0);
+                                bullet_Skill_Controller.SetArrow(transmitDamage, transmitExistTime, transmitSpeed, this, splitTime, bulletWithSplitableLocked, damageIncreasePerSkilled_4, true, 0);
                             }
                         }
                         return;
@@ -132,7 +137,7 @@ public class Bullet_Skill : Skill
                         {
                             GameObject _gameObject = Instantiate(largePrefab, bulletTransformIntialized.position, transform.rotation * Quaternion.AngleAxis(angleRange / moreAmount * i, Vector3.forward));
                             Bullet_Skill_Controller bullet_Skill_Controller = _gameObject.GetComponent<Bullet_Skill_Controller>();
-                            bullet_Skill_Controller.SetArrow(transmitDamage, transmitExistTime, transmitSpeed, this, splitTime, bulletWithSplitableLocked,damageIncreasePerSkilled_3,true,0);
+                            bullet_Skill_Controller.SetArrow(transmitDamage, transmitExistTime, transmitSpeed, this, splitTime, bulletWithSplitableLocked, damageIncreasePerSkilled_3, true, 0);
                         }
                     }
                     return;
@@ -143,7 +148,7 @@ public class Bullet_Skill : Skill
                     {
                         GameObject _gameObject = Instantiate(basicPrefab, bulletTransformIntialized.position, transform.rotation * Quaternion.AngleAxis(angleRange / moreAmount * i, Vector3.forward));
                         Bullet_Skill_Controller bullet_Skill_Controller = _gameObject.GetComponent<Bullet_Skill_Controller>();
-                        bullet_Skill_Controller.SetArrow(transmitDamage, transmitExistTime, transmitSpeed, this, splitTime, bulletWithSplitableLocked,damageIncreasePerSkilled_2,true,0);
+                        bullet_Skill_Controller.SetArrow(transmitDamage, transmitExistTime, transmitSpeed, this, splitTime, bulletWithSplitableLocked, damageIncreasePerSkilled_2, true, 0);
                     }
                     return;
                 }
@@ -157,7 +162,7 @@ public class Bullet_Skill : Skill
                 {
                     GameObject _gameObject = Instantiate(basicPrefab, bulletTransformIntialized.position, transform.rotation * Quaternion.AngleAxis(angleRange / amount * i, Vector3.forward));
                     Bullet_Skill_Controller bullet_Skill_Controller = _gameObject.GetComponent<Bullet_Skill_Controller>();
-                    bullet_Skill_Controller.SetArrow(transmitDamage, transmitExistTime, transmitSpeed, this, splitTime, bulletWithSplitableLocked,damageIncreasePerSkilled_1,true,0);
+                    bullet_Skill_Controller.SetArrow(transmitDamage, transmitExistTime, transmitSpeed, this, splitTime, bulletWithSplitableLocked, damageIncreasePerSkilled_1, true, 0);
                 }
             }
         }
@@ -172,7 +177,7 @@ public class Bullet_Skill : Skill
             {
                 GameObject _gameObject = Instantiate(largePrefab, bulletTransformIntialized.position, transform.rotation * Quaternion.AngleAxis(angleRange / moreAmount * i, Vector3.forward));
                 Bullet_Skill_Controller bullet_Skill_Controller = _gameObject.GetComponent<Bullet_Skill_Controller>();
-                bullet_Skill_Controller.SetArrow(transmitDamage, transmitExistTime, transmitSpeed, this, splitTime, bulletWithSplitableLocked,damageIncreasePerSkilled_6,true,0);
+                bullet_Skill_Controller.SetArrow(transmitDamage, transmitExistTime, transmitSpeed, this, splitTime, bulletWithSplitableLocked, damageIncreasePerSkilled_6, true, 0);
             }
             yield return new WaitForSeconds(deltaTime);
             j--;
@@ -195,6 +200,11 @@ public class Bullet_Skill : Skill
         {
             Debug.Log("成功");
             bulletWithMoreTimesLocked = true;
+            if (!basic_6)
+            {
+                Character_Controller.instance.character.GetComponent<Character_Stat>().GetStat(StatType.intelligence).AddModifiers(damageIncreasePerSkilled_1);
+                basic_6 = true;
+            }
         }
     }
     public void UnlockbulletWithSplitable()
@@ -204,6 +214,11 @@ public class Bullet_Skill : Skill
         {
             Debug.Log("成功");
             bulletWithSplitableLocked = true;
+            if (!basic_5)
+            {
+                Character_Controller.instance.character.GetComponent<Character_Stat>().GetStat(StatType.intelligence).AddModifiers(damageIncreasePerSkilled_1);
+                basic_5 = true;
+            }
         }
     }
 
@@ -214,10 +229,11 @@ public class Bullet_Skill : Skill
         {
             Debug.Log("成功");
             bulletWithLessLightingLocked = true;
-            if(!basic_2)
+            if (!basic_4)
             {
+                Character_Controller.instance.character.GetComponent<Character_Stat>().GetStat(StatType.intelligence).AddModifiers(damageIncreasePerSkilled_1);
                 cost = lessLightingCost;
-                basic_2 = true;
+                basic_4 = true;
             }
         }
     }
@@ -229,6 +245,11 @@ public class Bullet_Skill : Skill
         {
             Debug.Log("成功");
             bulletWithLargerLocked = true;
+            if (basic_3)
+            {
+                Character_Controller.instance.character.GetComponent<Character_Stat>().GetStat(StatType.intelligence).AddModifiers(damageIncreasePerSkilled_1);
+                basic_3 = true;
+            }
         }
     }
 
@@ -237,9 +258,13 @@ public class Bullet_Skill : Skill
         Debug.Log("尝试");
         if (bulletWithMoreAmount.unLock)
         {
-
-            Debug.Log("成功");
             bulletWithMoreAmountLocked = true;
+            Debug.Log("成功");
+            if(!basic_2)
+            {
+            Character_Controller.instance.character.GetComponent<Character_Stat>().GetStat(StatType.intelligence).AddModifiers(damageIncreasePerSkilled_1);
+            basic_2 = true;
+            }
         }
     }
 
@@ -251,8 +276,9 @@ public class Bullet_Skill : Skill
         {
             Debug.Log("成功");
             bulletWithLightingUnLocked = true;
-            if(!basic_1)
+            if (!basic_1)
             {
+                Character_Controller.instance.character.GetComponent<Character_Stat>().GetStat(StatType.intelligence).AddModifiers(damageIncreasePerSkilled_1);
                 cost = lightingCost;
                 basic_1 = true;
             }

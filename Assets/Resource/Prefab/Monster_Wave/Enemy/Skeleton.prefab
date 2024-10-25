@@ -223,11 +223,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d574a3a3c3c170a4d9351ba503f98fb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hittedMaterial: {fileID: 0}
+  hittedMaterial: {fileID: 2100000, guid: 720bc9e85074aff49a11e6ba0a77fca5, type: 2}
   flashDuration: 0.2
   hitPrefab: {fileID: 5804554030685631269, guid: b8d45efb2c9ac3a49ac58d412af57e1c, type: 3}
   scale: {x: 0, y: 0}
-  fxInstantiateTranform: {fileID: 0}
+  fxInstantiateTranform: {fileID: 2376496303267091026}
 --- !u!114 &2376496301577124457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,37 +242,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentHP: 0
   strength:
-    value: 3
+    value: 0
     modifiers: 
   intelligence:
-    value: 3
+    value: 0
     modifiers: 
   vitality:
-    value: 3
+    value: 0
     modifiers: 
   agility:
-    value: 3
+    value: 0
     modifiers: 
   blood:
     value: 0
     modifiers: 
   critChance:
-    value: 3
+    value: 0
     modifiers: 
   critPower:
-    value: 3
+    value: 0
     modifiers: 
   damage:
-    value: 3
+    value: 60
     modifiers: 
   maxHP:
-    value: 5
+    value: 100
     modifiers: 
   armor:
-    value: 3
+    value: 60
     modifiers: 
   MagicResistance:
-    value: 3
+    value: 0
     modifiers: 
   isDead: 0
   canGetItem: 1
@@ -280,8 +280,10 @@ MonoBehaviour:
   canHitBack: 0
   damageNumberMesh: {fileID: 3556049430689764048, guid: f579f93fb891e7645ab1d336cc27d1c4, type: 3}
   healthNumberMesh: {fileID: 3425425705960489199, guid: a8cfac2de49fca140a1b7e0e7aca15b9, type: 3}
-  perLevelIncreaseMonsterStrength: 0
-  perLevelIncreaseMonstermaxHP: 0
+  perWaveIncreaseMonsterStrength: 10
+  perWaveIncreaseMonstermaxHP: 30
+  perWaveIncreaseMonsterIntelligence: 10
+  perWaveIncreaseMonsterArmor: 5
 --- !u!114 &2376496301577124471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,6 +300,8 @@ MonoBehaviour:
   chanceToDropLighting: 100
   lightingDropedMinNumber: 7
   lightingDropedMaxNumber: 20
+  perLevelDropAdded: 0
+  lightingPrefabAmount: 0
   itemDropedTransform: {fileID: 2376496303267091026}
 --- !u!1 &2376496302496630334
 GameObject:

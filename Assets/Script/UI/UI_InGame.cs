@@ -9,12 +9,15 @@ namespace SK
     public class UI_InGame : MonoBehaviour
     {
         [SerializeField] private Slider slider;
-        [SerializeField] private Character_Stat character_Stat;
+         private Character_Stat character_Stat;
 
-        [SerializeField] private Image FirstCoolDownImage;
+         [SerializeField]private Slider lightSlider;
+         [SerializeField]private Slider expBar;
 
-        private float FirstCoolDown;
-        [SerializeField] private Image parryCoolDownImage;
+       
+
+        
+       
 
      
 
@@ -28,11 +31,9 @@ namespace SK
         [SerializeField] private TextMeshProUGUI SkillPointNumberText;
 
 
-        [SerializeField] private Image SecondCoolDownImage;
-        private float SecondCoolDown;
+     
 
         private UI uI;
-        [SerializeField]private UI_SkillTree_Slot uI_SkillTree_Slot;
 
         [SerializeField]private List<UI_Skill_CoolDown_Slot> uI_Skill_CoolDown_Slots;
 
@@ -49,6 +50,8 @@ namespace SK
 
             character_Stat = Character_Controller.instance.character.GetComponent<Character_Stat>();
             character_Stat.OnHealthChange += UpdataHealthBar;
+            Character_Controller.instance.UpdateBar += UpdataLightBar;
+            Character_Controller.instance.UpdateBar += UpdateExpBar;
             // if (character_Stat != null)
             // {
             //     character_Stat.OnHealthChange += UpdataHealthBar;
@@ -155,6 +158,18 @@ namespace SK
         {
             slider.maxValue = character_Stat.GetMaxHealth();
             slider.value = character_Stat._currentHP;
+        }
+
+        private void UpdataLightBar()
+        {
+            lightSlider.maxValue  = Character_Controller.instance.GetMaxLightingNumber();
+            lightSlider.value = Character_Controller.instance.GetLightingNumber();
+        }
+        
+        private void UpdateExpBar () 
+        {
+            expBar.maxValue  = Character_Controller.instance.GetMaxExp();
+            expBar.value = Character_Controller.instance.GetExp();
         }
     }
 

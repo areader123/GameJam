@@ -75,6 +75,10 @@ PrefabInstance:
       propertyPath: hittedMaterial
       value: 
       objectReference: {fileID: 2100000, guid: 720bc9e85074aff49a11e6ba0a77fca5, type: 2}
+    - target: {fileID: 3572765053811339121, guid: c99e401568db231409177029a5758dcb, type: 3}
+      propertyPath: fxInstantiateTranform
+      value: 
+      objectReference: {fileID: 806109512408774075}
     - target: {fileID: 3572765053811339123, guid: c99e401568db231409177029a5758dcb, type: 3}
       propertyPath: perLevelDropAdded
       value: 5
@@ -209,3 +213,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3890021cce39cc4abc4545519aa6399, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &806109512408774075 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3572765054112645385, guid: c99e401568db231409177029a5758dcb, type: 3}
+  m_PrefabInstance: {fileID: 4231944077846803634}
+  m_PrefabAsset: {fileID: 0}

@@ -63,6 +63,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6060353462617912625, guid: 07cfb000b1642ea47ac8c7a4311d2c65, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c3bb11502b86e2c44a8780c10715b97a, type: 2}
     - target: {fileID: 6642479790973752419, guid: 07cfb000b1642ea47ac8c7a4311d2c65, type: 3}
       propertyPath: m_Name
       value: m16AttackFX Variant

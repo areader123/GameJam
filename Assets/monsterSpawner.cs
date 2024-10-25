@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using BayatGames.SaveGameFree;
 using DamageNumbersPro;
 using SK;
 using TMPro;
 using UnityEngine;
 
-public class monsterSpawner : MonoBehaviour
+public class monsterSpawner : MonoBehaviour, ISaveManager
 {
     public static monsterSpawner instance;
     public List<Monster_Wave> monsterPrefabs; // �洢������˵�Ԥ����
@@ -24,7 +25,7 @@ public class monsterSpawner : MonoBehaviour
     private List<GameObject> activeMonsters = new List<GameObject>(); // ��ǰ��Ծ�Ĺ����б�
     private int previousMonsters = 1; // 쳲��������е�ǰһ��
     private int currentMonsters = 1; // 쳲��������еĵ�ǰ��
-    [SerializeField]private int perWaveAddedAmount;
+    [SerializeField] private int perWaveAddedAmount;
     [SerializeField] private TextMeshProUGUI textMeshProUGUI;
 
     /// <summary>
@@ -58,7 +59,7 @@ public class monsterSpawner : MonoBehaviour
         {
             if (!isResting && isBattling && !canBattle)
             {
-                canBattle =true;
+                canBattle = true;
                 canRest = true;
                 isBattling = false;
             }
@@ -67,6 +68,7 @@ public class monsterSpawner : MonoBehaviour
         {
             canBattle = true;
             _restTime = restTime;
+          //  restTime += Character_Controller.instance.GetLevel();
             textMeshProUGUI.gameObject.SetActive(true);
             StartCoroutine("TimeCounter");
         }
@@ -105,26 +107,29 @@ public class monsterSpawner : MonoBehaviour
         for (int i = 0; i < currentMonsters; i++)
         {
             SpawnMonster();
-            if(listWave == monsterPrefabs.Count-1)
+            if (listWave == monsterPrefabs.Count - 1)
             {
                 break;
             }
             yield return new WaitForSeconds(spawnInterval); // ÿ���������ɼ��
         }
-        currentWave += 1;
-        listWave +=1;
-        if(listWave > monsterPrefabs.Count)
+            Debug.Log("monsterPrefabs.Count"+monsterPrefabs.Count);
+
+        if (listWave > monsterPrefabs.Count)
         {
             listWave = 0;
         }
         // ������һ������������쳲��������е���һ��
-        currentMonsters += perWaveAddedAmount * Character_Controller.instance.GetLevel();
+        
     }
 
     private IEnumerator TimeCounter()
     {
         canRest = false;
         isResting = true;
+        currentMonsters = perWaveAddedAmount * Character_Controller.instance.GetLevel();
+        currentWave += 1;
+        listWave += 1;
 
         while (_restTime >= 0)
         {
@@ -205,6 +210,27 @@ public class monsterSpawner : MonoBehaviour
         return spawnPosition;
     }
 
+    public void LoadData(GameData _data)
+    {
+        if(SaveGame.Exists("CurrentWave"))
+        {
+            currentWave = SaveGame.Load<int>("CurrentWave");
+        }
+        if(SaveGame.Exists("ListWave"))
+        {
+            listWave = SaveGame.Load<int>("ListWave");
+        }
+        if(SaveGame.Exists("currentMonsters"))
+        {
+            currentMonsters = SaveGame.Load<int>("currentMonsters");
+        }
 
+    }
 
+    public void SaveData(ref GameData _data)
+    {
+        SaveGame.Save("CurrentWave",currentWave);
+        SaveGame.Save("ListWave",listWave);
+        SaveGame.Save("currentMonsters",currentMonsters);
+    }
 }

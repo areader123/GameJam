@@ -15,6 +15,7 @@ namespace SK
         public override void Update()
         {
             base.Update();
+             character.SetVelocity(Vector3.zero.x,Vector3.zero.y,0);
             if (character.inputHandler.moveAmount != 0f)
             {
                 stateMachine.ChangeState(character.player_Move_State);

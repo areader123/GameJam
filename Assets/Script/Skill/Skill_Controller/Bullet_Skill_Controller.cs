@@ -84,22 +84,18 @@ public class Bullet_Skill_Controller : MonoBehaviour
     {
         if (hit.GetComponent<Enemy_Stat>() != null && hit.GetComponent<Enemy>() != null && destroyAfterDamage)
         {
-            hit.GetComponent<Enemy_Stat>().TakeDamage(arrowDamage+damageAdded, skill);
+            hit.GetComponent<Enemy_Stat>().DoMagicDamage(Character_Controller.instance.character.GetComponent<Character_Stat>(), skill);
             Destroy(gameObject);
         }
     }
 
     private void OnTriggerStay2D(Collider2D hit)
     {
-
-
-
-
         if (hit.GetComponent<Enemy_Stat>() != null && hit.GetComponent<Enemy>() != null && !destroyAfterDamage)
         {
             if (damageTimeCounter <= 0)
             {
-                hit.GetComponent<Enemy_Stat>().TakeDamage(arrowDamage + damageAdded, skill);
+                hit.GetComponent<Enemy_Stat>().DoMagicDamage(Character_Controller.instance.character.GetComponent<Character_Stat>(), skill);
                 damageTimeCounter = damagepPerTime;
             }
         }

@@ -27,7 +27,7 @@ public class Bullet_Fan_Skill : Skill
     [SerializeField] public UI_Skill_Slot bulletCanHitBack;
     [Space(10)]
     public bool bulletCanPenetratelocked;
-    [SerializeField] private bool destroyAfterDamage;
+    [SerializeField] private bool noDestroyAfterDamage;
     [SerializeField] private int damageIncreasePerSkilled_3;
     [SerializeField] public UI_Skill_Slot bulletCanPenetrate;
     [Space(10)]
@@ -77,7 +77,7 @@ public class Bullet_Fan_Skill : Skill
                 this.skillHitBack = SkillHitBack.can;
                 if (bulletCanPenetratelocked)
                 {
-                    destroyAfterDamage = true;
+                    noDestroyAfterDamage = true;
                     if (bulletWithLowerCoolDown)
                     {
                         cooldown = newCoolDown;
@@ -98,7 +98,7 @@ public class Bullet_Fan_Skill : Skill
                             {
                                 GameObject _gameObject = Instantiate(basicPrefab, bulletTransformIntialized.position, transform.rotation * Quaternion.Euler(new Vector3(0, 0, (i - mid) * fanAngle )));
                                 Bullet_Skill_Controller bullet_Skill_Controller = _gameObject.GetComponent<Bullet_Skill_Controller>();
-                                bullet_Skill_Controller.SetArrow(transmitDamage, transmitExistTime, transmitSpeed, this, 0, false, damageIncreasePerSkilled_4, destroyAfterDamage, damagepPerTime);
+                                bullet_Skill_Controller.SetArrow(transmitDamage, transmitExistTime, transmitSpeed, this, 0, false, damageIncreasePerSkilled_4, !noDestroyAfterDamage, damagepPerTime);
                             }
                         }
                         return;
@@ -110,7 +110,7 @@ public class Bullet_Fan_Skill : Skill
                         {
                             GameObject _gameObject = Instantiate(basicPrefab, bulletTransformIntialized.position, transform.rotation * Quaternion.Euler(new Vector3(0, 0, (i - mid) * fanAngle )));
                             Bullet_Skill_Controller bullet_Skill_Controller = _gameObject.GetComponent<Bullet_Skill_Controller>();
-                            bullet_Skill_Controller.SetArrow(transmitDamage, transmitExistTime, transmitSpeed, this, 0, false, damageIncreasePerSkilled_3, destroyAfterDamage, damagepPerTime);
+                            bullet_Skill_Controller.SetArrow(transmitDamage, transmitExistTime, transmitSpeed, this, 0, false, damageIncreasePerSkilled_3, !noDestroyAfterDamage, damagepPerTime);
                         }
                     }
                     return;
@@ -122,7 +122,7 @@ public class Bullet_Fan_Skill : Skill
                     {
                         GameObject _gameObject = Instantiate(basicPrefab, bulletTransformIntialized.position, transform.rotation * Quaternion.Euler(new Vector3(0, 0, (i - mid) * fanAngle )));
                         Bullet_Skill_Controller bullet_Skill_Controller = _gameObject.GetComponent<Bullet_Skill_Controller>();
-                        bullet_Skill_Controller.SetArrow(transmitDamage, transmitExistTime, transmitSpeed, this, 0, false, damageIncreasePerSkilled_2, destroyAfterDamage, damagepPerTime);
+                        bullet_Skill_Controller.SetArrow(transmitDamage, transmitExistTime, transmitSpeed, this, 0, false, damageIncreasePerSkilled_2, !noDestroyAfterDamage, damagepPerTime);
                     }
                     return;
                 }
@@ -137,7 +137,7 @@ public class Bullet_Fan_Skill : Skill
                 {
                     GameObject _gameObject = Instantiate(basicPrefab, bulletTransformIntialized.position, transform.rotation * Quaternion.Euler(new Vector3(0, 0, (i - mid) * fanAngle )));
                     Bullet_Skill_Controller bullet_Skill_Controller = _gameObject.GetComponent<Bullet_Skill_Controller>();
-                    bullet_Skill_Controller.SetArrow(transmitDamage, transmitExistTime, transmitSpeed, this, 0, false, damageIncreasePerSkilled_1, destroyAfterDamage, damagepPerTime);
+                    bullet_Skill_Controller.SetArrow(transmitDamage, transmitExistTime, transmitSpeed, this, 0, false, damageIncreasePerSkilled_1, !noDestroyAfterDamage, damagepPerTime);
                 }
             }
         }
@@ -153,7 +153,7 @@ public class Bullet_Fan_Skill : Skill
             {
                 GameObject _gameObject = Instantiate(basicPrefab, bulletTransformIntialized.position, transform.rotation * Quaternion.Euler(new Vector3(0, 0, (i - mid) * fanAngle )));
                 Bullet_Skill_Controller bullet_Skill_Controller = _gameObject.GetComponent<Bullet_Skill_Controller>();
-                bullet_Skill_Controller.SetArrow(transmitDamage, transmitExistTime, transmitSpeed, this, 0, false, damageIncreasePerSkilled_5, destroyAfterDamage, damagepPerTime);
+                bullet_Skill_Controller.SetArrow(transmitDamage, transmitExistTime, transmitSpeed, this, 0, false, damageIncreasePerSkilled_5, noDestroyAfterDamage, damagepPerTime);
             }
             yield return new WaitForSeconds(deltaTime);
             j--;

@@ -44,7 +44,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2376496301577124448, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
       propertyPath: konckedSpeed
-      value: 0.1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2376496301577124448, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
       propertyPath: movementSpeed
@@ -52,7 +52,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2376496301577124448, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
       propertyPath: konckbackDuration
-      value: 1
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 2376496301577124448, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
       propertyPath: characterAttackRadius
@@ -158,6 +158,10 @@ PrefabInstance:
       propertyPath: m_Direction
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2376496301577124461, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2376496301577124462, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -210,6 +214,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -4515576133434618272, guid: 5e99286c8ee4061469aff4e0777426f0, type: 3}
+    - target: {fileID: 2376496301577124463, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2376496301577124463, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2376496301577124471, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
       propertyPath: perLevelDropAdded
       value: 5

@@ -66,7 +66,6 @@ public class Light_Skill : Skill
     private void Awake()
     {
           light_Controller = Light_Controller.instance;
-        character = Character_Controller.instance.character;
         character_Controller = Character_Controller.instance;
     }
 
@@ -79,6 +78,7 @@ public class Light_Skill : Skill
         lightWithMonsterDamaged.GetComponent<Button>().onClick.AddListener(UnlocklightWithMonsterDamaged);
         lightWithMonsterAniSlow.GetComponent<Button>().onClick.AddListener(UnlocklightWithMonsterAniSlowUnLocked);
         lightwhenLowHealthUnhittable.GetComponent<Button>().onClick.AddListener(UnlocklightwhenLowHealthUnhittable);
+        character = Character_Controller.instance.character;
 
         Debug.Log("start");
     }

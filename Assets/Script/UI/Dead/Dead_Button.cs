@@ -11,11 +11,11 @@ public class Dead_Button : MonoBehaviour
     private void Awake()
     {
         button = GetComponent<Button>();
-       
+
     }
     void Start()
     {
-         button.onClick.AddListener(OnButtonClicked);
+        button.onClick.AddListener(OnButtonClicked);
     }
 
     // Update is called once per frame
@@ -28,5 +28,12 @@ public class Dead_Button : MonoBehaviour
         SaveGame.DeleteAll();
         SaveGame.Save<bool>("NewStart", false);
         SceneManager.LoadScene("StartScene");
+    }
+
+    private void OnApplicationQuit()
+    {
+        SaveGame.DeleteAll();
+        SaveGame.Save<bool>("NewStart", false);
+        //SceneManager.LoadScene("StartScene");
     }
 }

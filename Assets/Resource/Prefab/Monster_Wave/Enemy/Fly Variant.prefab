@@ -88,7 +88,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6809386163795657368, guid: 3a948063be4e1d14ca6a3ace8ac89699, type: 3}
       propertyPath: konckedSpeed
-      value: 0.1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6809386163795657368, guid: 3a948063be4e1d14ca6a3ace8ac89699, type: 3}
       propertyPath: movementSpeed
@@ -100,7 +100,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6809386163795657368, guid: 3a948063be4e1d14ca6a3ace8ac89699, type: 3}
       propertyPath: konckbackDuration
-      value: 0.7
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 6809386163795657369, guid: 3a948063be4e1d14ca6a3ace8ac89699, type: 3}
       propertyPath: m_Controller
@@ -122,6 +122,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.031804025
       objectReference: {fileID: 0}
+    - target: {fileID: 6809386163795657371, guid: 3a948063be4e1d14ca6a3ace8ac89699, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6809386163795657372, guid: 3a948063be4e1d14ca6a3ace8ac89699, type: 3}
       propertyPath: itemDropedTransform
       value: 
@@ -130,6 +134,10 @@ PrefabInstance:
       propertyPath: arrow
       value: 
       objectReference: {fileID: 5676853827565950395, guid: 42619d5eea459184696a6d19395169e2, type: 3}
+    - target: {fileID: 6809386163795657373, guid: 3a948063be4e1d14ca6a3ace8ac89699, type: 3}
+      propertyPath: stickIn
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6809386163795657373, guid: 3a948063be4e1d14ca6a3ace8ac89699, type: 3}
       propertyPath: offset.x
       value: 0

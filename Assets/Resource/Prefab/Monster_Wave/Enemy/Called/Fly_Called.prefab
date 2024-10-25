@@ -99,6 +99,18 @@ PrefabInstance:
       propertyPath: destroySelfAfterDamage
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6779438547609966045, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779438547609966046, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
+      propertyPath: konckedSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779438547609966046, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
+      propertyPath: konckbackDuration
+      value: 0.15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
 --- !u!1 &8983254249799433573 stripped

@@ -91,19 +91,19 @@ namespace SK
                 case 0:
                     if (!isKoncked && entity_Stat.canHitBack == CanHitBack.can)
                     {
-                        // StopCoroutine("HitKnockbackCharacter");
+                       //  StopCoroutine("HitKnockbackCharacter");
                          StartCoroutine("HitKnockbackCharacter");
-                      //  StopCoroutine("HitKnockbackCharacterCollider2D");
-                         StartCoroutine("HitKnockbackCharacterCollider2D");
+                       // StopCoroutine("HitKnockbackCharacterCollider2D");
+                        // StartCoroutine("HitKnockbackCharacterCollider2D");
                     }
                     break;
                 case 1:
                     if (!isKoncked && skill.skillHitBack == SkillHitBack.can)
                     {
                         // StopCoroutine("HitKnockbackCharacter");
-                        StartCoroutine("HitKnockbackCharacter");
-                      //  StopCoroutine("HitKnockbackCharacterCollider2D");
-                        StartCoroutine("HitKnockbackCharacterCollider2D");
+                       // StartCoroutine("HitKnockbackCharacter");
+                     //  StopCoroutine("HitKnockbackCharacterCollider2D");
+                       // StartCoroutine("HitKnockbackCharacterCollider2D");
                     }
                     break;
                 default:
@@ -136,7 +136,7 @@ namespace SK
         {
             isKoncked = true;
             animator.speed = 0;
-            rb.velocity -= new Vector2(konckedSpeed * (-faceDir), 0);
+            rb.velocity = new Vector2(konckedSpeed * (-faceDir), 0);
           //  capsuleCollider2D.enabled = false;
             yield return new WaitForSeconds(konckbackDuration);
          //   capsuleCollider2D.enabled = true;

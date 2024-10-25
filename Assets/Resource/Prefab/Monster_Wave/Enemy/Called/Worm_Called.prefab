@@ -111,13 +111,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5093619312757014453, guid: eb422f12eef42e140a3c60163c31598e, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093619312757014453, guid: eb422f12eef42e140a3c60163c31598e, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093619312757014455, guid: eb422f12eef42e140a3c60163c31598e, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5093619312757014458, guid: eb422f12eef42e140a3c60163c31598e, type: 3}
       propertyPath: battleSpeed
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5093619312757014458, guid: eb422f12eef42e140a3c60163c31598e, type: 3}
+      propertyPath: konckedSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093619312757014458, guid: eb422f12eef42e140a3c60163c31598e, type: 3}
       propertyPath: movementSpeed
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093619312757014458, guid: eb422f12eef42e140a3c60163c31598e, type: 3}
+      propertyPath: konckbackDuration
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 5093619312757014459, guid: eb422f12eef42e140a3c60163c31598e, type: 3}
       propertyPath: m_Name

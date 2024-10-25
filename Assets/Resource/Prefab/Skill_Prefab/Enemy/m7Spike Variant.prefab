@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8219442879747796869, guid: 3a357603f8d27f84abcb251ebe476aae, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c3bb11502b86e2c44a8780c10715b97a, type: 2}
     - target: {fileID: 8221571475009759319, guid: 3a357603f8d27f84abcb251ebe476aae, type: 3}
       propertyPath: m_Name
       value: m7Spike Variant

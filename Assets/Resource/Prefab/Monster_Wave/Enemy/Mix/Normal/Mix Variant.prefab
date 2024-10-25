@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 245029217}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: InstantiateTranform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,6 +138,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -6955766851959810371, guid: d9e43795aa2c4474daa82c4207ec5788, type: 3}
+    - target: {fileID: 5093619312757014453, guid: eb422f12eef42e140a3c60163c31598e, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093619312757014453, guid: eb422f12eef42e140a3c60163c31598e, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093619312757014454, guid: eb422f12eef42e140a3c60163c31598e, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5093619312757014455, guid: eb422f12eef42e140a3c60163c31598e, type: 3}
       propertyPath: m_Size.x
       value: 1.6554952
@@ -154,13 +166,21 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.1146367
       objectReference: {fileID: 0}
+    - target: {fileID: 5093619312757014455, guid: eb422f12eef42e140a3c60163c31598e, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5093619312757014458, guid: eb422f12eef42e140a3c60163c31598e, type: 3}
       propertyPath: battleSpeed
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5093619312757014458, guid: eb422f12eef42e140a3c60163c31598e, type: 3}
       propertyPath: konckedSpeed
-      value: 0.1
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093619312757014458, guid: eb422f12eef42e140a3c60163c31598e, type: 3}
+      propertyPath: konckbackDuration
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 5093619312757014458, guid: eb422f12eef42e140a3c60163c31598e, type: 3}
       propertyPath: characterAttackRadius
@@ -179,8 +199,16 @@ PrefabInstance:
       value: Mix Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5093619312757014459, guid: eb422f12eef42e140a3c60163c31598e, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093619312757014459, guid: eb422f12eef42e140a3c60163c31598e, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093619313666720740, guid: eb422f12eef42e140a3c60163c31598e, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5093619314018438728, guid: eb422f12eef42e140a3c60163c31598e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -189,6 +217,18 @@ PrefabInstance:
     - target: {fileID: 5093619314018438728, guid: eb422f12eef42e140a3c60163c31598e, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.089
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093619314018438729, guid: eb422f12eef42e140a3c60163c31598e, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093619314054694386, guid: eb422f12eef42e140a3c60163c31598e, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093619314305030025, guid: eb422f12eef42e140a3c60163c31598e, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb422f12eef42e140a3c60163c31598e, type: 3}

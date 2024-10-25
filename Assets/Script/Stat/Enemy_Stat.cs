@@ -23,19 +23,23 @@ namespace SK
 
         private void Awake()
         {
+            perWaveIncreaseMonsterStrength = 10;
+            perWaveIncreaseMonstermaxHP = 30;
+            perWaveIncreaseMonsterIntelligence = 10;
+            perWaveIncreaseMonsterArmor = 5;
         }
 
         protected override void Start()
         {
-            enemy = GetComponent<Enemy>();
-            
             base.Start();
+            enemy = GetComponent<Enemy>();
+            Modifier();
         }
 
         public override void TakeDamage(float damage, Skill skill)
         {
             base.TakeDamage(damage, skill);
-            Modifier();
+            
             if (!isDead)
             {
                 enemy.Damage(skill);
@@ -59,9 +63,9 @@ namespace SK
             }
 
         }
-        public override void DoMagicDamage(Entity_Stat target,Skill skill)
+        public override void DoMagicDamage(Entity_Stat target, Skill skill)
         {
-            base.DoMagicDamage(target,skill);
+            base.DoMagicDamage(target, skill);
             if (!isDead)
             {
                 enemy.Damage(skill, target);
@@ -85,10 +89,10 @@ namespace SK
         public void Modifier()
         {
             int level = Character_Controller.instance.GetLevel();
-            strength.AddModifiers(perWaveIncreaseMonsterStrength * monsterSpawner.instance.currentWave);
-            intelligence.AddModifiers(perWaveIncreaseMonsterStrength * monsterSpawner.instance.currentWave);
-            maxHP.AddModifiers(perWaveIncreaseMonstermaxHP * monsterSpawner.instance.currentWave);
-            armor.AddModifiers(perWaveIncreaseMonsterArmor * monsterSpawner.instance.currentWave);
+            strength.AddModifiers(perWaveIncreaseMonsterStrength * (monsterSpawner.instance.currentWave+1));
+            intelligence.AddModifiers(perWaveIncreaseMonsterStrength * (monsterSpawner.instance.currentWave+1));
+            maxHP.AddModifiers(perWaveIncreaseMonstermaxHP * (monsterSpawner.instance.currentWave+1));
+            armor.AddModifiers(perWaveIncreaseMonsterArmor * (monsterSpawner.instance.currentWave+1));
         }
     }
 }

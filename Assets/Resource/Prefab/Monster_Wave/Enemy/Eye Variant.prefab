@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8246701552588117431, guid: 033aa39ed68e5ee4faa4f0dda207d6ea, type: 3}
       propertyPath: slowRotationSpeed
-      value: 0.28
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8246701552588117431, guid: 033aa39ed68e5ee4faa4f0dda207d6ea, type: 3}
       propertyPath: RotationWhileDamage
@@ -93,7 +93,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8246701552588117452, guid: 033aa39ed68e5ee4faa4f0dda207d6ea, type: 3}
       propertyPath: konckbackDuration
-      value: 0.8
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 8246701552588117452, guid: 033aa39ed68e5ee4faa4f0dda207d6ea, type: 3}
       propertyPath: characterAttackRadius

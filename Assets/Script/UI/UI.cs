@@ -9,11 +9,10 @@ namespace SK
     {
         [SerializeField] public GameObject character;
         [SerializeField] public GameObject skillTree;
-        [SerializeField] private GameObject craft;
-        [SerializeField] private GameObject setting;
+        [SerializeField] private GameObject esc;
 
         [SerializeField] public GameObject game;
-        [SerializeField]public GameObject dead;
+        [SerializeField] public GameObject dead;
 
 
 
@@ -42,6 +41,11 @@ namespace SK
             // {
             //     SwithWithKeyTo(setting);
             // }
+
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                SwithWithKeyTo(esc);
+            }
         }
         public void SwithTo(GameObject _menu)
         {
@@ -63,8 +67,11 @@ namespace SK
                 CheckForGameUI();
                 return;
             }
-            Time.timeScale = 0;
-            Character_Controller.instance.character.animator.speed = 0;
+            if (_menu == esc)
+            {
+                Character_Controller.instance.character.animator.speed = 0;
+                Time.timeScale = 0;
+            }
             ifTimeStop = true;
             SwithTo(_menu);
         }
@@ -92,6 +99,11 @@ namespace SK
                 }
             }
             return null;
+        }
+
+        public void SwitchToGame()
+        {
+            SwithTo(game);
         }
 
         public void OpenDead()

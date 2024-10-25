@@ -45,7 +45,6 @@ public class Blood_Skill : Skill
    private void Awake()
    {
 
-      character_Stat = Character_Controller.instance.character.GetComponent<Character_Stat>();
    }
 
    protected override void Update()
@@ -57,6 +56,7 @@ public class Blood_Skill : Skill
    protected override void Start()
    {
       base.Start();
+      //character_Stat = Character_Controller.instance.character.GetComponent<Character_Stat>();
       blood.GetComponent<Button>().onClick.AddListener(Unlockblood);
       moreblood.GetComponent<Button>().onClick.AddListener(Unlockmoreblood);
       bloodTransformedLighting.GetComponent<Button>().onClick.AddListener(UnlockbloodTransformedLighting);
@@ -114,7 +114,7 @@ public class Blood_Skill : Skill
       if (Character_Controller.instance.UseSkillCostLighting(lightingCost))
       {
          Debug.Log("Blood_One");
-         character_Stat.IncreaseStatBy((int)bloodPercent, skillDuration, character_Stat.GetStat(StatType.Blood));
+         Character_Controller.instance.character.GetComponent<Character_Stat>().IncreaseStatBy((int)bloodPercent, skillDuration, Character_Controller.instance.character.GetComponent<Character_Stat>().GetStat(StatType.Blood));
       }
    }
    private void Blood_Two()
@@ -124,7 +124,7 @@ public class Blood_Skill : Skill
 
          if (Character_Controller.instance.UseSkillCostLighting(lightingCost))
          {
-            character_Stat.IncreaseStatBy((int)newBloodPercent, skillDuration, character_Stat.GetStat(StatType.Blood));
+            Character_Controller.instance.character.GetComponent<Character_Stat>().IncreaseStatBy((int)newBloodPercent, skillDuration, Character_Controller.instance.character.GetComponent<Character_Stat>().GetStat(StatType.Blood));
          }
       }
    }
@@ -146,7 +146,7 @@ public class Blood_Skill : Skill
    {
       if (blooding_1)
       {
-         if (character_Stat._currentHP == character_Stat.GetMaxHealth())
+         if (Character_Controller.instance.character.GetComponent<Character_Stat>()._currentHP == Character_Controller.instance.character.GetComponent<Character_Stat>().GetMaxHealth())
          {
             int times = (int)(damage * bloodToLightingPercent);
             for (int i = 0; i < times; i++)
@@ -198,7 +198,7 @@ public class Blood_Skill : Skill
          bloodLocked = true;
          if (!basic_1)
          {
-            character_Stat.GetStat(StatType.Blood).AddModifiers(basicBlood_1);
+            Character_Controller.instance.character.GetComponent<Character_Stat>().GetStat(StatType.Blood).AddModifiers(basicBlood_1);
             cost = lightingCost;
             basic_1 = true;
          }
@@ -215,7 +215,7 @@ public class Blood_Skill : Skill
          if (!basic_2)
          {
             basic_2 = true;
-            character_Stat.GetStat(StatType.Blood).AddModifiers(basicBlood_2);
+           Character_Controller.instance.character.GetComponent<Character_Stat>().GetStat(StatType.Blood).AddModifiers(basicBlood_2);
          }
       }
    }
@@ -229,7 +229,7 @@ public class Blood_Skill : Skill
          if (!basic_3)
          {
             basic_3 = true;
-            character_Stat.GetStat(StatType.Blood).AddModifiers(basicBlood_3);
+            Character_Controller.instance.character.GetComponent<Character_Stat>().GetStat(StatType.Blood).AddModifiers(basicBlood_3);
          }
       }
    }
@@ -244,7 +244,7 @@ public class Blood_Skill : Skill
          {
             basic_4 = true;
             cost = newlightingCost;
-            character_Stat.GetStat(StatType.Blood).AddModifiers(basicBlood_4);
+            Character_Controller.instance.character.GetComponent<Character_Stat>().GetStat(StatType.Blood).AddModifiers(basicBlood_4);
          }
       }
    }
