@@ -39,6 +39,8 @@ public class Enemy_MultiTransmit_Skill_Controller : MonoBehaviour
     private Enemy_Stat enemy_Stat;
     private int damageAdded;
 
+    private Enemy enemy;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -46,10 +48,6 @@ public class Enemy_MultiTransmit_Skill_Controller : MonoBehaviour
         if (GetComponent<Enemy_MultiTransmit_Skill>() != null)
         {
             enemy_MultiTransmit_Skill = GetComponent<Enemy_MultiTransmit_Skill>();
-        }
-        if(GetComponent<Enemy_Stat>() != null)
-        {
-            damageAdded = (int)enemy_Stat.intelligence.GetValue();
         }
     }
     void Start()
@@ -66,11 +64,11 @@ public class Enemy_MultiTransmit_Skill_Controller : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if(!ifHitted)
+        if (!ifHitted)
         {
-             SetVelocity();
+            SetVelocity();
         }
-        
+
         Split();
     }
 
@@ -82,7 +80,7 @@ public class Enemy_MultiTransmit_Skill_Controller : MonoBehaviour
     }
 
 
-    public void SetArrow(float _arrowDamage, float _arrowExistTime, float _arrowSpeed, float _damagepPerTime, bool _destroySelfAfterDamage, Skill _skill, Target _target, float _timePerSplit,bool _canStickIn)
+    public void SetArrow(float _arrowDamage, float _arrowExistTime, float _arrowSpeed, float _damagepPerTime, bool _destroySelfAfterDamage, Skill _skill, Target _target, float _timePerSplit, bool _canStickIn, Enemy _enemy)
     {
         target = _target;
         arrowDamage = _arrowDamage;
@@ -95,7 +93,9 @@ public class Enemy_MultiTransmit_Skill_Controller : MonoBehaviour
         skill = _skill;
         timePerSplit = _timePerSplit;
         canStickIn = _canStickIn;
-       
+
+        enemy = _enemy;
+
         // SetRotation();
 
     }
@@ -105,9 +105,17 @@ public class Enemy_MultiTransmit_Skill_Controller : MonoBehaviour
     {
         if (target == Target.character)
         {
-            if (hit.GetComponent<Character_Stat>() != null && hit.GetComponent<Character>() != null )
+            if (hit.GetComponent<Character_Stat>() != null && hit.GetComponent<Character>() != null)
             {
-                hit.GetComponent<Character_Stat>().TakeDamage(arrowDamage + damageAdded, skill);
+
+                if (enemy != null)
+                {
+                    hit.GetComponent<Character_Stat>().DoMagicDamage(enemy.GetComponent<Enemy_Stat>(), skill);
+                }
+                else
+                {
+                    hit.GetComponent<Character_Stat>().TakeDamage(arrowDamage, skill);
+                }
                 if (canStickIn && !destroySelfAfterDamage)
                 {
                     ifHitted = true;
@@ -125,7 +133,7 @@ public class Enemy_MultiTransmit_Skill_Controller : MonoBehaviour
         }
         else
         {
-            if (hit.GetComponent<Enemy_Stat>() != null && hit.GetComponent<Enemy>() != null )
+            if (hit.GetComponent<Enemy_Stat>() != null && hit.GetComponent<Enemy>() != null)
             {
                 hit.GetComponent<Enemy_Stat>().TakeDamage(arrowDamage + damageAdded, skill);
                 if (canStickIn && !destroySelfAfterDamage)
@@ -137,7 +145,7 @@ public class Enemy_MultiTransmit_Skill_Controller : MonoBehaviour
                     rb.constraints = RigidbodyConstraints2D.FreezeAll;
                     gameObject.transform.SetParent(hit.transform);
                 }
-                 else
+                else
                 {
                     Destroy(gameObject);
                 }
@@ -154,7 +162,15 @@ public class Enemy_MultiTransmit_Skill_Controller : MonoBehaviour
             {
                 if (damageTimeCounter <= 0)
                 {
-                    hit.GetComponent<Character_Stat>().TakeDamage(arrowDamage, skill);
+                    if (enemy != null)
+                    {
+                        hit.GetComponent<Character_Stat>().DoMagicDamage(enemy.GetComponent<Enemy_Stat>(), skill);
+                    }
+                    else
+                    {
+                        hit.GetComponent<Character_Stat>().TakeDamage(arrowDamage, skill);
+                    }
+
                     damageTimeCounter = damagepPerTime;
                 }
             }

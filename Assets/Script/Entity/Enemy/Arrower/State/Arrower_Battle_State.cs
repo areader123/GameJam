@@ -40,6 +40,7 @@ namespace SK
                     else
                     {
                         //在攻击范围内 但攻击冷却中
+                        Debug.Log("进入Idel");
                         stateMachine.ChangeState(enemy.arrower_Idel_State);
                         return;
                     }
@@ -47,7 +48,7 @@ namespace SK
             }
             else
             {
-                //Debug.Log("脱战");
+                Debug.Log("脱战");
                 stateMachine.ChangeState(enemy.arrower_Move_State);
                 return;
             }

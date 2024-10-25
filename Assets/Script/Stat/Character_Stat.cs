@@ -36,9 +36,9 @@ namespace SK
             }
         }
 
-        public override void DoMagicDamage(Entity_Stat target)
+        public override void DoMagicDamage(Entity_Stat target,Skill skill)
         {
-            base.DoMagicDamage(target);
+            base.DoMagicDamage(target,skill);
             if (!isDead)
             {
                 character.Damage(null, target);
@@ -49,7 +49,9 @@ namespace SK
         {
             base.Die();
             //死亡状态
+            
             character.stateMachine.ChangeState(character.player_Die_State);
+            character.OpenDead();   
             isDead = true;
         }
 

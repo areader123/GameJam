@@ -8,20 +8,23 @@ using UnityEngine;
 public class monsterSpawner : MonoBehaviour
 {
     public static monsterSpawner instance;
-    public GameObject[] monsterPrefabs; // �洢������˵�Ԥ����
+    public List<Monster_Wave> monsterPrefabs; // �洢������˵�Ԥ����
     public float spawnInterval = 2f; // ÿ���������ɼ��
     public float spawnDistance = 1f; // ˢ�¾��루����Ļ�⣩
     [SerializeField] private float leastWaveTime;
     [SerializeField] private float restTime;
+    public int currentWave = 0;
+    public int listWave = 0;
     private float _restTime;
     public bool isResting;
-    public bool canRest;
-    public bool canBattle;
-    public bool isBattling;
+    private bool canRest;
+    private bool canBattle;
+    private bool isBattling;
     private Camera mainCamera; // �������
     private List<GameObject> activeMonsters = new List<GameObject>(); // ��ǰ��Ծ�Ĺ����б�
     private int previousMonsters = 1; // 쳲��������е�ǰһ��
     private int currentMonsters = 1; // 쳲��������еĵ�ǰ��
+    [SerializeField]private int perWaveAddedAmount;
     [SerializeField] private TextMeshProUGUI textMeshProUGUI;
 
     /// <summary>
@@ -102,13 +105,20 @@ public class monsterSpawner : MonoBehaviour
         for (int i = 0; i < currentMonsters; i++)
         {
             SpawnMonster();
+            if(listWave == monsterPrefabs.Count-1)
+            {
+                break;
+            }
             yield return new WaitForSeconds(spawnInterval); // ÿ���������ɼ��
         }
+        currentWave += 1;
+        listWave +=1;
+        if(listWave > monsterPrefabs.Count)
+        {
+            listWave = 0;
+        }
         // ������һ������������쳲��������е���һ��
-        int nextMonsters = previousMonsters + currentMonsters;
-        previousMonsters = currentMonsters;
-        currentMonsters = nextMonsters;
-    
+        currentMonsters += perWaveAddedAmount * Character_Controller.instance.GetLevel();
     }
 
     private IEnumerator TimeCounter()
@@ -151,8 +161,8 @@ public class monsterSpawner : MonoBehaviour
         while (!IsOutsideCameraView(spawnPosition));
 
         // ���ѡ�����Ԥ����
-        int randomIndex = Random.Range(0, monsterPrefabs.Length);
-        GameObject selectedMonsterPrefab = monsterPrefabs[randomIndex];
+        int randomIndex = Random.Range(0, monsterPrefabs[listWave].monsters.Count);
+        GameObject selectedMonsterPrefab = monsterPrefabs[listWave].monsters[randomIndex];
 
         // ʵ�������ﲢ���ӵ���Ծ�����б�
         GameObject monster = Instantiate(selectedMonsterPrefab, spawnPosition, Quaternion.identity);

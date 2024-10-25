@@ -113,14 +113,16 @@ namespace SK
 
         public void Destroy()
         {
-            StopAllCoroutines();
-            StartCoroutine("DestroySelf");
+            Debug.Log("siwang");
+            //StopAllCoroutines();
+             Destroy(gameObject);
+           // StartCoroutine("DestroySelf");
         }
 
         private IEnumerator DestroySelf()
         {
-            yield return new WaitForSeconds(2f);
-            Destroy(gameObject);
+            yield return new WaitForSeconds(0.1f);
+           
         }
 
         protected override void OnDrawGizmos()
@@ -149,6 +151,10 @@ namespace SK
             capsuleCollider2D.enabled = true;
         }
 
+        public void OpenDead()
+        {
+            uI.OpenDead();
+        }
 
     }
 }

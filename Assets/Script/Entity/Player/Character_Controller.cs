@@ -15,7 +15,7 @@ namespace SK
         public Character character;
         //此处为光亮值
         [Header("Current Value")]
-        [SerializeField] [Range(0,Mathf.Infinity)]private int lightingNumber;//记录
+        [SerializeField] private int lightingNumber;//记录
         [SerializeField] private int exp;//记录
         [SerializeField] private int level;//记录
         private int pointToSkill;
@@ -24,7 +24,7 @@ namespace SK
         [Header("Max Value")]
 
         [SerializeField] private int maxLightingNumber;
-        [SerializeField] private int maxExpNumber_First;
+       // [SerializeField] private int maxExpNumber_First;
         [SerializeField] private int perLevelMaxExpNumberAdded;
         [SerializeField] private int perLevelAddSkillPoint;
         public int maxSkillNumber;
@@ -54,7 +54,7 @@ namespace SK
         public int GetLightingNumber() => lightingNumber;
         public int GetExp() => exp;
         public int GetLevel() => level;
-        public int GetMaxExp() => maxExpNumber_First + perLevelMaxExpNumberAdded * level;
+        public int GetMaxExp() => level * level * level +  perLevelMaxExpNumberAdded * level;
         public int GetMaxLightingNumber() => maxLightingNumber;
 
         public bool canChangeLightScale() => canChangeLightScaleFlag;
@@ -152,8 +152,8 @@ namespace SK
                     exp = 0;
                     level += 1;
 
-                    pointToSkill = level / perLevelAddSkillPoint;
-                    pointCanbeUsed += 1;
+                    //pointToSkill = level / perLevelAddSkillPoint;
+                    pointCanbeUsed += perLevelAddSkillPoint;
                 }
             }
         }

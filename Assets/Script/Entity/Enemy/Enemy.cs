@@ -53,7 +53,7 @@ namespace SK
 
         protected Enemy_Drop enemy_Drop;
         protected Enemy_Stat enemy_Stat;
-
+        private bool b;
 
         protected override void Awake()
         {
@@ -141,15 +141,15 @@ namespace SK
         public bool IsCharacterFightingWith()
         {
             Collider2D[] colliders = Physics2D.OverlapCircleAll(characterFightingWithTransform.position, characterFightingWithRadius);
-            if (colliders == null)
-                return false;
             foreach (var hit in colliders)
             {
                 if (hit.GetComponent<Character>() != null)
                 {
+                    b = true;
                     return true;
                 }
             }
+            b=false;
             return false;
         }
 

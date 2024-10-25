@@ -22,13 +22,6 @@ namespace SK
 
             character = Character_Controller.instance.character;
         }
-        protected override void Start()
-        {
-            base.Start();
-
-            cloneUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockClone);
-        }
-
         public void CreatClone(Transform _cloneTransform, Vector3 _offset)
         {
             GameObject newClone = Instantiate(clonePrefab);
@@ -49,19 +42,6 @@ namespace SK
         public void UseByOutside()
         {
             CreatClone(character.transform, Vector3.zero);
-        }
-
-        protected override void CheckUnlock()
-        {
-            UnlockClone();
-        }
-
-        public void UnlockClone()
-        {
-            if (cloneUnlockButton.unLock)
-            {
-                cloneUnlocked = true;
-            }
         }
     }
 }

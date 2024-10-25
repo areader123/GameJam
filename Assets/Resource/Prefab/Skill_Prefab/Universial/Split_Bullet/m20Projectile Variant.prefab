@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillName: 0
-  skillHitBack: 1
+  skillHitBack: 0
   keyCode: 0
   cooldown: 0
   cooldowmTImer: 0
@@ -129,10 +129,10 @@ MonoBehaviour:
   target: 1
   transmit: {fileID: 8494641995629809650, guid: 66cbfd10a33713d48a740ac04f16c505, type: 3}
   offset: {x: 0, y: 0, z: 0}
-  amount: 8
+  amount: 4
   angleRange: 360
   deltaAngle: 0
-  transmitDamage: 4
+  transmitDamage: 50
   transmitExistTime: 4
   transmitSpeed: 6
   transmitInstantiateTransform: {fileID: 6887252254625759735}

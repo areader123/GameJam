@@ -13,6 +13,7 @@ namespace SK
         [SerializeField] private GameObject setting;
 
         [SerializeField] public GameObject game;
+        [SerializeField]public GameObject dead;
 
 
 
@@ -91,7 +92,11 @@ namespace SK
                 }
             }
             return null;
+        }
 
+        public void OpenDead()
+        {
+            dead.SetActive(true);
         }
     }
 }

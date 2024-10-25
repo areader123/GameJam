@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   damp: 1
+  amount: 4
 --- !u!50 &1130440273584556404
 Rigidbody2D:
   serializedVersion: 4

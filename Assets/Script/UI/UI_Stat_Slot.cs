@@ -16,7 +16,8 @@ namespace SK
         [SerializeField] private StatType statType;
         [SerializeField] private TextMeshProUGUI statNameText;
         [SerializeField] private TextMeshProUGUI statValueText;
-        [SerializeField] private int increaseAmount;
+        [SerializeField]private int amount;
+       
         [SerializeField] private Button button;
         [SerializeField] private ColorBlock buttonFailColor;
         [SerializeField] private ColorBlock buttonSuccessColor;
@@ -119,35 +120,27 @@ namespace SK
             Character_Stat player_Stat = Character_Controller.instance.character.GetComponent<Character_Stat>();
             if (statType == StatType.maxHP)
             {
-                player_Stat.GetStat(statType).AddModifiers(increaseAmount);
-            }
-            if (statType == StatType.damage)
-            {
-                player_Stat.GetStat(statType).AddModifiers(increaseAmount);
+                player_Stat.GetStat(statType).AddModifiers(amount);
             }
             if (statType == StatType.critPower)
             {
-                player_Stat.GetStat(statType).AddModifiers(increaseAmount);
+                player_Stat.GetStat(statType).AddModifiers(amount);
             }
             if (statType == StatType.critChance)
             {
-                player_Stat.GetStat(statType).AddModifiers(increaseAmount);
-            }
-            if (statType == StatType.MagicResistance)
-            {
-                player_Stat.GetStat(statType).AddModifiers(increaseAmount);
+                player_Stat.GetStat(statType).AddModifiers(amount);
             }
             if (statType == StatType.armor)
             {
-                player_Stat.GetStat(statType).AddModifiers(increaseAmount);
+                player_Stat.GetStat(statType).AddModifiers(amount);
             }
             if (statType == StatType.intelligence)
             {
-                player_Stat.GetStat(statType).AddModifiers(increaseAmount);
+                player_Stat.GetStat(statType).AddModifiers(amount);
             }
-            if(statType == StatType.Blood)
+            if(statType == StatType.damage)
             {
-                player_Stat.GetStat(statType).AddModifiers(increaseAmount);
+                player_Stat.GetStat(statType).AddModifiers(amount);
             }
         }
 

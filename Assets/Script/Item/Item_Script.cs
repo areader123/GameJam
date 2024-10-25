@@ -15,11 +15,13 @@ namespace SK
 
         private Vector2 velocity;
         private Vector2 direction;
-        public void SetUpItem(Transform transform)
+        [SerializeField] private int amount;
+        public void SetUpItem(Transform transform, int amount)
         {
             enemyTransform = transform;
             direction = new Vector2(Random.Range(-100, 100), Random.Range(-100, 100));
-            velocity = direction.normalized* speed;
+            velocity = direction.normalized * speed;
+            this.amount = amount;
         }
 
         private void SetVelocity()
@@ -43,16 +45,15 @@ namespace SK
 
         private void OnTriggerEnter2D(Collider2D hit)
         {
-            if(hit.GetComponent<Character>() != null)
+            if (hit.GetComponent<Character>() != null)
             {
-                Character_Controller.instance.AddLightingNumber();
+                for (int i = 0; i < amount; i++)
+                {
+
+                    Character_Controller.instance.AddLightingNumber();
+                }
                 Destroy(gameObject);
             }
-        }
-
-        private void IfCharacterInRange()
-        {
-
         }
     }
 }

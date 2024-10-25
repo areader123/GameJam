@@ -25,10 +25,10 @@ namespace SK
             sp.material = hittedMaterial;
             Color orignColor = sp.color;
             sp.color = Color.white;
-            Debug.Log("FX Start");
+           
             yield return new WaitForSeconds(flashDuration);
             sp.color = orignColor;
-            Debug.Log("FX end");
+            
             sp.material = orignMaterial;
         }
         public void Entity_FX_White()

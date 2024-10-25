@@ -45,7 +45,7 @@ namespace SK
 
         public void CreatArrow()
         {
-            GameObject newArrow = Instantiate(arrow, arrowInstantiateTransform.position + offset, quaternion.identity);
+            GameObject newArrow = Instantiate(arrow, arrowInstantiateTransform.position, quaternion.identity,this.transform);
             bow_Skill_Controller = newArrow.GetComponent<Bow_Skill_Controller>();
             if (enemy.charactersDetected != null)
             {

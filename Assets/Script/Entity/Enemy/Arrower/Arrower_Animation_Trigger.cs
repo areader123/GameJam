@@ -13,7 +13,7 @@ namespace SK
         {
 
         }
-        private void AnimationTriger()
+        private void AnimationFinishTriger()
         {
             enemy.AnimationFinishTrigger();
         }

@@ -76,7 +76,7 @@ namespace SK
             DecreaseHealthOnly(totalDamage);
         }
 
-        public virtual void DoMagicDamage(Entity_Stat target)
+        public virtual void DoMagicDamage(Entity_Stat target, Skill skill)
         {
             int totalDamage = CalculateMagic(target);
             DamageNumber damageNumber = damageNumberMesh.Spawn(transform.position, totalDamage);
@@ -87,7 +87,7 @@ namespace SK
         private int CheckTargetArmor(Entity_Stat target, int totalDamage)
         {
 
-            totalDamage = (int)(totalDamage / (totalDamage + target.armor.GetValue()) * totalDamage);
+            totalDamage = (int)(totalDamage / (totalDamage + armor.GetValue()) * totalDamage);
             //totalDamage -= target.armor.GetValue();
 
             totalDamage = Mathf.Clamp(totalDamage, 0, int.MaxValue);
@@ -96,30 +96,37 @@ namespace SK
 
         private int CheckTargetMagicResistance(Entity_Stat target, int totalDamage)
         {
-            totalDamage = (int)(totalDamage / (totalDamage + target.MagicResistance.GetValue()) * totalDamage);
+            totalDamage = (int)(totalDamage / (totalDamage + armor.GetValue()) * totalDamage);
             totalDamage = Mathf.Clamp(totalDamage, 0, int.MaxValue);
             return totalDamage;
         }
 
         private int CalculateMagic(Entity_Stat target)
         {
-            int totalDamage = (int)(target.damage.GetValue() + target.intelligence.GetValue());
-            totalDamage = CheckTargetMagicResistance(target, totalDamage);
-            return totalDamage;
+            float totalDamage = target.damage.GetValue() + target.intelligence.GetValue();
+            if (CritChance(target))
+            {
+                Debug.Log("totalDamage:" + totalDamage);
+                totalDamage *= (target.critPower.GetValue() + target.strength.GetValue()) * 0.01f;
+                totalDamage = (int)totalDamage;
+                Debug.Log("暴击" + totalDamage);
+            }
+            totalDamage = CheckTargetMagicResistance(target, (int)totalDamage);
+            return (int)totalDamage;
         }
 
         protected int CaculateAttack(Entity_Stat target)
         {
-            int totalDamage = (int)(target.damage.GetValue() + target.strength.GetValue());
-            // if (CritChance(target))
-            // {
-            //     Debug.Log("totalDamage:" + totalDamage);
-            //     totalDamage *= (target.critPower.GetValue() + target.strength.GetValue()) * 0.01f;
-            //     totalDamage = (int)totalDamage;
-            //     Debug.Log("暴击" + totalDamage);
-            // }
-            totalDamage = CheckTargetArmor(target, totalDamage);
-            return totalDamage;
+            float totalDamage = (target.damage.GetValue() + target.strength.GetValue());
+            if (CritChance(target))
+            {
+                Debug.Log("totalDamage:" + totalDamage);
+                totalDamage *= (target.critPower.GetValue() + target.strength.GetValue()) * 0.01f;
+                totalDamage = (int)totalDamage;
+                Debug.Log("暴击" + totalDamage);
+            }
+            totalDamage = CheckTargetArmor(target, (int)totalDamage);
+            return (int)totalDamage;
             // DecreaseHealthOnly(totalDamage);
         }
 
@@ -195,7 +202,8 @@ namespace SK
         protected virtual void Start()
         {
             _currentHP = GetMaxHealth();
-            critPower.SetDefaultValue(150);
+            critPower.SetDefaultValue(120);
+            critChance.SetDefaultValue(20);
 
         }
 

@@ -31,8 +31,6 @@ namespace SK
         }
         public virtual void Update()
         {
-            xinput = Input.GetAxisRaw("Horizontal");
-            yinput = Input.GetAxisRaw("Vertical");
              //Debug.Log("I am in"+animboolname);
             stateTimer -= Time.deltaTime;
         }

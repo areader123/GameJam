@@ -54,7 +54,7 @@ public class Enemy_MultiTransmit_Skill : Skill
             {
                 GameObject newArrow = Instantiate(transmit, transmitInstantiateTransform.position + offset, transform.rotation * Quaternion.AngleAxis((angleRange / amount * i)+Random.Range(0,deltaAngle), Vector3.forward));
                 enemy_MultiTransmit_Skill_Controller = newArrow.GetComponent<Enemy_MultiTransmit_Skill_Controller>();
-                enemy_MultiTransmit_Skill_Controller.SetArrow(transmitDamage, transmitExistTime, transmitSpeed, damagepPerTime, destroySelfAfterDamage, this, target, timePerSplit,canStickIn);
+                enemy_MultiTransmit_Skill_Controller.SetArrow(transmitDamage, transmitExistTime, transmitSpeed, damagepPerTime, destroySelfAfterDamage, this, target, timePerSplit,canStickIn,enemy);
             }
         }
         if(bulletType == BulletType.fan)
@@ -64,7 +64,7 @@ public class Enemy_MultiTransmit_Skill : Skill
             {
                 GameObject newArrow = Instantiate(transmit, transmitInstantiateTransform.position + offset,Quaternion.Euler(new Vector3(0,0,(i - mid)*fanAngle + 180 * (enemy.faceDir-1)/2)));
                 enemy_MultiTransmit_Skill_Controller = newArrow.GetComponent<Enemy_MultiTransmit_Skill_Controller>();
-                enemy_MultiTransmit_Skill_Controller.SetArrow(transmitDamage, transmitExistTime, transmitSpeed, damagepPerTime, destroySelfAfterDamage, this, target, timePerSplit,canStickIn);
+                enemy_MultiTransmit_Skill_Controller.SetArrow(transmitDamage, transmitExistTime, transmitSpeed, damagepPerTime, destroySelfAfterDamage, this, target, timePerSplit,canStickIn,enemy);
             }
         }
     }

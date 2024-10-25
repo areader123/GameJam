@@ -9,29 +9,33 @@ namespace SK
     {
         Enemy enemy;
         //ItemDrop itemDropSystem;
-        public int perLevelIncreaseMonsterStrength;
-        public int perLevelIncreaseMonstermaxHP;
+        public int perWaveIncreaseMonsterStrength = 10;
+        public int perWaveIncreaseMonstermaxHP = 30;
+        public int perWaveIncreaseMonsterIntelligence = 10;
+        public int perWaveIncreaseMonsterArmor = 5;
 
         protected override void Update()
         {
             base.Update();
-           
+
         }
 
-      
-        private void Awake() {
+
+        private void Awake()
+        {
         }
 
         protected override void Start()
         {
             enemy = GetComponent<Enemy>();
-            Modifier();
+            
             base.Start();
         }
 
         public override void TakeDamage(float damage, Skill skill)
         {
             base.TakeDamage(damage, skill);
+            Modifier();
             if (!isDead)
             {
                 enemy.Damage(skill);
@@ -55,12 +59,12 @@ namespace SK
             }
 
         }
-        public override void DoMagicDamage(Entity_Stat target)
+        public override void DoMagicDamage(Entity_Stat target,Skill skill)
         {
-            base.DoMagicDamage(target);
+            base.DoMagicDamage(target,skill);
             if (!isDead)
             {
-                enemy.Damage(null, target);
+                enemy.Damage(skill, target);
             }
         }
 
@@ -81,8 +85,10 @@ namespace SK
         public void Modifier()
         {
             int level = Character_Controller.instance.GetLevel();
-            strength.AddModifiers(perLevelIncreaseMonsterStrength * level);
-            maxHP.AddModifiers(perLevelIncreaseMonstermaxHP * level);
+            strength.AddModifiers(perWaveIncreaseMonsterStrength * monsterSpawner.instance.currentWave);
+            intelligence.AddModifiers(perWaveIncreaseMonsterStrength * monsterSpawner.instance.currentWave);
+            maxHP.AddModifiers(perWaveIncreaseMonstermaxHP * monsterSpawner.instance.currentWave);
+            armor.AddModifiers(perWaveIncreaseMonsterArmor * monsterSpawner.instance.currentWave);
         }
     }
 }

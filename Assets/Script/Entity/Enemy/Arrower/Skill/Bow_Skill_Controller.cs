@@ -32,10 +32,17 @@ namespace SK
         private CapsuleCollider2D capsuleCollider2D;
         private bool stickIn;
 
+
+        private Enemy_Stat enemy_Stat;
+
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
             capsuleCollider2D = GetComponent<CapsuleCollider2D>();
+          
+           
+                //enemy_Stat = orignTarget.GetComponent<Enemy_Stat>();
+           
         }
         void Start()
         {
@@ -65,7 +72,7 @@ namespace SK
 
         private void SetVelocity()
         {
-            Vector2 direction = Character_Controller.instance.character.transform.position - (orignTarget.transform.position + offset);
+            Vector2 direction = Character_Controller.instance.character.transform.position - (InstantiateTransform.position);
             rb.velocity = direction.normalized * arrowSpeed;
         }
 
@@ -79,13 +86,13 @@ namespace SK
         private void SlowRotation()
         {
             Vector3 direction = target.transform.position - transform.position;
-            float directionAngle = Vector2.Angle( direction,Vector2.right);
-            if(target.transform.position.y - transform.position.y < 0)
+            float directionAngle = Vector2.Angle(direction, Vector2.right);
+            if (target.transform.position.y - transform.position.y < 0)
             {
-               directionAngle = (180 - directionAngle) * 2 + directionAngle;
+                directionAngle = (180 - directionAngle) * 2 + directionAngle;
             }
-           float tempAngle= Mathf.Lerp(transform.rotation.z,directionAngle,slowRotationSpeed * Time.deltaTime);
-             transform.Rotate(0,0,tempAngle);
+            float tempAngle = Mathf.Lerp(transform.rotation.z, directionAngle, slowRotationSpeed * Time.deltaTime);
+            transform.Rotate(0, 0, tempAngle);
             // transform.Rotate(0, -90, 0);
             //transform.rotation.SetFromToRotation(temp1.eulerAngles,temp2.eulerAngles);
         }
@@ -112,7 +119,7 @@ namespace SK
             {
                 SetRotation();
             }
-           
+
         }
 
 
@@ -120,7 +127,14 @@ namespace SK
         {
             if (hit.GetComponent<Character_Stat>() != null && hit.GetComponent<Character>() != null && destroySelfAfterDamage)
             {
-                hit.GetComponent<Character_Stat>().TakeDamage(arrowDamage, skill);
+                //if (enemy_Stat != null)
+                //{
+                    hit.GetComponent<Character_Stat>().DoMagicDamage(orignTarget.GetComponent<Enemy_Stat>(), skill);
+               // }
+              //  else
+               // {
+                 //   hit.GetComponent<Character_Stat>().TakeDamage(arrowDamage, skill);
+              //  }
                 if (stickIn)
                 {
                     capsuleCollider2D.enabled = false;
@@ -141,7 +155,14 @@ namespace SK
             {
                 if (damageTimeCounter <= 0)
                 {
-                    hit.GetComponent<Character_Stat>().TakeDamage(arrowDamage, skill);
+                    //if (enemy_Stat != null)
+                   // {
+                        hit.GetComponent<Character_Stat>().DoMagicDamage(orignTarget.GetComponent<Enemy_Stat>(), skill);
+                  //  }
+                   // else
+                   // {
+                    //    hit.GetComponent<Character_Stat>().TakeDamage(arrowDamage, skill);
+                   // }
                     damageTimeCounter = damagepPerTime;
                 }
             }
