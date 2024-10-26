@@ -7,6 +7,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1217417365, guid: c6e637c5113d9bf44ae0e92508ed32d4, type: 3}
+      propertyPath: m_Size.x
+      value: 0.23423511
+      objectReference: {fileID: 0}
+    - target: {fileID: 1217417365, guid: c6e637c5113d9bf44ae0e92508ed32d4, type: 3}
+      propertyPath: m_Size.y
+      value: 0.07182727
+      objectReference: {fileID: 0}
+    - target: {fileID: 1217417365, guid: c6e637c5113d9bf44ae0e92508ed32d4, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0048395107
+      objectReference: {fileID: 0}
+    - target: {fileID: 1217417365, guid: c6e637c5113d9bf44ae0e92508ed32d4, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.0043152645
+      objectReference: {fileID: 0}
+    - target: {fileID: 1217417365, guid: c6e637c5113d9bf44ae0e92508ed32d4, type: 3}
+      propertyPath: m_Direction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5701699776490543881, guid: c6e637c5113d9bf44ae0e92508ed32d4, type: 3}
       propertyPath: m_Name
       value: m7Spike Variant Variant
@@ -14,6 +34,14 @@ PrefabInstance:
     - target: {fileID: 5806467377997897387, guid: c6e637c5113d9bf44ae0e92508ed32d4, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5806467377997897387, guid: c6e637c5113d9bf44ae0e92508ed32d4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5806467377997897387, guid: c6e637c5113d9bf44ae0e92508ed32d4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5806467377997897387, guid: c6e637c5113d9bf44ae0e92508ed32d4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -78,18 +106,24 @@ MonoBehaviour:
   skillHitBack: 1
   keyCode: 0
   cooldown: 1
+  cooldowmTImer: 0
+  cooldownDecrease: 0
   target: 1
   transmit: {fileID: 2531329399065239691, guid: 8fa059f4f50990441b2eeefbf1b55d28, type: 3}
   offset: {x: 0, y: 0, z: 0}
   amount: 4
   angleRange: 360
-  transmitDamage: 3
+  deltaAngle: 0
+  transmitDamage: 50
   transmitExistTime: 5
   transmitSpeed: 3
   transmitInstantiateTransform: {fileID: 6622120661732554721}
   destroySelfAfterDamage: 1
   damagepPerTime: 0
   timePerSplit: 0
+  bulletType: 0
+  fanAngle: 0
+  canStickIn: 0
 --- !u!4 &6622120661732554721 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5806467377997897387, guid: c6e637c5113d9bf44ae0e92508ed32d4, type: 3}

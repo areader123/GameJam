@@ -89,10 +89,10 @@ namespace SK
         public void Modifier()
         {
             int level = Character_Controller.instance.GetLevel();
-            strength.AddModifiers(perWaveIncreaseMonsterStrength * (monsterSpawner.instance.currentWave+1));
-            intelligence.AddModifiers(perWaveIncreaseMonsterStrength * (monsterSpawner.instance.currentWave+1));
-            maxHP.AddModifiers(perWaveIncreaseMonstermaxHP * (monsterSpawner.instance.currentWave+1));
-            armor.AddModifiers(perWaveIncreaseMonsterArmor * (monsterSpawner.instance.currentWave+1));
+            strength.AddModifiers(20 * (monsterSpawner.instance.currentWave+1));
+            intelligence.AddModifiers(10 * (monsterSpawner.instance.currentWave+1));
+            maxHP.AddModifiers(20 * (monsterSpawner.instance.currentWave+1));
+            armor.AddModifiers(10 * (monsterSpawner.instance.currentWave+1));
         }
     }
 }

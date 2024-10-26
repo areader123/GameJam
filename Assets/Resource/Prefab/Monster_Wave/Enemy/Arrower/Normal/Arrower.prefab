@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 6809386163795657366}
   - component: {fileID: 6809386163795657373}
   - component: {fileID: 6809386163795657372}
+  - component: {fileID: -5786685630358207403}
   m_Layer: 0
   m_Name: Arrower
   m_TagString: Untagged
@@ -179,7 +180,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 1628510338, guid: f64cd7fc52a14af43b2d70aa624dd49a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -426,6 +427,36 @@ MonoBehaviour:
   perLevelDropAdded: 5
   lightingPrefabAmount: 4
   itemDropedTransform: {fileID: 588233468}
+--- !u!114 &-5786685630358207403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6809386163795657367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 0
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000f10dd5d95109d9e3
+  m_ShapePath:
+  - {x: -0.06908506, y: -0.3022282, z: 0}
+  - {x: -0.059739888, y: -0.25837728, z: 0}
+  - {x: 0.022337198, y: -0.26071486, z: 0}
+  - {x: 0.03870088, y: -0.30032438, z: 0}
+  m_ShapePathHash: 1696404269
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -438964
+  m_LocalBounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0.56, y: 0.665, z: 0}
 --- !u!1 &6809386163896683821
 GameObject:
   m_ObjectHideFlags: 0

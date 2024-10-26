@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 2376496301577124456}
   - component: {fileID: 2376496301577124457}
   - component: {fileID: 2376496301577124471}
+  - component: {fileID: 2008704996325784555}
   m_Layer: 0
   m_Name: Skeleton
   m_TagString: Untagged
@@ -84,7 +85,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 1773448915, guid: a4c4a6671a3d52c42b8e767a154065f8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -303,6 +304,36 @@ MonoBehaviour:
   perLevelDropAdded: 0
   lightingPrefabAmount: 0
   itemDropedTransform: {fileID: 2376496303267091026}
+--- !u!114 &2008704996325784555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2376496301577124449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000f10dd5d95109d9e3
+  m_ShapePath:
+  - {x: -0.08695346, y: -0.15890254, z: 0}
+  - {x: -0.07927126, y: -0.12753326, z: 0}
+  - {x: -0.016207337, y: -0.1319231, z: 0}
+  - {x: 0.0013519526, y: -0.16, z: 0}
+  m_ShapePathHash: -579543619
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -519268
+  m_LocalBounds:
+    m_Center: {x: -0.042800754, y: -0.14376663, z: 0}
+    m_Extent: {x: 0.044152707, y: 0.01623337, z: 0}
 --- !u!1 &2376496302496630334
 GameObject:
   m_ObjectHideFlags: 0

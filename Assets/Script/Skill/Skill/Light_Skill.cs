@@ -20,7 +20,7 @@ public class Light_Skill : Skill
     [SerializeField] private float newRangePercent_2;
     private bool new_2;
 
-    [SerializeField] private int increaseHealthAmount;
+    [SerializeField][Range(0,1)] private float increaseHealthAmountPercent;
     [SerializeField] private float timePerIncreaseHealth;
     private float timeCounterHealth;
     [SerializeField] public UI_Skill_Slot lightWithHealthRecover;
@@ -36,7 +36,7 @@ public class Light_Skill : Skill
     [SerializeField] private float newRangePercent_4;
     private bool new_4;
 
-    [SerializeField] private int damageAmount;
+    [SerializeField][Range(0,1)] private float damageAmountPercent;
     [SerializeField] private float timePerDamage;
     private float timeCounterDamage;
     [SerializeField] public UI_Skill_Slot lightWithMonsterDamaged;
@@ -116,7 +116,7 @@ public class Light_Skill : Skill
                 {
                     Debug.Log("玩家回血");
                     //玩家回血 //increaseHealth
-                    character.GetComponent<Character_Stat>().IncreaseHealthOnly(increaseHealthAmount);
+                    character.GetComponent<Character_Stat>().IncreaseHealthOnly((int)(increaseHealthAmountPercent * character.GetComponent<Character_Stat>().GetMaxHealth()));
                     timeCounterHealth = timePerIncreaseHealth;
                 }
                 if (lightWithMonsterSpeedDownUnlocked)
@@ -180,7 +180,7 @@ public class Light_Skill : Skill
     {
         if (timeCounterDamage < 0)
         {
-            enemy.GetComponent<Enemy_Stat>().TakeDamage(damageAmount, this);
+            enemy.GetComponent<Enemy_Stat>().TakeDamage(damageAmountPercent * enemy.GetComponent<Enemy_Stat>().GetMaxHealth(), this);
             timeCounterDamage = timePerDamage;
         }
     }

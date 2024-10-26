@@ -48,7 +48,7 @@ public class Dash_Skill_Controller : MonoBehaviour
     {
         if (hit.GetComponent<Enemy_Stat>() != null && hit.GetComponent<Enemy>() != null && destroySelfAfterDamage)
         {
-            hit.GetComponent<Enemy_Stat>().TakeDamage(arrowDamage, skill);
+            hit.GetComponent<Enemy_Stat>().DoMagicDamage(Character_Controller.instance.character.GetComponent<Character_Stat>(), skill);
             Destroy(gameObject);
         }
     }
@@ -59,7 +59,7 @@ public class Dash_Skill_Controller : MonoBehaviour
             {
                 if (damageTimeCounter <= 0)
                 {
-                    hit.GetComponent<Enemy_Stat>().TakeDamage(arrowDamage, skill);
+                    hit.GetComponent<Enemy_Stat>().DoMagicDamage(Character_Controller.instance.character.GetComponent<Character_Stat>(), skill);
                     damageTimeCounter = damagepPerTime;
                 }
             }

@@ -31,7 +31,7 @@ public class NewStart : MonoBehaviour
     private void OnButtonClick()
     {
         SaveGame.DeleteAll();
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("TeachScene");
     }
     void OnApplicationQuit()
     {

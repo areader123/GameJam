@@ -7,6 +7,70 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3448415669035832083, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3448415669035832083, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
+      propertyPath: m_InstanceId
+      value: -447844
+      objectReference: {fileID: 0}
+    - target: {fileID: 3448415669035832083, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
+      propertyPath: m_HasRenderer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3448415669035832083, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
+      propertyPath: m_ShapePathHash
+      value: -1917378423
+      objectReference: {fileID: 0}
+    - target: {fileID: 3448415669035832083, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
+      propertyPath: m_LocalBounds.m_Center.x
+      value: -0.06978816
+      objectReference: {fileID: 0}
+    - target: {fileID: 3448415669035832083, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
+      propertyPath: m_LocalBounds.m_Center.y
+      value: -0.077767804
+      objectReference: {fileID: 0}
+    - target: {fileID: 3448415669035832083, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
+      propertyPath: m_LocalBounds.m_Extent.x
+      value: 0.048242807
+      objectReference: {fileID: 0}
+    - target: {fileID: 3448415669035832083, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
+      propertyPath: m_LocalBounds.m_Extent.y
+      value: 0.01854989
+      objectReference: {fileID: 0}
+    - target: {fileID: 3448415669035832083, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
+      propertyPath: m_ShapePath.Array.data[0].x
+      value: -0.118030965
+      objectReference: {fileID: 0}
+    - target: {fileID: 3448415669035832083, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
+      propertyPath: m_ShapePath.Array.data[0].y
+      value: -0.09631769
+      objectReference: {fileID: 0}
+    - target: {fileID: 3448415669035832083, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
+      propertyPath: m_ShapePath.Array.data[1].x
+      value: -0.08843231
+      objectReference: {fileID: 0}
+    - target: {fileID: 3448415669035832083, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
+      propertyPath: m_ShapePath.Array.data[1].y
+      value: -0.059217915
+      objectReference: {fileID: 0}
+    - target: {fileID: 3448415669035832083, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
+      propertyPath: m_ShapePath.Array.data[2].x
+      value: -0.02154535
+      objectReference: {fileID: 0}
+    - target: {fileID: 3448415669035832083, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
+      propertyPath: m_ShapePath.Array.data[2].y
+      value: -0.059867702
+      objectReference: {fileID: 0}
+    - target: {fileID: 3448415669035832083, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
+      propertyPath: m_ShapePath.Array.data[3].x
+      value: -0.027122974
+      objectReference: {fileID: 0}
+    - target: {fileID: 3448415669035832083, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
+      propertyPath: m_ShapePath.Array.data[3].y
+      value: -0.09610165
+      objectReference: {fileID: 0}
     - target: {fileID: 6779438547609966032, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
       propertyPath: damageNumberMesh
       value: 

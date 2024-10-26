@@ -25,7 +25,8 @@ namespace SK
         void Start()
         {
             SwithTo(game);
-
+            Character_Controller.instance.character.animator.speed = 1;
+            Time.timeScale = 1;
         }
 
         // Update is called once per frame

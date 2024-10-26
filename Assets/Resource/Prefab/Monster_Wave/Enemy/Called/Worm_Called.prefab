@@ -116,6 +116,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5093619312757014453, guid: eb422f12eef42e140a3c60163c31598e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093619312757014453, guid: eb422f12eef42e140a3c60163c31598e, type: 3}
       propertyPath: m_SortingLayerID
       value: 0
       objectReference: {fileID: 0}
@@ -173,6 +177,36 @@ MonoBehaviour:
   typeSkill: 0
   statType: 0
   increaseAmount: 0
+--- !u!114 &61278480116117670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4741728285098954996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000f10dd5d95109d9e3
+  m_ShapePath:
+  - {x: -0.13480735, y: -0.22556226, z: 0}
+  - {x: -0.048914433, y: -0.181214, z: 0}
+  - {x: 0.07970619, y: -0.18769649, z: 0}
+  - {x: 0.09753311, y: -0.22232103, z: 0}
+  m_ShapePathHash: 1885571233
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -450840
+  m_LocalBounds:
+    m_Center: {x: -0.01863712, y: -0.20338812, z: 0}
+    m_Extent: {x: 0.11617023, y: 0.022174127, z: 0}
 --- !u!4 &4741728285547165895 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5093619314305030024, guid: eb422f12eef42e140a3c60163c31598e, type: 3}

@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 3572765053811339123}
   - component: {fileID: 3572765053811339122}
   - component: {fileID: 3572765053811338378}
+  - component: {fileID: 1565507630571741600}
   m_Layer: 0
   m_Name: Robot
   m_TagString: Untagged
@@ -88,7 +89,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 8396501274783706761, guid: 51fccef19672a9f478acb270c35edf27, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -358,6 +359,41 @@ MonoBehaviour:
   effectInstantiateTransform: {fileID: 3572765054506429504}
   existtime: 0.5
   offset: {x: 0.2, y: 0, z: 0}
+--- !u!114 &1565507630571741600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3572765053811339126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000f10dd5d95109d9e3
+  m_ShapePath:
+  - {x: -0.13280475, y: -0.1457544, z: 0}
+  - {x: -0.098272204, y: -0.07223177, z: 0}
+  - {x: 0.068056345, y: -0.08086479, z: 0}
+  - {x: 0.08100605, y: -0.14143777, z: 0}
+  - {x: 0.041355252, y: -0.11686711, z: 0}
+  - {x: 0.019907236, y: -0.15440127, z: 0}
+  - {x: -0.020308018, y: -0.11507976, z: 0}
+  - {x: -0.06409776, y: -0.15261392, z: 0}
+  - {x: -0.0855459, y: -0.1079304, z: 0}
+  m_ShapePathHash: 1812249543
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -480714
+  m_LocalBounds:
+    m_Center: {x: -0.02589935, y: -0.11331652, z: 0}
+    m_Extent: {x: 0.1069054, y: 0.04108475, z: 0}
 --- !u!1 &3572765054112645384
 GameObject:
   m_ObjectHideFlags: 0

@@ -237,6 +237,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 74822294678092666, guid: 912f096b666b75f4ea4ca3210c610072, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 74822294678092666, guid: 912f096b666b75f4ea4ca3210c610072, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 74822294678092666, guid: 912f096b666b75f4ea4ca3210c610072, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.271
       objectReference: {fileID: 0}
@@ -283,6 +291,10 @@ PrefabInstance:
     - target: {fileID: 74822294678092667, guid: 912f096b666b75f4ea4ca3210c610072, type: 3}
       propertyPath: m_SortingLayer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 74822294678092667, guid: 912f096b666b75f4ea4ca3210c610072, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 74822294678092667, guid: 912f096b666b75f4ea4ca3210c610072, type: 3}
       propertyPath: m_SortingLayerID
@@ -362,7 +374,7 @@ MonoBehaviour:
   callOrBuff: 2
   prefabBuff: {fileID: 4892188663176944331, guid: e86d3fdf8cf22ce4f86d4c7a6d5df724, type: 3}
   buffCenter: {fileID: 532637022}
-  buffRange: 1.98
+  buffRange: 3.17
   increaseSpeed: 1
   bufferExistTime: 5
   bufferPrefabExistTime: 5
@@ -444,19 +456,19 @@ MonoBehaviour:
   attackCooldown: 3
   lastTimeAttack: 0
   characterAttackedTransform: {fileID: 1876290064}
-  characterAttackRadius: 3.13
+  characterAttackRadius: 4.13
   characterDetectedTransform: {fileID: 629881581}
-  characterDetectedRadius: 9.63
+  characterDetectedRadius: 10.45
   charactersDetected: {fileID: 0}
   characterDirection: {x: 0, y: 0, z: 0}
   characterFightingWithTransform: {fileID: 2017581918}
-  characterFightingWithRadius: 6.4
+  characterFightingWithRadius: 6.61
   skill_One_Cooldown: 5
   lastTimeSkill_One: 0
   skill_Two_Cooldown: 5
   lastTimeSkill_Two: 0
   rollTransform: {fileID: 532637022}
-  rollRange: 0.46
+  rollRange: 0.98
   Attack_One_Animation_Duration: 2
   Attack_Two_Animation_Duration: 1
   Attack_Three_Animation_Duration: 1
@@ -554,6 +566,36 @@ MonoBehaviour:
   hitPrefab: {fileID: 5804554030685631269, guid: b8d45efb2c9ac3a49ac58d412af57e1c, type: 3}
   scale: {x: 1, y: 1}
   fxInstantiateTranform: {fileID: 532637022}
+--- !u!114 &1297489852751600148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7326617128650204044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000f10dd5d95109d9e3
+  m_ShapePath:
+  - {x: -0.72998226, y: -0.5116865, z: 0}
+  - {x: -0.6503993, y: -0.45415986, z: 0}
+  - {x: 0.61060774, y: -0.44692498, z: 0}
+  - {x: 0.74083424, y: -0.49721694, z: 0}
+  m_ShapePathHash: 1721659591
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 127554
+  m_LocalBounds:
+    m_Center: {x: 0.0054259896, y: -0.47930574, z: 0}
+    m_Extent: {x: 0.73540825, y: 0.03238076, z: 0}
 --- !u!4 &7326617128650204047 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 74822294678092666, guid: 912f096b666b75f4ea4ca3210c610072, type: 3}

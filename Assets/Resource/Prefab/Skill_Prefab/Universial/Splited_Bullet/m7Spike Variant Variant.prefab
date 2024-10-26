@@ -7,6 +7,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1217417365, guid: c6e637c5113d9bf44ae0e92508ed32d4, type: 3}
+      propertyPath: m_Size.x
+      value: 0.26000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 1217417365, guid: c6e637c5113d9bf44ae0e92508ed32d4, type: 3}
+      propertyPath: m_Size.y
+      value: 0.07467818
+      objectReference: {fileID: 0}
+    - target: {fileID: 1217417365, guid: c6e637c5113d9bf44ae0e92508ed32d4, type: 3}
+      propertyPath: m_Offset.x
+      value: -5.306333e-10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1217417365, guid: c6e637c5113d9bf44ae0e92508ed32d4, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.0044512753
+      objectReference: {fileID: 0}
+    - target: {fileID: 1217417365, guid: c6e637c5113d9bf44ae0e92508ed32d4, type: 3}
+      propertyPath: m_Direction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5701699776490543881, guid: c6e637c5113d9bf44ae0e92508ed32d4, type: 3}
       propertyPath: m_Name
       value: m7Spike Variant Variant

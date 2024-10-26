@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1565507630571741600, guid: c99e401568db231409177029a5758dcb, type: 3}
+      propertyPath: m_InstanceId
+      value: -526760
+      objectReference: {fileID: 0}
     - target: {fileID: 3572765053811338378, guid: c99e401568db231409177029a5758dcb, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -59,6 +63,10 @@ PrefabInstance:
       propertyPath: fxInstantiateTranform
       value: 
       objectReference: {fileID: 5672154790140392815}
+    - target: {fileID: 3572765053811339124, guid: c99e401568db231409177029a5758dcb, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3572765053811339125, guid: c99e401568db231409177029a5758dcb, type: 3}
       propertyPath: m_RootOrder
       value: 0
