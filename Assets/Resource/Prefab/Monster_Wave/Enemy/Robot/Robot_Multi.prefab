@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1565507630571741600, guid: c99e401568db231409177029a5758dcb, type: 3}
       propertyPath: m_InstanceId
-      value: -526760
+      value: -427062
       objectReference: {fileID: 0}
     - target: {fileID: 3572765053811338378, guid: c99e401568db231409177029a5758dcb, type: 3}
       propertyPath: m_Enabled
@@ -20,8 +20,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3572765053811338381, guid: c99e401568db231409177029a5758dcb, type: 3}
+      propertyPath: attackCooldown
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3572765053811338381, guid: c99e401568db231409177029a5758dcb, type: 3}
       propertyPath: skill_One_Cooldown
-      value: 4
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3572765053811338382, guid: c99e401568db231409177029a5758dcb, type: 3}
       propertyPath: m_Size.x
@@ -41,7 +45,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3572765053811339120, guid: c99e401568db231409177029a5758dcb, type: 3}
       propertyPath: damage.value
-      value: 115
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 3572765053811339120, guid: c99e401568db231409177029a5758dcb, type: 3}
       propertyPath: damageNumberMesh

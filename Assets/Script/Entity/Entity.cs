@@ -96,10 +96,10 @@ namespace SK
                 faceRight = !faceRight;
             }
         }
-        protected virtual void OnDrawGizmos()
-        {
+        // protected virtual void OnDrawGizmos()
+        // {
 
-        }
+        // }
         public IEnumerator BusyFor(float _seconds)
         {
             isbusy = true;

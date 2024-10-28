@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6697804545550200943, guid: 033aa39ed68e5ee4faa4f0dda207d6ea, type: 3}
       propertyPath: m_InstanceId
-      value: -507404
+      value: -848740
       objectReference: {fileID: 0}
     - target: {fileID: 6697804545550200943, guid: 033aa39ed68e5ee4faa4f0dda207d6ea, type: 3}
       propertyPath: m_ShapePathHash
@@ -83,6 +83,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.16641557
       objectReference: {fileID: 0}
+    - target: {fileID: 8246701552588117425, guid: 033aa39ed68e5ee4faa4f0dda207d6ea, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8246701552588117429, guid: 033aa39ed68e5ee4faa4f0dda207d6ea, type: 3}
       propertyPath: m_Name
       value: Eye Variant
@@ -137,7 +141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8246701552588117449, guid: 033aa39ed68e5ee4faa4f0dda207d6ea, type: 3}
       propertyPath: damage.value
-      value: 135
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8246701552588117449, guid: 033aa39ed68e5ee4faa4f0dda207d6ea, type: 3}
       propertyPath: damageNumberMesh

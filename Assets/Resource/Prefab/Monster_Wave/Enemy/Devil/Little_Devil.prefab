@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 8246701552588117448}
   - component: {fileID: 8246701552588117449}
   - component: {fileID: 6697804545550200943}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Little_Devil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ MonoBehaviour:
   defaultMoveSpeed: 0
   attackting: 0
   attcakUnFollow: 1
-  attackCooldown: 2
+  attackCooldown: 8
   lastTimeAttack: 0
   characterAttackedTransform: {fileID: 8246701554610171766}
   characterAttackRadius: 0.91
@@ -360,7 +360,7 @@ MonoBehaviour:
   - {x: 0.022916123, y: -0.14181082, z: 0}
   m_ShapePathHash: 418770698
   m_Mesh: {fileID: 0}
-  m_InstanceId: -453558
+  m_InstanceId: 301938
   m_LocalBounds:
     m_Center: {x: -0.014531571, y: -0.11096834, z: 0}
     m_Extent: {x: 0.03744769, y: 0.030842483, z: 0}
@@ -373,7 +373,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8246701552843043325}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ItemDropTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -404,7 +404,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8246701553400937892}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CharacterFightingWith (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -435,7 +435,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8246701553436446556}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: InstantiateTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -466,7 +466,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8246701554610171766}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CharacterAttacked (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -497,7 +497,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8246701554621680150}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CharacterDetected (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

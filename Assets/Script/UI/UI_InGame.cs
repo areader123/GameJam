@@ -43,6 +43,8 @@ namespace SK
         private void Awake()
         {
             uI = GetComponentInParent<UI>();
+             Character_Controller.instance.UpdateBar += UpdataLightBar;
+            Character_Controller.instance.UpdateBar += UpdateExpBar;
         }
 
         private void Start()
@@ -50,8 +52,7 @@ namespace SK
 
             character_Stat = Character_Controller.instance.character.GetComponent<Character_Stat>();
             character_Stat.OnHealthChange += UpdataHealthBar;
-            Character_Controller.instance.UpdateBar += UpdataLightBar;
-            Character_Controller.instance.UpdateBar += UpdateExpBar;
+           
             // if (character_Stat != null)
             // {
             //     character_Stat.OnHealthChange += UpdataHealthBar;
@@ -138,7 +139,7 @@ namespace SK
             {
                 if(uI_Skill_CoolDown_Slots[i] != null)
                 {
-                    Debug.Log("CheckCoolDown");
+                    //Debug.Log("CheckCoolDown");
                     uI_Skill_CoolDown_Slots[i].CheckCoolDown();
                 }
             }

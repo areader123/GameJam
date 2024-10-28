@@ -20,6 +20,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2913406709435193521, guid: 002642d0cd2abc64790b665be1596afa, type: 3}
+      propertyPath: attackCooldown
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2913406709435193521, guid: 002642d0cd2abc64790b665be1596afa, type: 3}
       propertyPath: konckbackDuration
       value: 0.15
       objectReference: {fileID: 0}
@@ -37,7 +41,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2913406709435193522, guid: 002642d0cd2abc64790b665be1596afa, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2913406709435193524, guid: 002642d0cd2abc64790b665be1596afa, type: 3}
       propertyPath: arrow
@@ -125,7 +129,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6458200623605849724, guid: 002642d0cd2abc64790b665be1596afa, type: 3}
       propertyPath: m_InstanceId
-      value: -458706
+      value: -841532
       objectReference: {fileID: 0}
     - target: {fileID: 6458200623605849724, guid: 002642d0cd2abc64790b665be1596afa, type: 3}
       propertyPath: m_HasRenderer
@@ -141,19 +145,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6458200623605849724, guid: 002642d0cd2abc64790b665be1596afa, type: 3}
       propertyPath: m_LocalBounds.m_Center.x
-      value: -0.022580385
+      value: -0.0023337305
       objectReference: {fileID: 0}
     - target: {fileID: 6458200623605849724, guid: 002642d0cd2abc64790b665be1596afa, type: 3}
       propertyPath: m_LocalBounds.m_Center.y
-      value: -0.12301442
+      value: -0.18032643
       objectReference: {fileID: 0}
     - target: {fileID: 6458200623605849724, guid: 002642d0cd2abc64790b665be1596afa, type: 3}
       propertyPath: m_LocalBounds.m_Extent.x
-      value: 0.1472063
+      value: 0.14141288
       objectReference: {fileID: 0}
     - target: {fileID: 6458200623605849724, guid: 002642d0cd2abc64790b665be1596afa, type: 3}
       propertyPath: m_LocalBounds.m_Extent.y
-      value: 0.072588414
+      value: 0.03509137
       objectReference: {fileID: 0}
     - target: {fileID: 6458200623605849724, guid: 002642d0cd2abc64790b665be1596afa, type: 3}
       propertyPath: m_ShapePath.Array.data[0].x

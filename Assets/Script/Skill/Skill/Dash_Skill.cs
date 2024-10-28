@@ -75,21 +75,21 @@ namespace SK
             base.UseSkill();
             if (dashUnlocked && uI_SkillUsed_Slot.Unlock)
             {
-                Debug.Log("dashSkillUsedUnlocked" + dashSkillUsedUnlocked);
+                //Debug.Log("dashSkillUsedUnlocked" + dashSkillUsedUnlocked);
                 dashSkillUsedUnlocked = uI_SkillUsed_Slot.Unlock;
                 if (dashUseWithOutLightingLocked)
                 {
                     character.stateMachine.ChangeState(character.player_Dash_State);
                     if (dashWithCloneLocked)
                     {
-                        Debug.Log("创造克隆体");
+                        //Debug.Log("创造克隆体");
                         SkillManager.instance.clone_Skill.UseByOutside();
                         //创造克隆体
                         if (dashWithObjectToDamageLocked)
                         {
                             for (int i = 0; i < amount; i++)
                             {
-                                Debug.Log("创造弹幕");
+                                //Debug.Log("创造弹幕");
                                 GameObject gameObject = Instantiate(prefab, Character_Controller.instance.character.transform.position, Quaternion.AngleAxis(angleRange / amount * i, Vector3.forward));
                                 Dash_Skill_Controller dash_Skill_Controller = gameObject.GetComponent<Dash_Skill_Controller>();
                                 dash_Skill_Controller.SetArrow(transmitDamage, transmitExistTime, transmitSpeed, damagepPerTime, destroySelfAfterDamage, this);
@@ -133,7 +133,7 @@ namespace SK
         public IEnumerator UnhittableWhileDash()
         {
             character.capsuleCollider2D.enabled = false;
-            Debug.Log("免疫");
+            //Debug.Log("免疫");
             yield return new WaitForSeconds(unhittableTime);
             character.capsuleCollider2D.enabled = true;
         }
@@ -150,50 +150,50 @@ namespace SK
         }
         public void UnlockLowCoolingDownWhileHighLighting()
         {
-            Debug.Log("尝试");
+            //Debug.Log("尝试");
             if (lowCoolingDownButHighLighting.unLock)
             {
-                Debug.Log("成功");
+                //Debug.Log("成功");
                 lowCoolingDownWhileHighLighting = true;
             }
         }
         public void UnlockUnHittableDuringDash()
         {
-            Debug.Log("尝试");
+            //Debug.Log("尝试");
             if (unHittableDuringDash.unLock)
             {
-                Debug.Log("成功");
+                //Debug.Log("成功");
                 unHittableDuringDashLocked = true;
             }
         }
 
         public void UnlockDashWithObjectToDamage()
         {
-            Debug.Log("尝试");
+            //Debug.Log("尝试");
             if (dashWithObjectToDamage.unLock)
             {
-                Debug.Log("成功");
+                //Debug.Log("成功");
                 dashWithObjectToDamageLocked = true;
             }
         }
 
         public void UnlockdashWithClone()
         {
-            Debug.Log("尝试");
+            //Debug.Log("尝试");
             if (dashWithClone.unLock)
             {
-                Debug.Log("成功");
+                //Debug.Log("成功");
                 dashWithCloneLocked = true;
             }
         }
 
         public void UnlockDashUseWithOutLighting()
         {
-            Debug.Log("尝试");
+            //Debug.Log("尝试");
             if (dashUseWithOutLighting.unLock)
             {
 
-                Debug.Log("成功");
+                //Debug.Log("成功");
                 dashUseWithOutLightingLocked = true;
                 if (!basic_2)
                 {
@@ -206,10 +206,10 @@ namespace SK
 
         public void UnlockDash()
         {
-           // Debug.Log("尝试");
+           // //Debug.Log("尝试");
             if (dash_UI_Skill_Slot.unLock)
             {
-                //Debug.Log("成功");
+                ////Debug.Log("成功");
                 dashUnlocked = true;
                 if (!basic_1)
                 {

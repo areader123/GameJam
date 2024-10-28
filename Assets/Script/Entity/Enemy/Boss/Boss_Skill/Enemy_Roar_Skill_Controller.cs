@@ -18,10 +18,12 @@ public class Enemy_Roar_Skill_Controller : MonoBehaviour
     private float buffExsitTime;
     private float bufferPrefabExsitCounter;
     private float buffPrefabExistTime;
+    private float enemyExsitTime;
+    private float  enemyExsitTimeCounter;
     private void Awake()
     {
         bufferPrefabExsitCounter = buffPrefabExistTime;
-        
+        enemyExsitTimeCounter = enemyExsitTime = 8f;
     }
 
     private void Update()
@@ -31,6 +33,11 @@ public class Enemy_Roar_Skill_Controller : MonoBehaviour
         {
             if (bufferPrefabExsitCounter < 0)
                 Destroy(gameObject);
+        }
+        enemyExsitTimeCounter -= Time.deltaTime;
+        if(enemyExsitTimeCounter < 0)
+        {
+            Destroy(gameObject);
         }
     }
 

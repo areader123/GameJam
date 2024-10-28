@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 3572765053811339122}
   - component: {fileID: 3572765053811338378}
   - component: {fileID: 1565507630571741600}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Robot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ MonoBehaviour:
   defaultMoveSpeed: 0
   attackting: 0
   attcakUnFollow: 0
-  attackCooldown: 2
+  attackCooldown: 10
   lastTimeAttack: 0
   characterAttackedTransform: {fileID: 3572765054412201527}
   characterAttackRadius: 2.14
@@ -161,7 +161,7 @@ MonoBehaviour:
   characterDirection: {x: 0, y: 0, z: 0}
   characterFightingWithTransform: {fileID: 3572765054414100548}
   characterFightingWithRadius: 2.97
-  skill_One_Cooldown: 2
+  skill_One_Cooldown: 10
   lastTimeSkill_One: 0
   skill_Two_Cooldown: 0
   lastTimeSkill_Two: 0
@@ -209,7 +209,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.0025980473, y: -0.015588149}
@@ -267,7 +267,7 @@ MonoBehaviour:
     value: 2
     modifiers: 
   damage:
-    value: 144
+    value: 80
     modifiers: 
   maxHP:
     value: 78
@@ -390,7 +390,7 @@ MonoBehaviour:
   - {x: -0.0855459, y: -0.1079304, z: 0}
   m_ShapePathHash: 1812249543
   m_Mesh: {fileID: 0}
-  m_InstanceId: -480714
+  m_InstanceId: 321252
   m_LocalBounds:
     m_Center: {x: -0.02589935, y: -0.11331652, z: 0}
     m_Extent: {x: 0.1069054, y: 0.04108475, z: 0}
@@ -403,7 +403,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3572765054112645385}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ItemDropTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -434,7 +434,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3572765054134678368}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: InstantiateTransform (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -465,7 +465,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3572765054412201527}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CharacterAttacked (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -496,7 +496,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3572765054414100548}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CharacterFightingWith (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -527,7 +527,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3572765054506429504}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EffectTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -558,7 +558,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3572765054540415937}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CharacterDetected (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

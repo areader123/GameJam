@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 821366896}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MultiTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6809386163396395400}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CharacterAttacked (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6809386163574136452}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CharacterDetected (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 6809386163795657372}
   - component: {fileID: 1032577352}
   - component: {fileID: 2097776433956895747}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrower_Multi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +221,7 @@ MonoBehaviour:
   defaultMoveSpeed: 0
   attackting: 0
   attcakUnFollow: 0
-  attackCooldown: 2
+  attackCooldown: 5
   lastTimeAttack: 0
   characterAttackedTransform: {fileID: 6809386163396395400}
   characterAttackRadius: 1.69
@@ -287,7 +287,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 6200000, guid: efcd47dc663ea6a4a9726d5d98a987fb, type: 2}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0055681467, y: -0.16485763}
@@ -357,7 +357,7 @@ MonoBehaviour:
     value: 2
     modifiers: 
   damage:
-    value: 124
+    value: 90
     modifiers: 
   maxHP:
     value: 78
@@ -457,7 +457,7 @@ MonoBehaviour:
   - {x: 0.052727163, y: -0.29502758, z: 0}
   m_ShapePathHash: -1892957575
   m_Mesh: {fileID: 0}
-  m_InstanceId: -443836
+  m_InstanceId: 321060
   m_LocalBounds:
     m_Center: {x: -0.008785069, y: -0.28176478, z: 0}
     m_Extent: {x: 0.06151223, y: 0.017038375, z: 0}
@@ -470,7 +470,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6809386163896683820}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CharacterFightingWith (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -501,7 +501,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6809386164154238536}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: InstantiateTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}

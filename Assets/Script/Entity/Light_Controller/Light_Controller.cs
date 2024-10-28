@@ -11,9 +11,9 @@ namespace SK
     public class Light_Controller : MonoBehaviour
     {
         public static Light_Controller instance;
-        public CircleCollider2D cd;
+        private CircleCollider2D cd;
         [Header("Light Info")]
-        [SerializeField] private new Light2D light;
+        public Light2D light2d;
         [SerializeField] private float minScale;
         [SerializeField] private float radius;
         public float maxScale;
@@ -72,16 +72,16 @@ namespace SK
 
         private void UpdateScale()
         {
-            if (light.pointLightOuterRadius > finalScale && cd.radius > finalScale)
+            if (light2d.pointLightOuterRadius > finalScale && cd.radius > finalScale)
             {
                 float delta = finalScale * scaleSpeed * Time.deltaTime;
-                light.pointLightOuterRadius -= delta;
+                light2d.pointLightOuterRadius -= delta;
                 cd.radius -= delta;
             }
-            if (light.pointLightOuterRadius < finalScale&& cd.radius < finalScale)
+            if (light2d.pointLightOuterRadius < finalScale&& cd.radius < finalScale)
             {
                 float delta = finalScale * scaleSpeed * Time.deltaTime;
-                light.pointLightOuterRadius += delta;
+                light2d.pointLightOuterRadius += delta;
                 cd.radius += delta;
             }
         }

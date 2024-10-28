@@ -83,12 +83,16 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7024237888559777542, guid: 128eaccc8af5bcb49a60a1702c892174, type: 3}
+      propertyPath: attackCooldown
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7024237888559777542, guid: 128eaccc8af5bcb49a60a1702c892174, type: 3}
       propertyPath: konckbackDuration
       value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 7024237888559777542, guid: 128eaccc8af5bcb49a60a1702c892174, type: 3}
       propertyPath: skill_One_Cooldown
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7024237888559777542, guid: 128eaccc8af5bcb49a60a1702c892174, type: 3}
       propertyPath: characterAttackRadius
@@ -168,7 +172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7024237888559777547, guid: 128eaccc8af5bcb49a60a1702c892174, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7024237888559777549, guid: 128eaccc8af5bcb49a60a1702c892174, type: 3}
       propertyPath: m_Controller
@@ -245,7 +249,7 @@ MonoBehaviour:
   - {x: 0.60089153, y: -0.4627843, z: 0}
   m_ShapePathHash: 148872836
   m_Mesh: {fileID: 0}
-  m_InstanceId: 150248
+  m_InstanceId: 321184
   m_LocalBounds:
     m_Center: {x: -0.0016787052, y: -0.38368464, z: 0}
     m_Extent: {x: 0.6025702, y: 0.09588753, z: 0}

@@ -106,10 +106,10 @@ namespace SK
             float totalDamage = target.damage.GetValue() + target.intelligence.GetValue();
             if (CritChance(target))
             {
-                Debug.Log("totalDamage:" + totalDamage);
+                //Debug.Log("totalDamage:" + totalDamage);
                 totalDamage *= (target.critPower.GetValue() + target.strength.GetValue()) * 0.01f;
                 totalDamage = (int)totalDamage;
-                Debug.Log("暴击" + totalDamage);
+                //Debug.Log("暴击" + totalDamage);
             }
             totalDamage = CheckTargetMagicResistance(target, (int)totalDamage);
             return (int)totalDamage;
@@ -120,10 +120,10 @@ namespace SK
             float totalDamage = (target.damage.GetValue() + target.strength.GetValue());
             if (CritChance(target))
             {
-                Debug.Log("totalDamage:" + totalDamage);
+                //Debug.Log("totalDamage:" + totalDamage);
                 totalDamage *= (target.critPower.GetValue() + target.strength.GetValue()) * 0.01f;
                 totalDamage = (int)totalDamage;
-                Debug.Log("暴击" + totalDamage);
+                //Debug.Log("暴击" + totalDamage);
             }
             totalDamage = CheckTargetArmor(target, (int)totalDamage);
             return (int)totalDamage;
@@ -147,7 +147,7 @@ namespace SK
         {
             DecreaseHealthOnly(damage);
             DamageNumber damageNumber = damageNumberMesh.Spawn(transform.position, damage);
-            Debug.Log("受到" + damage + "伤害");
+            //Debug.Log("受到" + damage + "伤害");
         }
 
         public virtual void IncreaseHealthOnly(int _amount)
@@ -163,7 +163,7 @@ namespace SK
                 else if ((int)(GetMaxHealth() - _currentHP) > 0)
                 {
                     DamageNumber healthNumber2 = healthNumberMesh.Spawn(transform.position, GetMaxHealth() - _currentHP);
-                    Debug.Log("GetMaxHealth() - _currentHP" + (GetMaxHealth() - _currentHP));
+                    //Debug.Log("GetMaxHealth() - _currentHP" + (GetMaxHealth() - _currentHP));
                 }
                 _currentHP = GetMaxHealth();
             }

@@ -18,7 +18,7 @@ namespace SK
         //此处为光亮值
         [Header("Current Value")]
         [SerializeField] private int lightingNumber;//记录
-        [SerializeField] private int exp;//记录
+        [SerializeField] private int exp = 1;//记录
         [SerializeField] private int level;//记录
         private int pointToSkill;
         private int pointToSkillUsed;
@@ -28,6 +28,7 @@ namespace SK
         [SerializeField] private int maxLightingNumber;
        // [SerializeField] private int maxExpNumber_First;
         [SerializeField] private int perLevelMaxExpNumberAdded;
+        [SerializeField]private int perLightHpAdded;
         [SerializeField] private int perLevelAddSkillPoint;
         public int maxSkillNumber;
 
@@ -60,6 +61,11 @@ namespace SK
         public int GetMaxLightingNumber() => maxLightingNumber;
 
         public bool canChangeLightScale() => canChangeLightScaleFlag;
+
+        private void Start() 
+        {
+            UpdateBar();    
+        }
 
         public bool HaveEnoughSkillPoint(int _price,bool unLock)
         {
@@ -116,6 +122,7 @@ namespace SK
             if (lightingNumber < maxLightingNumber)
             {
                 lightingNumber += 1;
+                
                 UpdateBar();
                 if (lightingNumber == maxLightingNumber)
                 {
@@ -221,6 +228,12 @@ namespace SK
             SaveGame.Save<int>("level", level);
             SaveGame.Save<int>("pointCanbeUsed", pointCanbeUsed);
         }
+
+        public void AddHealth()
+        {
+            Character_Controller.instance.character.GetComponent<Character_Stat>().IncreaseHealthOnly(perLightHpAdded);
+        }
+
 
 
         //数据保存和加载

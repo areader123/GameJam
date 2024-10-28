@@ -34,6 +34,5 @@ public class Dead_Button : MonoBehaviour
     {
         SaveGame.DeleteAll();
         SaveGame.Save<bool>("NewStart", false);
-        //SceneManager.LoadScene("StartScene");
     }
 }

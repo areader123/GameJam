@@ -171,10 +171,10 @@ public class Bullet_Fan_Skill : Skill
     }
     public void UnlockbulletWithMoreTimesLocked()
     {
-        Debug.Log("尝试");
+        //Debug.Log("尝试");
         if (bulletWithMoreTimes.unLock)
         {
-            Debug.Log("成功");
+            //Debug.Log("成功");
             bulletWithMoreTimesLocked = true;
         }
     }
@@ -182,31 +182,31 @@ public class Bullet_Fan_Skill : Skill
 
     public void UnlockbulletWithLowerCoolDown()
     {
-        Debug.Log("尝试");
+        //Debug.Log("尝试");
         if (bulletWithLowerCoolDown.unLock)
         {
-            Debug.Log("成功");
+            //Debug.Log("成功");
             bulletWithLowerCoolDownLocked = true;
         }
     }
 
     public void UnlockbulletCanPenetrate()
     {
-        Debug.Log("尝试");
+        //Debug.Log("尝试");
         if (bulletCanPenetrate.unLock)
         {
-            Debug.Log("成功");
+            //Debug.Log("成功");
             bulletCanPenetratelocked = true;
         }
     }
 
     public void UnlockbulletCanHitBack()
     {
-        Debug.Log("尝试");
+        //Debug.Log("尝试");
         if (bulletCanHitBack.unLock)
         {
 
-            Debug.Log("成功");
+            //Debug.Log("成功");
             bulletCanHitBackLocked = true;
         }
     }
@@ -214,10 +214,10 @@ public class Bullet_Fan_Skill : Skill
 
     public void UnlockbulletWithLighting()
     {
-        Debug.Log("尝试");
+        //Debug.Log("尝试");
         if (bulletWithLighting.unLock)
         {
-            Debug.Log("成功");
+            //Debug.Log("成功");
             bulletWithLightingUnLocked = true;
             cost = lightingCost;
         }

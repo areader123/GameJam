@@ -104,7 +104,7 @@ namespace SK
 
         public void SwitchToGame()
         {
-            SwithTo(game);
+            SwithWithKeyTo(game);
         }
 
         public void OpenDead()

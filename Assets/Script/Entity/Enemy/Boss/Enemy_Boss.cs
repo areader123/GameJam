@@ -101,11 +101,11 @@ public class Enemy_Boss : Enemy
         return false;
     }
 
-    protected override void OnDrawGizmos()
-    {
-        base.OnDrawGizmos();
-        Gizmos.DrawWireSphere(rollTransform.position, rollRange);
-    }
+    // protected override void OnDrawGizmos()
+    // {
+    //     base.OnDrawGizmos();
+    //     Gizmos.DrawWireSphere(rollTransform.position, rollRange);
+    // }
 
     public void RollDamage()
     {

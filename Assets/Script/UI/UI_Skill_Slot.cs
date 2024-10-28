@@ -29,18 +29,20 @@ namespace SK
 
 
         private UI ui => GetComponentInParent<UI>();
+        Button button;
+
 
         private void Awake()
         {
-            
-            Button button = GetComponent<Button>();
+
+            button = GetComponent<Button>();
             button.onClick.AddListener(() => UnlockSkillSlot());
             skillImage = GetComponent<Image>();
         }
 
         void OnApplicationQuit()
         {
-            
+
         }
 
         private void Start()
@@ -60,6 +62,7 @@ namespace SK
         private void OnValidate()
         {
             gameObject.name = "SkillTree_Name:" + skillName;
+            //   
         }
 
         public void UnlockSkillSlot()
@@ -83,7 +86,7 @@ namespace SK
                 }
             }
 
-            if (Character_Controller.instance.HaveEnoughSkillPoint(skillPrice,unLock) == false)
+            if (Character_Controller.instance.HaveEnoughSkillPoint(skillPrice, unLock) == false)
             {
                 return;
             }
@@ -140,7 +143,7 @@ namespace SK
 
         public void LoadData(GameData _data)
         {
-            if(SaveGame.Exists(skillName))
+            if (SaveGame.Exists(skillName))
             {
                 unLock = SaveGame.Load<bool>(skillName);
             }
@@ -148,7 +151,7 @@ namespace SK
 
         public void SaveData(ref GameData _data)
         {
-            SaveGame.Save<bool>(skillName,unLock);
+            SaveGame.Save<bool>(skillName, unLock);
         }
 
         // public void LoadData(GameData _data)

@@ -135,7 +135,7 @@ public class Enemy_MultiTransmit_Skill_Controller : MonoBehaviour
         {
             if (hit.GetComponent<Enemy_Stat>() != null && hit.GetComponent<Enemy>() != null)
             {
-                hit.GetComponent<Enemy_Stat>().TakeDamage(arrowDamage + damageAdded, skill);
+                hit.GetComponent<Enemy_Stat>().DoDamage(Character_Controller.instance.character.GetComponent<Character_Stat>());
                 if (canStickIn && !destroySelfAfterDamage)
                 {
                     ifHitted = true;
@@ -181,7 +181,7 @@ public class Enemy_MultiTransmit_Skill_Controller : MonoBehaviour
             {
                 if (damageTimeCounter <= 0)
                 {
-                    hit.GetComponent<Enemy_Stat>().TakeDamage(arrowDamage, skill);
+                    hit.GetComponent<Enemy_Stat>().DoDamage(Character_Controller.instance.character.GetComponent<Character_Stat>());
                     damageTimeCounter = damagepPerTime;
                 }
             }

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 469205196}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BulletTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,6 +51,10 @@ PrefabInstance:
       value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 2376496301577124448, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
+      propertyPath: attackCooldown
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2376496301577124448, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
       propertyPath: konckbackDuration
       value: 0.15
       objectReference: {fileID: 0}
@@ -61,6 +65,10 @@ PrefabInstance:
     - target: {fileID: 2376496301577124449, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
       propertyPath: m_Name
       value: WormDieWithBullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 2376496301577124449, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2376496301577124449, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
       propertyPath: m_IsActive
@@ -138,6 +146,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 9a2978ceb75195f4d91d4607972e7f0e, type: 2}
+    - target: {fileID: 2376496301577124460, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2376496301577124461, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
       propertyPath: m_Size.x
       value: 0.29182333
@@ -160,7 +172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2376496301577124461, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2376496301577124462, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
       propertyPath: m_RootOrder
@@ -250,9 +262,17 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.139
       objectReference: {fileID: 0}
+    - target: {fileID: 2376496302496630334, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2376496303267091026, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.133
+      objectReference: {fileID: 0}
+    - target: {fileID: 2376496303267091027, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2376496303520123794, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -261,6 +281,14 @@ PrefabInstance:
     - target: {fileID: 2376496303520123794, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2376496303520123795, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2376496303551496232, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2376496303551496247, guid: a3a4101cbec910949a956de83a15a6d5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -303,16 +331,16 @@ MonoBehaviour:
   target: 1
   transmit: {fileID: 8494641995629809650, guid: 408d4f787cf1d4f498472f61f720e0c4, type: 3}
   offset: {x: 0, y: 0, z: 0}
-  amount: 6
+  amount: 5
   angleRange: 360
   deltaAngle: 0
   transmitDamage: 5
   transmitExistTime: 4
-  transmitSpeed: 3
+  transmitSpeed: 2
   transmitInstantiateTransform: {fileID: 469205196}
   destroySelfAfterDamage: 1
   damagepPerTime: 0
-  timePerSplit: 1
+  timePerSplit: 2
   bulletType: 0
   fanAngle: 0
   canStickIn: 0
@@ -342,7 +370,7 @@ MonoBehaviour:
   - {x: 0.094291806, y: -0.22070037, z: 0}
   m_ShapePathHash: 530527169
   m_Mesh: {fileID: 0}
-  m_InstanceId: -505274
+  m_InstanceId: 341506
   m_LocalBounds:
     m_Center: {x: 0.006482482, y: -0.20419846, z: 0}
     m_Extent: {x: 0.087809324, y: 0.018122554, z: 0}

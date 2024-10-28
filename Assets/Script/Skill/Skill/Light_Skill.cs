@@ -65,8 +65,6 @@ public class Light_Skill : Skill
 
     private void Awake()
     {
-          light_Controller = Light_Controller.instance;
-        character_Controller = Character_Controller.instance;
     }
 
     protected override void Start()
@@ -78,9 +76,11 @@ public class Light_Skill : Skill
         lightWithMonsterDamaged.GetComponent<Button>().onClick.AddListener(UnlocklightWithMonsterDamaged);
         lightWithMonsterAniSlow.GetComponent<Button>().onClick.AddListener(UnlocklightWithMonsterAniSlowUnLocked);
         lightwhenLowHealthUnhittable.GetComponent<Button>().onClick.AddListener(UnlocklightwhenLowHealthUnhittable);
+          light_Controller = Light_Controller.instance;
+        character_Controller = Character_Controller.instance;
         character = Character_Controller.instance.character;
 
-        Debug.Log("start");
+        //Debug.Log("start");
     }
 
     protected override void Update()
@@ -100,13 +100,13 @@ public class Light_Skill : Skill
         {
             //玩家光亮值自行增加
 
-            if (character_Controller.GetLightingNumber() + increaseLightAmount <= character_Controller.GetMaxLightingNumber() && timeCounterLight < 0)
+            if (Character_Controller.instance.GetLightingNumber() + increaseLightAmount <= Character_Controller.instance.GetMaxLightingNumber() && timeCounterLight < 0)
             {
                 for (int i = 0; i < increaseLightAmount; i++)
                 {
-                    character_Controller.AddLightingNumber();
+                    Character_Controller.instance.AddLightingNumber();
                 }
-                Debug.Log("玩家光亮值自行增加");
+                //Debug.Log("玩家光亮值自行增加");
                 timeCounterLight = timePerIncreaseLight;
             }
             if (lightWithHealthRecoverUnLocked)
@@ -114,9 +114,9 @@ public class Light_Skill : Skill
 
                 if (timeCounterHealth < 0)
                 {
-                    Debug.Log("玩家回血");
+                    //Debug.Log("玩家回血");
                     //玩家回血 //increaseHealth
-                    character.GetComponent<Character_Stat>().IncreaseHealthOnly((int)(increaseHealthAmountPercent * character.GetComponent<Character_Stat>().GetMaxHealth()));
+                    Character_Controller.instance.character.GetComponent<Character_Stat>().IncreaseHealthOnly((int)(increaseHealthAmountPercent * Character_Controller.instance.character.GetComponent<Character_Stat>().GetMaxHealth()));
                     timeCounterHealth = timePerIncreaseHealth;
                 }
                 if (lightWithMonsterSpeedDownUnlocked)
@@ -138,7 +138,7 @@ public class Light_Skill : Skill
                             {
 
                                 //低血量时免疫
-                                if (character.GetComponent<Character_Stat>()._currentHP <= lowHealthPercentsBoardary * character.GetComponent<Character_Stat>().GetMaxHealth()
+                                if (Character_Controller.instance.character.GetComponent<Character_Stat>()._currentHP <= lowHealthPercentsBoardary * Character_Controller.instance.character.GetComponent<Character_Stat>().GetMaxHealth()
                                 && timeCounterUnittable < 0)
                                 {
                                     StopCoroutine("UnHittable");
@@ -156,11 +156,11 @@ public class Light_Skill : Skill
 
     private IEnumerator UnHittable()
     {
-        character.capsuleCollider2D.enabled = false;
-        character.GetComponent<SpriteRenderer>().color = new Vector4(1, 1, 1, character.GetComponent<SpriteRenderer>().color.a * alphaPercent);
+        Character_Controller.instance.character.capsuleCollider2D.enabled = false;
+        Character_Controller.instance.character.GetComponent<SpriteRenderer>().color = new Vector4(1, 1, 1, Character_Controller.instance.character.GetComponent<SpriteRenderer>().color.a * alphaPercent);
         yield return new WaitForSeconds(timeDuration);
-        character.capsuleCollider2D.enabled = true;
-        character.GetComponent<SpriteRenderer>().color = new Vector4(1, 1, 1, character.GetComponent<SpriteRenderer>().color.a / alphaPercent);
+        Character_Controller.instance.character.capsuleCollider2D.enabled = true;
+        Character_Controller.instance.character.GetComponent<SpriteRenderer>().color = new Vector4(1, 1, 1, Character_Controller.instance.character.GetComponent<SpriteRenderer>().color.a / alphaPercent);
     }
 
 
@@ -209,30 +209,30 @@ public class Light_Skill : Skill
 
     private void UnlocklightwhenLowHealthUnhittable()
     {
-        Debug.Log("尝试");
+        //Debug.Log("尝试");
         if (lightwhenLowHealthUnhittable.unLock)
         {
-            Debug.Log("成功");
+            //Debug.Log("成功");
             lightwhenLowHealthUnhittableUnlock = true;
             if (!new_6)
             {
                 new_1 = true;
-                light_Controller.maxScale *= newRangePercent_6;
+                Light_Controller.instance.maxScale *= newRangePercent_6;
             }
         }
     }
 
     public void UnlocklightWithMonsterAniSlowUnLocked()
     {
-        Debug.Log("尝试");
+        //Debug.Log("尝试");
         if (lightWithMonsterAniSlow.unLock)
         {
-            Debug.Log("成功");
+            //Debug.Log("成功");
             lightWithMonsterAniSlowUnLocked = true;
             if (!new_5)
             {
                 new_5 = true;
-                light_Controller.maxScale *= newRangePercent_5;
+                Light_Controller.instance.maxScale *= newRangePercent_5;
             }
         }
     }
@@ -240,46 +240,46 @@ public class Light_Skill : Skill
 
     public void UnlocklightWithMonsterDamaged()
     {
-        Debug.Log("尝试");
+        //Debug.Log("尝试");
         if (lightWithMonsterDamaged.unLock)
         {
-            Debug.Log("成功");
+            //Debug.Log("成功");
             lightWithMonsterDamagedUnLocked = true;
             if (!new_4)
             {
                 new_4 = true;
-                light_Controller.maxScale *= newRangePercent_4;
+                Light_Controller.instance.maxScale *= newRangePercent_4;
             }
         }
     }
 
     public void UnlocklightWithMonsterSpeedDown()
     {
-        Debug.Log("尝试");
+        //Debug.Log("尝试");
         if (lightWithMonsterSpeedDown.unLock)
         {
-            Debug.Log("成功");
+            //Debug.Log("成功");
             lightWithMonsterSpeedDownUnlocked = true;
             if (!new_3)
             {
                 new_3 = true;
-                light_Controller.maxScale *= newRangePercent_3;
+                Light_Controller.instance.maxScale *= newRangePercent_3;
             }
         }
     }
 
     public void UnlocklightWithHealthRecover()
     {
-        Debug.Log("尝试");
+        //Debug.Log("尝试");
         if (lightWithHealthRecover.unLock)
         {
 
-            Debug.Log("成功");
+            //Debug.Log("成功");
             lightWithHealthRecoverUnLocked = true;
             if (!new_2)
             {
                 new_2 = true;
-                light_Controller.maxScale *= newRangePercent_2;
+                Light_Controller.instance.maxScale *= newRangePercent_2;
             }
         }
     }
@@ -287,15 +287,15 @@ public class Light_Skill : Skill
 
     public void UnlocklightCanBeIncreaseByTime()
     {
-        Debug.Log("尝试");
+        //Debug.Log("尝试");
         if (lightCanBeIncreaseByTime.unLock)
         {
-            Debug.Log("成功");
+            //Debug.Log("成功");
             lightCanBeIncreaseByTimeUnlock = true;
             if (!new_1)
             {
                 new_1 = true;
-                light_Controller.maxScale *= newRangePercent_1;
+                Light_Controller.instance.maxScale *= newRangePercent_1;
             }
         }
     }

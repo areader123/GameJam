@@ -37,12 +37,12 @@ namespace SK
             if (SkillManager.instance.attack_SpeedUp_Skill.skilling_Four)
             {
                 Collider2D[] collider2Ds = Physics2D.OverlapCircleAll(character.destroyTransform.position, character.destroyRadius);
-                Debug.Log("尝试DamageBullet");
+               // Debug.Log("尝试DamageBullet");
                 foreach (var hit in collider2Ds)
                 {
                     if (hit.tag == "Bullet")
                     {
-                        Debug.Log("Destroy(hit.gameObject)");
+                       // Debug.Log("Destroy(hit.gameObject)");
                         Destroy(hit.gameObject);
                     }
                 }

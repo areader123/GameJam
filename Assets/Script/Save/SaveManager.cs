@@ -40,7 +40,7 @@ public class SaveManager : MonoBehaviour
           foreach(var saveManager in saveManagers) 
           {
                saveManager.LoadData(gameData);
-               Debug.Log("LoadGame");
+               //Debug.Log("LoadGame");
           }
         
      }
@@ -49,13 +49,17 @@ public class SaveManager : MonoBehaviour
      {
           foreach(var saveManager in saveManagers) 
           {
-                Debug.Log("SaveData");
+              //  Debug.Log("SaveData");
                saveManager.SaveData(ref gameData);
           }
      }
 
      private void OnApplicationQuit() 
      {
+          SaveGame();
+     }
+
+     private void OnDisable() {
           SaveGame();
      }
 

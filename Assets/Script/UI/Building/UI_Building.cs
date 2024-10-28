@@ -23,6 +23,7 @@ public class UI_Building : MonoBehaviour
         if (!monsterSpawner.instance.isResting)
         {
             textMesh.SetActive(false);
+        //    uI.SwitchToGame();
         }
         if (textMesh.activeSelf)
         {

@@ -47,7 +47,13 @@ public class Attack_SpeedUp_Skill : Skill
     private Character_Stat character_Stat;
     private Animator animator;
     private float totalDecrease = 0;
-
+    /// <summary>
+    /// Awake is called when the script instance is being loaded.
+    /// </summary>
+    void Awake()
+    {
+        
+    }
     protected override void Update()
     {
         base.Update();
@@ -117,10 +123,10 @@ public class Attack_SpeedUp_Skill : Skill
 
     private void UnlockattackSpeedUpWithHPAndLighting()
     {
-        Debug.Log("尝试");
+       // Debug.Log("尝试");
         if (attackSpeedUpWithHPAndLighting.unLock)
         {
-            Debug.Log("成功");
+           // Debug.Log("成功");
             attackSpeedUpWithHPAndLightingUnlocked = true;
             if (!basic_1)
             {
@@ -165,7 +171,7 @@ public class Attack_SpeedUp_Skill : Skill
         animator.SetFloat("Speed", basic);
         skilling = true;
         skilling_Three = true;
-        Debug.Log("Skill_Three");
+        //Debug.Log("Skill_Three");
         yield return new WaitForSeconds(skillDuration);
         skilling = false;
         skilling_Three = false;
@@ -184,10 +190,10 @@ public class Attack_SpeedUp_Skill : Skill
 
     private void UnlocklowerLightingWithMoreAttackSpeed()
     {
-        Debug.Log("尝试");
+        //.Log("尝试");
         if (lowerLightingWithMoreAttackSpeed.unLock)
         {
-            Debug.Log("成功");
+          //  Debug.Log("成功");
             lowerLightingWithMoreAttackSpeedUnlocked = true;
             if (!basic_2)
             {
@@ -201,10 +207,10 @@ public class Attack_SpeedUp_Skill : Skill
     }
     private void UnlockattckCanDestroyBullet()
     {
-        Debug.Log("尝试");
+        //Debug.Log("尝试");
         if (attckCanDestroyBullet.unLock)
         {
-            Debug.Log("成功");
+            //Debug.Log("成功");
             attckCanDestroyBulletUnlock = true;
             if (!basic_4)
             {

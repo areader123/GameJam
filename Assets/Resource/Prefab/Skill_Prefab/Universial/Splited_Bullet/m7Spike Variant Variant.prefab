@@ -31,6 +31,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: m7Spike Variant Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5704145166360599771, guid: c6e637c5113d9bf44ae0e92508ed32d4, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5806467377997897387, guid: c6e637c5113d9bf44ae0e92508ed32d4, type: 3}
       propertyPath: m_RootOrder
       value: 0

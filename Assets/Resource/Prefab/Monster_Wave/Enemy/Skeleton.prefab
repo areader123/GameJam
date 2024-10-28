@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 2376496301577124457}
   - component: {fileID: 2376496301577124471}
   - component: {fileID: 2008704996325784555}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Skeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ MonoBehaviour:
   characterAttackedTransform: {fileID: 2376496303520123794}
   characterAttackRadius: 0.23
   characterDetectedTransform: {fileID: 2376496303551496247}
-  characterDetectedRadius: 3.37
+  characterDetectedRadius: 4.33
   charactersDetected: {fileID: 0}
   characterDirection: {x: 0, y: 0, z: 0}
   characterFightingWithTransform: {fileID: 2376496302496630333}
@@ -183,7 +183,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &2376496301577124461
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -194,7 +194,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.04024037, y: -0.0385637}
@@ -264,7 +264,7 @@ MonoBehaviour:
     value: 0
     modifiers: 
   damage:
-    value: 60
+    value: 100
     modifiers: 
   maxHP:
     value: 100
@@ -330,7 +330,7 @@ MonoBehaviour:
   - {x: 0.0013519526, y: -0.16, z: 0}
   m_ShapePathHash: -579543619
   m_Mesh: {fileID: 0}
-  m_InstanceId: -519268
+  m_InstanceId: 341704
   m_LocalBounds:
     m_Center: {x: -0.042800754, y: -0.14376663, z: 0}
     m_Extent: {x: 0.044152707, y: 0.01623337, z: 0}
@@ -343,7 +343,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2376496302496630333}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CharacterFightingWith
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -374,7 +374,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2376496303267091026}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ItemDropedTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -405,7 +405,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2376496303520123794}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CharacterAttacked
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -436,7 +436,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2376496303551496247}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CharacterDetected
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -59,8 +59,8 @@ namespace SK
                 character.vertical = 0;
             }
 
-            character.animator.SetFloat("Vertical",character.vertical,0.1f, Time.deltaTime);
-            character.animator.SetFloat("Horizonal",character.horizonal,0.1f, Time.deltaTime);
+           // character.animator.SetFloat("Vertical",character.vertical,0.1f, Time.deltaTime);
+      //  character.animator.SetFloat("Horizonal",character.horizonal,0.1f, Time.deltaTime);
         }
     }
 

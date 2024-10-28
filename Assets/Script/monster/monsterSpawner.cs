@@ -12,6 +12,7 @@ public class monsterSpawner : MonoBehaviour, ISaveManager
     public List<Monster_Wave> monsterPrefabs; // �洢������˵�Ԥ����
     public float spawnInterval = 2f; // ÿ���������ɼ��
     public float spawnDistance = 1f; // ˢ�¾��루����Ļ�⣩
+    public float NospawnDistance;
     [SerializeField] private float leastWaveTime;
     [SerializeField] private float restTime;
     public int currentWave = 0;
@@ -27,6 +28,8 @@ public class monsterSpawner : MonoBehaviour, ISaveManager
     private int currentMonsters = 1; // 쳲��������еĵ�ǰ��
     [SerializeField] private int perWaveAddedAmount;
     [SerializeField] private TextMeshProUGUI textMeshProUGUI;
+    [SerializeField] private Audio audioSource;
+    private int totalEnenmyAmount;
 
     /// <summary>
     /// Awake is called when the script instance is being loaded.
@@ -55,7 +58,7 @@ public class monsterSpawner : MonoBehaviour, ISaveManager
     void Update()
     {
         // ���� T ����ʼ������һ������
-        if (activeMonsters.Count == 0)
+        if (totalEnenmyAmount == 0 && activeMonsters.Count == 0)
         {
             if (!isResting && isBattling && !canBattle)
             {
@@ -68,15 +71,17 @@ public class monsterSpawner : MonoBehaviour, ISaveManager
         {
             canBattle = true;
             _restTime = restTime;
-          //  restTime += Character_Controller.instance.GetLevel();
+            //  restTime += Character_Controller.instance.GetLevel();
             textMeshProUGUI.gameObject.SetActive(true);
+            audioSource.PlayMusic();
             StartCoroutine("TimeCounter");
         }
-        if (activeMonsters.Count == 0 || waveTimeCounter < 0)
+        if ((totalEnenmyAmount == 0 && activeMonsters.Count == 0) || waveTimeCounter < 0)
         {
             if (!isResting && canBattle)
             {
                 textMeshProUGUI.gameObject.SetActive(false);
+
                 StartCoroutine(SpawnMonsterWave());
             }
         }
@@ -101,35 +106,35 @@ public class monsterSpawner : MonoBehaviour, ISaveManager
     {
 
         // �ȴ� 10 ���ʼ���ɹ���
+        audioSource.StopMusic();
         canBattle = false;
         isBattling = true;
         waveTimeCounter = leastWaveTime;
+        totalEnenmyAmount = currentMonsters;
         for (int i = 0; i < currentMonsters; i++)
         {
             SpawnMonster();
+            totalEnenmyAmount -= 1;
             if (listWave == monsterPrefabs.Count - 1)
             {
+                listWave = -1;
                 break;
             }
             yield return new WaitForSeconds(spawnInterval); // ÿ���������ɼ��
         }
-            Debug.Log("monsterPrefabs.Count"+monsterPrefabs.Count);
-
-        if (listWave > monsterPrefabs.Count)
-        {
-            listWave = 0;
-        }
+       // Debug.Log("monsterPrefabs.Count" + monsterPrefabs.Count);
         // ������һ������������쳲��������е���һ��
-        
+
     }
 
     private IEnumerator TimeCounter()
     {
+
         canRest = false;
         isResting = true;
-        currentMonsters = perWaveAddedAmount * Character_Controller.instance.GetLevel();
         currentWave += 1;
         listWave += 1;
+        currentMonsters += perWaveAddedAmount * currentWave;
 
         while (_restTime >= 0)
         {
@@ -155,15 +160,15 @@ public class monsterSpawner : MonoBehaviour, ISaveManager
 
     private void SpawnMonster()
     {
-        Vector2 screenBounds = GetScreenBounds();
+      //  Vector2 screenBounds = GetScreenBounds();
         Vector2 spawnPosition;
 
         // ��֤��������Ļ������
-        do
-        {
-            spawnPosition = GetRandomSpawnPosition(screenBounds);
-        }
-        while (!IsOutsideCameraView(spawnPosition));
+        //do
+        //{
+            spawnPosition = GetRandomSpawnPosition();
+        //}
+       // while (!IsOutsideCameraView(spawnPosition));
 
         // ���ѡ�����Ԥ����
         int randomIndex = Random.Range(0, monsterPrefabs[listWave].monsters.Count);
@@ -185,7 +190,7 @@ public class monsterSpawner : MonoBehaviour, ISaveManager
         return new Vector2(screenWidth / 2, screenHeight / 2);
     }
 
-    private Vector2 GetRandomSpawnPosition(Vector2 screenBounds)
+    private Vector2 GetRandomSpawnPosition()
     {
         // ���ѡ����Ļ��ķ���
         int side = Random.Range(0, 4); // 0:��, 1:��, 2:��, 3:��
@@ -194,33 +199,34 @@ public class monsterSpawner : MonoBehaviour, ISaveManager
         switch (side)
         {
             case 0: // �Ϸ�
-                spawnPosition = new Vector2(Random.Range(-screenBounds.x, screenBounds.x), screenBounds.y + spawnDistance);
+                spawnPosition = new Vector2(Random.Range(-(transform.position.x+NospawnDistance/2), -(transform.position.x-spawnDistance/2)), Random.Range(transform.position.y-spawnDistance/2, transform.position.y+ spawnDistance/2));
                 break;
             case 1: // �·�
-                spawnPosition = new Vector2(Random.Range(-screenBounds.x, screenBounds.x), -screenBounds.y - spawnDistance);
+                spawnPosition = new Vector2(Random.Range((transform.position.x+NospawnDistance/2), transform.position.x+spawnDistance/2), Random.Range(transform.position.y-spawnDistance/2, transform.position.y+ spawnDistance/2));
                 break;
             case 2: // ���
-                spawnPosition = new Vector2(-screenBounds.x - spawnDistance, Random.Range(-screenBounds.y, screenBounds.y));
+                spawnPosition = new Vector2(Random.Range(transform.position.x-spawnDistance/2, transform.position.x+ spawnDistance/2), Random.Range(-(transform.position.y+NospawnDistance/2), -(transform.position.y+spawnDistance/2)));
                 break;
             case 3: // �Ҳ�
-                spawnPosition = new Vector2(screenBounds.x + spawnDistance, Random.Range(-screenBounds.y, screenBounds.y));
+                spawnPosition = new Vector2(Random.Range(transform.position.x-spawnDistance/2, transform.position.x+ spawnDistance/2), Random.Range((transform.position.y+NospawnDistance/2), transform.position.y+spawnDistance/2));
                 break;
         }
+
 
         return spawnPosition;
     }
 
     public void LoadData(GameData _data)
     {
-        if(SaveGame.Exists("CurrentWave"))
+        if (SaveGame.Exists("CurrentWave"))
         {
             currentWave = SaveGame.Load<int>("CurrentWave");
         }
-        if(SaveGame.Exists("ListWave"))
+        if (SaveGame.Exists("ListWave"))
         {
             listWave = SaveGame.Load<int>("ListWave");
         }
-        if(SaveGame.Exists("currentMonsters"))
+        if (SaveGame.Exists("currentMonsters"))
         {
             currentMonsters = SaveGame.Load<int>("currentMonsters");
         }
@@ -229,8 +235,15 @@ public class monsterSpawner : MonoBehaviour, ISaveManager
 
     public void SaveData(ref GameData _data)
     {
-        SaveGame.Save("CurrentWave",currentWave);
-        SaveGame.Save("ListWave",listWave);
-        SaveGame.Save("currentMonsters",currentMonsters);
+        SaveGame.Save("CurrentWave", currentWave);
+        SaveGame.Save("ListWave", listWave);
+        SaveGame.Save("currentMonsters", currentMonsters);
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(transform.position, new Vector3(NospawnDistance,NospawnDistance, 0.01f));
+        Gizmos.DrawWireCube(transform.position,new Vector3( spawnDistance,spawnDistance,0.01f));
+
     }
 }

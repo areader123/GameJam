@@ -102,6 +102,10 @@ namespace SK
                 {
                     statValueText.text = player_Stat.blood.GetValue().ToString();
                 }
+                if(statType == StatType.strength)
+                {
+                    statValueText.text = player_Stat.strength.GetValue().ToString();
+                }
 
             }
         }
@@ -122,6 +126,7 @@ namespace SK
             if (statType == StatType.maxHP)
             {
                 player_Stat.GetStat(statType).AddModifiers(amount);
+                Character_Controller.instance.character.GetComponent<Character_Stat>().IncreaseHealthOnly(amount);
             }
             if (statType == StatType.critPower)
             {
@@ -140,6 +145,10 @@ namespace SK
                 player_Stat.GetStat(statType).AddModifiers(amount);
             }
             if(statType == StatType.damage)
+            {
+                player_Stat.GetStat(statType).AddModifiers(amount);
+            }
+            if(statType == StatType.strength)
             {
                 player_Stat.GetStat(statType).AddModifiers(amount);
             }

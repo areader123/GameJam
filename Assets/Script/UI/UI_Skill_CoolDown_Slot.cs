@@ -38,7 +38,7 @@ public class UI_Skill_CoolDown_Slot : MonoBehaviour, ISaveManager
         if (skillName != null)
         {
             this.skill = SkillManager.instance.GetSkillByStringName(skillName);
-            Debug.Log(skill.skillName.ToString());
+            //Debug.Log(skill.skillName.ToString());
             this.skillSlot = uI.GetSkillUsedSlotByName(skillName).uI_Skill_Slot;
         }
 

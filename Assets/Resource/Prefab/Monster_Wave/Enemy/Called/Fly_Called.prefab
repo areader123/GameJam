@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3448415669035832083, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
       propertyPath: m_InstanceId
-      value: -447844
+      value: -393558
       objectReference: {fileID: 0}
     - target: {fileID: 3448415669035832083, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
       propertyPath: m_HasRenderer
@@ -165,11 +165,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6779438547609966045, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6779438547609966046, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
       propertyPath: konckedSpeed
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6779438547609966046, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
+      propertyPath: attackCooldown
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6779438547609966046, guid: 506d1b5923d238d499628d4dc4604e13, type: 3}
       propertyPath: konckbackDuration

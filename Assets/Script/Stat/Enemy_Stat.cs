@@ -52,7 +52,7 @@ namespace SK
             int totalDamage = CaculateAttack(target);
             //被动吸血
             int blood = (int)(totalDamage * target.GetStat(StatType.Blood).GetValue() / 100);
-            Debug.Log("blood" + blood);
+            //Debug.Log("blood" + blood);
             Character_Controller.instance.character.GetComponent<Character_Stat>().IncreaseHealthOnly(blood);
             SkillManager.instance.blood_Skill.BloodToLighting(totalDamage);
             SkillManager.instance.blood_Skill.MoreLightingMoreDuration(totalDamage);
@@ -81,7 +81,7 @@ namespace SK
             {
                 enemy.Die();
                 isDead = true;
-                Debug.Log("怪物死亡");
+                //Debug.Log("怪物死亡");
                 Character_Controller.instance.ifEnemyKilled = true;
             }
         }
@@ -89,9 +89,9 @@ namespace SK
         public void Modifier()
         {
             int level = Character_Controller.instance.GetLevel();
-            strength.AddModifiers(20 * (monsterSpawner.instance.currentWave+1));
-            intelligence.AddModifiers(10 * (monsterSpawner.instance.currentWave+1));
-            maxHP.AddModifiers(20 * (monsterSpawner.instance.currentWave+1));
+            strength.AddModifiers(15 * (monsterSpawner.instance.currentWave+1));
+            intelligence.AddModifiers(5 * (monsterSpawner.instance.currentWave+1));
+            maxHP.AddModifiers(60 * (monsterSpawner.instance.currentWave+1));
             armor.AddModifiers(10 * (monsterSpawner.instance.currentWave+1));
         }
     }

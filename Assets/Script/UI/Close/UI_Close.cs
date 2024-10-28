@@ -9,6 +9,7 @@ public class UI_Close : MonoBehaviour
     // Start is called before the first frame update
     Button button;
     UI uI;
+    [SerializeField]private GameObject thisGameObject;
     void Start()
     {
         button = GetComponent<Button>();
@@ -23,6 +24,6 @@ public class UI_Close : MonoBehaviour
     }
     private void Close()
     {
-        uI.SwitchToGame();
+        uI.SwithWithKeyTo(thisGameObject);
     }
 }

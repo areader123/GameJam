@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6697804545550200943, guid: 033aa39ed68e5ee4faa4f0dda207d6ea, type: 3}
       propertyPath: m_InstanceId
-      value: -456834
+      value: -422906
       objectReference: {fileID: 0}
     - target: {fileID: 6697804545550200943, guid: 033aa39ed68e5ee4faa4f0dda207d6ea, type: 3}
       propertyPath: m_ShapePathHash
@@ -85,7 +85,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8246701552588117449, guid: 033aa39ed68e5ee4faa4f0dda207d6ea, type: 3}
       propertyPath: damage.value
-      value: 147
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 8246701552588117449, guid: 033aa39ed68e5ee4faa4f0dda207d6ea, type: 3}
       propertyPath: damageNumberMesh

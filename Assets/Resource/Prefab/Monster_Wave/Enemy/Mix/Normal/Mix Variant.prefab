@@ -168,7 +168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5093619312757014455, guid: eb422f12eef42e140a3c60163c31598e, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5093619312757014458, guid: eb422f12eef42e140a3c60163c31598e, type: 3}
       propertyPath: battleSpeed
@@ -177,6 +177,10 @@ PrefabInstance:
     - target: {fileID: 5093619312757014458, guid: eb422f12eef42e140a3c60163c31598e, type: 3}
       propertyPath: konckedSpeed
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5093619312757014458, guid: eb422f12eef42e140a3c60163c31598e, type: 3}
+      propertyPath: attackCooldown
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5093619312757014458, guid: eb422f12eef42e140a3c60163c31598e, type: 3}
       propertyPath: konckbackDuration
@@ -264,7 +268,7 @@ MonoBehaviour:
   - {x: 0.5730451, y: -0.46216846, z: 0}
   m_ShapePathHash: -171694850
   m_Mesh: {fileID: 0}
-  m_InstanceId: -477212
+  m_InstanceId: 321218
   m_LocalBounds:
     m_Center: {x: -0.023316622, y: -0.35354006, z: 0}
     m_Extent: {x: 0.59636176, y: 0.10862841, z: 0}

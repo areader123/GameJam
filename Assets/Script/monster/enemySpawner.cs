@@ -90,7 +90,7 @@ public class enemySpawner : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.DrawWireCube(transform.position,new Vector3(GetScreenBounds().x * 2,GetScreenBounds().y * 2,0.01f));
-        Gizmos.DrawWireCube(transform.position,new Vector3((GetScreenBounds().x -spawnDistance ) * 2,(GetScreenBounds().y * 2-spawnDistance),0.01f));
+        Gizmos.DrawWireCube(transform.position,new Vector3((GetScreenBounds().x -spawnDistance ) * 2,(GetScreenBounds().y-spawnDistance)* 2,0.01f));
         
     }
 

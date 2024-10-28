@@ -76,6 +76,7 @@ public class Bullet_Skill : Skill
         bulletWithSplitable.GetComponent<Button>().onClick.AddListener(UnlockbulletWithSplitable);
         bulletWithMoreTimes.GetComponent<Button>().onClick.AddListener(UnlockbulletWithMoreTimesLocked);
     }
+  
 
     protected override void Update()
     {
@@ -195,10 +196,10 @@ public class Bullet_Skill : Skill
     }
     public void UnlockbulletWithMoreTimesLocked()
     {
-        Debug.Log("尝试");
+        //Debug.Log("尝试");
         if (bulletWithMoreTimes.unLock)
         {
-            Debug.Log("成功");
+            //Debug.Log("成功");
             bulletWithMoreTimesLocked = true;
             if (!basic_6)
             {
@@ -209,10 +210,10 @@ public class Bullet_Skill : Skill
     }
     public void UnlockbulletWithSplitable()
     {
-        Debug.Log("尝试");
+        //Debug.Log("尝试");
         if (bulletWithSplitable.unLock)
         {
-            Debug.Log("成功");
+            //Debug.Log("成功");
             bulletWithSplitableLocked = true;
             if (!basic_5)
             {
@@ -224,10 +225,10 @@ public class Bullet_Skill : Skill
 
     public void UnlockbulletWithLessLighting()
     {
-        Debug.Log("尝试");
+        //Debug.Log("尝试");
         if (bulletWithLessLighting.unLock)
         {
-            Debug.Log("成功");
+            //Debug.Log("成功");
             bulletWithLessLightingLocked = true;
             if (!basic_4)
             {
@@ -240,10 +241,10 @@ public class Bullet_Skill : Skill
 
     public void UnlockbulletWithLarger()
     {
-        Debug.Log("尝试");
+        //Debug.Log("尝试");
         if (bulletWithLarger.unLock)
         {
-            Debug.Log("成功");
+            //Debug.Log("成功");
             bulletWithLargerLocked = true;
             if (basic_3)
             {
@@ -255,11 +256,11 @@ public class Bullet_Skill : Skill
 
     public void UnlockbulletWithMoreAmount()
     {
-        Debug.Log("尝试");
+        //Debug.Log("尝试");
         if (bulletWithMoreAmount.unLock)
         {
             bulletWithMoreAmountLocked = true;
-            Debug.Log("成功");
+            //Debug.Log("成功");
             if(!basic_2)
             {
             Character_Controller.instance.character.GetComponent<Character_Stat>().GetStat(StatType.intelligence).AddModifiers(damageIncreasePerSkilled_1);
@@ -271,10 +272,10 @@ public class Bullet_Skill : Skill
 
     public void UnlockbulletWithLighting()
     {
-        Debug.Log("尝试");
+        //Debug.Log("尝试");
         if (bulletWithLighting.unLock)
         {
-            Debug.Log("成功");
+            //Debug.Log("成功");
             bulletWithLightingUnLocked = true;
             if (!basic_1)
             {

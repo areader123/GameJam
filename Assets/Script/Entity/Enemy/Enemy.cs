@@ -189,14 +189,14 @@ namespace SK
                 characterDirection = Vector3.zero;
         }
 
-        protected override void OnDrawGizmos()
-        {
-            base.OnDrawGizmos();
-            Gizmos.DrawWireSphere(characterDetectedTransform.position, characterDetectedRadius);
-            Gizmos.DrawWireSphere(characterFightingWithTransform.position, characterFightingWithRadius);
-            Gizmos.DrawWireSphere(characterAttackedTransform.position, characterAttackRadius);
-            // Gizmos.DrawWireSphere(IsCharacterLosedTransform.position, characterLosedRadius);
-        }
+        // protected override void OnDrawGizmos()
+        // {
+        //     base.OnDrawGizmos();
+        //     Gizmos.DrawWireSphere(characterDetectedTransform.position, characterDetectedRadius);
+        //     Gizmos.DrawWireSphere(characterFightingWithTransform.position, characterFightingWithRadius);
+        //     Gizmos.DrawWireSphere(characterAttackedTransform.position, characterAttackRadius);
+        //     // Gizmos.DrawWireSphere(IsCharacterLosedTransform.position, characterLosedRadius);
+        // }
 
         //射线检测
         // public virtual RaycastHit2D IsPlayerDetected() => Physics2D.Raycast(wallcheck.position, Vector2.right * faceDir, 50, WhatIsPlayer);

@@ -33,7 +33,7 @@ namespace SK
         }
         public void Entity_FX_White()
         {
-            Debug.Log("Entity_FX_White");
+           // Debug.Log("Entity_FX_White");
             StopAllCoroutines();
             StartCoroutine("FlashFX");
         }
@@ -62,7 +62,7 @@ namespace SK
 
         public void HitFX()
         {
-            Debug.Log("Hit");
+          //  Debug.Log("Hit");
             GameObject gameObject = Instantiate(hitPrefab,fxInstantiateTranform.position,Quaternion.identity);
             //gameObject.transform.localScale = new Vector3(scale.x,scale.y,1);
         }

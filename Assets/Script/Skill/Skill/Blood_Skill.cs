@@ -19,7 +19,7 @@ public class Blood_Skill : Skill
    public bool morebloodLocked;
    [SerializeField] private int basicBlood_2;
    private bool basic_2;
-   [SerializeField][Range(0, 1)] private float newBloodPercent;
+   [SerializeField] private int newBloodPercent;
    [SerializeField] private UI_Skill_Slot moreblood;
    [Space(10)]
    public bool bloodTransformedLightingLocked;
@@ -113,7 +113,7 @@ public class Blood_Skill : Skill
    {
       if (Character_Controller.instance.UseSkillCostLighting(lightingCost))
       {
-         Debug.Log("Blood_One");
+         //Debug.Log("Blood_One");
          Character_Controller.instance.character.GetComponent<Character_Stat>().IncreaseStatBy((int)bloodPercent, skillDuration, Character_Controller.instance.character.GetComponent<Character_Stat>().GetStat(StatType.Blood));
       }
    }
@@ -168,7 +168,7 @@ public class Blood_Skill : Skill
          // if (character_Stat._currentHP == character_Stat.GetMaxHealth())
          {
             int times = (int)(damage * bloodToLightingPercent);
-            Debug.Log("times" + times);
+            //Debug.Log("times" + times);
             for (int i = 0; i < times; i++)
             {
                if (Character_Controller.instance.GetLightingNumber() < Character_Controller.instance.GetMaxLightingNumber())
@@ -191,10 +191,10 @@ public class Blood_Skill : Skill
 
    private void Unlockblood()
    {
-      Debug.Log("尝试");
+      //Debug.Log("尝试");
       if (blood.unLock)
       {
-         Debug.Log("成功");
+        // Debug.Log("成功");
          bloodLocked = true;
          if (!basic_1)
          {
@@ -207,10 +207,10 @@ public class Blood_Skill : Skill
 
    private void Unlockmoreblood()
    {
-      Debug.Log("尝试");
+      //Debug.Log("尝试");
       if (moreblood.unLock)
       {
-         Debug.Log("成功");
+        // Debug.Log("成功");
          morebloodLocked = true;
          if (!basic_2)
          {
@@ -221,10 +221,10 @@ public class Blood_Skill : Skill
    }
    private void UnlockbloodTransformedLighting()
    {
-      Debug.Log("尝试");
+      //Debug.Log("尝试");
       if (bloodTransformedLighting.unLock)
       {
-         Debug.Log("成功");
+         //Debug.Log("成功");
          bloodTransformedLightingLocked = true;
          if (!basic_3)
          {
@@ -235,10 +235,10 @@ public class Blood_Skill : Skill
    }
    private void UnlockbloodMoreLightingMoreTime()
    {
-      Debug.Log("尝试");
+      //Debug.Log("尝试");
       if (bloodMoreLightingMoreTime.unLock)
       {
-         Debug.Log("成功");
+         //Debug.Log("成功");
          bloodMoreLightingMoreTimeLocked = true;
          if (!basic_4)
          {
